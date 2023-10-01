@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+//font family
+@font-face {
+  font-family: "BahijBold";
+  src: url("./assets/fonts/Bahij_TheSansArabic-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Bahij";
+  src: url("./assets/fonts/ArbFONTS-Bahij_TheSansArabic-Plain.ttf");
+}
+
+* {
+  font-family: "Bahij";
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+html, body { height: 100%; }

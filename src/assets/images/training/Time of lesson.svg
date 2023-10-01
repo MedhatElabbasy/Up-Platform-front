@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="491" height="34" viewBox="0 0 491 34">
+  <g id="Time_of_lesson" data-name="Time of lesson" transform="translate(-24 -477)">
+    <rect id="Rectangle_45" data-name="Rectangle 45" width="342" height="7" rx="3.5" transform="translate(95 489)" fill="#c4c4c4"/>
+    <rect id="Rectangle_46" data-name="Rectangle 46" width="208" height="7" rx="3.5" transform="translate(95 489)" fill="#f18c8e"/>
+    <text id="_90:24" data-name="90:24" transform="translate(51 500)" fill="#707070" font-size="21" font-family="BahijTheSansArabic-Bold, Bahij TheSansArabic" font-weight="700"><tspan x="-26.445" y="0">90:24</tspan></text>
+    <text id="_140:23" data-name="140:23" transform="translate(485 500)" fill="#707070" font-size="21" font-family="BahijTheSansArabic-Bold, Bahij TheSansArabic" font-weight="700"><tspan x="-29.08" y="0">140:23</tspan></text>
+    <g id="Ellipse_24" data-name="Ellipse 24" transform="translate(283 478)" fill="#f18c8e" stroke="#fff" stroke-width="3">
+      <ellipse cx="14" cy="13.5" rx="14" ry="13.5" stroke="none"/>
+      <ellipse cx="14" cy="13.5" rx="12.5" ry="12" fill="none"/>
+    </g>
+  </g>
+</svg>

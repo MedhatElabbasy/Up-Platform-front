@@ -1,0 +1,66 @@
+@import "../../../../assets/styles/variables.scss";
+
+.main {
+  margin-top: 30px;
+
+  h2 {
+    font-weight: bold;
+    font-size: 35px;
+    color: $main-color;
+    font-family: "Bahij";
+  }
+
+  p {
+    font-weight: 600;
+    font-size: 20px;
+    width: 80%;
+    color: #FFB300;
+    line-height: 30px;
+    font-family: "Bahij";
+    margin-top: 25px;
+  }
+
+  li {
+    padding-top: 22px;
+    font-weight: 600;
+    font-size: 18px;
+
+    span {
+      color: #FFB300;
+      font-weight: 700;
+      font-size: 20px;
+    }
+  }
+
+  li::marker {
+    color: #FFB300;
+  }
+
+  .btn1 {
+    background: linear-gradient(to right, #359BBA, #07487C);
+    color: $white-color;
+    padding: 10px 0;
+
+    img {
+      width: 20px;
+    }
+  }
+
+  .circle {
+    height: 180px;
+    width: 180px;
+    margin: auto;
+    background: linear-gradient(315deg, #FFFFFF, #F7F7F8, #EBECED);
+    border: 3px solid $white-color;
+
+    img {
+      width: 50px;
+    }
+
+    span {
+      font-size: 14px;
+      font-weight: 600;
+      color: $main-color
+    }
+  }
+}

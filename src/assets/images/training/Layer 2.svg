@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="51" height="50.717" viewBox="0 0 51 50.717">
+  <g id="Layer_2" data-name="Layer 2" transform="translate(-0.998 -1)">
+    <circle id="Ellipse_64" data-name="Ellipse 64" cx="2.305" cy="2.305" r="2.305" transform="translate(45.368 32.908)" fill="#ffb300"/>
+    <circle id="Ellipse_65" data-name="Ellipse 65" cx="2.305" cy="2.305" r="2.305" transform="translate(40.34 40.333)" fill="#ffb300"/>
+    <circle id="Ellipse_66" data-name="Ellipse 66" cx="2.5" cy="2.5" r="2.5" transform="translate(46.998 24)" fill="#ffb300"/>
+    <circle id="Ellipse_67" data-name="Ellipse 67" cx="2.305" cy="2.305" r="2.305" transform="translate(32.873 45.37)" fill="#ffb300"/>
+    <path id="Path_1567" data-name="Path 1567" d="M26.361,47.106A20.748,20.748,0,1,1,39.376,10.221H35.582a2.305,2.305,0,0,0,0,4.611H44.8a2.305,2.305,0,0,0,2.305-2.305V3.305a2.305,2.305,0,1,0-4.611,0V6.835A25.347,25.347,0,1,0,26.36,51.717a2.305,2.305,0,1,0,0-4.611Z" transform="translate(0)" fill="#3ca7c3"/>
+    <path id="Path_1568" data-name="Path 1568" d="M21.851,29.683a2.305,2.305,0,0,0,0-3.26l-6.24-6.24V7.305a2.305,2.305,0,0,0-4.611,0V21.137a2.305,2.305,0,0,0,.675,1.63l6.916,6.916a2.305,2.305,0,0,0,3.26,0Z" transform="translate(13.055 5.221)" fill="#ffb300"/>
+  </g>
+</svg>

@@ -1,0 +1,34 @@
+@import "../../../../assets/styles/variables.scss";
+
+.main {
+  min-height: 100%;
+  background-image: url('./../../../../assets/images/auth/backgroundImage.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  span {
+    color: $main-color;
+    background-color: $white-color;
+    font-size: 13px;
+   
+  }
+
+  h1 {
+    color: $white-color;
+    font-size: 40px;
+   
+    font-weight: bold;
+  }
+
+  p {
+    color: $white-color;
+    font-size: 15px;
+   
+  }
+
+  img {
+    height: 380px;
+  }
+
+}

@@ -1,0 +1,31 @@
+@import "../../../assets/styles/variables.scss";
+
+img {
+  width: 45%
+}
+
+li a {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+li button {
+  background: linear-gradient(to right, #359BBA, #07487C);
+  color: $white-color;
+  padding: 13px 0;
+
+}
+
+.activeLink {
+  color: $light-blue !important;
+  border-bottom: 4px solid $light-blue;
+}
+
+.nav-item {
+  width: fit-content !important;
+}
+
+.nav-link {
+  width: fit-content !important;
+  margin-right: 20px;
+}

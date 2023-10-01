@@ -1,0 +1,12 @@
+@import "../../../../assets/styles/variables.scss";
+
+.main {
+  .login button {
+
+    background-color: $main-color;
+    color: $white-color;
+    padding: 8px 0px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}

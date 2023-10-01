@@ -1,0 +1,97 @@
+@import "../../../../assets/styles/variables.scss";
+
+.main {
+  margin-top: 30px;
+
+  h2 {
+    font-weight: bold;
+    font-size: 35px;
+    color: $main-color;
+    font-family: "Bahij";
+    padding-bottom: 0px !important;
+    border-bottom: 4px solid $light-blue;
+  }
+
+  p {
+    font-weight: 600;
+    font-size: 20px;
+    width: 80%;
+    line-height: 30px;
+    font-family: "Bahij";
+    margin-top: 25px;
+  }
+
+  .second-section {
+    background-color: #D3EBFF;
+    border: 1px solid $main-color;
+
+    .first-card {
+      color: $white-color;
+      background-color: $main-color
+    }
+
+    ul {
+      margin-bottom: 0px;
+    }
+
+    .other-card {
+      color: $main-color;
+      background-color: $white-color
+    }
+
+    .error {
+
+      font-weight: 500px;
+
+      p {
+        width: fit-content;
+        margin: 0px auto !important;
+        line-height: unset !important;
+        font-size: 15px !important;
+
+      }
+    }
+
+    h3 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    li {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+
+  .cost {
+    p {
+      font-size: 18px;
+      width: fit-content;
+
+    }
+
+    h4 {
+      font-size: 64px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #FFB300;
+      text-align: center;
+
+      sub {
+        font-size: 20px;
+        font-weight: 800;
+      }
+    }
+  }
+
+  .btn2 {
+    background-color: #FFB300;
+
+    padding: 10px 0;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+
+}

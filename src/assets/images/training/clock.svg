@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25.481" height="25.339" viewBox="0 0 25.481 25.339">
+  <g id="clock" transform="translate(-0.998 -1)">
+    <circle id="Ellipse_64" data-name="Ellipse 64" cx="1.152" cy="1.152" r="1.152" transform="translate(23.166 16.942)" fill="#707070"/>
+    <circle id="Ellipse_65" data-name="Ellipse 65" cx="1.152" cy="1.152" r="1.152" transform="translate(20.654 20.652)" fill="#707070"/>
+    <circle id="Ellipse_66" data-name="Ellipse 66" cx="1.249" cy="1.249" r="1.249" transform="translate(23.981 12.491)" fill="#707070"/>
+    <circle id="Ellipse_67" data-name="Ellipse 67" cx="1.152" cy="1.152" r="1.152" transform="translate(16.924 23.168)" fill="#707070"/>
+    <path id="Path_1567" data-name="Path 1567" d="M13.67,24.036a10.366,10.366,0,1,1,6.5-18.429h-1.9a1.152,1.152,0,1,0,0,2.3h4.607a1.152,1.152,0,0,0,1.152-1.152V2.152a1.152,1.152,0,1,0-2.3,0V3.915A12.664,12.664,0,1,0,13.67,26.339a1.152,1.152,0,1,0,0-2.3Z" transform="translate(0)" fill="#707070"/>
+    <path id="Path_1568" data-name="Path 1568" d="M16.421,17.332a1.152,1.152,0,0,0,0-1.629L13.3,12.586V6.152a1.152,1.152,0,0,0-2.3,0v6.911a1.152,1.152,0,0,0,.337.814l3.456,3.456a1.152,1.152,0,0,0,1.629,0Z" transform="translate(1.518 0.607)" fill="#707070"/>
+  </g>
+</svg>

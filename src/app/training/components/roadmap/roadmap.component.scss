@@ -1,0 +1,74 @@
+@import "../../../../assets/styles/variables.scss";
+
+.main {
+  margin-top: 30px;
+
+  h2 {
+    font-weight: bold;
+    font-size: 35px;
+    color: $main-color;
+    font-family: "Bahij";
+  }
+
+  .mainSection {
+    border: 1px solid $main-color;
+
+    p {
+      color: $main-color;
+      margin-top: 20px;
+
+      font-weight: 700;
+      font-size: 18px;
+
+      font-family: "Bahij";
+    }
+
+    .btn1 {
+      background: linear-gradient(to right, #359BBA, #07487C);
+      color: $white-color;
+      padding: 10px 0;
+
+      img {
+        width: 20px;
+      }
+    }
+
+    .main-circle {
+      width: 120px;
+      height: 120px;
+      margin: auto;
+      border: 2px solid #FFB300;
+      background-color: $white-color;
+
+      .sup-circle {
+        width: 100px;
+        height: 100px;
+        margin: auto;
+        background-color: #FFB300;
+
+        span {
+          font-size: 20px;
+          font-weight: 600;
+          color: $white-color;
+        }
+      }
+    }
+
+    .main-div {
+      height: 320px;
+      border: 1px solid #707070;
+
+      .time {
+        width: 60%;
+        display: block;
+        margin: auto;
+      }
+
+      .sub-div {
+        height: 280px;
+        background-color: $main-color;
+      }
+    }
+  }
+
+}

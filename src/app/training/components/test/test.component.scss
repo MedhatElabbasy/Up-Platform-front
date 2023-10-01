@@ -1,0 +1,81 @@
+@import "../../../../assets/styles/variables.scss";
+
+.main {
+  margin-top: 30px;
+
+  h2 {
+    font-weight: bold;
+    font-size: 35px;
+    color: $main-color;
+    font-family: "Bahij";
+    padding-bottom: 0px !important;
+    border-bottom: 4px solid $light-blue;
+  }
+
+  img {
+    height: 30px;
+  }
+
+  h3 {
+    font-weight: bold;
+    font-size: 25px;
+    color: $main-color;
+    font-family: "Bahij";
+  }
+
+  p {
+    padding-top: 6px;
+    font-weight: 600;
+    line-height: 28px;
+    font-size: 18px;
+  }
+
+  .circle {
+    background: linear-gradient(315deg, #FFFFFF, #F7F7F8, #EBECED);
+    width: 50px;
+    height: 50px;
+
+    p {
+      color: $main-color;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+
+  }
+
+  .answer {
+    p {
+      color: $main-color;
+      font-size: 20px;
+      padding-top: 10px;
+      font-weight: 600;
+    }
+  }
+
+  .next {
+    width: 90%;
+
+    .btn1 {
+      background: linear-gradient(to right, #359BBA, #07487C);
+      color: $white-color;
+      padding: 10px 0;
+
+      img {
+        width: 20px;
+      }
+    }
+
+    .btn2 {
+      background-color: #FFB300;
+      color: $white-color;
+      padding: 10px 0;
+      font-size: 15px;
+
+    }
+  }
+
+  .btn-active {
+    background-color: #D6F7FF;
+  }
+}

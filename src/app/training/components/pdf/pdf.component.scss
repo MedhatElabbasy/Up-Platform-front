@@ -1,0 +1,46 @@
+@import "../../../../assets/styles/variables.scss";
+
+.main {
+  margin-top: 30px;
+
+
+
+  .btn1 {
+    background-color: #00AF7A;
+    color: $white-color;
+    padding: 5px 0;
+
+    img {
+      width: 18px;
+    }
+  }
+
+  .main-section {
+    border: 1px solid $main-color;
+
+    .square {
+      width: 13px;
+      height: 13px;
+      background-color: #FFB300;
+      transform: rotate(45deg);
+      border-radius: 4px;
+    }
+
+    h3 {
+      font-weight: 700;
+      font-size: 20px;
+      color: #FFB300;
+      font-family: "Bahij";
+    }
+
+    .main-p {
+      color: $main-color;
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 26px;
+    }
+  }
+}
