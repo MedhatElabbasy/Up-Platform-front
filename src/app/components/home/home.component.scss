@@ -1,0 +1,326 @@
+@import "../../../assets/styles/variables.scss";
+
+.main {
+
+  // width: 90%;
+  // margin: auto;
+  h2 {
+    font-weight: bold;
+    font-size: 35px;
+    color: $main-color;
+    font-family: "Bahij";
+  }
+
+  h3 {
+    color: $main-color;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: "Bahij";
+  }
+
+  p {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 30px;
+    font-family: "Bahij";
+    margin-top: 28px;
+  }
+
+  h4 {
+    font-weight: bold;
+    font-size: 20px;
+    color: $light-blue;
+    font-family: "Bahij";
+  }
+
+  header {
+    -webkit-box-shadow: -6px 6px 9px -5px rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: -6px 6px 9px -5px rgba(0, 0, 0, 0.16);
+    box-shadow: -6px 6px 9px -5px rgba(0, 0, 0, 0.16);
+
+    .background-video {
+      height: 75vh;
+
+      video {
+        object-fit: fill;
+        width: 100%;
+        height: 100%;
+      }
+
+      .layer {
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: #222748, $alpha: 0.4);
+        top: 0%;
+
+        h1 {
+          color: #FFB300;
+          font-size: 30px;
+          font-weight: 700;
+          font-family: "Bahij";
+
+        }
+
+        p {
+          color: white;
+          font-size: 55px;
+          padding-top: 20px;
+          font-weight: bold;
+          font-family: "Bahij";
+
+        }
+
+      }
+
+      // .layer2 {
+      //   top: 64%;
+      //   width: 55%;
+      //   transform: translatex(-50%);
+
+      //   .search {
+      //     width: 600px;
+      //     background-color: rgba($color: #ffff, $alpha: 0.4);
+      //     color: white;
+      //     padding-right: 33px;
+      //     height: 40px;
+      //   }
+
+      //   input::placeholder {
+      //     color: white;
+      //     font-size: 20px;
+      //   }
+
+      //   .input-with-image {
+      //     position: relative;
+      //   }
+
+      //   .input-with-image input {
+      //     padding-left: 40px;
+      //     /* Adjust this value based on the image size */
+      //   }
+
+      //   .input-with-image .placeholder-image {
+      //     position: absolute;
+      //     top: 50%;
+      //     right: 10px;
+      //     transform: translateY(-50%);
+      //     width: 20px;
+      //     /* Adjust the image width as needed */
+      //     height: 20px;
+      //     /* Adjust the image height as needed */
+      //   }
+
+      //   button {
+      //     background: linear-gradient(to right, #359BBA, #07487C);
+      //     color: $white-color;
+
+      //   }
+      // }
+    }
+  }
+
+  .section2 {
+
+
+
+    .container-image {
+      height: fit-content;
+
+      img {
+        width: 100%;
+      }
+
+
+    }
+  }
+
+
+
+  .icon-bg {
+    background-color: $light-blue !important;
+    width: 2rem;
+    height: 2rem;
+
+    .icon {
+      width: 1.3rem;
+      height: 1.3rem;
+      margin-top: .35rem;
+    }
+  }
+
+  .section4 {
+
+
+    .section4-bg {
+      background-image: url('../../../assets/images/home/Path 1052.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 50% 50%;
+      background-color: #FFB300;
+      -webkit-box-shadow: -6px 6px 9px -5px rgba(0, 0, 0, 0.16);
+      -moz-box-shadow: -6px 6px 9px -5px rgba(0, 0, 0, 0.16);
+      box-shadow: -6px 6px 9px -5px rgba(0, 0, 0, 0.16);
+    }
+  }
+
+  .section5 {
+    .col-lg-7 .container {
+      background-image: url('../../../assets/images/home/Component 8 – 1.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    span {
+      font-weight: bold;
+      color: #FFB300;
+      font-family: "Bahij";
+
+    }
+
+    .btn1 {
+      background: linear-gradient(to right, #359BBA, #07487C);
+      color: $white-color;
+      padding: 10px 0;
+
+      img {
+        width: 20px;
+      }
+    }
+
+    .my-cards {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      cursor: pointer;
+
+      img {
+        height: 70px;
+      }
+
+
+
+      p {
+        color: $main-color;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      h4 {
+        color: $light-blue;
+        font-weight: 600;
+        font-size: 50px;
+      }
+
+      span {
+        color: $main-color;
+        font-weight: 600;
+        font-size: 16px;
+        margin-top: 10px;
+        font-family: "Bahij";
+      }
+    }
+
+
+
+    .first-card {
+      background-image: url('../../../assets/images/training/Group\ 556.png');
+    }
+
+    .second-card {
+      background-image: url('../../../assets/images/training/Group\ 568.png');
+    }
+
+    .third-card {
+      background-image: url('../../../assets/images/training/Group\ 569.png');
+    }
+
+
+  }
+
+  .section6 {
+    .carousel-indicators {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+
+    }
+
+    .carousel-indicators button {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: transparent;
+      border: $main-color 1px solid !important;
+      margin: 0 4px;
+      opacity: 1;
+      transition: opacity 0.15s ease;
+      padding: 0;
+    }
+
+    .carousel-indicators .active {
+      background-color: $main-color;
+    }
+
+    .card {
+      -webkit-box-shadow: -6px 6px 9px -5px rgba(0, 0, 0, 0.16);
+      -moz-box-shadow: -6px 6px 9px -5px rgba(0, 0, 0, 0.16);
+      box-shadow: -6px 6px 9px -5px rgba(0, 0, 0, 0.16);
+
+      span {
+        font-size: 10px;
+        font-weight: bold;
+        font-family: "Bahij";
+
+      }
+
+      h4 {
+        color: $light-blue;
+        font-weight: 600;
+        font-size: 50px;
+        font-family: "Bahij";
+
+        span {
+          color: $main-color;
+          font-size: 16px;
+        }
+
+
+      }
+
+      .image {
+        width: 40px;
+        height: 40px;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .section7 {
+    .circle {
+      width: 300px;
+      height: 300px;
+      margin-right: auto;
+      text-align: center;
+      -webkit-box-shadow: -6px 6px 9px -5px rgba(0, 0, 0, 0.16);
+      -moz-box-shadow: -6px 6px 9px -5px rgba(0, 0, 0, 0.16);
+      box-shadow: -6px 6px 9px -5px rgba(0, 0, 0, 0.16);
+
+      h4 {
+        color: $light-blue;
+        font-weight: bold;
+        font-size: 80px;
+        font-family: "Bahij";
+
+        span {
+          color: black;
+          font-size: 18px;
+        }
+
+
+      }
+    }
+  }
+}

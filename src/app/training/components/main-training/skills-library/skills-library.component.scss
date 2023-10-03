@@ -1,0 +1,29 @@
+@import "../../../../../assets/styles/variables.scss";
+
+.second-section {
+  border: 1px solid $main-color;
+
+  h3 {
+    font-weight: bold;
+    font-size: 25px;
+    color: $main-color;
+    font-family: "Bahij";
+
+    img {
+      width: 35px;
+    }
+  }
+
+  p {
+    font-size: 16px;
+  }
+  .btn1 {
+    background: linear-gradient(to right, #359BBA, #07487C);
+    color: $white-color;
+    padding: 13px 0;
+
+    img {
+      width: 20px;
+    }
+  }
+}

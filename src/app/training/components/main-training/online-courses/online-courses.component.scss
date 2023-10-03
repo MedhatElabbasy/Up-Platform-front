@@ -1,0 +1,106 @@
+@import "../../../../../assets/styles/variables.scss";
+
+.second-section {
+  border: 1px solid $main-color;
+
+  h3 {
+    font-weight: bold;
+    font-size: 25px;
+    color: $main-color;
+    font-family: "Bahij";
+
+    img {
+      width: 35px;
+    }
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 700;
+  }
+
+  .container-image {
+    height: fit-content;
+
+    img {
+      height: 220px;
+    }
+
+  }
+
+
+
+  // .btn1 {
+  //   background: linear-gradient(to right, #359BBA, #07487C);
+  //   color: $white-color;
+  //   padding: 13px 0;
+
+  //   img {
+  //     width: 20px;
+  //   }
+  // }
+
+  // .btn2 {
+
+  //   color: $main-color;
+  //   padding: 13px 0;
+  //   border: 1px solid $main-color;
+  //   font-weight: bold;
+
+  //   img {
+  //     width: 25px;
+  //   }
+  // }
+}
+
+.p1 {
+  font-size: 22px;
+  color: $main-color;
+  font-family: "Bahij";
+  font-weight: 800;
+}
+
+.p2 {
+  font-size: 15px;
+  color: #FFB300;
+  font-family: "Bahij";
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 40px;
+  color: #FFB300;
+  font-family: "Bahij";
+  font-weight: 700;
+}
+
+p {
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "Bahij";
+
+}
+
+.login button {
+  background: linear-gradient(to right, #359BBA, #07487C);
+  color: $white-color;
+  padding: 5px 20px;
+  font-size: 15px;
+}
+
+.muted {
+  font-size: 14px;
+}
+
+span {
+  font-weight: bold;
+}
+
+.image {
+  height: 20px;
+}
+
+.my-border {
+  border: 1px solid $main-color;
+}

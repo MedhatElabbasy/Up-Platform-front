@@ -16,6 +16,10 @@ import { LeasonTestComponent } from './components/leason-test/leason-test.compon
 import { CertificateComponent } from './components/certificate/certificate.component';
 import { EndCourseComponent } from './components/end-course/end-course.component';
 import { FinalTestComponent } from './components/final-test/final-test.component';
+import { TestPartTwoComponent } from './components/test-part-two/test-part-two.component';
+import { TrainingPathsComponent } from './components/main-training/training-paths/training-paths.component';
+import { OnlineCoursesComponent } from './components/main-training/online-courses/online-courses.component';
+import { SkillsLibraryComponent } from './components/main-training/skills-library/skills-library.component';
 
 
 
@@ -34,7 +38,11 @@ import { FinalTestComponent } from './components/final-test/final-test.component
     LeasonTestComponent,
     CertificateComponent,
     EndCourseComponent,
-    FinalTestComponent
+    FinalTestComponent,
+    TestPartTwoComponent,
+    TrainingPathsComponent,
+    OnlineCoursesComponent,
+    SkillsLibraryComponent
   ],
   imports: [
     CommonModule,

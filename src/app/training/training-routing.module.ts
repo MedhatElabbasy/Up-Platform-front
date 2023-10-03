@@ -15,6 +15,10 @@ import { CertificateComponent } from './components/certificate/certificate.compo
 import { PdfComponent } from './components/pdf/pdf.component';
 import { EndCourseComponent } from './components/end-course/end-course.component';
 import { FinalTestComponent } from './components/final-test/final-test.component';
+import { TestPartTwoComponent } from './components/test-part-two/test-part-two.component';
+import { TrainingPathsComponent } from './components/main-training/training-paths/training-paths.component';
+import { SkillsLibraryComponent } from './components/main-training/skills-library/skills-library.component';
+import { OnlineCoursesComponent } from './components/main-training/online-courses/online-courses.component';
 
 const routes: Routes = [
   {
@@ -29,6 +33,25 @@ const routes: Routes = [
       {
         path: trainingRoutes.main,
         component: MainTrainingComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: trainingRoutes.trainingPaths,
+            pathMatch: 'full',
+          },
+          {
+            path: trainingRoutes.trainingPaths,
+            component: TrainingPathsComponent,
+          },
+          {
+            path: trainingRoutes.skillsLibrary,
+            component: SkillsLibraryComponent,
+          },
+          {
+            path: trainingRoutes.onlineCourses,
+            component: OnlineCoursesComponent,
+          },
+        ]
       },
       {
         path: trainingRoutes.test,
@@ -77,6 +100,10 @@ const routes: Routes = [
       {
         path: trainingRoutes.finalTest,
         component: FinalTestComponent,
+      },
+      {
+        path: trainingRoutes.testPartTwo,
+        component: TestPartTwoComponent,
       },
     ]
   }

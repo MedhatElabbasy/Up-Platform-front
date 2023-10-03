@@ -11,5 +11,9 @@ export enum trainingRoutes {
   certificate = 'certificate',
   pdf = 'pdf',
   endCourse = 'end-course',
-  finalTest = 'final-test'
+  finalTest = 'final-test',
+  testPartTwo = 'test-part-two',
+  skillsLibrary = 'skills-library',
+  onlineCourses = 'online-courses',
+  trainingPaths='training-paths'
 }
