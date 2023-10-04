@@ -1,5 +1,12 @@
 @import "../../../assets/styles/variables.scss";
 
+h3 {
+  color: $main-color;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "Bahij";
+}
+
 .main {
 
   // width: 90%;
@@ -322,5 +329,174 @@
 
       }
     }
+  }
+
+  .section8 {
+    .cover {
+      .col-lg-12 {
+        border: 3px solid #FFB300;
+
+        .data {
+          top: -30px;
+          left: 30px;
+          width: 100%;
+        }
+
+        h4 {
+          color: #FFB300;
+          font-size: 80px;
+        }
+
+        p {
+          font-size: 18px !important;
+
+
+          span {
+            color: #FFB300;
+          }
+        }
+
+      }
+
+      .col-md-5 {
+        position: relative;
+        padding: 0;
+      }
+
+      .col-md-5 img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .btn1 {
+        background-color: $white-color;
+        color: $main-color;
+        padding: 10px 0;
+        font-size: 14px;
+        font-weight: 600;
+
+        img {
+          width: 18px;
+        }
+      }
+    }
+  }
+
+
+}
+
+footer {
+  background-image: url('../../../assets/images/home/987.png');
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 250px;
+
+  .contact-us {
+    bottom: 180px;
+
+    .col-md-8 {
+      .my-border {
+        -webkit-box-shadow: -6px 6px 9px -5px rgba(0, 0, 0, 0.16);
+        -moz-box-shadow: -6px 6px 9px -5px rgba(0, 0, 0, 0.16);
+        box-shadow: -6px 6px 9px -5px rgba(0, 0, 0, 0.16);
+        border-radius: 23px 23px 0 0;
+      }
+
+      p {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 30px;
+        font-family: "Bahij";
+      }
+
+      textarea {
+        border-radius: 23px 23px 0 0;
+        min-height: 150px;
+        background-color: #EFEFEF;
+        border: unset;
+        /* top left and top right */
+      }
+
+      .input-with-button {
+        background-color: #EFEFEF;
+        padding: 15px;
+      }
+
+      .left-placeholder::placeholder {
+        text-align: left;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      textarea::placeholder {
+        font-size: 14px;
+        font-weight: 700;
+        padding: 10px 5px;
+      }
+
+      input {
+        border: unset;
+        background-color: #EFEFEF;
+      }
+
+      .form-control:focus {
+        box-shadow: unset;
+      }
+
+      .btn-send {
+        background-color: $main-color;
+        color: $white-color;
+      }
+    }
+
+  }
+
+  h2 {
+    font-weight: bold;
+    font-size: 22px;
+    color: $white-color;
+    font-family: "Bahij";
+  }
+
+  p {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 22px;
+    color: $white-color;
+    font-family: "Bahij";
+  }
+
+  .follow {
+    image {
+      img {
+        width: 45px !important;
+      }
+    }
+
+
+  }
+
+  .end-page {
+    p {
+      font-size: 18px;
+    }
+  }
+
+  li {
+    padding-top: 35px;
+    font-weight: 600;
+    font-size: 14px;
+    color: $white-color;
+  }
+
+  li::marker {
+    color: $light-blue;
+    font-size: 16px;
+
   }
 }
