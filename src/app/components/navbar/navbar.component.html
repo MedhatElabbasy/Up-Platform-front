@@ -11,23 +11,26 @@
     <!-- Navigation items (right-aligned) -->
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav fw-bold">
-        <li class="nav-item ">
+        <li *ngIf="isUserLoggedIn" class="nav-item ">
           <a class="nav-link" routerLink="/home/">الرئيسية</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="isUserLoggedIn" class="nav-item">
           <a class="nav-link" routerLink="/training/" routerLinkActive="activeLink">التدريب</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="isUserLoggedIn" class="nav-item">
           <a class="nav-link">الخدمات</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="isUserLoggedIn" class="nav-item">
           <a class="nav-link">النادي</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="isUserLoggedIn" class="nav-item">
           <a class="nav-link">دولاب الحظ</a>
         </li>
-        <li class="nav-item pe-lg-5">
+        <li *ngIf="!isUserLoggedIn" class="nav-item pe-lg-5">
           <button class="nav-link px-4  btn" routerLink="/auth/login"> تسجيل الدخول</button>
+        </li>
+        <li *ngIf="isUserLoggedIn" class="nav-item pe-lg-5">
+          <button class="nav-link px-4  btn" (click)="logout()"> تسجيل الخروج</button>
         </li>
       </ul>
     </div>

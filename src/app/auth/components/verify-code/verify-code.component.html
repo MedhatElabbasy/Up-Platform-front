@@ -1,23 +1,30 @@
 <div class="px-3 main pt-5">
   <div class="bg-light rounded-4 pt-5  px-4 pb-3">
     <p class="py-2 pt-4 pb-2">الرجاء كتابة المرسل</p>
-    <div class="input pb-3">
-      <div class="input-container ">
-        <input type="text" class="input-field" placeholder="المرسل">
-      </div>
-      <div class="float-start pt-1 pb-4">
-        <span>الكود خطأ...</span>
-        <a href=""> إعادة الإرسال</a>
+    <form [formGroup]="verifyCodeForm" (ngSubmit)="verifyCode(verifyCodeForm)">
+      <div class="input pb-3">
+        <div class="input-container ">
+          <input formControlName="code" type="text" class="input-field" placeholder="المرسل">
+        </div>
+        <div *ngIf="errorMessage && !resendMessage" class="float-start pt-1 pb-4">
+          <span>الكود خطأ...</span>
+          <a class="cursor-pointer" (click)="resendEmailVerify()"> إعادة الإرسال</a>
+          <i *ngIf="isResendEmailLoading" class="fas fa-spinner fa-spin"></i>
+        </div>
+        <p *ngIf="resendMessage" class="fs-6 text-black mt-1 resendMessage alert alert-success mb-0 py-1">{{resendMessage}}</p>
+
       </div>
 
-    </div>
-
-    <div class="mt-3 login mb-5 pb-4">
-      <button class="btn w-100 mb-5">التالي</button>
-    </div>
+      <div class=" login mb-5 pb-4">
+        <button [disabled]="isLoading" class="btn w-100 mb-5">
+          <span *ngIf="!isLoading">التالي</span>
+          <span *ngIf="isLoading"><i class="fas fa-spinner fa-spin"></i></span>
+        </button>
+      </div>
+    </form>
     <div class="d-flex justify-content-center notSend mt-5">
       <span>لم تتلق الكود .. ؟</span>
-      <a href=""> إعادة الإرسال</a>
+      <a class="cursor-pointer" (click)="resendEmailVerify()"> إعادة الإرسال</a>
     </div>
   </div>
 </div>

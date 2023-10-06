@@ -8,6 +8,6 @@ import { AuthServices } from '../../services/auth-services.service';
 })
 export class AuthLayoutComponent {
   constructor(private _AuthServices: AuthServices) {
-    _AuthServices.isAuth.next(true)
+    // _AuthServices.isUserLoggedIn.next(true)
   }
 }

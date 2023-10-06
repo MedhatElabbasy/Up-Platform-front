@@ -12,6 +12,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SendCodeComponent } from './components/send-code/send-code.component';
 import { VerifyCodeComponent } from './components/verify-code/verify-code.component';
 import { SuccessComponent } from './components/success/success.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { SuccessComponent } from './components/success/success.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    CoreModule
   ]
 })
 export class AuthModule { }

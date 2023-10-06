@@ -8,6 +8,6 @@ import { AuthServices } from 'src/app/auth/services/auth-services.service';
 })
 export class MainTrainingComponent {
   constructor(private _AuthServices: AuthServices) {
-    _AuthServices.isAuth.next(false)
+    // _AuthServices.isUserLoggedIn.next(false)
   }
 }

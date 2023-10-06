@@ -1,49 +1,55 @@
 <div class="px-3 main">
   <div class="bg-light rounded-4 pt-5  px-4 pb-3">
     <p class="text-center  pb-2">تسجيل جديد</p>
-    <div class="input pb-3">
-      <div class="input-container ">
-        <i class="icon "><img src="assets/images/auth/user.svg"></i>
-        <input type="text" class="input-field" placeholder="اسم المستخدم">
+    <form [formGroup]="registerForm" (ngSubmit)="register(registerForm)">
+      <div class="input pb-3">
+        <div class="input-container ">
+          <i class="icon "><img src="assets/images/auth/user.svg"></i>
+          <input formControlName="name" type="text" class="input-field" placeholder="اسم المستخدم">
+        </div>
       </div>
-    </div>
 
-    <div class="input pb-3">
-      <div class="input-container ">
-        <i class="icon "><img src="assets/images/auth/email.svg"></i>
-        <input type="email" class="input-field" placeholder="البريد الالكتروني">
+      <div class="input pb-3">
+        <div class="input-container ">
+          <i class="icon "><img src="assets/images/auth/email.svg"></i>
+          <input formControlName="email" type="email" class="input-field" placeholder="البريد الالكتروني">
+        </div>
       </div>
-    </div>
 
-    <div class="input pb-3">
-      <div class="input-container ">
-        <i class="icon "><img src="assets/images/auth/phone.svg"></i>
-        <input type="text" class="input-field" placeholder="رقم الجوال">
+      <div class="input pb-3">
+        <div class="input-container ">
+          <i class="icon "><img src="assets/images/auth/phone.svg"></i>
+          <input formControlName="phone" type="text" class="input-field" placeholder="رقم الجوال">
+        </div>
       </div>
-    </div>
-    <div class="input pb-3">
-      <div class="input-container">
-        <i class="icon "><img src="assets/images/auth/padlock.svg"></i>
-        <input [type]="hide ? 'password' : 'text'" class="input-field" placeholder="كلمة المرور">
-        <button mat-icon-button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      <div class="input pb-3">
+        <div class="input-container">
+          <i class="icon "><img src="assets/images/auth/padlock.svg"></i>
+          <input formControlName="password" [type]="hide ? 'password' : 'text'" class="input-field" placeholder="كلمة المرور">
+          <button mat-icon-button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </div>
+      </div>
+
+
+      <div class="input pb-3">
+        <div class="input-container">
+          <i class="icon "><img src="assets/images/auth/padlock.svg"></i>
+          <input formControlName="password_confirmation" [type]="hide ? 'password' : 'text'" class="input-field" placeholder="إعادة كلمة المرور">
+          <button mat-icon-button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="mt-3 login">
+        <button [disabled]="isLoading" type="submit" class="btn w-100 ">
+          <span *ngIf="!isLoading">تسجيل الدخول</span>
+          <span *ngIf="isLoading"><i class="fas fa-spinner fa-spin"></i></span>
         </button>
       </div>
-    </div>
-
-
-    <div class="input pb-3">
-      <div class="input-container">
-        <i class="icon "><img src="assets/images/auth/padlock.svg"></i>
-        <input [type]="hide ? 'password' : 'text'" class="input-field" placeholder="إعادة كلمة المرور">
-        <button mat-icon-button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-      </div>
-    </div>
-    <div class="mt-3 login">
-      <button class="btn w-100 ">تسجيل الدخول</button>
-    </div>
+      <p *ngIf="errorMessage" class="alert alert-danger fs-6 mt-1">{{errorMessage}}</p>
+    </form>
     <div class="mt-3 socialLogin">
       <button class=" w-100 bg-light rounded-2 "> أو تسجيل الدخول بــ<img src="assets/images/auth/google.svg"
           class="pe-4"></button>

@@ -8,10 +8,10 @@ import { AuthServices } from './auth/services/auth-services.service';
 })
 export class AppComponent {
   title = 'EntrepreneursClub';
-  isLogin = false
+  isUserLoggedIn = false
   constructor(private _AuthServices: AuthServices) {
-    _AuthServices.isAuth.subscribe((res) => {
-      this.isLogin = res
+    _AuthServices.isUserLoggedIn.subscribe((res) => {
+      this.isUserLoggedIn = res
 
     })
   }
