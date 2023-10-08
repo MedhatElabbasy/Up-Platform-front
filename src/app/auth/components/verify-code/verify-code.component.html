@@ -8,7 +8,7 @@
         </div>
         <div *ngIf="errorMessage && !resendMessage" class="float-start pt-1 pb-4">
           <span>الكود خطأ...</span>
-          <a class="cursor-pointer" (click)="resendEmailVerify()"> إعادة الإرسال</a>
+          <a *ngIf="!userEmail" class="cursor-pointer" (click)="resendEmailVerify()"> إعادة الإرسال</a>
           <i *ngIf="isResendEmailLoading" class="fas fa-spinner fa-spin"></i>
         </div>
         <p *ngIf="resendMessage" class="fs-6 text-black mt-1 resendMessage alert alert-success mb-0 py-1">{{resendMessage}}</p>
@@ -22,7 +22,7 @@
         </button>
       </div>
     </form>
-    <div class="d-flex justify-content-center notSend mt-5">
+    <div *ngIf="!userEmail" class="d-flex justify-content-center notSend mt-5">
       <span>لم تتلق الكود .. ؟</span>
       <a class="cursor-pointer" (click)="resendEmailVerify()"> إعادة الإرسال</a>
     </div>

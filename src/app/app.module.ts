@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,11 +10,15 @@ import { CoreModule } from './core/core.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddTokenInterceptor } from './Interceptors/add-token.interceptor';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent
+
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,7 @@ import { AddTokenInterceptor } from './Interceptors/add-token.interceptor';
     CoreModule
   ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
   ],
   providers: [
     {
@@ -31,7 +35,12 @@ import { AddTokenInterceptor } from './Interceptors/add-token.interceptor';
       useClass: AddTokenInterceptor,
       multi: true,
     },
+ 
+
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+ 
+
+}

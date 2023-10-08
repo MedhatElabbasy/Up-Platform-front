@@ -7,6 +7,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SendCodeComponent } from './components/send-code/send-code.component';
 import { VerifyCodeComponent } from './components/verify-code/verify-code.component';
 import { SuccessComponent } from './components/success/success.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,14 @@ const routes: Routes = [
       {
         path: authRoutes.verifyCode,
         component: VerifyCodeComponent,
+      },
+      {
+        path: authRoutes.verifyCode + '/:email',
+        component: VerifyCodeComponent,
+      },
+      {
+        path: authRoutes.resetPassword+ '/:email/:code',
+        component: ResetPasswordComponent,
       },
       {
         path: authRoutes.success,

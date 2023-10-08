@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
@@ -14,7 +14,12 @@ import { VerifyCodeComponent } from './components/verify-code/verify-code.compon
 import { SuccessComponent } from './components/success/success.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from '../core/core.module';
-
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import {
+  SocialLoginModule,
+  SocialAuthServiceConfig,
+} from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 @NgModule({
   declarations: [
     AuthLayoutComponent,
@@ -22,7 +27,11 @@ import { CoreModule } from '../core/core.module';
     SignUpComponent,
     SendCodeComponent,
     VerifyCodeComponent,
-    SuccessComponent
+    SuccessComponent,
+    ResetPasswordComponent
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   imports: [
     CommonModule,
@@ -31,7 +40,34 @@ import { CoreModule } from '../core/core.module';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    CoreModule
-  ]
+    CoreModule,
+    SocialLoginModule
+  ],
+  // providers: [
+    
+  //   {
+  //     provide: 'SocialAuthServiceConfig',
+  //     useValue: {
+  //       autoLogin: false,
+  //       providers: [
+  //         {
+  //           id: GoogleLoginProvider.PROVIDER_ID,
+  //           provider: new GoogleLoginProvider(
+  //             '605141817130-p3r8jrcukibc9ehs66dl3ls9bn1gja0o.apps.googleusercontent.com'
+  //           )
+  //         },
+  //         // {
+  //         //   id: FacebookLoginProvider.PROVIDER_ID,
+  //         //   provider: new FacebookLoginProvider('clientId')
+  //         // }
+  //       ],
+  //       onError: (err) => {
+  //         console.error(err);
+  //       }
+  //     } as SocialAuthServiceConfig,
+  //   }
+
+  // ],
+ 
 })
 export class AuthModule { }

@@ -31,7 +31,7 @@
           </div>
         </div>
         <div>
-          <a href="">نسيت كلمة المرور</a>
+          <a routerLink="/auth/send-code">نسيت كلمة المرور</a>
         </div>
       </div>
       <div class="mt-3 login">
@@ -43,8 +43,19 @@
       <p *ngIf="errorMessage" class="alert alert-danger text-black text-start mt-1 fs-6">{{errorMessage}}</p>
     </form>
     <div class="mt-3 socialLogin">
-      <button class=" w-100 bg-light rounded-2 "> أو تسجيل الدخول بــ<img src="assets/images/auth/google.svg"
+     
+      <!-- <asl-google-signin-button>
+        <button (click)="loginWithGoogle()" class=" w-100 bg-light rounded-2 "> أو تسجيل الدخول بــ<img src="assets/images/auth/google.svg"
           class="pe-4"></button>
+      </asl-google-signin-button>
+      <asl-google-signin-button type='icon' size='medium'>
+        <button id="google-signin-button" class="w-100 bg-light rounded-2">
+          أو تسجيل الدخول بــ<img src="assets/images/auth/google.svg" class="pe-4">
+        </button>
+      </asl-google-signin-button> -->
+      
+      <!-- <button (click)="loginWithGoogle()" class=" w-100 bg-light rounded-2 "> أو تسجيل الدخول بــ<img src="assets/images/auth/google.svg"
+        class="pe-4"></button> -->
     </div>
     <div class="mt-5 pt-4 notExist">
       <p>لا تمتلك حسايبا؟ <a [routerLink]="'/auth/signUp'">تسجيل جديد</a></p>
