@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Routing } from './routes/app-routes';
 import { HomeComponent } from './components/home/home.component';
-import { AuthGuard } from './Guards/auth.guard';
-import { PreventAuthGuard } from './Guards/prevent-auth.guard';
+import { AuthGuard } from './guards/auth.guard';
+import { PreventAuthGuard } from './guards/prevent-auth.guard';
 
 const routes: Routes = [
   {
@@ -23,7 +23,7 @@ const routes: Routes = [
   {
     path: Routing.Training.module,
     loadChildren: () => import('./training/training.module').then((m) => m.TrainingModule),
-   
+
   },
 ];
 
