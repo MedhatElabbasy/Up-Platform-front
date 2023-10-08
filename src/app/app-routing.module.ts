@@ -13,8 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent,
-    canActivate: [AuthGuard]
+    component: HomeComponent
   },
   {
     path: Routing.Auth.module,
@@ -24,12 +23,14 @@ const routes: Routes = [
   {
     path: Routing.Training.module,
     loadChildren: () => import('./training/training.module').then((m) => m.TrainingModule),
-    canActivate: [AuthGuard]
+   
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    useHash: true
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
