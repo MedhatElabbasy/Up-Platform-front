@@ -24,7 +24,8 @@ import { AddTokenInterceptor } from './Interceptors/add-token.interceptor';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CoreModule
+    CoreModule,
+    
   ],
   exports: [
     NavbarComponent,
