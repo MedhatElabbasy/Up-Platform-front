@@ -1,3 +1,5 @@
+
+import { RouterModule, Routes } from '@angular/router';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -9,6 +11,8 @@ import { HomeComponent } from './components/home/home.component';
 import { CoreModule } from './core/core.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddTokenInterceptor } from './Interceptors/add-token.interceptor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 
@@ -25,6 +29,11 @@ import { AddTokenInterceptor } from './Interceptors/add-token.interceptor';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule,
+    CarouselModule 
+    
     
   ],
   exports: [

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: true,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      }
+    },
+    nav: true
+  }
   carouselItems: string[] = [
-    'image1.jpg',
-    'image2.jpg',
-    'image3.jpg',
+    'assets/images/home/KingAbdulazizUniversity.svg',
+    'assets/images/home/KingAbdulazizUniversity.svg',
+    'assets/images/home/KingAbdulazizUniversity.svg',
     // Add more image URLs here
   ];
 }

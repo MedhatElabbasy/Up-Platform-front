@@ -15,11 +15,7 @@ import { SuccessComponent } from './components/success/success.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from '../core/core.module';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
-import {
-  SocialLoginModule,
-  SocialAuthServiceConfig,
-} from '@abacritt/angularx-social-login';
-import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
+
 @NgModule({
   declarations: [
     AuthLayoutComponent,
@@ -40,8 +36,8 @@ import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    CoreModule,
-    SocialLoginModule
+    CoreModule
+    
   ],
   // providers: [
     
