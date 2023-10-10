@@ -1,0 +1,113 @@
+@import "../../../../assets/styles/variables.scss";
+
+.main {
+  margin-top: 30px;
+
+  .square {
+    width: 10px;
+    height: 10px;
+    background-color: #FFB300;
+    transform: rotate(45deg);
+    border-radius: 4px;
+  }
+
+  h2 {
+    font-weight: bold;
+    font-size: 35px;
+    color: $main-color;
+    font-family: "Bahij";
+
+  }
+
+  h3 {
+    font-weight: bold;
+    font-size: 25px;
+    color: $main-color;
+    font-family: "Bahij";
+
+  }
+
+  p {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    font-family: "Bahij";
+
+  }
+
+  .my-cards {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+  }
+
+  .second-card {
+    padding: 18px 24px !important;
+
+    .details {
+      width: fit-content;
+      margin: auto;
+      padding: 25px;
+    }
+
+    background-image: url('/assets/images/Group 553.svg');
+
+    p {
+      font-size: 15px;
+      color: $main-color;
+    }
+
+    h4 {
+      font-weight: bold;
+      font-size: 40px;
+      color: $light-blue;
+      font-family: "Bahij";
+    }
+
+    span {
+      color: $main-color;
+      font-weight: 600;
+      font-size: 14px;
+      margin-top: 10px;
+      font-family: "Bahij";
+    }
+  }
+
+  .my-alert {
+    width: fit-content;
+    background-color: red;
+
+
+    p {
+      margin: 0px;
+      padding: 5px 10px !important;
+      font-size: 13px;
+      font-weight: 400;
+      color: white;
+    }
+  }
+
+  .btn1 {
+    background: #FFB300;
+    color: $white-color;
+    padding: 10px 0;
+
+    img {
+      width: 20px;
+    }
+  }
+
+
+
+  .section-two {
+    p {
+      font-size: 16px;
+    }
+
+    .form-check .form-check-input {
+      float: right;
+      margin-right: -1.5em;
+    }
+  }
+}

@@ -10,10 +10,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { CoreModule } from './core/core.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AddTokenInterceptor } from './Interceptors/add-token.interceptor';
+import { AddTokenInterceptor } from './interceptors/add-token.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-
 
 
 
@@ -32,12 +31,13 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     RouterModule,
     ReactiveFormsModule,
     FormsModule,
-    CarouselModule 
-    
-    
+    CarouselModule,
+
+
   ],
   exports: [
     NavbarComponent,
+
   ],
   providers: [
     {
@@ -45,12 +45,12 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
       useClass: AddTokenInterceptor,
       multi: true,
     },
- 
+
 
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
- 
+
 
 }

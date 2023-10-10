@@ -13,6 +13,7 @@ export class HomeComponent {
     touchDrag: true,
     pullDrag: true,
     dots: true,
+    nav: true,
     navSpeed: 700,
     navText: ['', ''],
     responsive: {
@@ -20,7 +21,6 @@ export class HomeComponent {
         items: 1
       }
     },
-    nav: true
   }
   carouselItems: string[] = [
     'assets/images/home/KingAbdulazizUniversity.svg',
