@@ -1,5 +1,6 @@
 import { authRoutes } from "../auth/routes/auth-routes";
 import { clubRoutes } from "../club/routes/club-routes";
+import { servicesRoutes } from "../services/routes/services-routes";
 import { trainingRoutes } from "../training/routes/training-routes";
 
 export const Routing = {
@@ -17,5 +18,9 @@ export const Routing = {
   Club: {
     module: 'club',
     children: clubRoutes
+  },
+  services:{
+    module:'services',
+    children:servicesRoutes
   }
 }

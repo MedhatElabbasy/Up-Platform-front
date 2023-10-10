@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Routing } from './routes/app-routes';
 import { HomeComponent } from './components/home/home.component';
-import { AuthGuard } from './guards/auth.guard';
-import { PreventAuthGuard } from './guards/prevent-auth.guard';
+// import { AuthGuard } from './guards/auth.guard';
+import { PreventAuthGuard } from './Guards/prevent-auth.guard';
 
 const routes: Routes = [
   {
@@ -28,6 +28,10 @@ const routes: Routes = [
   {
     path: Routing.Club.module,
     loadChildren: () => import('./club/club.module').then((m) => m.ClubModule),
+  },
+    {
+    path: Routing.services.module,
+    loadChildren: () => import('./services/services.module').then((m) => m.ServicesModule),
   },
 ];
 

@@ -1,0 +1,99 @@
+@import "../../../../assets/styles/variables.scss";
+
+.main {
+  margin-top: 30px;
+  padding-bottom: 150px !important;
+
+  h2 {
+    font-weight: bold;
+    font-size: 35px;
+    color: $main-color;
+    font-family: "Bahij";
+
+  }
+  h3{
+    font-weight: bold;
+    font-size: 25px;
+    color:#FFB300;
+    font-family: "Bahij";
+    margin-top: 20px;
+
+    img{
+        width: 25px;
+        margin: 10px;
+    }
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    font-family: "Bahij";
+    color:$main-color;
+    margin-top:10px;
+  }
+}
+
+
+.demo{
+    color: $main-color;
+}
+
+.price{
+    color:$main-color;
+    font-size: 50px;
+    font-weight: bold;
+  
+  }
+  
+  .cap{
+    color: $main-color;
+  }
+  
+  .btn1 {
+    background: linear-gradient(to right, #359BBA, #07487C);
+    color: $white-color;
+    padding: 13px 0;
+
+    img {
+      width: 20px;
+    }
+  }
+  .second-section {
+    margin-bottom: -150px;
+  }
+
+  .card1{
+    background-color: #fff;
+    color:$main-color;
+    text-align: center;
+    border-radius: 10px;
+    padding:10px;
+  }
+  .circleImage{
+    border-radius: 50%;
+    border:1px solid $light-blue;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+  }
+
+  .m{
+    width: 50px;
+    height: 50px;
+    margin: 22px;
+  }
+
+  .section{
+    background-color: #07487C;
+    /* height: 100%; */
+    overflow: revert;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  @media screen and (max-width: 992px) {
+    .section{
+      padding: 0 !important;
+    }
+   }

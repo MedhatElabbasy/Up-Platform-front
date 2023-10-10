@@ -1,0 +1,52 @@
+@import "../../../../assets/styles/variables.scss";
+
+.main {
+    margin-top: 30px;
+    padding-bottom: 30px;
+    h2 {
+        font-weight: bold;
+        font-size: 40px;
+        color: $main-color;
+        font-family: "Bahij";
+      }
+    
+      p {
+        // font-weight: 600;
+        font-size: 30px;
+        line-height: 30px;
+        font-family: "Bahij";
+        // margin-top: 25px;
+        color: #FFB300;
+      }
+      h6{
+        color:$main-color;
+          font-size: 23px;
+        font-weight: 500;
+      }
+}
+.circle {
+    height: 150px;
+    width: 150px;
+    margin: auto;
+    background: linear-gradient(315deg, #FFFFFF, #F7F7F8, #EBECED);
+    border: 3px solid $white-color;
+
+    img {
+      width: 30px;
+    }
+
+    span {
+      font-size: 10px;
+      font-weight: 800;
+      color: #FFB300;
+    }
+
+    .span2 {
+      font-size: 8px;
+      font-weight: 600;
+      color: $main-color;
+    }
+  }
+hr{
+    margin-bottom:30px;
+}
