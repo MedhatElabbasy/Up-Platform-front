@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { clubRoutes } from './routes/club-routes';
 import { MainClubComponent } from './components/main-club/main-club.component';
 import { ClubComponent } from './components/club/club.component';
+import { ActivitiesScheduleComponent } from './components/activities-schedule/activities-schedule.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,10 @@ const routes: Routes = [
         path: clubRoutes.main,
         component: MainClubComponent,
       },
-
+      {
+        path: clubRoutes.activitiesSchedule,
+        component: ActivitiesScheduleComponent,
+      },
     ]
   }
 

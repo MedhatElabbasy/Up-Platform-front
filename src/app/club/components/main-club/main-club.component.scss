@@ -35,6 +35,17 @@
 
   }
 
+  ::ng-deep .p-dropdown .p-dropdown-label {
+    color: $main-color;
+    font-family: "Bahij" !important;
+
+    .p-placeholder {
+      color: $main-color;
+      font-family: "Bahij" !important;
+
+    }
+  }
+
   .my-cards {
     background-position: center;
     background-repeat: no-repeat;
@@ -109,5 +120,30 @@
       float: right;
       margin-right: -1.5em;
     }
+  }
+
+  .child {
+    background-color: $main-color;
+    color: white;
+
+    h3 {
+      color: white;
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+
+  }
+
+  .section {
+    .end-child {
+      p {
+        color: $main-color !important;
+      }
+    }
+
   }
 }

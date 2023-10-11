@@ -10,8 +10,9 @@ import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-mat
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import {MatCardModule} from '@angular/material/card';
-import {MatNativeDateModule} from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatNativeDateModule } from '@angular/material/core';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [],
@@ -26,9 +27,11 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatButtonModule,
     NgxMatDatetimePickerModule,
     MatCardModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    DropdownModule
   ],
   exports: [
+    DropdownModule,
     MatDatepickerModule,
     MatInputModule,
     NgxMatTimepickerModule,
