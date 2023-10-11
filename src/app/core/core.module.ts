@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatCardModule} from '@angular/material/card';
 import {MatNativeDateModule} from '@angular/material/core';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [],
@@ -26,7 +27,8 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatButtonModule,
     NgxMatDatetimePickerModule,
     MatCardModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    DropdownModule
   ],
   exports: [
     MatDatepickerModule,
@@ -37,7 +39,8 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatButtonModule,
     NgxMatDatetimePickerModule,
     MatCardModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    DropdownModule
   ]
 })
 export class CoreModule { }

@@ -33,6 +33,10 @@ const routes: Routes = [
     path: Routing.services.module,
     loadChildren: () => import('./services/services.module').then((m) => m.ServicesModule),
   },
+  {
+    path: Routing.projects.module,
+    loadChildren: () => import('./projects/projects.module').then((m) => m.ProjectsModule),
+  },
 ];
 
 @NgModule({

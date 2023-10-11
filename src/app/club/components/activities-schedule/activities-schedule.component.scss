@@ -1,0 +1,81 @@
+@import "../../../../assets/styles/variables.scss";
+
+.main {
+  margin-top: 30px;
+
+  .square {
+    width: 10px;
+    height: 10px;
+    background-color: #FFB300;
+    transform: rotate(45deg);
+    border-radius: 4px;
+  }
+
+  h2 {
+    font-weight: bold;
+    font-size: 35px;
+    color: $main-color;
+    font-family: "Bahij";
+
+  }
+
+  h3 {
+    font-weight: bold;
+    font-size: 25px;
+    color: $main-color;
+    font-family: "Bahij";
+
+  }
+
+  p {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    font-family: "Bahij";
+
+  }
+
+  .section {
+    border: 1px $main-color solid;
+
+    .header {
+      background-image: url('./../../../../assets/images/club/Group 43498.png');
+      background-position: center;
+      background-size: cover;
+
+      img {
+        height: 50%;
+      }
+
+      p {
+        color: white;
+      }
+    }
+
+    .content {
+      border: 1px solid $main-color;
+      min-height: 250px;
+
+      .day {
+        background-color: #FFB300;
+        color: white;
+      }
+    }
+
+    textarea {
+      min-height: 150px;
+      background-color: #EFEFEF;
+      border: unset;
+
+      /* top left and top right */
+    }
+
+    textarea::placeholder {
+      font-size: 14px;
+      font-weight: 700;
+      padding: 10px 5px;
+      color: black;
+    }
+
+  }
+}
