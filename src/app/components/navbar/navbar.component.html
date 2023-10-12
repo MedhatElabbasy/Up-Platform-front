@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-transparent ">
+<nav class="navbar navbar-expand-lg navbar-light">
   <div class="container">
     <!-- Brand/logo (left-aligned) -->
-    <a class="navbar-brand" href="#"><img src="assets/images/logo.svg"></a>
+    <a class="navbar-brand" href="#"><img src="assets/images/logo.svg" class="w-75"></a>
 
     <!-- Toggle button for small screens -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -9,7 +9,7 @@
     </button>
 
     <!-- Navigation items (right-aligned) -->
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <div class="collapse navbar-collapse justify-content-start" id="navbarNav">
       <ul class="navbar-nav fw-bold">
         <li class="nav-item ">
           <a class="nav-link" routerLink="/home/" routerLinkActive="activeLink">الرئيسية</a>
@@ -27,14 +27,47 @@
           <a class="nav-link" routerLink="/projects/" routerLinkActive="activeLink">أطلاق المشاريع</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link">دولاب الحظ</a>
+          <a class="nav-link" routerLink="/wheelOfLuck/" routerLinkActive="activeLink">دولاب الحظ</a>
         </li>
-        <li *ngIf="!isUserLoggedIn" class="nav-item pe-lg-5">
+        <li class="nav-item">
+          <a class="nav-link ms-3"><img src="assets/images/nav/Group 43493.svg" class="w-75"></a>
+        </li>
+
+        <div class="social-media d-flex me-3">
+          <li class="nav-item">
+            <a class="nav-link  mx-0"><img src="assets/images/nav/youtube (1).svg" class="w-75"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-0"><img src="assets/images/nav/search (2).svg" class="w-75"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-0"><img src="assets/images/nav/twitter (1).svg" class="w-75"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-0"><img src="assets/images/nav/facebook (1).svg" class="w-75"></a>
+          </li>
+
+        </div>
+
+        <div class="info d-flex align-items-center me-2" routerLink="/profile/">
+          <div class="text-start ps-2 mt-3">
+            <p>Abdallah Eldosery
+              <br>
+              <span>abdallaeldosery11@gmail.com</span>
+            </p>
+
+          </div>
+          <div>
+            <img src="assets/images/nav/Circle.svg" style="width: 45px;">
+          </div>
+
+        </div>
+        <!-- <li *ngIf="!isUserLoggedIn" class="nav-item pe-lg-5">
           <button class="nav-link px-4  btn" routerLink="/auth/login"> تسجيل الدخول</button>
         </li>
         <li *ngIf="isUserLoggedIn" class="nav-item pe-lg-5">
           <button class="nav-link px-4  btn" (click)="logout()"> تسجيل الخروج</button>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>

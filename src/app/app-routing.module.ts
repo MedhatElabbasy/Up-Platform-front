@@ -4,6 +4,8 @@ import { Routing } from './routes/app-routes';
 import { HomeComponent } from './components/home/home.component';
 // import { AuthGuard } from './guards/auth.guard';
 import { PreventAuthGuard } from './Guards/prevent-auth.guard';
+import { ProfileComponent } from './components/profile/profile.component';
+import { WheelOfLuckComponent } from './components/wheel-of-luck/wheel-of-luck.component';
 
 const routes: Routes = [
   {
@@ -14,6 +16,14 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
+  },
+  {
+    path: 'wheelOfLuck',
+    component: WheelOfLuckComponent
   },
   {
     path: Routing.Auth.module,
@@ -29,7 +39,7 @@ const routes: Routes = [
     path: Routing.Club.module,
     loadChildren: () => import('./club/club.module').then((m) => m.ClubModule),
   },
-    {
+  {
     path: Routing.services.module,
     loadChildren: () => import('./services/services.module').then((m) => m.ServicesModule),
   },
