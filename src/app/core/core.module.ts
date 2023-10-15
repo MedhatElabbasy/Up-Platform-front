@@ -13,9 +13,12 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DropdownModule } from 'primeng/dropdown';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ModalComponent
+  ],
   imports: [
     CommonModule,
     CoreRoutingModule,
@@ -40,7 +43,8 @@ import { DropdownModule } from 'primeng/dropdown';
     MatButtonModule,
     NgxMatDatetimePickerModule,
     MatCardModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    ModalComponent
   ]
 })
 export class CoreModule { }

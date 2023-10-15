@@ -5,5 +5,15 @@ export enum projectsRoutes {
     projectsChance='projects-chance',
     projectsTeam='projects-team',
     projectsTeamDetails='projects-team-details',
-    projectsTeamForm='projects-team-form'
+    projectsTeamForm='projects-team-form',
+    projectsPartners='projects-partners',
+    newProjectForm='new-project-form',
+    projectsDesign='projects-design',
+    startProjects='start-projects',
+    startProjectsSimulation='start-projects-simulation',
+    chooseProject='choose-project',
+    powerOfIdea='power-of-idea',
+    powerOfIdeaDetails='power-of-idea-details',
+    feasibilityStudy='feasibility-study',
+    feasibilityStudyForm='feasibility-study-form'
 }

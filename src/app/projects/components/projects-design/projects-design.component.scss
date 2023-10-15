@@ -1,0 +1,61 @@
+@import "../../../../assets/styles/variables.scss";
+
+.main {
+  margin-top: 30px;
+  padding-bottom: 20px;
+
+  h2 {
+    font-weight: bold;
+    font-size: 75px;
+    color: $main-color;
+    line-height: 80px;
+    font-family: "Bahij";
+  }
+
+  .header {
+    font-size: 35px;
+  }
+
+  h3 {
+    font-weight: 700;
+    font-size: 30px;
+    color: #FFB300;
+    font-family: "Bahij";
+  }
+
+  .content {
+    height: 65vh !important;
+
+    .my-border {
+      background-color: $light-blue;
+      height: 5px;
+      margin-top: 23px;
+    }
+
+
+
+   
+  }
+}
+.define{
+    margin-right: 75px;
+    border-right: 6px solid #3CA7C3;
+    padding-right: 5px;
+    border-radius: 5px;
+}
+.btn2 {
+  background-color:#FFB300;
+  color: $white-color;
+  padding: 10px 0;
+  display: inline-block;
+}
+
+.btn1 {
+  background-color:transparent;
+  color: $main-color;
+  padding: 15px 30px;
+  display: inline-block;
+  border: 1px solid $main-color;
+  font-weight: 600;
+  font-size: 17px;
+}
