@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ProfileComponent } from './components/profile/profile.component';
 import { WheelOfLuckComponent } from './components/wheel-of-luck/wheel-of-luck.component';
+import { NgxWheelModule } from 'ngx-wheel';
 
 
 
@@ -37,6 +38,7 @@ import { WheelOfLuckComponent } from './components/wheel-of-luck/wheel-of-luck.c
     FormsModule,
     HttpClientModule,
     CarouselModule,
+    NgxWheelModule
   ],
   exports: [
     NavbarComponent,

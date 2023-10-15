@@ -29,6 +29,45 @@
           </li>
         </ul>
       </div>
+      <div class="col-md-6 mt-1">
+        <div class="row ">
+          <div class="col-xl-4"></div>
+          <div class="col-xl-8">
+            <div>
+              <div class="parent m-auto">
+                <div class="child1">
+                  <div class="wheel_wrap">
+                    <ngx-wheel class="custom-wheel" Roulette [width]="310" [height]="310" [spinDuration]="8"
+                      [items]="items" [innerRadius]="20" [spinAmount]="10" [textOrientation]="textOrientation"
+                      [textAlignment]="textAlignment" pointerStrokeColor="transparent" pointerFillColor="transparent"
+                      [idToLandOn]="idToLandOn" (onSpinStart)="before()" (onSpinComplete)="after()"
+                      (click)="spinAction()"></ngx-wheel>
+                  </div>
+                  <div class="wheel-child">
+
+                  </div>
+                </div>
+              </div>
+              <div class="reset d-flex justify-content-around mt-3">
+                <button (click)="spinAction()" class="btn btn1">أضغط هنا</button>
+                <button (click)="spinAction()" class="btn btn2 btn-transparent">أضغط مرة أخري بـ 3 نقاط</button>
+              </div>
+
+              <div class="mx-3 mt-3 gift px-4 py-3">
+                <div class="row align-items-center">
+                  <div class="col text-center">
+                    <p class="mt-3 text-white ">مــبـروك</p>
+                    <p class="text-white ">لقد ربحت</p>
+                  </div>
+                  <div class="col">
+                    <h3 class="mt-3"> {{success?.data}}</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
