@@ -1,3 +1,4 @@
+import { DropdownModule } from 'primeng/dropdown';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -40,7 +41,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     NgxMatDatetimePickerModule,
     MatCardModule,
     MatNativeDateModule,
-    DropdownModule
+    
   ]
 })
 export class CoreModule { }

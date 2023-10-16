@@ -7,6 +7,10 @@ h3 {
   font-family: "Bahij";
 }
 
+*{
+  direction: rtl;
+}
+
 ::ng-deep .owl-carousel .owl-nav .owl-prev {
   position: absolute;
   top: 35%;
@@ -217,7 +221,7 @@ h3 {
 
   .section5 {
     .col-lg-7 .container {
-      background-image: url('../../../assets/images/home/Component 8 – 1.svg');
+      background-image: url('../../../assets/images/home/Component.svg');
       background-position: center;
       background-repeat: no-repeat;
     }
@@ -315,7 +319,7 @@ h3 {
     }
 
     .p-scroll {
-      height: 200px;
+      // height: 200px;
 
       overflow: hidden;
 
