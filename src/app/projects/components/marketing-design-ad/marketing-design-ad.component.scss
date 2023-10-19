@@ -1,0 +1,141 @@
+@import "../../../../assets/styles/variables.scss";
+
+.main {
+    margin-top: 30px;
+    padding-bottom: 20px;
+
+    h2 {
+        font-weight: bold;
+        font-size: 75px;
+        color: $main-color;
+        line-height: 80px;
+        font-family: "Bahij";
+    }
+
+    .header {
+        font-size: 35px;
+    }
+
+    p {
+        font-weight: 400;
+        font-size: 12px;
+        color: #fff;
+        font-family: "Bahij";
+        margin-top: 10px;
+        line-height: 1.5rem;
+    }
+
+    span {
+        color: #fff;
+    }
+
+    h3 {
+        font-weight: 700;
+        font-size: 22px;
+        color: #FFB300;
+        font-family: "Bahij";
+        padding-top: 10px;
+        padding-bottom: 0px;
+        //    text-align: center;
+    }
+
+    h4 {
+        font-weight: 400;
+        font-size: 14px;
+        color: #000;
+        font-family: "Bahij";
+        // padding-top: 10px;
+        // padding-bottom: 0px;
+        text-align: center;
+    }
+
+    a {
+        text-decoration: none;
+        color: $main-color;
+        font-weight: 400;
+        font-size: 16px;
+    }
+
+}
+
+.ideaImg {
+    width: 500px;
+}
+
+
+.btn1 {
+    background-color:#00AF7A;
+    color: $white-color;
+    padding: 5px 30px;
+}
+
+.btn2 {
+    background-color:$light-blue;
+    color: $white-color;
+    padding: 5px 30px;
+}
+
+.box{
+    background-color: $main-color;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.white-box{
+    background-color: #fff;
+    padding:10px;
+    border-radius: 10px;
+    margin: 30px;
+}
+
+.like{
+    float: left;
+}
+
+.whiteBox{
+    background-color: #fff;
+    width: 220px;
+    border-radius: 10px;
+    padding: 5px;
+
+    p{
+        color:#000;
+    }
+}
+
+.yellowBox{
+    background-color: #FFB300;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.label1 {
+    background-color: blue;
+    padding: 5px;
+    border-radius: 10px;
+    color:#fff;
+    text-align: center;
+}
+
+.label2 {
+    background-color: #FFB300;
+    padding: 5px;
+    border-radius: 10px;
+    color:#fff;
+    text-align: center;
+}
+
+.grayBox{
+    background-color: #E7E7E7;
+    border-radius: 10px;
+}
+
+.blue{
+    background-color: $light-blue;
+    padding: 5px;
+    border-radius: 10px;
+
+    span{
+        margin-left: 10px;
+    }
+}

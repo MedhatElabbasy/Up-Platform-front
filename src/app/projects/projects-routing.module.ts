@@ -19,6 +19,17 @@ import { PowerOfIdeaComponent } from './components/power-of-idea/power-of-idea.c
 import { PowerOfIdeaDetailsComponent } from './components/power-of-idea-details/power-of-idea-details.component';
 import { FeasibilityStudyComponent } from './components/feasibility-study/feasibility-study.component';
 import { FeasibilityStudyFormComponent } from './components/feasibility-study-form/feasibility-study-form.component';
+import { FeasibilityStudyFinalComponent } from './components/feasibility-study-final/feasibility-study-final.component';
+import { PurchasesDetailsComponent } from './components/purchases-details/purchases-details.component';
+import { PurchasesComponent } from './components/purchases/purchases.component';
+import { MarketingComponent } from './components/marketing/marketing.component';
+import { MarketingCostComponent } from './components/marketing-cost/marketing-cost.component';
+import { MarketingAdComponent } from './components/marketing-ad/marketing-ad.component';
+import { MarketingCampaignComponent } from './components/marketing-campaign/marketing-campaign.component';
+import { MarketingSalesComponent } from './components/marketing-sales/marketing-sales.component';
+import { MarketingDistractionsComponent } from './components/marketing-distractions/marketing-distractions.component';
+import { FinalReportComponent } from './components/final-report/final-report.component';
+import { MarketingDesignAdComponent } from './components/marketing-design-ad/marketing-design-ad.component';
 
 const routes: Routes = [
   {
@@ -97,6 +108,50 @@ const routes: Routes = [
     {
       path: projectsRoutes.feasibilityStudyForm,
       component:FeasibilityStudyFormComponent
+    },
+    {
+      path: projectsRoutes.feasibilityStudyFinal,
+      component:FeasibilityStudyFinalComponent
+    },
+    {
+      path: projectsRoutes.PurchasesDetails,
+      component:PurchasesDetailsComponent
+    },
+    {
+      path: projectsRoutes.purchases,
+      component:PurchasesComponent
+    },
+    {
+      path: projectsRoutes.marketing,
+      component:MarketingComponent
+    },
+   {
+      path: projectsRoutes.marketingCost,
+      component:MarketingCostComponent
+    },
+    {
+      path: projectsRoutes.marketingDesignAD,
+      component:MarketingDesignAdComponent
+    },
+    {
+      path: projectsRoutes.marketingAD,
+      component:MarketingAdComponent
+    },
+    {
+      path: projectsRoutes.marketingCampaign,
+      component:MarketingCampaignComponent
+    },
+    {
+      path: projectsRoutes.marketingSales,
+      component:MarketingSalesComponent
+    },
+    {
+      path: projectsRoutes.marketingDistractions,
+      component:MarketingDistractionsComponent
+    },
+    {
+      path: projectsRoutes.finalReport,
+      component:FinalReportComponent
     }
   ]
 }
