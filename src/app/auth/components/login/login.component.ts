@@ -45,7 +45,7 @@ export class LoginComponent implements AfterViewInit {
           next: (res: any) => {
             // localStorage.setItem(environment.userData, jwt_decode)
             console.log(res);
-            localStorage.setItem(environment.localStorageName, res.data.token)
+            localStorage.setItem(environment.localStorageName, res.data.access_token)
             this._AuthService.isUserLoggedIn.next(true)
             this._Router.navigate(['/'])
             this.isLoading = false

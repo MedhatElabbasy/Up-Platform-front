@@ -13,6 +13,10 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AddTokenInterceptor } from './Interceptors/add-token.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ProfileComponent } from './components/profile/profile.component';
+import { WheelOfLuckComponent } from './components/wheel-of-luck/wheel-of-luck.component';
+import { NgxWheelModule } from 'ngx-wheel';
+import { AddApikeyInterceptor } from './Interceptors/add-apikey.interceptor';
 
 
 
@@ -20,7 +24,9 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent,
+    WheelOfLuckComponent
 
   ],
   imports: [
@@ -33,6 +39,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     FormsModule,
     HttpClientModule,
     CarouselModule,
+    NgxWheelModule
   ],
   exports: [
     NavbarComponent,
@@ -42,6 +49,11 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AddTokenInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AddApikeyInterceptor,
       multi: true,
     },
 

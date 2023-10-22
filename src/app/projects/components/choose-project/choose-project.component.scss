@@ -1,0 +1,101 @@
+@import "../../../../assets/styles/variables.scss";
+
+.main {
+  margin-top: 30px;
+  padding-bottom: 20px;
+
+  h2 {
+    font-weight: bold;
+    font-size: 75px;
+    color: $main-color;
+    line-height: 80px;
+    font-family: "Bahij";
+  }
+
+  .header {
+    font-size: 35px;
+  }
+  p{
+    font-weight: 400;
+    font-size: 13px;
+    color: $main-color;
+    font-family: "Bahij";
+    margin-top: 15px;
+  }
+
+  h3 {
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+    font-family: "Bahij";
+    padding-top: 10px;
+    padding-bottom: 0px;
+   text-align: center;
+  }
+
+}
+
+.second-section {
+    margin-bottom: -120px;
+  }
+
+  .second-section2 {
+    margin-bottom: -50px;
+  }
+  
+  .card1{
+    background: url('../../../../assets/images/projects/Group 1839.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  .circleImage{
+    border-radius: 50%;
+    border:1px solid $light-blue;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+  }
+  
+  .m{
+    width: 200px;
+    height: 200px;
+    margin: 0px;
+  }
+  
+  .section{
+    background-color: $light-blue;
+    overflow: revert;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .section2{
+  margin-top: 150px;
+  }
+
+
+  .cardLogo{
+    padding: 58px;
+    text-align: center;
+
+   img{
+     width:40px;
+   }
+  }
+
+  .col-lg-2{
+    padding:0;
+  }
+  
+  @media screen and (max-width: 992px) {
+    .section{
+      padding: 0 !important;
+    }
+   }
+
+   .card{
+    background-color: #FFB300;
+    border: 1px solid #fff;
+    border-radius: 10%;
+   }

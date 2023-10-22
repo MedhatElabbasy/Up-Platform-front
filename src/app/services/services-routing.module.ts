@@ -51,7 +51,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: servicesRoutes.choseAdvisor,
+        path: servicesRoutes.chooseAdvisor,
         component: ChoseAdvisorComponent,
       },
       {

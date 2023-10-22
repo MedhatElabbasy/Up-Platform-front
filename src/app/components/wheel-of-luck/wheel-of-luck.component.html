@@ -1,0 +1,85 @@
+<div class="main container px-5 pb-5">
+  <h2 class="pb-3 ">دولاب الحظ</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <p class="header-p">جرب دولاب الحظ لتربح معنا العديد من الجوائز
+          <br>
+          مثل التسجيل في دورة مجانية , ربح النقاط , وهكذا
+        </p>
+
+        <div class="d-flex align-items-center">
+          <div class="square">
+          </div>
+          <p class="pt-3 pe-2">شروط وأحكام لعبة دولاب الحظ</p>
+        </div>
+        <ul class="pe-4">
+          <li>
+            <p class="header-p">لا يمكن اللعب الا مرة واحدة يوميا ( بعد 24 ساعة من وقت البداية )</p>
+          </li>
+          <li>
+            <p class="header-p">
+              إذا اردت اللعب مرة أخري في نفس اليوم يخصم من المحفظة
+            </p>
+          </li>
+          <li>
+            <p class="header-p">
+              يتم تغيير محتوي اللعبة من حين الي الاخر
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6 mt-1">
+        <div class="row ">
+          <div class="col-xl-4"></div>
+          <div class="col-xl-8">
+            <div>
+              <div class="parent m-auto">
+                <div class="child1">
+                  <div class="wheel_wrap">
+                    <ngx-wheel class="custom-wheel" Roulette [width]="310" [height]="310" [spinDuration]="1"
+                      [items]="items" [innerRadius]="20" [spinAmount]="10" [textOrientation]="textOrientation"
+                      [textAlignment]="textAlignment" pointerStrokeColor="transparent" pointerFillColor="transparent"
+                      [idToLandOn]="idToLandOn" [disableSpinOnClick]='!userCanSpin' (onSpinStart)="before()"
+                      (onSpinComplete)="after()" (click)="spinAction()"></ngx-wheel>
+                  </div>
+                  <div class="wheel-child">
+
+                  </div>
+                </div>
+              </div>
+              <div class="reset d-flex justify-content-around mt-3">
+                <button *ngIf="isWheelLoading" [disabled]="isWheelLoading" class="btn btn1"> <i
+                    class="fas fa-spinner fa-spin"></i></button>
+                <button *ngIf="!isWheelLoading" (click)="spinAction()" class="btn btn1">أضغط هنا</button>
+                <button  *ngIf="isWheelLoading" [disabled]="isWheelLoading" class="btn btn2 btn-transparent"><i
+                    class="fas fa-spinner fa-spin"></i></button>
+                <button *ngIf="!isWheelLoading" (click)="spinAction()" class="btn btn2 btn-transparent">أضغط مرة
+                  أخري بـ 3 نقاط</button>
+              </div>
+
+              <div class="mx-3 mt-3 gift px-4 py-3">
+                <div class="row align-items-center">
+                  <div class="col text-center">
+                    <!-- <p class="mt-3 text-white ">مــبـروك</p>
+                    <p class="text-white ">لقد ربحت</p> -->
+                    <p *ngIf="!(isWheelClicked && wheelMessage)" class="text-white mt-2">جرب حظك</p>
+                    <p *ngIf="!(isWheelClicked && wheelMessage)" class="text-white ">ولف العجلة</p>
+                    <p *ngIf="isWheelClicked && wheelMessage" class="text-white mt-2">خلصت محاولاتك النهارده</p>
+                    <!-- <p *ngIf="isWheelClicked && wheelMessage" class="text-white">
+                      {{wheelMessage == 'Try tomorrow'? 'جرب تاني بكره' : ''}}
+                    </p> -->
+                  </div>
+                  <div class="col">
+                    <h3 *ngIf="!(isWheelClicked && wheelMessage)" class="mt-3"> {{success?.data}} </h3>
+                    <h3 *ngIf="isWheelClicked && wheelMessage" class="mt-3"> جرب تاني بكره </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

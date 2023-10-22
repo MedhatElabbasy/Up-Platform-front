@@ -14,6 +14,7 @@ export enum trainingRoutes {
   finalTest = 'final-test',
   testPartTwo = 'test-part-two',
   skillsLibrary = 'skills-library',
+  allSkillsLibrary = 'all-skills-library',
   onlineCourses = 'online-courses',
-  trainingPaths='training-paths'
+  trainingPaths = 'training-paths',
 }

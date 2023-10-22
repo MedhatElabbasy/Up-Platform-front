@@ -45,10 +45,28 @@
     background-color: #F6F6F6;
     border:1px solid $main-color;
   }
-//   .form-control{
-//     display: inline-block;
-//     width:inherit;
-//   }
-//   label{
-//     padding: 10px;
-//   }
+
+  .box{
+    border:1px solid $main-color;
+    border-radius: 10px;
+    width: 300px;
+    height: 230px;
+    background-color: #fff;
+}
+
+.uploadBox{
+    margin:20px;
+    border:1px dotted $light-blue;
+    background-color: #F4F8FB;
+    padding: 13px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.boxImg{
+    margin-top: 25px;
+}
+
+.modalImg{
+  width:40px;
+}

@@ -20,7 +20,9 @@ import { TestPartTwoComponent } from './components/test-part-two/test-part-two.c
 import { TrainingPathsComponent } from './components/main-training/training-paths/training-paths.component';
 import { OnlineCoursesComponent } from './components/main-training/online-courses/online-courses.component';
 import { SkillsLibraryComponent } from './components/main-training/skills-library/skills-library.component';
+import { AllSkillsLibraryComponent } from './components/main-training/skills-library/all-skills-library/all-skills-library.component';
 
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 
 
 @NgModule({
@@ -42,12 +44,13 @@ import { SkillsLibraryComponent } from './components/main-training/skills-librar
     TestPartTwoComponent,
     TrainingPathsComponent,
     OnlineCoursesComponent,
-    SkillsLibraryComponent
+    SkillsLibraryComponent,
+    AllSkillsLibraryComponent
   ],
   imports: [
     CommonModule,
     TrainingRoutingModule,
-
+    NgxPaginationModule
   ]
 })
 export class TrainingModule { }

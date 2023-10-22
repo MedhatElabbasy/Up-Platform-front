@@ -11,15 +11,18 @@ import { environment } from 'src/environments/environment';
 @Injectable()
 export class AddTokenInterceptor implements HttpInterceptor {
 
-  constructor() {}
-  
+  constructor() { }
+
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const token = localStorage.getItem(environment.localStorageName);
-    request = request.clone({
-      setHeaders: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    if (token) {
+      request = request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${token}`
+        },
+      });
+    }
+
     return next.handle(request);
   }
 }

@@ -1,0 +1,67 @@
+@import "../../../../assets/styles/variables.scss";
+
+.main {
+  margin-top: 30px;
+
+  h2 {
+    font-weight: bold;
+    font-size: 75px;
+    color: $main-color;
+    line-height: 80px;
+    font-family: "Bahij";
+  }
+
+  .header {
+    font-size: 35px;
+  }
+
+  h3 {
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFB300;
+    font-family: "Bahij";
+  }
+
+  .content {
+    height: 65vh !important;
+
+    .my-border {
+      background-color: $light-blue;
+      height: 5px;
+      margin-top: 23px;
+    }
+
+  }
+}
+
+
+.box{
+    border:1px solid $main-color;
+    border-radius: 10px;
+    width: 300px;
+    height: 230px;
+    background-color: #fff;
+}
+
+.uploadBox{
+    margin:20px;
+    border:1px dotted $light-blue;
+    background-color: #F4F8FB;
+    padding: 13px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.boxImg{
+    margin-top: 25px;
+}
+
+.modalImg{
+  width:40px;
+}
+
+.btn1 {
+    background: linear-gradient(to right, #359BBA, #07487C);
+    color: $white-color;
+    padding: 15px 30px;
+  }

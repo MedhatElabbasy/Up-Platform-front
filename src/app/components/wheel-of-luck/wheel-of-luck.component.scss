@@ -1,0 +1,128 @@
+@import "../../../assets/styles/variables.scss";
+
+.main {
+  margin-top: 30px;
+
+  .square {
+    width: 15px;
+    height: 15px;
+    background-color: #FFB300;
+    transform: rotate(45deg);
+    border-radius: 4px;
+  }
+
+  h2 {
+    font-weight: bold;
+    font-size: 35px;
+    color: $main-color;
+    font-family: "Bahij";
+  }
+
+  h3 {
+    font-weight: bold;
+    font-size: 16px;
+    color: $gray-color;
+    font-family: "Bahij";
+
+  }
+
+  p {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    font-family: "Bahij";
+
+  }
+
+  .header-p {
+    font-size: 17px;
+    font-weight: 600;
+    color: $main-color;
+  }
+
+  ul {
+    margin-bottom: 0px;
+
+    li::marker {
+      color: #FFB300;
+      font-size: 16px;
+
+    }
+  }
+}
+
+.parent {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  border-radius: 50%;
+  padding-top: 10px;
+  padding-right: 10px;
+  background-image: url('../../../assets/images/profile/Ellipse 1211.png');
+  background-position: center;
+}
+
+.child1 {
+  position: relative;
+  background-image: url('../../../assets/images/profile/Ellipse\ 1212.png');
+  background-position: center;
+  width: 280px;
+  border-radius: 50%;
+  height: 280px;
+
+}
+
+.wheel_wrap {
+  background-image: url('../../../assets/images/profile/Ellipse 1211.png');
+  background-position: center;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -34.5px;
+  right: -60.5%;
+  transform: translateX(-50%)
+}
+
+.wheel-child {
+  position: relative;
+
+  width: 80px;
+  height: 80px;
+  background-image: url('../../../assets/images/profile/Group\ 43460.png');
+  background-position: top;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  top: -18.4px;
+  right: 50%;
+  transform: translate(50%)
+}
+
+.btn1 {
+  background-color: $light-blue;
+  padding: 8px 15px;
+  color: white;
+  min-width: 95px;
+}
+
+
+.btn2 {
+  color: $light-blue;
+  padding: 8px 15px;
+  border: 1px solid $light-blue;
+  min-width: 192px;
+}
+
+
+.gift {
+  background-image: url('../../../assets/images/profile/Group 43500.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  h3 {
+    font-size: 24px;
+    color: #FFCB51;
+    text-align: center;
+    line-height: 30px;
+  }
+}

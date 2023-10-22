@@ -19,6 +19,7 @@ import { TestPartTwoComponent } from './components/test-part-two/test-part-two.c
 import { TrainingPathsComponent } from './components/main-training/training-paths/training-paths.component';
 import { SkillsLibraryComponent } from './components/main-training/skills-library/skills-library.component';
 import { OnlineCoursesComponent } from './components/main-training/online-courses/online-courses.component';
+import { AllSkillsLibraryComponent } from './components/main-training/skills-library/all-skills-library/all-skills-library.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
           {
             path: trainingRoutes.skillsLibrary,
             component: SkillsLibraryComponent,
+          },
+          {
+            path: trainingRoutes.allSkillsLibrary,
+            component: AllSkillsLibraryComponent,
           },
           {
             path: trainingRoutes.onlineCourses,

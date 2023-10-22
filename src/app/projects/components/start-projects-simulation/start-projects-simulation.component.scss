@@ -1,0 +1,103 @@
+@import "../../../../assets/styles/variables.scss";
+
+.main {
+  margin-top: 30px;
+  padding-bottom: 20px;
+
+  h2 {
+    font-weight: bold;
+    font-size: 75px;
+    color: $main-color;
+    line-height: 80px;
+    font-family: "Bahij";
+  }
+
+  .header {
+    font-size: 35px;
+  }
+  p{
+    font-weight: 400;
+    font-size: 20px;
+    color: $main-color;
+    font-family: "Bahij";
+  }
+
+  h3 {
+    font-weight: 700;
+    font-size: 30px;
+    color: #FFB300;
+    font-family: "Bahij";
+  }
+
+  .content {
+    height: 65vh !important;
+
+    .my-border {
+      background-color: $light-blue;
+      height: 5px;
+      margin-top: 23px;
+    }
+
+
+
+   
+  }
+}
+.define{
+    margin-right: 75px;
+    border-right: 6px solid #3CA7C3;
+    padding-right: 5px;
+    border-radius: 5px;
+}
+.btn2 {
+  background-color:#FFB300;
+  color: $white-color;
+  padding: 10px 0;
+  display: inline-block;
+}
+
+.btn1 {
+  background: linear-gradient(to right, #359BBA, #07487C);
+  color: $white-color;
+  padding: 10px 0;
+  display: inline-block;
+}
+
+.second-section {
+  margin-bottom: -150px;
+}
+
+.card1{
+  background-color: #fff;
+  color:$main-color;
+  text-align: center;
+  border-radius: 10px;
+  padding:10px;
+}
+.circleImage{
+  border-radius: 50%;
+  border:1px solid $light-blue;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+}
+
+.m{
+  width: 50px;
+  height: 50px;
+  margin: 22px;
+}
+
+.section{
+  background-color: #07487C;
+  /* height: 100%; */
+  overflow: revert;
+  height: auto;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 992px) {
+  .section{
+    padding: 0 !important;
+  }
+ }

@@ -11,11 +11,14 @@ import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-mat
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import {MatCardModule} from '@angular/material/card';
-import {MatNativeDateModule} from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatNativeDateModule } from '@angular/material/core';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ModalComponent
+  ],
   imports: [
     CommonModule,
     CoreRoutingModule,
@@ -41,7 +44,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     NgxMatDatetimePickerModule,
     MatCardModule,
     MatNativeDateModule,
-    
+    ModalComponent
   ]
 })
 export class CoreModule { }

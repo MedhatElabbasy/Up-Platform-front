@@ -1,0 +1,180 @@
+.all {
+    background-image: url(../../../../../../assets/images/training/trainingBack.png);
+    background-size: cover;
+    background-position: center center;
+    min-height: 50vh;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+
+
+.nav-pills .nav-link.active {
+    background-color: white;
+    color: #07487C;
+}
+
+
+.nav-pills {
+    float: inline-end;
+    font-size: 17px;
+}
+
+.nav-link {
+    color: white;
+}
+
+.coll div {
+    width: fit-content;
+}
+
+
+.rating {
+    background-color: #3CA7C3;
+    border-radius: 23px;
+    padding: 10px 20px;
+    color: white;
+}
+
+.coll p {
+    font-size: 18px;
+}
+
+.coll h5 {
+    color: #FFB300;
+    font-size: 20px;
+}
+
+.coll h6 {
+    font-size: 18px;
+}
+
+.coll {
+    width: fit-content;
+
+}
+
+.course hr {
+    width: 90%;
+    margin: auto;
+}
+
+.course .price {
+    color: #FFB300;
+    font-size: 60px;
+}
+
+.course .price-btn {
+    background: linear-gradient(90deg, #3CA7C3, #07487C);
+    padding: 20px 40px;
+    border-radius: 20px;
+}
+
+.scaled-course {
+    transition: all .3s;
+    // transform: scale(1.2);
+    width: 50% !important;
+}
+
+.unscaled-course {
+    transition: all .4s;
+    // transform: scale(.8);
+    width: 25% !important;
+
+    h5 {
+        font-size: 13px;
+    }
+
+    h6 {
+        font-size: 12px;
+    }
+
+    p {
+        font-size: 13px;
+    }
+
+    .mb-3 {
+        margin-bottom: 6px !important;
+    }
+
+    .course .price-btn {
+        padding: 10px 20px;
+    }
+
+}
+
+// .course-col{
+//     transition: width .3s;
+// }
+
+.course-col {
+    transition: all .3s;
+}
+
+::ng-deep {
+    .ngx-pagination {
+        width: fit-content;
+        padding-left: 0;
+        margin-bottom: 0 !important;
+        background-color: #FFFFFF;
+        border-radius: 30px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .ngx-pagination .pagination-next a:after,
+    .ngx-pagination .pagination-next.disabled:after {
+        content: "\f053" !important;
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        margin-left: 0 !important;
+    }
+
+    .ngx-pagination .pagination-previous a:before,
+    .ngx-pagination .pagination-previous.disabled:before {
+        content: "\f054" !important;
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        margin-right: 0 !important;
+    }
+
+    .ngx-pagination .current {
+        background-color: #07487C;
+        border: 1px solid #E7E7E7;
+        border-radius: 50%;
+        aspect-ratio: 1 / 1 !important;
+        display: flex;
+        align-items: center;
+
+    }
+    .ngx-pagination li a{
+        border-radius: 50% !important;
+    }
+
+    .ngx-pagination li.pagination-previous, .ngx-pagination li.pagination-next{
+        border: 1px solid #E7E7E7;
+        padding: 10px;
+        border-radius: 50%;
+        // aspect-ratio: 1/1 !important;
+
+        display: flex;
+        width: 30px;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+
+
+        a{
+            padding: 10px !important;
+        }
+        &::before{
+           
+
+        }
+    }
+}
