@@ -2,7 +2,7 @@
 
 .main {
   margin-top: 30px;
-  padding-bottom: 20px;
+  padding-bottom: 150px;
 
   h2 {
     font-weight: bold;
@@ -68,11 +68,14 @@
 }
 
 .card1{
-  background-color: #fff;
+ // background-color: #fff;
   color:$main-color;
   text-align: center;
   border-radius: 10px;
   padding:10px;
+  position: relative;
+  padding-top: 40px;
+
 }
 .circleImage{
   border-radius: 50%;
@@ -80,6 +83,10 @@
   width: 100px;
   height: 100px;
   margin: auto;
+  transform: translate(-50%,-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 
 .m{
