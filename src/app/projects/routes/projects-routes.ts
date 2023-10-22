@@ -15,5 +15,16 @@ export enum projectsRoutes {
     powerOfIdea='power-of-idea',
     powerOfIdeaDetails='power-of-idea-details',
     feasibilityStudy='feasibility-study',
-    feasibilityStudyForm='feasibility-study-form'
+    feasibilityStudyForm='feasibility-study-form',
+    feasibilityStudyFinal='feasibility-study-final',
+    purchases='purchases',
+    PurchasesDetails='purchases-details',
+    marketing='marketing',
+    marketingCost='marketing-cost',
+    marketingDesignAD='marketing-design-ad',
+    marketingAD='marketing-ad',
+    marketingCampaign='marketing-campaign',
+    marketingSales='marketing-sales',
+    marketingDistractions='marketing-distractions',
+    finalReport='final-report'
 }

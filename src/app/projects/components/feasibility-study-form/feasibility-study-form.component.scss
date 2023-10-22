@@ -1,0 +1,125 @@
+@import "../../../../assets/styles/variables.scss";
+
+.main {
+  margin-top: 30px;
+  padding-bottom: 20px;
+
+  h2 {
+    font-weight: bold;
+    font-size: 75px;
+    color: $main-color;
+    line-height: 80px;
+    font-family: "Bahij";
+  }
+
+  .header {
+    font-size: 35px;
+  }
+  p{
+    font-weight: 400;
+    font-size: 12px;
+    color: #000;
+    font-family: "Bahij";
+    margin-top: 10px;
+    line-height: 1.5rem;
+  }
+
+  span{
+    color:$main-color;
+  }
+
+  h3 {
+    font-weight: 400;
+    font-size: 20px;
+    color: #fff;
+    font-family: "Bahij";
+    padding-top: 10px;
+    padding-bottom: 0px;
+    text-align: center;
+  }
+  a{
+    text-decoration:underline;
+    color:$light-blue
+  }
+
+}
+
+.ideaImg{
+    width:500px;
+}
+
+.btn1{
+  background-color: #FFB300;
+  color:#fff;
+ 
+}
+
+.btn2{
+  background-color: red;
+  color:#fff;
+
+}
+
+.btn3{
+  background-color: $light-blue;
+    color: $white-color;
+    padding: 15px 30px;
+}
+
+.section{
+  background-color: $light-blue;
+  overflow: revert;
+  height: auto;
+  border-radius: 10px;
+}
+
+.section2{
+margin-top: 70px;
+}
+
+.second-section {
+  margin-bottom: -120px;
+}
+
+.second-section2 {
+  margin-bottom: -50px;
+}
+
+.card{
+  background-color: #FFB300;
+  border: 1px solid #fff;
+  border-radius: 10%;
+
+ }
+
+//  @media screen and (max-width: 992px) {
+//   .section{
+//     padding: 0 !important;
+//   }
+//  }
+
+ .label1{
+  background-color: #EAEAEA;
+  padding: 5px;
+  border-radius: 10px;
+ }
+
+ label{
+  text-align: left!important;
+ }
+
+ h4{
+  text-align: center;
+ }
+
+ @media screen and (max-width:992px){
+  .ideaImg{
+    display: none!important;
+  }
+ }
+
+ @media screen and (max-width:575px){
+  label{
+    text-align: right!important;
+  }
+ }

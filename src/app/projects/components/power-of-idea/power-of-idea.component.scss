@@ -30,11 +30,11 @@
   h3 {
     font-weight: 700;
     font-size: 14px;
-    color: #000;
+    color: #fff;
     font-family: "Bahij";
     padding-top: 10px;
     padding-bottom: 0px;
-//    text-align: center;
+   text-align: center;
   }
 
 }
@@ -49,7 +49,7 @@ textarea{
     background-color: transparent;
   }
 
-.section{
+.sectionChances{
     background-color: #fff;
     border: 1px solid #fff;
     border-radius: 10px;
@@ -259,4 +259,43 @@ input[type=range]::-webkit-slider-thumb {
     cursor: pointer;
     -webkit-appearance: none;
     margin-top: -4px;
+  }
+
+   
+  .section{
+    background-color: $light-blue;
+    overflow: revert;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .section2{
+  margin-top: 55px;
+  }
+
+
+  .cardLogo{
+    padding: 58px;
+    text-align: center;
+
+   img{
+     width:40px;
+   }
+  }
+
+ 
+
+
+   .card{
+    background-color: #FFB300;
+    border: 1px solid #fff;
+    border-radius: 10%;
+   }
+
+   .second-section {
+    margin-bottom: -120px;
+  }
+
+  .second-section2 {
+    margin-bottom: -50px;
   }
