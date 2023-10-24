@@ -6,6 +6,8 @@ import { HomeComponent } from './components/home/home.component';
 import { PreventAuthGuard } from './Guards/prevent-auth.guard';
 import { ProfileComponent } from './components/profile/profile.component';
 import { WheelOfLuckComponent } from './components/wheel-of-luck/wheel-of-luck.component';
+import { servicesRoutes } from './services/routes/services-routes';
+import { BiographyComponent } from './services/components/biography/biography.component';
 
 const routes: Routes = [
   {
@@ -24,6 +26,10 @@ const routes: Routes = [
   {
     path: 'wheelOfLuck',
     component: WheelOfLuckComponent
+  },
+  {
+    path: servicesRoutes.biography,
+    component: BiographyComponent,
   },
   {
     path: Routing.Auth.module,
