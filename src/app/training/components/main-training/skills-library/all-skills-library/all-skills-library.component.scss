@@ -150,11 +150,13 @@ h3 {
         align-items: center;
 
     }
-    .ngx-pagination li a{
+
+    .ngx-pagination li a {
         border-radius: 50% !important;
     }
 
-    .ngx-pagination li.pagination-previous, .ngx-pagination li.pagination-next{
+    .ngx-pagination li.pagination-previous,
+    .ngx-pagination li.pagination-next {
         border: 1px solid #E7E7E7;
         padding: 10px;
         border-radius: 50%;
@@ -169,12 +171,54 @@ h3 {
         overflow: hidden;
 
 
-        a{
+        a {
             padding: 10px !important;
         }
-        &::before{
-           
 
-        }
+        &::before {}
+    }
+}
+
+
+.card {
+    // width: 300px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+
+    .card__image,
+    h2,
+    p {
+        background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+        border-radius: 5px;
+        background-size: 200% 100%;
+        animation: 1s shine linear infinite;
+    }
+
+    .card__image {
+        height: 200px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .card__content {
+        // padding: 20px;
+    }
+
+    h2 {
+        height: 30px;
+    }
+
+    p {
+        height: 70px;
+        width: 80%;
+    }
+}
+
+
+@keyframes shine {
+    to {
+        background-position-x: -200%;
     }
 }

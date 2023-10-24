@@ -31,7 +31,8 @@ export class AllSkillsLibraryComponent {
   public eventLog: string[] = [];
 
   private popped: any = [];
-
+  categories: any[] = []
+  isLoading: boolean = true
 
   constructor(private _AuthServices: AuthServices, private _TrainingService: TrainingService) {
     // _AuthServices.isUserLoggedIn.next(false)
@@ -39,13 +40,17 @@ export class AllSkillsLibraryComponent {
 
   ngOnInit(): void {
     this.getAllCourses()
+    this.getAllCategoriesInSkillsLibrary()
   }
 
 
   getAllCourses() {
+    this.isLoading = true
     this._TrainingService.getAllSkillsLibraryCourses().subscribe((res) => {
       console.log(res);
       this.courses = res.data
+      this.isLoading = false
+
     })
   }
 
@@ -92,6 +97,20 @@ export class AllSkillsLibraryComponent {
 
     console.log(this.scaledColumnIndex);
 
+  }
+
+
+  getAllCategoriesInSkillsLibrary() {
+    this._TrainingService.getAllCategoriesInSkillsLibrary().subscribe((res) => {
+      console.log(res);
+      this.categories = res.data
+    })
+  }
+
+  getAllCoursesBySubCategoryId(categoryId: number) {
+    this._TrainingService.getAllCoursesBySubCategoryId(categoryId).subscribe((res) => {
+      console.log(res);
+    })
   }
 
 

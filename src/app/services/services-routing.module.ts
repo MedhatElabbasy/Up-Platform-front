@@ -36,7 +36,7 @@ const routes: Routes = [
             redirectTo: servicesRoutes.servicesAdvisors,
             pathMatch: 'full',
           },
-           {
+          {
             path: servicesRoutes.servicesAdvisors,
             component: ServicesAdvisorComponent,
           },

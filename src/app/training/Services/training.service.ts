@@ -15,9 +15,22 @@ export class TrainingService {
   }
 
 
-  
+
   getAllOnlineClasses(): Observable<any> {
     return this._HttpClient.get(environment.baseUrl + '/get-all-classes')
   }
 
+
+  getAllCategoriesInSkillsLibrary(): Observable<any> {
+    return this._HttpClient.get(environment.baseUrl + '/get-sub-categories/skills-library')
+  }
+
+
+  getAllCategoriesInOnlineCourses(): Observable<any> {
+    return this._HttpClient.get(environment.baseUrl + '/get-sub-categories/online-courses')
+  }
+
+  getAllCoursesBySubCategoryId(subCategoryId: number): Observable<any>{
+    return this._HttpClient.get(environment.baseUrl+ '/filter-course?sub_category=' + subCategoryId)
+  }
 }
