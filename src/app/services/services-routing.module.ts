@@ -52,46 +52,80 @@ const routes: Routes = [
       },
       {
         path: servicesRoutes.chooseAdvisor,
+       // component: ChoseAdvisorComponent,
+       children:[
+        {
+        path:'',
         component: ChoseAdvisorComponent,
-      },
-      {
-        path: servicesRoutes.TypesOfConsultations,
-        component: TypesOfConsultationsComponent,
-      },
-      {
-        path: servicesRoutes.TextConsultation,
-        component: TextConsultationComponent,
-      },
-      {
-        path: servicesRoutes.OnlineConsultation,
-        component: OnlineConsultationComponent,
-      },
-      {
-        path: servicesRoutes.biography,
-        component: BiographyComponent,
+        },
+        {
+          path: servicesRoutes.TypesOfConsultations,
+         // component: TypesOfConsultationsComponent,
+         children:[
+          {
+            path:'',
+            component: TypesOfConsultationsComponent,
+          },
+          {
+            path: servicesRoutes.TextConsultation,
+            component: TextConsultationComponent,
+          },
+          {
+            path: servicesRoutes.OnlineConsultation,
+            component: OnlineConsultationComponent,
+          }
+         ]
+        }
+       ]
       },
       {
         path: servicesRoutes.localcertificate,
-        component: LocalCertificateComponent,
+       // component: LocalCertificateComponent,
+         children:[
+          {
+            path: '',
+            component: LocalCertificateComponent,
+          },
+           {
+            path: servicesRoutes.certificateDetails,
+            component: CertificateDetailsComponent,
+          }
+        ]
       },
       {
         path: servicesRoutes.internationalCertificate,
-        component: InternationalCertificateComponent,
+       // component: InternationalCertificateComponent,
+        children:[
+          {
+            path: '',
+            component: InternationalCertificateComponent,
+          },
+           {
+            path: servicesRoutes.certificateDetails,
+            component: CertificateDetailsComponent,
+          }
+        ]
       },
-      {
-        path: servicesRoutes.certificateDetails,
-        component: CertificateDetailsComponent,
-      },
+      // {
+      //   path: servicesRoutes.certificateDetails,
+      //   component: CertificateDetailsComponent,
+      // },
       {
         path: servicesRoutes.advisor,
-        component: AdvisorComponent,
+        //component: AdvisorComponent,
+        children:[
+          {
+            path: '',
+            component: AdvisorComponent,
+          },
+           {
+            path: servicesRoutes.submitAdvisor,
+            component: SubmitAdvisorComponent,
+          }
+        ]
       },
-      {
-        path: servicesRoutes.submitAdvisor,
-        component: SubmitAdvisorComponent,
-      }
     ]
-  }
+  },
 ]
 
 
