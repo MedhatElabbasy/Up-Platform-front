@@ -33,4 +33,8 @@ export class TrainingService {
   getAllCoursesBySubCategoryId(subCategoryId: number): Observable<any>{
     return this._HttpClient.get(environment.baseUrl+ '/filter-course?sub_category=' + subCategoryId)
   }
+
+  getAllTrainingPaths(): Observable<any>{
+    return this._HttpClient.get(environment.baseUrl + '/bundle-subscription')
+  }
 }

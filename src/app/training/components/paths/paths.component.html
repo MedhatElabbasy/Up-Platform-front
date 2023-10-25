@@ -6,20 +6,20 @@
       <div class="row">
         <div class="col-lg-4 mt-3">
           <div class="p-4 first-card  rounded-5 square">
-            <h3 class=" text-center">مسار تأهيلي</h3>
+            <h3 class=" text-center cursor-pointer" routerLink="/training/selected-path">{{trainingPaths[0]?.title}}</h3>
             <div class="p-3 ">
               <ul class="pe-4">
-                <li>6 دورات</li>
+                <li>{{trainingPaths[0].course.length +" دورات "}}</li>
                 <li>شهادات معتمدة</li>
                 <li>تطبيق عملي</li>
               </ul>
             </div>
-            <div class="d-flex justify-content-between">
+            <div class="price">
               <div class="cost">
                 <p>
                   سعر الإشتراك
                 </p>
-                <h4>120<sub>ريال</sub></h4>
+                <h4>{{trainingPaths[0].price}}<sub>ريال</sub></h4>
               </div>
               <div class="d-flex align-items-end">
                 <button type="button" class="nav-link px-4 btn  btn2">أنضم الآن</button>
@@ -27,22 +27,22 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 mt-3">
+      <div class="col-lg-4 mt-3">
           <div class="p-4 other-card  rounded-5 square">
-            <h3 class=" text-center">مسار تمكين</h3>
+            <h3 class=" text-center">{{trainingPaths[1].title}}</h3>
             <div class="p-3 ">
               <ul class="pe-4">
-                <li>6 دورات</li>
+                <li>{{trainingPaths[1].course.length +" دورات "}}</li>
                 <li>شهادات معتمدة</li>
                 <li>تطبيق عملي</li>
               </ul>
             </div>
-            <div class="d-flex justify-content-between">
+            <div class="price">
               <div class="cost">
                 <p>
                   سعر الإشتراك
                 </p>
-                <h4>120<sub>ريال</sub></h4>
+                <h4>{{trainingPaths[1].price}}<sub>ريال</sub></h4>
               </div>
               <div class="d-flex align-items-end">
                 <button type="button" class="nav-link text-white px-4 btn  btn2">أنضم الآن</button>
@@ -53,10 +53,10 @@
 
         <div class="col-lg-4 mt-3">
           <div class="p-4 other-card  rounded-5">
-            <h3 class=" text-center">مسار تطوير</h3>
+            <h3 class=" text-center">{{trainingPaths[2].title}}</h3>
             <div class="p-3 ">
               <ul class="pe-4">
-                <li>6 دورات</li>
+                <li>{{trainingPaths[2]!.course.length +" دورات "}}</li>
                 <li>شهادات معتمدة</li>
                 <li>تطبيق عملي</li>
               </ul>
@@ -64,19 +64,19 @@
             <div class="text-danger error">
               <p class="text-center">يجب إكمال مسار التمكين</p>
             </div>
-            <div class="d-flex justify-content-between mt-0">
+            <div class="price mt-0">
               <div class="cost">
                 <p>
                   سعر الإشتراك
                 </p>
-                <h4>120<sub>ريال</sub></h4>
+                <h4>{{trainingPaths[2].price}}<sub>ريال</sub></h4>
               </div>
               <div class="d-flex align-items-end">
                 <button type="button" class="nav-link text-white px-4 btn  btn2">أنضم الآن</button>
               </div>
             </div>
           </div>
-        </div>
+        </div> 
       </div>
 
     </div>

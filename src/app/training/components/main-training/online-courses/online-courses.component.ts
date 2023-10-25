@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PaginationInstance } from 'ngx-pagination';
 import { TrainingService } from 'src/app/training/Services/training.service';
 
 @Component({
@@ -8,6 +9,24 @@ import { TrainingService } from 'src/app/training/Services/training.service';
 })
 export class OnlineCoursesComponent implements OnInit {
   zoomCourses: any = []
+  public eventLog: string[] = [];
+  public filter: string = '';
+  public maxSize: number = 7;
+  public directionLinks: boolean = true;
+  public autoHide: boolean = true;
+  public responsive: boolean = true;
+  public config: PaginationInstance = {
+    id: 'advanced',
+    itemsPerPage: 4,
+    currentPage: 1
+  };
+  public labels: any = {
+    previousLabel: '',
+    nextLabel: '',
+    screenReaderPaginationLabel: 'Pagination',
+    screenReaderPageLabel: 'page',
+    screenReaderCurrentLabel: `You're on page`
+  };
   constructor(private _TrainingService: TrainingService) {
 
   }
@@ -15,6 +34,42 @@ export class OnlineCoursesComponent implements OnInit {
   ngOnInit(): void {
     this.getAllCourses()
   }
+
+  onPageChange(number: number) {
+   // this.scaledColumnIndex = null
+    this.logEvent(`pageChange(${number})`);
+    this.config.currentPage = number;
+  }
+
+  onPageBoundsCorrection(number: number) {
+    this.logEvent(`pageBoundsCorrection(${number})`);
+    this.config.currentPage = number;
+  }
+
+  
+  private logEvent(message: string) {
+    this.eventLog.unshift(`${new Date().toISOString()}: ${message}`)
+  }
+
+  
+  // scaledColumnIndex: number | null = null;
+
+  // scaleColumn(colIndex: number): void {
+  //   if (this.scaledColumnIndex === colIndex) {
+  //     // If the clicked column is already scaled, descale it
+  //     this.scaledColumnIndex = null;
+  //   } else {
+  //     // Otherwise, scale the clicked column and descale others
+  //     this.scaledColumnIndex = colIndex;
+
+  //     // You can apply scaling logic here, e.g., by modifying CSS classes
+  //     // or changing the column width, depending on your design.
+  //   }
+
+  //   console.log(this.scaledColumnIndex);
+
+  // }
+
   getAllCourses() {
     this._TrainingService.getAllOnlineClasses().subscribe((res) => {
       console.log(res);

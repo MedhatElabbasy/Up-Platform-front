@@ -103,6 +103,73 @@ span {
 
 .my-border {
   border: 1px solid $main-color;
+  // min-height: 280px;
+}
+
+::ng-deep {
+  .ngx-pagination {
+      width: fit-content;
+      padding-left: 0;
+      margin-bottom: 0 !important;
+      background-color: #FFFFFF;
+      border-radius: 30px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+  }
+
+  .ngx-pagination .pagination-next a:after,
+  .ngx-pagination .pagination-next.disabled:after {
+      content: "\f053" !important;
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      margin-left: 0 !important;
+  }
+
+  .ngx-pagination .pagination-previous a:before,
+  .ngx-pagination .pagination-previous.disabled:before {
+      content: "\f054" !important;
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      margin-right: 0 !important;
+  }
+
+  .ngx-pagination .current {
+      background-color: #07487C;
+      border: 1px solid #E7E7E7;
+      border-radius: 50%;
+      aspect-ratio: 1 / 1 !important;
+      display: flex;
+      align-items: center;
+
+  }
+
+  .ngx-pagination li a {
+      border-radius: 50% !important;
+  }
+
+  .ngx-pagination li.pagination-previous,
+  .ngx-pagination li.pagination-next {
+      border: 1px solid #E7E7E7;
+      padding: 10px;
+      border-radius: 50%;
+      // aspect-ratio: 1/1 !important;
+
+      display: flex;
+      width: 30px;
+      height: 30px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+
+
+      a {
+          padding: 10px !important;
+      }
+
+      &::before {}
+  }
 }
 
 
