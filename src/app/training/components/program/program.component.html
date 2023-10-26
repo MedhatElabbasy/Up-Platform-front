@@ -5,7 +5,7 @@
         <h2 class="pb-3 d-inline ">البرنامج التأهيلي لروَّاد الأعمال</h2>
         <p>تفاصيل البرنامج : </p>
         <ul class="pe-3">
-          <li>6دورات تدريبة مقسمة علي مجالات مختلفة</li>
+          <li>{{trainingPaths?.course?.length + "  دورات تدريبة مقسمة علي مجالات مختلفة  "}}</li>
           <li>شهادة معتمدة</li>
           <li>اختبار نهائي + تطبيق عملي علي برنامج محاكاة المشاريع</li>
         </ul>
@@ -13,7 +13,7 @@
         <ul class="pe-3 pb-4">
           <li>خصم<span> 35 %</span> مدتة شهر للدورات المتنوعة</li>
         </ul>
-        <button class="nav-link px-3  btn btn1 mt-5" routerLink="/auth/login">
+        <button class="nav-link px-3  btn btn1 mt-5" routerLink="/training/roadmap">
           <img src="assets/images/training/Group 1634.svg" class="ps-2">
           بدء الدورة</button>
       </div>

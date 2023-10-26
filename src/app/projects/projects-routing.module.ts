@@ -59,24 +59,38 @@ const routes: Routes = [
     },
     {
       path: projectsRoutes.projectsTeam,
-      component: ProjectsTeamComponent,
+      //component: ProjectsTeamComponent,
+      children:[
+        {
+          path:'',
+          component: ProjectsTeamComponent
+        },
+        {
+          path: projectsRoutes.projectsTeamDetails,
+          component: ProjectsTeamDetailsComponent,
+        },
+        {
+          path: projectsRoutes.projectsTeamForm,
+          component: ProjectsTeamFormComponent,
+        },
+      ]
     },
-    {
-      path: projectsRoutes.projectsTeamDetails,
-      component: ProjectsTeamDetailsComponent,
-    },
-    {
-      path: projectsRoutes.projectsTeamForm,
-      component: ProjectsTeamFormComponent,
-    },
+    
     {
       path: projectsRoutes.projectsPartners,
-      component:ProjectsPartnersComponent,
+      //component:ProjectsPartnersComponent,
+      children:[
+        {
+          path:'',
+          component:ProjectsPartnersComponent,
+        },
+        {
+          path: projectsRoutes.newProjectForm,
+          component:NewProjectFormComponent,
+        }
+      ]
     },
-    {
-      path: projectsRoutes.newProjectForm,
-      component:NewProjectFormComponent,
-    },
+   
     {
       path: projectsRoutes.projectsDesign,
       component:ProjectsDesignComponent,

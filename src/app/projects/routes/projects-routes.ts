@@ -28,3 +28,4 @@ export enum projectsRoutes {
     marketingDistractions='marketing-distractions',
     finalReport='final-report'
 }
+   

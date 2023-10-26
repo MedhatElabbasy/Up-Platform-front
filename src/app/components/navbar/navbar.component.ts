@@ -12,7 +12,7 @@ export class NavbarComponent {
 
   isUserLoggedIn: boolean = false
 
-  constructor(private _AuthServices: AuthServices, private _Router: Router) {
+  constructor(private _AuthServices: AuthServices, public _Router: Router) {
     _AuthServices.isUserLoggedIn.subscribe((res) => {
       this.isUserLoggedIn = res
 

@@ -33,7 +33,7 @@ export class AllSkillsLibraryComponent {
   private popped: any = [];
   categories: any[] = []
   isLoading: boolean = true
-
+   categoriesCourses!:any;
   constructor(private _AuthServices: AuthServices, private _TrainingService: TrainingService) {
     // _AuthServices.isUserLoggedIn.next(false)
   }
@@ -48,12 +48,16 @@ export class AllSkillsLibraryComponent {
     this.isLoading = true
     this._TrainingService.getAllSkillsLibraryCourses().subscribe((res) => {
       console.log(res);
+      this.categoriesCourses = res.data
       this.courses = res.data
       this.isLoading = false
 
     })
   }
 
+  myGetAllCourses(){
+    this.categoriesCourses = this.courses
+  }
 
 
   onPageChange(number: number) {
@@ -108,8 +112,15 @@ export class AllSkillsLibraryComponent {
   }
 
   getAllCoursesBySubCategoryId(categoryId: number) {
+    this.isLoading = true
+    // this.courses = []
+    this.categoriesCourses = []
     this._TrainingService.getAllCoursesBySubCategoryId(categoryId).subscribe((res) => {
       console.log(res);
+      if(res){
+      this.isLoading = false
+      this.categoriesCourses = res
+     }
     })
   }
 
