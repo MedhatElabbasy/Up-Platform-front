@@ -9,7 +9,7 @@
           <h3 class="pt-3 pe-2">محتوي الدورة : </h3>
         </div>
         <p class="mt-0 pe-2">
-          هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد
+          {{courseInfo?.about}}
         </p>
         <div class="d-flex align-items-center">
           <div class="square">
@@ -33,7 +33,7 @@
         </div>
       </div>
       <div class="col-lg-4">
-        <div class="d-flex flex-column justify-content-center align-items-center circle rounded-circle">
+        <div class="d-flex flex-column justify-content-center align-items-center circle rounded-circle cursor-pointer" (click)="redirectBio()">
           <div>
             <img src="assets/images/training/user.svg" class="d-block m-auto">
           </div>

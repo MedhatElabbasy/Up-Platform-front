@@ -28,7 +28,7 @@ const routes: Routes = [
     component: WheelOfLuckComponent
   },
   {
-    path: servicesRoutes.biography,
+    path: servicesRoutes.biography+'/:id',
     component: BiographyComponent,
   },
   {

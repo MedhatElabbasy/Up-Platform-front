@@ -7,7 +7,7 @@ import { TrainingService } from '../../Services/training.service';
   styleUrls: ['./paths.component.scss']
 })
 export class PathsComponent {
-
+  isLoading: boolean = true
   trainingPaths!:any;
   constructor(private _trainingService:TrainingService){
 
@@ -18,10 +18,13 @@ this.getAllTrainingPaths()
   }
 
   getAllTrainingPaths(){
+    this.isLoading = true
     this._trainingService.getAllTrainingPaths().subscribe((res)=>{
       console.log(res);
       if(res){
       this.trainingPaths=res.data;
+      this._trainingService.bundleSubscription.next(this.trainingPaths);
+      this.isLoading=false;
       }
     })
   }

@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class TrainingService {
+  bundleSubscription = new BehaviorSubject(null);
 
   constructor(private _HttpClient: HttpClient) { }
 
@@ -36,5 +37,9 @@ export class TrainingService {
 
   getAllTrainingPaths(): Observable<any>{
     return this._HttpClient.get(environment.baseUrl + '/bundle-subscription')
+  }
+
+  getUserData(user_id:number){
+    return this._HttpClient.get(environment.baseUrl + '/user/'+user_id);
   }
 }
