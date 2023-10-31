@@ -12,7 +12,7 @@ import { WheelService } from 'src/app/core/services/wheel.service';
 })
 export class WheelOfLuckComponent {
   @ViewChild(NgxWheelComponent, { static: false }) wheel: any;
-  success!: any
+  success: any = {}
   slicePrizes = [
     {
       number: "1",
@@ -185,16 +185,19 @@ export class WheelOfLuckComponent {
   //   }));
   // }
   before() {
+    console.log("0");
+    this.success = {}
     // const randomNum = this.weightedRandomNumber(this.probabilities);
     // console.log(randomNum);
     // this.playAudio()
-    this.userCanSpin = false
-    this.wheelMessage = "no more tries"
+    
     setTimeout(() => {
       this.success = this.slicePrizes.find((ele) => {
+        console.log(ele.number == this.idToLandOn? ele : '555');
+        
         return ele.number == this.idToLandOn
       })
-    }, 0);
+    }, 5000);
 
 
   }
@@ -209,6 +212,10 @@ export class WheelOfLuckComponent {
   }
 
   after() {
+    console.log("1");
+    this.userCanSpin = false
+    this.wheelMessage = "no more tries"
+
     setTimeout(() => {
       // this.wheel.reset();
       // this.idToLandOn = this.slicePrizes[
@@ -218,7 +225,21 @@ export class WheelOfLuckComponent {
     }, 2000);
   }
 
-  spinAction() {
+  spinAction(type: string) {
+    console.log("Hi");
+    console.log(this.userCanSpin);
+    console.log(this.wheelMessage);
+    
+
+    if (type == 'balance') {
+      this.wheelMessage = ""
+      this.userCanSpin = true
+      this.isWheelClicked = false
+      console.log("Again");
+      // this.wheel.reset();
+      // this.wheel.spin();
+    }
+
     if (!this.userCanSpin) {
       this.isWheelClicked = true
     }
@@ -227,6 +248,8 @@ export class WheelOfLuckComponent {
     if (this.userCanSpin) {
       this.wheel.reset();
       this.wheel.spin();
+      console.log(this.wheelMessage);
+
     }
 
   }
@@ -239,6 +262,8 @@ export class WheelOfLuckComponent {
         console.log(res);
         this.wheelMessage = res.message
         this.userCanSpin = res.success
+        console.log(this.userCanSpin);
+
       })
     } else {
       this.isWheelLoading = false
@@ -246,7 +271,7 @@ export class WheelOfLuckComponent {
       this.wheelMessage = "Please login first"
     }
 
-    
+
   }
 
 
