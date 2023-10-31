@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PaginationInstance } from 'ngx-pagination';
 import { TrainingService } from 'src/app/training/Services/training.service';
 
@@ -8,6 +9,7 @@ import { TrainingService } from 'src/app/training/Services/training.service';
   styleUrls: ['./online-courses.component.scss']
 })
 export class OnlineCoursesComponent implements OnInit {
+  isLoading: boolean = true;
   zoomCourses: any = []
   public eventLog: string[] = [];
   public filter: string = '';
@@ -27,7 +29,7 @@ export class OnlineCoursesComponent implements OnInit {
     screenReaderPageLabel: 'page',
     screenReaderCurrentLabel: `You're on page`
   };
-  constructor(private _TrainingService: TrainingService) {
+  constructor(private _TrainingService: TrainingService ,private router: Router) {
 
   }
 
@@ -71,9 +73,16 @@ export class OnlineCoursesComponent implements OnInit {
   // }
 
   getAllCourses() {
+    this.isLoading = true;
     this._TrainingService.getAllOnlineClasses().subscribe((res) => {
       console.log(res);
       this.zoomCourses = res.data
+      this.isLoading=false;
     })
   }
+
+  
+redirectBio(id:number){
+  this.router.navigate(['/biography/',id])
+}
 }
