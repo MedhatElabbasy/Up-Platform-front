@@ -52,9 +52,4 @@ export class AuthServices {
     return this._HttpClient.post(environment.baseUrl + '/logout', {})
   }
 
-
-
-
-
-
 }

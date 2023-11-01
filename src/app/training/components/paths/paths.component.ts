@@ -8,7 +8,7 @@ import { TrainingService } from '../../Services/training.service';
 })
 export class PathsComponent {
   isLoading: boolean = true
-  trainingPaths!:any;
+  trainingPaths:any = [];
   constructor(private _trainingService:TrainingService){
 
   }
