@@ -35,21 +35,21 @@ export class AuthServices {
     return this._HttpClient.post(environment.baseUrl + '/signup', registerModel)
   }
 
-  emailVerify(emailVerifyModel: any): Observable<any> {
-    return this._HttpClient.post(environment.baseUrl + '/email/verify', emailVerifyModel)
-  }
+  // emailVerify(emailVerifyModel: any): Observable<any> {
+  //   return this._HttpClient.post(environment.baseUrl + '/email/verify', emailVerifyModel)
+  // }
 
-  resendEmailVerify(): Observable<any> {
-    return this._HttpClient.post(environment.baseUrl + '/email/verify/resend', {})
-  }
+  // resendEmailVerify(): Observable<any> {
+  //   return this._HttpClient.post(environment.baseUrl + '/email/verify/resend', {})
+  // }
 
   forgetPassword(forgetPasswordModel: any): Observable<any> {
     return this._HttpClient.post(environment.baseUrl + '/password/send-otp', forgetPasswordModel)
   }
 
-  forgetPasswordVerifyCode(forgetPasswordVerifyCodeModel: any): Observable<any> {
-    return this._HttpClient.post(environment.baseUrl + '/password/forgot/verify', forgetPasswordVerifyCodeModel)
-  }
+  // forgetPasswordVerifyCode(forgetPasswordVerifyCodeModel: any): Observable<any> {
+  //   return this._HttpClient.post(environment.baseUrl + '/password/forgot/verify', forgetPasswordVerifyCodeModel)
+  // }
 
   resetPassword(resetPasswordModel: any): Observable<any> {
     return this._HttpClient.post(environment.baseUrl + '/reset', resetPasswordModel)
