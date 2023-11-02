@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -24,8 +23,16 @@ export class AuthServices {
     return this._HttpClient.post(environment.baseUrl + '/login', loginModel)
   }
 
+  socialLogin(socialLoginModel: any): Observable<any> {
+    return this._HttpClient.post(environment.baseUrl + '/social-login', socialLoginModel)
+  }
+
+  profile(profileModel: any): Observable<any> {
+    return this._HttpClient.get(environment.baseUrl + '/user', profileModel)
+  }
+
   register(registerModel: any): Observable<any> {
-    return this._HttpClient.post(environment.baseUrl + '/register', registerModel)
+    return this._HttpClient.post(environment.baseUrl + '/signup', registerModel)
   }
 
   emailVerify(emailVerifyModel: any): Observable<any> {
@@ -37,7 +44,7 @@ export class AuthServices {
   }
 
   forgetPassword(forgetPasswordModel: any): Observable<any> {
-    return this._HttpClient.post(environment.baseUrl + '/password/forgot', forgetPasswordModel)
+    return this._HttpClient.post(environment.baseUrl + '/password/send-otp', forgetPasswordModel)
   }
 
   forgetPasswordVerifyCode(forgetPasswordVerifyCodeModel: any): Observable<any> {
@@ -45,16 +52,11 @@ export class AuthServices {
   }
 
   resetPassword(resetPasswordModel: any): Observable<any> {
-    return this._HttpClient.post(environment.baseUrl + '/password/reset', resetPasswordModel)
+    return this._HttpClient.post(environment.baseUrl + '/reset', resetPasswordModel)
   }
 
   logout(): Observable<any> {
-    return this._HttpClient.post(environment.baseUrl + '/logout', {})
+    return this._HttpClient.get(environment.baseUrl + '/logout', {})
   }
-
-
-
-
-
 
 }

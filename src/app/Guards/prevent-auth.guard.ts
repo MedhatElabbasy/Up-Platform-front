@@ -17,8 +17,9 @@ export class PreventAuthGuard implements CanActivate {
       if (localStorage.getItem(environment.localStorageName) == null) {
         return true
       } else {
-        this._Router.navigate(['home'])
-        return false
+        // this._Router.navigate(['home'])
+        // return false
+        return true
       }
   }
 

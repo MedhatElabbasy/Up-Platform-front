@@ -5,7 +5,8 @@
         <h2 class="pb-3 d-inline ">البرنامج التأهيلي لروَّاد الأعمال</h2>
         <p>تفاصيل البرنامج : </p>
         <ul class="pe-3">
-          <li>{{trainingPaths?.course?.length + "  دورات تدريبة مقسمة علي مجالات مختلفة  "}}</li>
+          <li><span *ngIf="isLoading" class=" text-center text-black">--</span>{{trainingPaths?.course?.length}} دورات
+            تدريبة مقسمة علي مجالات مختلفة </li>
           <li>شهادة معتمدة</li>
           <li>اختبار نهائي + تطبيق عملي علي برنامج محاكاة المشاريع</li>
         </ul>
