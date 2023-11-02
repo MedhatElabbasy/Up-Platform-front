@@ -17,6 +17,7 @@ export class LoginComponent implements AfterViewInit {
   hide = true;
   isLoading: boolean = false
   errorMessage: string = ""
+  rememberMe: boolean = true;
   private accessToken = '';
   that: any
   constructor(
@@ -31,11 +32,10 @@ export class LoginComponent implements AfterViewInit {
     email: new FormControl('', [Validators.required]),
     // password: new FormControl('', [Validators.required, Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/)]),
     password: new FormControl('', [Validators.required]),
-
+    rememberMe: new FormControl(true)
   })
 
-
-  login(loginForm: FormGroup) {
+  login(loginForm: FormGroup, rememberMe: boolean) {
     console.log(loginForm);
 
     if (loginForm.valid) {
@@ -47,7 +47,12 @@ export class LoginComponent implements AfterViewInit {
           next: (res: any) => {
             // localStorage.setItem(environment.userData, jwt_decode)
             console.log(res);
-            localStorage.setItem(environment.localStorageName, res.data.access_token)
+            if (rememberMe) {
+              localStorage.setItem(environment.localStorageName, res.data.access_token)
+            } else {
+              sessionStorage.setItem(environment.localStorageName, res.data.access_token)
+            }
+            
             this._AuthService.isUserLoggedIn.next(true)
             this._Router.navigate(['/'])
             this.isLoading = false
@@ -64,6 +69,7 @@ export class LoginComponent implements AfterViewInit {
        this.loginForm.markAllAsTouched()
      }
   }
+  
 
 
   // loginWithGoogle() {

@@ -1,7 +1,7 @@
 <div class="px-3 main pt-5">
   <div class="bg-light rounded-4 pt-5  px-4 pb-3">
     <p class="text-center py-2 pt-4 pb-2">تسجيل الدخول</p>
-    <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
+    <form [formGroup]="loginForm" (ngSubmit)="login(loginForm, rememberMe)">
       <div class="input pb-3">
         <div class="input-container ">
           <i class="icon "><img src="assets/images/auth/email.svg"></i>
@@ -26,7 +26,7 @@
       <div class="d-flex justify-content-between know-me">
         <div>
           <div class="form-check ">
-            <input class="form-check-input pointer" type="checkbox" value="" id="flexCheckDefault">
+            <input class="form-check-input pointer" type="checkbox" formControlName="rememberMe" (change)="rememberMe = !rememberMe">
             <label class="form-check-label pe-2 pointer" for="flexCheckDefault">
               تذكرني
             </label>
