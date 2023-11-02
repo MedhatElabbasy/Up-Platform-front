@@ -20,6 +20,11 @@ import { TrainingPathsComponent } from './components/main-training/training-path
 import { SkillsLibraryComponent } from './components/main-training/skills-library/skills-library.component';
 import { OnlineCoursesComponent } from './components/main-training/online-courses/online-courses.component';
 import { AllSkillsLibraryComponent } from './components/main-training/skills-library/all-skills-library/all-skills-library.component';
+import { CourseDetailsComponent } from './components/course-details/course-details.component';
+import { CourseGeneralInfoComponent } from './components/course-details/course-general-info/course-general-info.component';
+import { CourseInstructorComponent } from './components/course-details/course-instructor/course-instructor.component';
+import { CourseScheduleComponent } from './components/course-details/course-schedule/course-schedule.component';
+import { CourseRatingComponent } from './components/course-details/course-rating/course-rating.component';
 
 const routes: Routes = [
   {
@@ -109,6 +114,33 @@ const routes: Routes = [
       {
         path: trainingRoutes.testPartTwo,
         component: TestPartTwoComponent,
+      },
+      {
+        path: trainingRoutes.courseDetails,
+        component: CourseDetailsComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: trainingRoutes.courseGeneralInfo,
+            pathMatch: 'full',
+          },
+          {
+            path: trainingRoutes.courseGeneralInfo,
+            component: CourseGeneralInfoComponent,
+          },
+          {
+            path: trainingRoutes.courseInstructor,
+            component: CourseInstructorComponent,
+          },
+          {
+            path: trainingRoutes.courseschedule,
+            component: CourseScheduleComponent,
+          },
+          {
+            path: trainingRoutes.courseRating,
+            component: CourseRatingComponent,
+          },
+        ]
       },
     ]
   }

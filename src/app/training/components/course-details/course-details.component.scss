@@ -1,0 +1,38 @@
+@import "../../../../assets/styles/variables.scss";
+
+
+.main {
+  margin-top: 30px;
+
+  h2 {
+    font-weight: bold;
+    font-size: 35px;
+    color: $main-color;
+    font-family: "Bahij";
+
+  }
+
+  
+}
+
+
+.second-section{
+    border: 1px solid #828282!important;
+    border-radius: 10px;
+  }
+
+.nav-item{
+    background-color: #F2F2F2 !important;
+    border: 1px solid #828282!important;
+    border-radius: 10px;
+
+}
+.nav-pills{
+    background-color: #F2F2F2;
+    padding:10px;
+    cursor:pointer;
+}
+
+.nav-link{
+    color: #000;
+}

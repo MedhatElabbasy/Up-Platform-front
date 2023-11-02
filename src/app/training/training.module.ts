@@ -22,7 +22,13 @@ import { OnlineCoursesComponent } from './components/main-training/online-course
 import { SkillsLibraryComponent } from './components/main-training/skills-library/skills-library.component';
 import { AllSkillsLibraryComponent } from './components/main-training/skills-library/all-skills-library/all-skills-library.component';
 
-import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import {NgxPaginationModule} from 'ngx-pagination';
+import { CourseGeneralInfoComponent } from './components/course-details/course-general-info/course-general-info.component';
+import { CourseScheduleComponent } from './components/course-details/course-schedule/course-schedule.component';
+import { CourseDetailsComponent } from './components/course-details/course-details.component';
+import { CourseInstructorComponent } from './components/course-details/course-instructor/course-instructor.component';
+import { CourseRatingComponent } from './components/course-details/course-rating/course-rating.component';
+
 
 
 @NgModule({
@@ -45,7 +51,12 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
     TrainingPathsComponent,
     OnlineCoursesComponent,
     SkillsLibraryComponent,
-    AllSkillsLibraryComponent
+    AllSkillsLibraryComponent,
+    CourseGeneralInfoComponent,
+    CourseScheduleComponent,
+    CourseDetailsComponent,
+    CourseInstructorComponent,
+    CourseRatingComponent
   ],
   imports: [
     CommonModule,
