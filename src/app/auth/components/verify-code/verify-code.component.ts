@@ -49,19 +49,19 @@ export class VerifyCodeComponent {
         this.errorMessage = ""
         if (!this.isLoading) {
           this.isLoading = true
-          this._AuthService.forgetPasswordVerifyCode(verifyCodeForm.value).subscribe({
-            next: (res: any) => {
-              // localStorage.setItem(environment.userData, jwt_decode)
-              console.log(res);
+          // this._AuthService.forgetPasswordVerifyCode(verifyCodeForm.value).subscribe({
+          //   next: (res: any) => {
+          //     // localStorage.setItem(environment.userData, jwt_decode)
+          //     console.log(res);
               this._Router.navigate(['/auth/reset-password/' + this.userEmail + '/'+ verifyCodeForm.value.code ])
               this.isLoading = false
-            },
-            error: (err: any) => {
-              console.log(err.message);
-              this.errorMessage = err.message
-              this.isLoading = false
-            }
-          })
+          //   },
+          //   error: (err: any) => {
+          //     console.log(err.message);
+          //     this.errorMessage = err.message
+          //     this.isLoading = false
+          //   }
+          // })
         }
   
       } else {
@@ -97,25 +97,28 @@ export class VerifyCodeComponent {
         this.verifyCodeForm.markAllAsTouched()
       }
     }
-
-   
   }
 
   resendEmailVerify() {
     this.resendMessage = ""
     this.isResendEmailLoading = true
-    this._AuthService.resendEmailVerify().subscribe({
+    this._AuthService.forgetPassword(this.userEmail).subscribe({
       next: (res) => {
-        this.isResendEmailLoading = false
         console.log(res);
-        this.resendMessage = "تم إرسال الكود الى البريد الإلكتروني الخاص بك"
-
+        if(res.success){
+          this.isResendEmailLoading = false
+          this.resendMessage = "تم إرسال الكود مرة أخرى"
+        }
+        else{
+          this.isResendEmailLoading = false
+          console.log(this.userEmail)
+          this.resendMessage = "فشل إرسال الكود"
+        }
       },
       error: (err) => {
         this.isResendEmailLoading = false
         this.resendMessage = err.message
         console.log(err);
-
       }
     })
   }

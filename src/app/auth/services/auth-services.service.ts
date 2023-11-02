@@ -27,8 +27,8 @@ export class AuthServices {
     return this._HttpClient.post(environment.baseUrl + '/social-login', socialLoginModel)
   }
 
-  profile(profileModel: any): Observable<any> {
-    return this._HttpClient.get(environment.baseUrl + '/user', profileModel)
+  profile(): Observable<any> {
+    return this._HttpClient.get(`${environment.baseUrl}/user`);
   }
 
   register(registerModel: any): Observable<any> {
@@ -43,13 +43,14 @@ export class AuthServices {
     return this._HttpClient.post(environment.baseUrl + '/email/verify/resend', {})
   }
 
-  forgetPassword(forgetPasswordModel: any): Observable<any> {
-    return this._HttpClient.post(environment.baseUrl + '/send-otp', forgetPasswordModel)
+  forgetPassword(email: string): Observable<any> {
+    const emailData = { email: email };
+    return this._HttpClient.post(environment.baseUrl + '/send-otp', emailData);
   }
 
-  forgetPasswordVerifyCode(forgetPasswordVerifyCodeModel: any): Observable<any> {
-    return this._HttpClient.post(environment.baseUrl + '/password/forgot/verify', forgetPasswordVerifyCodeModel)
-  }
+  // forgetPasswordVerifyCode(forgetPasswordVerifyCodeModel: any): Observable<any> {
+  //   return this._HttpClient.post(environment.baseUrl + '/password/forgot/verify', forgetPasswordVerifyCodeModel)
+  // }
 
   resetPassword(resetPasswordModel: any): Observable<any> {
     return this._HttpClient.post(environment.baseUrl + '/reset', resetPasswordModel)

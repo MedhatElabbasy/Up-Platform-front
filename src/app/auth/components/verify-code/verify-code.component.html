@@ -4,15 +4,13 @@
     <form [formGroup]="verifyCodeForm" (ngSubmit)="verifyCode(verifyCodeForm)">
       <div class="input pb-3">
         <div class="input-container ">
-          <input formControlName="code" type="text" class="input-field" placeholder="المرسل">
+          <input formControlName="code" type="text" class="input-field" placeholder="الكود">
+        <p *ngIf="verifyCodeForm.get('code')?.errors?.['required'] && verifyCodeForm.get('code')?.touched" class="text-danger mt-1 error-message"> قم بإدخال الكود</p>
         </div>
-        <div *ngIf="errorMessage && !resendMessage" class="float-start pt-1 pb-4">
+        <div *ngIf="errorMessage" class="float-start pt-1 pb-4">
           <span class="text-danger">كود غير صحيح أو منتهي الصلاحية</span>
-          <a *ngIf="!userEmail" class="cursor-pointer" (click)="resendEmailVerify()"> إعادة الإرسال</a>
           <i *ngIf="isResendEmailLoading" class="fas fa-spinner fa-spin"></i>
         </div>
-        <p *ngIf="resendMessage" class="fs-6 text-black mt-1 resendMessage alert alert-success mb-0 py-1">{{resendMessage}}</p>
-
       </div>
 
       <div class=" login mb-5 pb-4">
@@ -22,9 +20,10 @@
         </button>
       </div>
     </form>
-    <div *ngIf="!userEmail" class="d-flex justify-content-center notSend mt-5">
-      <span>لم تتلق الكود .. ؟</span>
+    <div class="d-flex justify-content-center notSend mt-5">
+      <span>لم تتلق الكود؟</span>
       <a class="cursor-pointer" (click)="resendEmailVerify()"> إعادة الإرسال</a>
     </div>
+    <p *ngIf="resendMessage" class="fs-6 text-black mt-2 resendMessage alert alert-success mb-1 py-2">{{resendMessage}}</p>
   </div>
 </div>
