@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthServices } from '../../auth/services/auth-services.service';
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-profile',
@@ -12,5 +14,8 @@ export class ProfileComponent {
   
     logout() {
       this.authService.logout();
+      this.authService.isUserLoggedIn.next(false)
+      localStorage.removeItem(environment.localStorageName)
+      this.router.navigate(['/auth/login']);
     }
 }

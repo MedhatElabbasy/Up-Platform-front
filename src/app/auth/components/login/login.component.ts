@@ -29,7 +29,8 @@ export class LoginComponent implements AfterViewInit {
   loginForm: FormGroup = new FormGroup({
 
     email: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required, Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/)]),
+    // password: new FormControl('', [Validators.required, Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/)]),
+    password: new FormControl('', [Validators.required]),
 
   })
 
@@ -38,6 +39,7 @@ export class LoginComponent implements AfterViewInit {
     console.log(loginForm);
 
     if (loginForm.valid) {
+      console.log("true");
       this.errorMessage = ""
       if (!this.isLoading) {
         this.isLoading = true
@@ -57,10 +59,10 @@ export class LoginComponent implements AfterViewInit {
           }
         })
       }
-
     } else {
-      this.loginForm.markAllAsTouched()
-    }
+      console.log("false");
+       this.loginForm.markAllAsTouched()
+     }
   }
 
 
