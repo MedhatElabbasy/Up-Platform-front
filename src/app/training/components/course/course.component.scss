@@ -87,6 +87,20 @@
       color: $main-color;
     }
 
+ 
+
+
+  }
+
+
+  .btn1 {
+    background: linear-gradient(to right, #359BBA, #07487C);
+    color: $white-color;
+    padding: 10px 0;
+
+    img {
+      width: 20px;
+    }
   }
 
   .section {
@@ -96,6 +110,7 @@
       background: linear-gradient(to right, #359BBA, #07487C);
       color: $white-color;
       padding: 10px 0;
+      cursor: pointer;
 
       img {
         width: 20px;
@@ -149,4 +164,12 @@
     font-size: 18px;
     font-weight: 700;
   }
+}
+
+.aamal{
+  color:#fff;
+  background: linear-gradient(to right, #359BBA, #07487C);
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
 }

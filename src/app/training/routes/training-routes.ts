@@ -17,4 +17,9 @@ export enum trainingRoutes {
   allSkillsLibrary = 'all-skills-library',
   onlineCourses = 'online-courses',
   trainingPaths = 'training-paths',
+  courseDetails='course-details',
+  courseschedule='course-schedule',
+  courseRating='course-rating',
+  courseInstructor='course-instructor',
+  courseGeneralInfo='course-general-info'
 }

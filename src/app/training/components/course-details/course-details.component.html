@@ -1,0 +1,26 @@
+<div class="main px-5 pb-3">
+        <h2 class="pb-3 ">قسم التدريب</h2>
+        <div class="container bg-white p-4 rounded-4 second-section ">
+            <div class="courseImg">
+                <img src="../../../../assets/images/training/feature_03_A.png" style="width:100%;"/>
+            </div>
+            <ul class="nav nav-pills my-5">
+                <li class="nav-item m-3">
+                  <div class="nav-link" [routerLink]="['course-general-info']" routerLinkActive="active">معلومات عامة</div>
+                </li>
+                <li class="nav-item m-3">
+                    <div class="nav-link"  [routerLink]="['course-schedule']" routerLinkActive="active">الجدول الدراسي</div>
+                </li>
+                <li class="nav-item m-3">
+                    <div class="nav-link" [routerLink]="['course-instructor']" routerLinkActive="active">المحاضر</div>
+                </li>
+                <li class="nav-item m-3">
+                    <div class="nav-link"  [routerLink]="['course-rating']" routerLinkActive="active">التقييم</div>
+                </li>
+              </ul>
+
+              <div>
+                <router-outlet></router-outlet>
+              </div>
+        </div>
+</div>
