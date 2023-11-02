@@ -17,11 +17,11 @@ export class ResetPasswordComponent {
   errorMessage: string = ""
   resendMessage: string = ""
   userEmail: string = ""
-  code: string = ""
+  otp: number = 0
 
   passwordConfirmationValidator: ValidatorFn = (control: AbstractControl): {[key: string]: any} | null => {
     const password = control.get('password')?.value;
-    const confirmPassword = control.get('password_confirmation')?.value;
+    const confirmPassword = control.get('confirm_password')?.value;
 
     return password === confirmPassword ? null : { passwordMismatch: true };
   };
@@ -33,16 +33,16 @@ export class ResetPasswordComponent {
   ) {
     _ActivatedRoute.params.subscribe((res) => {
       this.userEmail = res['email']
-      this.code = res['code']
+      this.otp = +res['code']
     })
   }
 
   resetForm: FormGroup = new FormGroup({
 
     password: new FormControl('', [Validators.required, Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/)]),
-    password_confirmation: new FormControl('', [Validators.required]),
+    confirm_password: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    code: new FormControl('', [Validators.required]),
+    otp: new FormControl('', [Validators.required]),
 
   }, { validators: this.passwordConfirmationValidator });
 
@@ -51,7 +51,7 @@ export class ResetPasswordComponent {
    // console.log(resetForm);
     this.resetForm.patchValue({
       email: this.userEmail,
-      code: this.code
+      otp: this.otp
     })
 
     if (this.resetForm.valid) {
@@ -61,7 +61,7 @@ export class ResetPasswordComponent {
         this._AuthService.resetPassword(this.resetForm.value).subscribe({
           next: (res: any) => {
             // localStorage.setItem(environment.userData, jwt_decode)
-            console.log(res.status);
+            console.log(res.success);
             if(res.success){
               this._Router.navigate(['/auth/success'])
               this.isLoading = false
