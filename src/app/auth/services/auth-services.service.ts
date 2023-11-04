@@ -23,8 +23,18 @@ export class AuthServices {
     return this._HttpClient.post(environment.baseUrl + '/login', loginModel)
   }
 
-  socialLogin(socialLoginModel: any): Observable<any> {
-    return this._HttpClient.post(environment.baseUrl + '/social-login', socialLoginModel)
+  // socialLogin(socialLoginModel: any): Observable<any> {
+  //   return this._HttpClient.post(environment.baseUrl + '/social-login', socialLoginModel)
+  // }
+
+  socialLogin(provider: string, token: string, email: string, name: string): Observable<any> {
+    const socialLoginModel = {
+      provider_name: provider,
+      token: token,
+      email: email,
+      name: name,
+    };
+    return this._HttpClient.post(environment.baseUrl + '/social-login', socialLoginModel);
   }
 
   profile(): Observable<any> {

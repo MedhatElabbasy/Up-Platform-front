@@ -69,39 +69,52 @@ export class LoginComponent implements AfterViewInit {
        this.loginForm.markAllAsTouched()
      }
   }
-  
 
+   ngAfterViewInit(): void {
+    this.signInWithGoogle()
+   }
 
-  // loginWithGoogle() {
-  //   console.log("Hi");
-  //   this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((res) => {
-  //     console.log(res);
-
-  //   });
-
-  // }
-
-  // loginWithGoogle(): void {
-  //   console.log(this._SocialAuthService);
-    
-  //   this._SocialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
-  // }
-
-  ngAfterViewInit(): void {
-    // const button = document.getElementById('google-signin-button');
-    // google.accounts.id.initialize({
-    //   client_id: '605141817130-p3r8jrcukibc9ehs66dl3ls9bn1gja0o.apps.googleusercontent.com',
-    //   callback: this.onGoogleSignIn, // Define your callback function
-    // });
-    // google.accounts.id.renderButton(button, {
-    //   // type: 'standard',
-    //   size: 'large',
-    //   // theme: 'filled_blue'
-    // });
+  signInWithGoogle() {
+    const button = document.getElementById('google-signin-button');
+    const that = this;
+    google.accounts.id.initialize({
+      client_id: '605141817130-p3r8jrcukibc9ehs66dl3ls9bn1gja0o.apps.googleusercontent.com',
+      callback: function (response: any) {
+        that.onGoogleSignIn(response);
+      }
+    });
+    google.accounts.id.renderButton(button, {
+      // type: 'standard',
+      size: 'large',
+      // theme: 'filled_blue'
+    });
+     
   }
-  // onGoogleSignIn(response: any) {
-  //   // Handle the Google Sign-In response here
-  //   console.log('Google Sign-In Response:', response);
-  // }
+  
+  onGoogleSignIn(response: any) {
+    // Handle the Google Sign-In response here
+    if (response.credential) {
+      const googleToken = response.credential;
+      this.loginWithGoogle(googleToken);
+    }
+  }
+  
+  loginWithGoogle(token: string) {
+    const tokenPayload = token.split('.')[1];
+    const decodedPayload = atob(tokenPayload);
+    const payload = JSON.parse(decodedPayload);
+    this._AuthService.socialLogin('google', token, payload.email, payload.name).subscribe(
+      (response) => {
+        console.log('Social login response:', response);
+        localStorage.setItem(environment.localStorageName, response.data.access_token);
+        this._Router.navigate(['/']);
+      },
+      (error) => {
+        // Handle error if the social login fails
+        console.error('Social login error:', error);
+      }
+    );
+  }
+  
 
 }
