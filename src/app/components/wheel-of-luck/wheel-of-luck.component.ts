@@ -4,7 +4,6 @@ import { AuthServices } from 'src/app/auth/services/auth-services.service';
 import { WheelService } from 'src/app/core/services/wheel.service';
 
 
-
 @Component({
   selector: 'app-wheel-of-luck',
   templateUrl: './wheel-of-luck.component.html',
@@ -13,62 +12,10 @@ import { WheelService } from 'src/app/core/services/wheel.service';
 export class WheelOfLuckComponent {
   @ViewChild(NgxWheelComponent, { static: false }) wheel: any;
   success: any = {}
-  slicePrizes = [
-    {
-      number: "1",
-      data: '40 نقطة'
-    },
-    {
-      number: "2",
-      data: 'نقطتين'
-    },
-    {
-      number: "3",
-      data: '3 نقاط'
-    },
-    {
-      number: "4",
-      data: '10 نقاط'
-    },
-    {
-      number: "5",
-      data: 'جرب مرة أخرى'
-    },
-    {
-      number: "6",
-      data: '5 نقاط'
-    },
-    {
-      number: "7",
-      data: '3 نقاط'
-    },
-    {
-      number: "8",
-      data: 'جرب مرة أخرى'
-    },
-    {
-      number: "9",
-      data: '30 نقطة'
-    },
-    {
-      number: "10",
-      data: '20 نقطة',
-
-    },
-    {
-      number: "11",
-      data: 'نقطة',
-
-    },
-    {
-      number: "12",
-      data: 'جرب مرة أخرى',
-    }
-  ];
-
+  slicePrizes: any[] = [];
+  wheelSpinAudio!: HTMLAudioElement;
+  clapAudio!: HTMLAudioElement;
   seed = [...this.slicePrizes.keys()];
-
-
   idToLandOn: any;
   items: any[] = [];
   textOrientation: TextOrientation = TextOrientation.HORIZONTAL;
@@ -77,13 +24,13 @@ export class WheelOfLuckComponent {
   wheelMessage: string = ""
   isWheelClicked: boolean = false
   isWheelLoading: boolean = true
-  private audioContext!: AudioContext;
 
-  constructor(private _AuthServices: AuthServices, private _WheelService: WheelService) {
-    this.audioContext = new AudioContext();
+  constructor(private _AuthServices: AuthServices, private _WheelService: WheelService) {    
+    this.wheelSpinAudio = new Audio('../../../assets/sounds/wheel-spin.wav');
+    this.clapAudio = new Audio('../../../assets/sounds/claps.mp3');
   }
 
-  probabilities: number[] = [1000, 2000, 1, 3, 1, 1, 1, 1, 1, 1];
+  probabilities: number[] = [];
 
   weightedRandomNumber(probabilities: number[]) {
     const totalWeight = probabilities.reduce((acc, prob) => acc + prob, 0);
@@ -93,174 +40,200 @@ export class WheelOfLuckComponent {
     for (let i = 0; i < probabilities.length; i++) {
       sum += probabilities[i];
       if (randomNumber <= sum) {
-        return i + 1; // Add 1 to convert the index to the actual number (1 to 10)
+        return i + 1;
       }
     }
     return
   }
 
   ngOnInit() {
+    this.before()
     this.checkIfUserCanSpin()
-
+    this._WheelService.getAllPrizes().subscribe((prizes: any) => {
+      console.log('Received Prizes: ', prizes);
+    this.slicePrizes = prizes;
+    this.probabilities = prizes.map((prize: any) => parseInt(prize.probability, 10));
 
     const canvas = document.createElement('canvas');
     const ctx: any = canvas.getContext('2d');
 
-    // Create a linear gradient for the fillStyle
-    const gradient = ctx.createLinearGradient(0, 0, 0, 200); // Adjust the gradient direction and size
+    const gradient = ctx.createLinearGradient(0, 0, 0, 200);
 
-    // Define gradient colors and positions
-    gradient.addColorStop(0, '#47C7FF'); // Starting color at the top
+    gradient.addColorStop(0, '#47C7FF');
     gradient.addColorStop(1, '#3267F5');
 
     let gradientColors = this.slicePrizes.map((color, i) => {
       if (i % 2) {
-        const gradient = ctx.createLinearGradient(0, 0, 0, 200); // Adjust the gradient direction and size
+        const gradient = ctx.createLinearGradient(0, 0, 0, 200);
 
         // Define gradient colors and positions
-        gradient.addColorStop(0, '#fff'); // Starting color at the top
-        gradient.addColorStop(.3, '#47C7FF'); // Starting color at the top
+        gradient.addColorStop(0, '#fff'); 
+        gradient.addColorStop(.3, '#47C7FF'); 
         gradient.addColorStop(.8, '#3267F5');
         gradient.addColorStop(1, '#E45493');
         return gradient
       } else {
-        const gradient = ctx.createLinearGradient(0, 0, 0, 200); // Adjust the gradient direction and size
+        const gradient = ctx.createLinearGradient(0, 0, 0, 200);
 
         // Define gradient colors and positions
-        gradient.addColorStop(0, '#fff'); // Starting color at the top
+        gradient.addColorStop(0, '#fff');
         gradient.addColorStop(1, '#fff');
         return gradient
       }
     })
 
-
-
-    // this.idToLandOn = this.slicePrizes[
-    //   Math.floor(Math.random() * this.seed.length)
-    // ].number;
-
-    this.idToLandOn = this.weightedRandomNumber(this.probabilities)?.toString();
+    this.idToLandOn = this.weightedRandomNumber(this.probabilities);
+    console.log(this.idToLandOn);
 
     const colors = [gradient, "#ffff"];
     const colors2 = ["#07487C", "#fff"]
+    console.log(this.slicePrizes);
     this.items = this.slicePrizes.map((value: any) => ({
-      fillStyle: gradientColors[value.number % 2],
-      text: `${value.data}`,
-      id: value.number,
-      textFillStyle: colors2[value.number % 2],
+      fillStyle: gradientColors[value.id % 2],
+      text: value.points,
+      id: value.id,
+      textFillStyle: colors2[value.id % 2],
       textFontSize: "14",
       textFontFamily: 'Bahij Regular'
     }));
+    console.log('Items: ', this.items);
+
+  });;
   }
 
-
-
-  playAudio() {
-    // Load and play the audio
-    fetch('assets/sounds/videoplayback.mp3')
-      .then((response) => response.arrayBuffer())
-      .then((data) => this.audioContext.decodeAudioData(data))
-      .then((audioBuffer) => {
-        const source = this.audioContext.createBufferSource();
-        source.buffer = audioBuffer;
-        source.connect(this.audioContext.destination);
-        source.start(0);
-      });
-  }
-
-
-  // reset() {
-
-  //   this.wheel.reset();
-  //   this.idToLandOn = this.slicePrizes[
-  //     Math.floor(Math.random() * this.seed.length)
-  //   ].number;
-  //   const colors = ["#3CA7C3", "#ffff"];
-  //   this.items = this.slicePrizes.map((value: any) => ({
-  //     fillStyle: colors[value.number % 2],
-  //     text: `${value.data}`,
-  //     id: value.number,
-  //     textFillStyle: "#07487C",
-  //     textFontSize: "20"
-  //   }));
-  // }
+   reset() {
+     this.wheel.reset();
+     this.idToLandOn = this.slicePrizes[
+       Math.floor(Math.random() * this.seed.length)
+     ].number;
+     const colors = ["#3CA7C3", "#ffff"];
+     this.items = this.slicePrizes.map((value: any) => ({
+       fillStyle: colors[value.number % 2],
+       text: value.data,
+       id: value.number,
+       textFillStyle: "#07487C",
+       textFontSize: "20"
+     }));
+   }
   before() {
-    console.log("0");
+    console.log("before");
     this.success = {}
-    // const randomNum = this.weightedRandomNumber(this.probabilities);
-    // console.log(randomNum);
-    // this.playAudio()
-    
     setTimeout(() => {
       this.success = this.slicePrizes.find((ele) => {
-        console.log(ele.number == this.idToLandOn? ele : '555');
-        
+        console.log(ele);
+        console.log(ele.number == this.idToLandOn? ele : ''); 
         return ele.number == this.idToLandOn
       })
     }, 5000);
-
-
-  }
-
-
-
-  async spin(prize: any) {
-
-    this.idToLandOn = prize;
-    await new Promise((resolve) => setTimeout(resolve, 0));
-    this.wheel.spin();
   }
 
   after() {
-    console.log("1");
+    console.log("After");
     this.userCanSpin = false
-    this.wheelMessage = "no more tries"
+    this.wheelMessage = "لا محاولات أخرى متبقية"
 
     setTimeout(() => {
-      // this.wheel.reset();
-      // this.idToLandOn = this.slicePrizes[
-      //   Math.floor(Math.random() * this.seed.length)
-      // ].number;
-      this.idToLandOn = this.weightedRandomNumber(this.probabilities)?.toString();
+       this.wheel.reset();
+       this.idToLandOn = this.slicePrizes[
+         Math.floor(Math.random() * this.seed.length)
+       ].number;
+      this.idToLandOn = this.weightedRandomNumber(this.probabilities);
+      
     }, 2000);
   }
 
   spinAction(type: string) {
-    console.log("Hi");
-    console.log(this.userCanSpin);
-    console.log(this.wheelMessage);
-    
+    this.wheelSpinAudio.load();
+    this.clapAudio.load();
+    if (type === 'free') {
+      this.wheelMessage = '';
+      this.userCanSpin = true;
+      this.isWheelClicked = false;
 
-    if (type == 'balance') {
-      this.wheelMessage = ""
-      this.userCanSpin = true
-      this.isWheelClicked = false
-      console.log("Again");
-      // this.wheel.reset();
-      // this.wheel.spin();
-    }
+      const randomIndex = Math.floor(Math.random() * this.items.length);
+      const selectedPrize = this.items[randomIndex];
 
-    if (!this.userCanSpin) {
-      this.isWheelClicked = true
-    }
+      // Access id and points from the selected prize
+    const prizeId = selectedPrize.id;
+    const points = selectedPrize.text;
 
-    // Call the spin method with the desired prize or any other logic
-    if (this.userCanSpin) {
-      this.wheel.reset();
-      this.wheel.spin();
-      console.log(this.wheelMessage);
+    // Set the selected prize's ID to land on
+    this.idToLandOn = prizeId;
 
-    }
-
+    // Log the points of the selected prize
+    console.log('Points of the selected prize:', points);
+  
+      this._WheelService.lotteryWheelOperation(prizeId, 'free').subscribe(
+        (response: any) => {
+          console.log('API Response:', response);
+          if (response.success) {
+            this.wheelSpinAudio.play();
+            console.log(response);
+            console.log(response.prize_id)
+            this.idToLandOn = parseInt(response.prize_id, 10);;
+            this.wheel.spin();
+            setTimeout(() => {
+              this.clapAudio.play();
+              this.wheelMessage = "لقد ربحت: "+points+ " نقاط!";
+            }, 2000);
+          } else {
+            // Handle cases where the spin didn't happen or further error handling
+            console.error('Failed to spin:', response.message);
+            if (response.message === 'Try tomorrow') {
+              this.wheelMessage = 'حاول مجددًا غدًا';
+            }
+          }
+        },
+        (error: any) => {
+          console.error('API Error:', error);
+          // Handle API errors or network issues
+        }
+      );
+    } else if (type === 'balance') {
+      this.wheelMessage = '';
+  
+      const randomIndex = Math.floor(Math.random() * this.items.length);
+      const selectedPrize = this.items[randomIndex];
+    const prizeId = selectedPrize.id;
+    const points = selectedPrize.text;
+    this.idToLandOn = prizeId;
+      this._WheelService.lotteryWheelOperation(prizeId, 'balance').subscribe(
+        (response: any) => {
+          console.log('Balance Spin API Response:', response);
+          if (response.success) {
+            this.wheelSpinAudio.play();
+            this.idToLandOn = parseInt(response.prize_id, 10);
+            this.wheel.spin();
+            setTimeout(() => {
+              this.clapAudio.play();
+              this.wheelMessage = "مبروك! لقد ربحت: "+points;
+            }, 2000);          } else {
+            console.error('Failed to spin (Balance):', response.message);
+            if (response.message === 'The balance is not enough') {
+              this.wheelMessage = 'لا تمتلك نقاط كافية';
+            } else if ("You cannot try again more than 3 times in 24 hours") {
+              this.wheelMessage = 'لا يمكنك المحاولة أكثر من 3 مرات خلال 24 ساعة';
+            } else {
+              this.wheelMessage = 'فشلت العملية، يُرجى المحاولة مجددًا';
+            }
+          }
+        },
+        (error: any) => {
+          console.error('Balance Spin API Error:', error);
+        }
+      );}
   }
-
+  
+  
   checkIfUserCanSpin() {
     console.log(this._AuthServices.userToken);
     if (this._AuthServices.userToken) {
       this._WheelService.canSpin().subscribe((res) => {
         this.isWheelLoading = false
         console.log(res);
-        this.wheelMessage = res.message
+        if (res.message == "Try tomorrow"){
+          this.wheelMessage = "حاول مجددًا غدًا"
+        }
         this.userCanSpin = res.success
         console.log(this.userCanSpin);
 
@@ -268,11 +241,7 @@ export class WheelOfLuckComponent {
     } else {
       this.isWheelLoading = false
       console.log("Please login");
-      this.wheelMessage = "Please login first"
+      this.wheelMessage = "من فضلك قم بتسجيل الدخول أولًا"
     }
-
-
   }
-
-
 }

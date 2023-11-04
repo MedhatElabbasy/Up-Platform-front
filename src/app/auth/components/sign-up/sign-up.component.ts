@@ -87,8 +87,8 @@ export class SignUpComponent {
             // localStorage.setItem(environment.userData, jwt_decode)
             if(res.success) {
               // localStorage.setItem(environment.localStorageName, res.data.token)
-              localStorage.setItem(environment.localStorageName, environment.ApiKey)
-              this._Router.navigate(['/'])
+              //localStorage.setItem(environment.localStorageName, environment.ApiKey)
+              this._Router.navigate(['/auth/login'])
               this.isLoading = false
           } else {
             this.isLoading = false;

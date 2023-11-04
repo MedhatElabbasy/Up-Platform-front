@@ -28,7 +28,7 @@ export class NavbarComponent {
     this._AuthServices.profile().subscribe(
       (data: any) => {
         this.userDetails = data.data;
-        console.log(this.userDetails);
+        // console.log(this.userDetails);
       },
       (error: any) => {
         console.error('Error fetching user details', error);
