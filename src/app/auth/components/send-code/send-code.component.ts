@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./send-code.component.scss']
 })
 export class SendCodeComponent {
+  errorMessage: string = ""
   isLoading: boolean = false
   constructor(private _AuthServices: AuthServices, private _Router: Router) {
 
@@ -27,8 +28,12 @@ export class SendCodeComponent {
     this._AuthServices.forgetPassword(sendCodeForm.value).subscribe((res) => {
       this.isLoading = false
       console.log(res);
-      if (res.status) {
+      if (res.success) {
+        this.errorMessage = "";
         this._Router.navigate(['auth/verify-code/' + sendCodeForm.value.email])
+      }
+      else{
+        this.errorMessage = "لا يوجد حساب لهذا البريد الإلكتروني";
       }
     })
   }

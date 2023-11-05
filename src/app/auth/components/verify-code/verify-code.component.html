@@ -1,13 +1,13 @@
 <div class="px-3 main pt-5">
   <div class="bg-light rounded-4 pt-5  px-4 pb-3">
-    <p class="py-2 pt-4 pb-2">الرجاء كتابة المرسل</p>
+    <p class="py-2 pt-4 pb-2">الرجاء كتابة الكود المرسل</p>
     <form [formGroup]="verifyCodeForm" (ngSubmit)="verifyCode(verifyCodeForm)">
       <div class="input pb-3">
         <div class="input-container ">
           <input formControlName="code" type="text" class="input-field" placeholder="المرسل">
         </div>
         <div *ngIf="errorMessage && !resendMessage" class="float-start pt-1 pb-4">
-          <span>الكود خطأ...</span>
+          <span class="text-danger">كود غير صحيح أو منتهي الصلاحية</span>
           <a *ngIf="!userEmail" class="cursor-pointer" (click)="resendEmailVerify()"> إعادة الإرسال</a>
           <i *ngIf="isResendEmailLoading" class="fas fa-spinner fa-spin"></i>
         </div>

@@ -22,7 +22,7 @@ export class NavbarComponent {
   logout() {
     this._AuthServices.logout()
     this._AuthServices.isUserLoggedIn.next(false)
-    this._Router.navigate(['/auth/login'])
     localStorage.removeItem(environment.localStorageName)
+    this._Router.navigate(['/auth/login'])
   }
 }

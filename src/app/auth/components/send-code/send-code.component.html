@@ -7,6 +7,9 @@
           <i class="icon "><img src="assets/images/auth/email.svg"></i>
           <input formControlName="email" type="email" class="input-field" placeholder="البريد الالكتروني">
         </div>
+        <div>
+          <p class="error-message mt-1 text-danger">{{ errorMessage }}</p>
+        </div>
       </div>
       <div class="mt-3 login mb-5 pb-4">
         <button [disabled]="isLoading" class="btn w-100 mb-5">

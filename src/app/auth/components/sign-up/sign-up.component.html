@@ -4,8 +4,14 @@
     <form [formGroup]="registerForm" (ngSubmit)="register(registerForm)">
       <div class="input pb-3">
         <div class="input-container ">
-          <i class="icon "><img src="assets/images/auth/user.svg"></i>
+          <i class="icon"><img src="assets/images/auth/user.svg"></i>
           <input formControlName="name" type="text" class="input-field" placeholder="اسم المستخدم">
+          
+        </div>
+        <div *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.errors">
+          <div *ngIf="registerForm.get('name')?.hasError('required')">
+            <p class="text-danger error-message">{{ validationMessages.name?.required }}</p>
+          </div>
         </div>
       </div>
 
@@ -14,12 +20,25 @@
           <i class="icon "><img src="assets/images/auth/email.svg"></i>
           <input formControlName="email" type="email" class="input-field" placeholder="البريد الالكتروني">
         </div>
+        <div *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors">
+          <div *ngIf="registerForm.get('email')?.hasError('required')">
+            <p class="error-message text-danger">{{ validationMessages.email?.required }}</p>
+          </div>
+          <div *ngIf="registerForm.get('email')?.hasError('email')">
+            <p class="error-message text-danger">{{ validationMessages.email?.email }}</p>
+          </div>
+        </div>
       </div>
 
       <div class="input pb-3">
         <div class="input-container ">
           <i class="icon "><img src="assets/images/auth/phone.svg"></i>
           <input formControlName="phone" type="text" class="input-field" placeholder="رقم الجوال">
+        </div>
+        <div *ngIf="registerForm.get('phone')?.touched && registerForm.get('phone')?.errors">
+          <div *ngIf="registerForm.get('phone')?.hasError('required')">
+            <p class="error-message text-danger">{{ validationMessages.phone?.required }}</p>
+          </div>
         </div>
       </div>
       <div class="input pb-3">
@@ -29,6 +48,14 @@
           <button mat-icon-button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
+        </div>
+        <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors">
+          <div *ngIf="registerForm.get('password')?.hasError('required')">
+            <p class="error-message text-danger">{{ validationMessages.password?.required }}</p>
+          </div>
+          <div *ngIf="registerForm.get('password')?.hasError('pattern')">
+            <p class="error-message text-danger">{{ validationMessages.password?.pattern }}</p>
+          </div>
         </div>
       </div>
 
@@ -41,6 +68,9 @@
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
         </div>
+        <div *ngIf="registerForm.hasError('passwordMismatch') && (registerForm.get('password_confirmation')?.dirty || registerForm.get('password_confirmation')?.touched)">
+          <p class="error-message text-danger">كلمة المرور غير متطابقة</p>
+        </div>
       </div>
       <div class="mt-3 login">
         <button [disabled]="isLoading" type="submit" class="btn w-100 ">
@@ -49,22 +79,26 @@
         </button>
       </div>
       <p *ngIf="errorMessage" class="alert alert-danger fs-6 mt-1">{{errorMessage}}</p>
+      <div class="d-flex justify-content-center know-me mt-4 ">
+        <div>
+          <div class="form-check">
+            <input class="form-check-input pointer" type="checkbox" formControlName="checkboxControl" value="" id="flexCheckDefault">
+            <label class="form-check-label pe-2 pointer" for="flexCheckDefault">
+              أوافق على الشروط والأحكام
+            </label>
+            <div *ngIf="registerForm.get('checkboxControl')?.value === false && (registerForm.get('checkboxControl')?.dirty || registerForm.get('checkboxControl')?.touched)">
+              <p class="error-message text-danger">يجب الموافقة على الشروط والأحكام</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </form>
     <!-- <div class="mt-3 socialLogin">
       <button class=" w-100 bg-light rounded-2 "> أو تسجيل الدخول بــ<img src="assets/images/auth/google.svg"
           class="pe-4"></button>
     </div> -->
 
-    <div class="d-flex justify-content-center know-me mt-4 ">
-      <div>
-        <div class="form-check">
-          <input class="form-check-input pointer" type="checkbox" value="" id="flexCheckDefault">
-          <label class="form-check-label pe-2 pointer" for="flexCheckDefault">
-            اوافق على الشروط والأحكام
-          </label>
-        </div>
-      </div>
-    </div>
+    
 
   </div>
 </div>

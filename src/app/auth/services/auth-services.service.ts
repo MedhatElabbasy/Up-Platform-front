@@ -44,7 +44,7 @@ export class AuthServices {
   }
 
   forgetPassword(forgetPasswordModel: any): Observable<any> {
-    return this._HttpClient.post(environment.baseUrl + '/password/send-otp', forgetPasswordModel)
+    return this._HttpClient.post(environment.baseUrl + '/send-otp', forgetPasswordModel)
   }
 
   forgetPasswordVerifyCode(forgetPasswordVerifyCodeModel: any): Observable<any> {
@@ -58,5 +58,4 @@ export class AuthServices {
   logout(): Observable<any> {
     return this._HttpClient.get(environment.baseUrl + '/logout', {})
   }
-
 }
