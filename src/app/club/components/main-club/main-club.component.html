@@ -73,8 +73,8 @@
     <div class="d-flex justify-content-between">
       <div>
 
-        <p-dropdown [options]="cities" [(ngModel)]="selectedCity" [style]="{'min-width':'150px'}"
-          placeholder="أختر المدينة"></p-dropdown>
+        <p-dropdown [options]="Allcities" [(ngModel)]="selectedCity" [style]="{'min-width':'150px'}"
+          placeholder="أختر المدينة" (onChange)="citiesFilteration($event)"></p-dropdown>
       </div>
       <div>
         <div class="form-check mt-2">
@@ -86,12 +86,12 @@
       </div>
     </div>
     <div class="row mt-5">
-      <div class="col-lg-4 col-md-6 section">
+      <div *ngFor="let event of events | paginate: config; let colIndex = index" class="col-lg-4 col-md-6 section">
         <div class="p-2">
           <div class="bg-white rounded-4">
             <div class="p-2">
               <div class="rounded-4 child p-2 ">
-                <h3 class="text-center mt-2">اسم الفعالية</h3>
+                <h3 class="text-center mt-2">{{event.title}}</h3>
                 <div class="container">
                   <div class="row">
                     <div class="col-1">
@@ -102,7 +102,7 @@
                     </div>
 
                     <div class="col-6">
-                      <p>12-12-2024</p>
+                      <p>{{event.created_at.split("T")[0]}}</p>
                     </div>
                   </div>
                   <div class="row mt-2">
@@ -114,7 +114,7 @@
                     </div>
 
                     <div class="col-6">
-                      <p>الرياض</p>
+                      <p>{{event.location}}</p>
                     </div>
                   </div>
                 </div>
@@ -128,91 +128,135 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-6 section">
-        <div class="p-2">
-          <div class="bg-white rounded-4">
-            <div class="p-2">
-              <div class="rounded-4 child p-2 ">
-                <h3 class="text-center mt-2">اسم الفعالية</h3>
-                <div class="container">
-                  <div class="row">
-                    <div class="col-1">
-                      <img src="assets/images/club/g195.svg">
-                    </div>
-                    <div class="col-4">
-                      <p> التاريخ :</p>
-                    </div>
-
-                    <div class="col-6">
-                      <p>12-12-2024</p>
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-1">
-                      <img src="assets/images/club/g15.svg">
-                    </div>
-                    <div class="col-4">
-                      <p> المدينة:</p>
-                    </div>
-
-                    <div class="col-6">
-                      <p>الرياض</p>
-                    </div>
-                  </div>
+      <div *ngIf="isLoading" class="row">
+        <div class="col-lg-4 course-col">
+            <div class="card rounded-4 p-3 pb-4 ">
+                <!-- <div class="card__image rounded-2"></div> -->
+                <div class="card__content">
+                    <p class="mb-0"></p>
+                    <hr>
+                    <h2 class="mt-2"></h2>
+                    <h2 class="mt-2"></h2>
                 </div>
-              </div>
-              <button class="btn btn1 px-2 d-block m-auto mt-3 cursor-pointer" routerLink="/club/activitie-schedule">التسجيل في  الفعالية</button>
-              <div class="d-flex justify-content-between px-2 end-child">
-                <p>التقديم كمشرف</p>
-                <p>التصويت</p>
-              </div>
             </div>
-          </div>
         </div>
+        <div class="col-lg-4 course-col">
+          <div class="card rounded-4 p-3 pb-4 ">
+              <!-- <div class="card__image rounded-2"></div> -->
+              <div class="card__content">
+                <p class="mb-0"></p>
+                <hr>
+                <h2 class="mt-2"></h2>
+                <h2 class="mt-2"></h2>
+              </div>
+          </div>
       </div>
-      <div class="col-lg-4 col-md-6 section">
-        <div class="p-2">
-          <div class="bg-white rounded-4">
-            <div class="p-2">
-              <div class="rounded-4 child p-2 ">
-                <h3 class="text-center mt-2">اسم الفعالية</h3>
-                <div class="container">
-                  <div class="row">
-                    <div class="col-1">
-                      <img src="assets/images/club/g195.svg">
-                    </div>
-                    <div class="col-4">
-                      <p> التاريخ :</p>
-                    </div>
-
-                    <div class="col-6">
-                      <p>12-12-2024</p>
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-1">
-                      <img src="assets/images/club/g15.svg">
-                    </div>
-                    <div class="col-4">
-                      <p> المدينة:</p>
-                    </div>
-
-                    <div class="col-6">
-                      <p>الرياض</p>
-                    </div>
-                  </div>
+        <div class="col-lg-4 course-col">
+            <div class="card rounded-4 p-3 pb-4 ">
+                <!-- <div class="card__image rounded-2"></div> -->
+                <div class="card__content">
+                  <p class="mb-0"></p>
+                  <hr>
+                  <h2 class="mt-2"></h2>
+                  <h2 class="mt-2"></h2>
                 </div>
-              </div>
-              <button class="btn btn1 px-2 d-block m-auto mt-3 cursor-pointer" routerLink="/club/activitie-schedule">التسجيل في  الفعالية</button>
-              <div class="d-flex justify-content-between px-2 end-child">
-                <p>التقديم كمشرف</p>
-                <p>التصويت</p>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
+       
     </div>
+      <!-- <div class="col-lg-4 col-md-6 section">
+        <div class="p-2">
+          <div class="bg-white rounded-4">
+            <div class="p-2">
+              <div class="rounded-4 child p-2 ">
+                <h3 class="text-center mt-2">اسم الفعالية</h3>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-1">
+                      <img src="assets/images/club/g195.svg">
+                    </div>
+                    <div class="col-4">
+                      <p> التاريخ :</p>
+                    </div>
+
+                    <div class="col-6">
+                      <p>12-12-2024</p>
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-1">
+                      <img src="assets/images/club/g15.svg">
+                    </div>
+                    <div class="col-4">
+                      <p> المدينة:</p>
+                    </div>
+
+                    <div class="col-6">
+                      <p>الرياض</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn1 px-2 d-block m-auto mt-3 cursor-pointer" routerLink="/club/activitie-schedule">التسجيل في  الفعالية</button>
+              <div class="d-flex justify-content-between px-2 end-child">
+                <p>التقديم كمشرف</p>
+                <p>التصويت</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 section">
+        <div class="p-2">
+          <div class="bg-white rounded-4">
+            <div class="p-2">
+              <div class="rounded-4 child p-2 ">
+                <h3 class="text-center mt-2">اسم الفعالية</h3>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-1">
+                      <img src="assets/images/club/g195.svg">
+                    </div>
+                    <div class="col-4">
+                      <p> التاريخ :</p>
+                    </div>
+
+                    <div class="col-6">
+                      <p>12-12-2024</p>
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-1">
+                      <img src="assets/images/club/g15.svg">
+                    </div>
+                    <div class="col-4">
+                      <p> المدينة:</p>
+                    </div>
+
+                    <div class="col-6">
+                      <p>الرياض</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn1 px-2 d-block m-auto mt-3 cursor-pointer" routerLink="/club/activitie-schedule">التسجيل في  الفعالية</button>
+              <div class="d-flex justify-content-between px-2 end-child">
+                <p>التقديم كمشرف</p>
+                <p>التصويت</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    <div class="has-text-centered mt-4">
+      <pagination-controls [id]="config.id || ''" [maxSize]="maxSize" [directionLinks]="directionLinks"
+          [autoHide]="autoHide" [responsive]="responsive" [previousLabel]="labels.previousLabel"
+          [nextLabel]="labels.nextLabel" [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+          [screenReaderPageLabel]="labels.screenReaderPageLabel"
+          [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel" (pageChange)="onPageChange($event)"
+          (pageBoundsCorrection)="onPageBoundsCorrection($event)"></pagination-controls>
+  </div>
   </div>
 
 </div>

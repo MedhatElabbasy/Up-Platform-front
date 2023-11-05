@@ -42,4 +42,8 @@ export class TrainingService {
   getUserData(user_id:number){
     return this._HttpClient.get(environment.baseUrl + '/user/'+user_id);
   }
+
+  getAllCourseDetailsByID(course_id:number){
+    return this._HttpClient.get(environment.baseUrl + '/get-course-details/'+course_id);
+  }
 }

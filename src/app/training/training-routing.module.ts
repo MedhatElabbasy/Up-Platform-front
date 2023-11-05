@@ -72,11 +72,11 @@ const routes: Routes = [
         component: PathsComponent,
       },
       {
-        path: trainingRoutes.selectedPath,
+        path: trainingRoutes.selectedPath+`/:id`,
         component: SelectedPathComponent,
       },
       {
-        path: trainingRoutes.program,
+        path: trainingRoutes.program+`/:id`,
         component: ProgramComponent,
       },
       {
@@ -84,7 +84,7 @@ const routes: Routes = [
         component: RoadmapComponent,
       },
       {
-        path: trainingRoutes.course,
+        path: trainingRoutes.course +`/:id`,
         component: CourseComponent,
       },
       {
@@ -115,33 +115,33 @@ const routes: Routes = [
         path: trainingRoutes.testPartTwo,
         component: TestPartTwoComponent,
       },
-      {
-        path: trainingRoutes.courseDetails,
-        component: CourseDetailsComponent,
-        children: [
-          {
-            path: '',
-            redirectTo: trainingRoutes.courseGeneralInfo,
-            pathMatch: 'full',
-          },
-          {
-            path: trainingRoutes.courseGeneralInfo,
-            component: CourseGeneralInfoComponent,
-          },
-          {
-            path: trainingRoutes.courseInstructor,
-            component: CourseInstructorComponent,
-          },
-          {
-            path: trainingRoutes.courseschedule,
-            component: CourseScheduleComponent,
-          },
-          {
-            path: trainingRoutes.courseRating,
-            component: CourseRatingComponent,
-          },
-        ]
-      },
+      // {
+      //   path: trainingRoutes.courseDetails+`/:id`,
+      //   component: CourseDetailsComponent,
+      //   children: [
+      //     {
+      //       path: '',
+      //       redirectTo: trainingRoutes.courseGeneralInfo,
+      //       pathMatch: 'full',
+      //     },
+      //     {
+      //       path: trainingRoutes.courseGeneralInfo,
+      //       component: CourseGeneralInfoComponent,
+      //     },
+      //     {
+      //       path: trainingRoutes.courseInstructor,
+      //       component: CourseInstructorComponent,
+      //     },
+      //     {
+      //       path: trainingRoutes.courseschedule,
+      //       component: CourseScheduleComponent,
+      //     },
+      //     {
+      //       path: trainingRoutes.courseRating,
+      //       component: CourseRatingComponent,
+      //     },
+      //   ]
+      // },
     ]
   }
 ];

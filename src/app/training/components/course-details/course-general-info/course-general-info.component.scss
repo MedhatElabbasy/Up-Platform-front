@@ -22,3 +22,43 @@
 .left{
     text-align: left;
 }
+
+@import "../../../../../assets/styles/variables.scss";
+
+
+  h4 {
+    font-weight: bold;
+    font-size: 24px;
+    color: $main-color;
+    font-family: "Bahij";
+  }
+
+  p {
+    font-weight: 600;
+    font-size: 18px;
+    width: 80%;
+    color: #FFB300;
+    line-height: 30px;
+    font-family: "Bahij";
+    // margin-top: 25px;
+  }
+
+  li {
+    // padding-top: 22px;
+    font-weight: 600;
+    font-size: 18px;
+
+    span {
+      color: #FFB300;
+      font-weight: 700;
+      font-size: 20px;
+    }
+}
+
+  li::marker {
+    color: #FFB300;
+  }
+
+ 
+
+ 

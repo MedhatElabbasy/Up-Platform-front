@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TrainingService } from '../../Services/training.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-paths',
@@ -9,7 +10,7 @@ import { TrainingService } from '../../Services/training.service';
 export class PathsComponent {
   isLoading: boolean = true
   trainingPaths:any = [];
-  constructor(private _trainingService:TrainingService){
+  constructor(private _trainingService:TrainingService , private _router:Router){
 
   }
 
@@ -29,4 +30,10 @@ this.getAllTrainingPaths()
     })
   }
 
+  details(id:number){
+    console.log(id);
+    
+   this._router.navigate(['/training/selected-path',id])
+  }
+  
 }

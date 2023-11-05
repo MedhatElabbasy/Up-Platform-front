@@ -85,4 +85,8 @@ export class OnlineCoursesComponent implements OnInit {
 redirectBio(id:number){
   this.router.navigate(['/biography/',id])
 }
+
+redirectCourse(id:number){
+  this.router.navigate(['/course-details',id])
+}
 }

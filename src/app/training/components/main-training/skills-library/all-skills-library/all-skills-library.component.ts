@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { PaginationInstance } from 'ngx-pagination';
 import { AuthServices } from 'src/app/auth/services/auth-services.service';
 import { TrainingService } from 'src/app/training/Services/training.service';
@@ -34,7 +35,7 @@ export class AllSkillsLibraryComponent {
   categories: any[] = []
   isLoading: boolean = true
    categoriesCourses!:any;
-  constructor(private _AuthServices: AuthServices, private _TrainingService: TrainingService) {
+  constructor(private _AuthServices: AuthServices, private _TrainingService: TrainingService ,private router: Router) {
     // _AuthServices.isUserLoggedIn.next(false)
   }
 
@@ -53,6 +54,14 @@ export class AllSkillsLibraryComponent {
       this.isLoading = false
 
     })
+  }
+
+  redirectCourse(id:number ,e:Event){
+    // e.stopPropagation();
+    // e.preventDefault();
+    console.log("TEst");
+    
+    this.router.navigate(['/course-details',id])
   }
 
   myGetAllCourses(){
@@ -119,7 +128,7 @@ export class AllSkillsLibraryComponent {
       console.log(res);
       if(res){
       this.isLoading = false
-      this.categoriesCourses = res
+      this.categoriesCourses = res.data
      }
     })
   }
