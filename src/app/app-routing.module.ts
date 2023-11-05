@@ -8,6 +8,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { WheelOfLuckComponent } from './components/wheel-of-luck/wheel-of-luck.component';
 import { servicesRoutes } from './services/routes/services-routes';
 import { BiographyComponent } from './services/components/biography/biography.component';
+import { CartComponent } from './training/components/cart/cart.component';
 
 const routes: Routes = [
   {

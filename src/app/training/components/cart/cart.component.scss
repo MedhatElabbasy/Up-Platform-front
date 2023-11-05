@@ -1,0 +1,265 @@
+@import "../../../../assets/styles/variables.scss";
+
+.cartHead,
+.noCartItems {
+  font-weight: bold;
+  font-size: 35px;
+  color: $main-color;
+  font-family: "Bahij";
+  text-align: center;
+}
+
+.noCartItems {
+  margin-top: 150px;
+}
+
+.second-section {
+  border: 1px solid $main-color;
+
+  h3 {
+    font-weight: bold;
+    font-size: 25px;
+    color: $main-color;
+    font-family: "Bahij";
+
+    img {
+      width: 35px;
+    }
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 700;
+  }
+
+  .container-image {
+    height: fit-content;
+
+    img {
+      height: 220px;
+    }
+  }
+}
+
+.p1 {
+  font-size: 22px;
+  color: $main-color;
+  font-family: "Bahij";
+  font-weight: 800;
+}
+
+.p2 {
+  font-size: 15px;
+  color: #ffb300;
+  font-family: "Bahij";
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 40px;
+  color: #ffb300;
+  font-family: "Bahij";
+  font-weight: 700;
+}
+
+p {
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "Bahij";
+}
+
+.login button {
+  background: linear-gradient(to right, rgb(210, 2, 2), darkred);
+  color: $white-color;
+  padding: 5px 20px;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.muted {
+  font-size: 14px;
+}
+
+span {
+  font-weight: bold;
+}
+
+.image {
+  height: 20px;
+}
+
+.my-border {
+  border: 1px solid $main-color;
+  // min-height: 280px;
+}
+
+::ng-deep {
+  .ngx-pagination {
+    width: fit-content;
+    padding-left: 0;
+    margin-bottom: 0 !important;
+    background-color: #ffffff;
+    border-radius: 30px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .ngx-pagination .pagination-next a:after,
+  .ngx-pagination .pagination-next.disabled:after {
+    content: "\f053" !important;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-left: 0 !important;
+  }
+
+  .ngx-pagination .pagination-previous a:before,
+  .ngx-pagination .pagination-previous.disabled:before {
+    content: "\f054" !important;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 0 !important;
+  }
+
+  .ngx-pagination .current {
+    background-color: #07487c;
+    border: 1px solid #e7e7e7;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1 !important;
+    display: flex;
+    align-items: center;
+  }
+
+  .ngx-pagination li a {
+    border-radius: 50% !important;
+  }
+
+  .ngx-pagination li.pagination-previous,
+  .ngx-pagination li.pagination-next {
+    border: 1px solid #e7e7e7;
+    padding: 10px;
+    border-radius: 50%;
+    // aspect-ratio: 1/1 !important;
+
+    display: flex;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+
+    a {
+      padding: 10px !important;
+    }
+
+    &::before {
+    }
+  }
+}
+
+.card,
+.total {
+  // width: 300px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  .card__image,
+  h2,
+  p {
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    border-radius: 5px;
+    background-size: 200% 100%;
+    animation: 1s shine linear infinite;
+  }
+
+  .card__image {
+    height: 200px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  h2 {
+    height: 30px;
+  }
+
+  p {
+    height: 70px;
+    width: 80%;
+    float: left;
+  }
+}
+
+.total {
+  margin: auto;
+  margin-bottom: 50px;
+  width: 70%;
+  padding: 3%;
+}
+
+.total > h1 {
+  font-family: "Bahij" !important;
+  font-weight: bold;
+  font-size: 25px;
+  color: $main-color;
+}
+
+.totalPrice {
+  font-size: 50px;
+  color: #ffb300;
+  font-weight: 800;
+}
+
+.paymentBtn {
+  background: linear-gradient(to right, #359bba, #07487c) !important;
+  color: $white-color;
+  padding: 10px 20px;
+  font-size: 15px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.coupon-img {
+  width: 50px;
+}
+
+.coupon-input {
+  border: none;
+  padding: 8px;
+  margin-right: 2%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  width: 60%;
+  margin-bottom: 40px;
+}
+
+.applyBtn {
+  position: relative;
+  top: 100%;
+  left: 6%;
+  background: linear-gradient(to right, #359bba, #07487c);
+  border: none;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  padding: 8px;
+  color: white;
+}
+
+.cart-price > h4{
+  font-family: "Bahij" !important;
+  color: #07487c;
+  margin-right: 2%;
+}
+
+.minus{
+  font-weight: 800;
+  font-size: 50px;
+  margin-right: 0 !important;
+}
+
+hr{
+  margin-top: 25px;
+  margin-bottom: 25px;
+}

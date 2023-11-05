@@ -86,7 +86,7 @@ export class LoginComponent implements AfterViewInit {
     google.accounts.id.renderButton(button, {
       // type: 'standard',
       size: 'large',
-      // theme: 'filled_blue'
+      //theme: 'filled_blue'
     });
      
   }

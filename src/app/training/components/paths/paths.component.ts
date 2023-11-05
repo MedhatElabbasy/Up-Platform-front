@@ -14,7 +14,7 @@ export class PathsComponent {
   }
 
   ngOnInit(): void {
-this.getAllTrainingPaths()
+  this.getAllTrainingPaths()
   }
 
   getAllTrainingPaths(){
@@ -26,6 +26,12 @@ this.getAllTrainingPaths()
       this._trainingService.bundleSubscription.next(this.trainingPaths);
       this.isLoading=false;
       }
+    })
+  }
+
+  addToCart(id:number){
+    this._trainingService.addToCart(id).subscribe((res: any) => {
+        console.log(res);
     })
   }
 

@@ -9,6 +9,7 @@ import { TrainingService } from 'src/app/training/Services/training.service';
   styleUrls: ['./online-courses.component.scss']
 })
 export class OnlineCoursesComponent implements OnInit {
+  cartItems: any = [];
   isLoading: boolean = true;
   zoomCourses: any = []
   public eventLog: string[] = [];
@@ -84,5 +85,29 @@ export class OnlineCoursesComponent implements OnInit {
   
 redirectBio(id:number){
   this.router.navigate(['/biography/',id])
+}
+
+addToCart(id:number){
+  const cartBtn = document.getElementById("cartBtn") as HTMLButtonElement;
+  this._TrainingService.addToCart(id).subscribe((res: any) => {
+      console.log(res);
+      const cartBtn = document.getElementById("cartBtn") as HTMLButtonElement;
+      if(res.success) {
+        cartBtn.innerText = 'تمت الإضافة للسلة';
+        cartBtn.disabled = true;
+      }
+      else{
+        cartBtn.innerText = 'مضاف بالفعل للسلة'; 
+        cartBtn.disabled = true;
+      }
+  })
+}
+getAllItems() {
+  this.isLoading = true;
+  this._TrainingService.getCartItems().subscribe((res: any) => {
+    console.log(res);
+    this.cartItems = res.data;
+    this.isLoading = false;
+  });
 }
 }

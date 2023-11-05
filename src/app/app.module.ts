@@ -2,6 +2,7 @@
 import { RouterModule, Routes } from '@angular/router';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { WheelOfLuckComponent } from './components/wheel-of-luck/wheel-of-luck.component';
 import { NgxWheelModule } from 'ngx-wheel';
 import { AddApikeyInterceptor } from './Interceptors/add-apikey.interceptor';
+import { CartComponent } from './training/components/cart/cart.component';
 
 
 
@@ -26,10 +28,12 @@ import { AddApikeyInterceptor } from './Interceptors/add-apikey.interceptor';
     NavbarComponent,
     HomeComponent,
     ProfileComponent,
-    WheelOfLuckComponent
+    WheelOfLuckComponent,
+    CartComponent
 
   ],
   imports: [
+    NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

@@ -28,18 +28,10 @@ export class NavbarComponent {
     this._AuthServices.profile().subscribe(
       (data: any) => {
         this.userDetails = data.data;
-        // console.log(this.userDetails);
       },
       (error: any) => {
         console.error('Error fetching user details', error);
       }
     );
   }
-
-  // logout() {
-  //   this._AuthServices.logout();
-  //   this._AuthServices.isUserLoggedIn.next(false)
-  //   localStorage.removeItem(environment.localStorageName)
-  //   this._Router.navigate(['/auth/login']);
-  // }
 }

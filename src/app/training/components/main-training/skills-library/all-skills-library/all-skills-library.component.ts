@@ -124,6 +124,12 @@ export class AllSkillsLibraryComponent {
     })
   }
 
+  addToCart(id:number){
+    this._TrainingService.addToCart(id).subscribe((res: any) => {
+        console.log(res);
+    })
+  }
+
 
 }
 

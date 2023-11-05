@@ -42,4 +42,40 @@ export class TrainingService {
   getUserData(user_id:number){
     return this._HttpClient.get(environment.baseUrl + '/user/'+user_id);
   }
+
+  getCartItems(){
+    return this._HttpClient.get(environment.baseUrl + '/cart-list', {
+      headers: {
+        ApiKey: environment.ApiKey
+      }
+    });
+  }
+
+  addToCart(id:number){
+    return this._HttpClient.get(environment.baseUrl + '/add-to-cart/'+id, {
+      headers: {
+        ApiKey: environment.ApiKey
+      }
+    });
+  }
+
+  removeFromCart(id:number){
+    return this._HttpClient.get(environment.baseUrl + '/remove-to-cart/'+id, {
+      headers: {
+        ApiKey: environment.ApiKey
+      }
+    });
+  }
+
+  applyCoupon(code: string, total: number){
+    const data = {
+      code: code,
+      total: total
+    };
+    return this._HttpClient.post(environment.baseUrl + '/apply-coupon', data , {
+      headers: {
+        ApiKey: environment.ApiKey
+      }
+    });
+  }
 }

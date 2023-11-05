@@ -25,6 +25,7 @@ import { CourseGeneralInfoComponent } from './components/course-details/course-g
 import { CourseInstructorComponent } from './components/course-details/course-instructor/course-instructor.component';
 import { CourseScheduleComponent } from './components/course-details/course-schedule/course-schedule.component';
 import { CourseRatingComponent } from './components/course-details/course-rating/course-rating.component';
+import { CartComponent } from './components/cart/cart.component'
 
 const routes: Routes = [
   {
@@ -70,6 +71,10 @@ const routes: Routes = [
       {
         path: trainingRoutes.paths,
         component: PathsComponent,
+      },
+      {
+        path: trainingRoutes.cart,
+        component: CartComponent,
       },
       {
         path: trainingRoutes.selectedPath,
