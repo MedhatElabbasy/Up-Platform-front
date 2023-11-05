@@ -17,6 +17,7 @@ export class LoginComponent implements AfterViewInit {
   hide = true;
   isLoading: boolean = false
   errorMessage: string = ""
+  rememberMe: boolean = true;
   private accessToken = '';
   that: any
   constructor(
@@ -31,11 +32,10 @@ export class LoginComponent implements AfterViewInit {
     email: new FormControl('', [Validators.required]),
     // password: new FormControl('', [Validators.required, Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/)]),
     password: new FormControl('', [Validators.required]),
-
+    rememberMe: new FormControl(true)
   })
 
-
-  login(loginForm: FormGroup) {
+  login(loginForm: FormGroup, rememberMe: boolean) {
     console.log(loginForm);
 
     if (loginForm.valid) {
@@ -47,7 +47,12 @@ export class LoginComponent implements AfterViewInit {
           next: (res: any) => {
             // localStorage.setItem(environment.userData, jwt_decode)
             console.log(res);
-            localStorage.setItem(environment.localStorageName, res.data.access_token)
+            if (rememberMe) {
+              localStorage.setItem(environment.localStorageName, res.data.access_token)
+            } else {
+              sessionStorage.setItem(environment.localStorageName, res.data.access_token)
+            }
+            
             this._AuthService.isUserLoggedIn.next(true)
             this._Router.navigate(['/'])
             this.isLoading = false
@@ -65,37 +70,51 @@ export class LoginComponent implements AfterViewInit {
      }
   }
 
+   ngAfterViewInit(): void {
+    this.signInWithGoogle()
+   }
 
-  // loginWithGoogle() {
-  //   console.log("Hi");
-  //   this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((res) => {
-  //     console.log(res);
-
-  //   });
-
-  // }
-
-  // loginWithGoogle(): void {
-  //   console.log(this._SocialAuthService);
-    
-  //   this._SocialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
-  // }
-
-  ngAfterViewInit(): void {
-    // const button = document.getElementById('google-signin-button');
-    // google.accounts.id.initialize({
-    //   client_id: '605141817130-p3r8jrcukibc9ehs66dl3ls9bn1gja0o.apps.googleusercontent.com',
-    //   callback: this.onGoogleSignIn, // Define your callback function
-    // });
-    // google.accounts.id.renderButton(button, {
-    //   // type: 'standard',
-    //   size: 'large',
-    //   // theme: 'filled_blue'
-    // });
+  signInWithGoogle() {
+    const button = document.getElementById('google-signin-button');
+    const that = this;
+    google.accounts.id.initialize({
+      client_id: '605141817130-p3r8jrcukibc9ehs66dl3ls9bn1gja0o.apps.googleusercontent.com',
+      callback: function (response: any) {
+        that.onGoogleSignIn(response);
+      }
+    });
+    google.accounts.id.renderButton(button, {
+      // type: 'standard',
+      size: 'large',
+      // theme: 'filled_blue'
+    });
+     
   }
-  // onGoogleSignIn(response: any) {
-  //   // Handle the Google Sign-In response here
-  //   console.log('Google Sign-In Response:', response);
-  // }
+  
+  onGoogleSignIn(response: any) {
+    // Handle the Google Sign-In response here
+    if (response.credential) {
+      const googleToken = response.credential;
+      this.loginWithGoogle(googleToken);
+    }
+  }
+  
+  loginWithGoogle(token: string) {
+    const tokenPayload = token.split('.')[1];
+    const decodedPayload = atob(tokenPayload);
+    const payload = JSON.parse(decodedPayload);
+    this._AuthService.socialLogin('google', token, payload.email, payload.name).subscribe(
+      (response) => {
+        console.log('Social login response:', response);
+        localStorage.setItem(environment.localStorageName, response.data.access_token);
+        this._Router.navigate(['/']);
+      },
+      (error) => {
+        // Handle error if the social login fails
+        console.error('Social login error:', error);
+      }
+    );
+  }
+  
 
 }

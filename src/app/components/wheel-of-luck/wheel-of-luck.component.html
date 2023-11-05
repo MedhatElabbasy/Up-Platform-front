@@ -37,11 +37,13 @@
               <div class="parent m-auto">
                 <div class="child1">
                   <div class="wheel_wrap">
+                    <div *ngIf="items.length > 0">
                     <ngx-wheel class="custom-wheel" Roulette [width]="310" [height]="310" [spinDuration]="5"
                       [items]="items" [innerRadius]="20" [spinAmount]="10" [textOrientation]="textOrientation"
                       [textAlignment]="textAlignment" pointerStrokeColor="transparent" pointerFillColor="transparent"
                       [idToLandOn]="idToLandOn" [disableSpinOnClick]="true" (onSpinStart)="before()"
                       (onSpinComplete)="after()" (click)="spinAction('free')"></ngx-wheel>
+                      </div>
                   </div>
                   <div class="wheel-child">
 
@@ -51,29 +53,24 @@
               <div class="reset d-flex justify-content-around mt-3">
                 <button *ngIf="isWheelLoading" [disabled]="isWheelLoading" class="btn btn1"> <i
                     class="fas fa-spinner fa-spin"></i></button>
-                <button *ngIf="!isWheelLoading" (click)="spinAction('free')" class="btn btn1">أضغط هنا</button>
+                <button *ngIf="!isWheelLoading" (click)="spinAction('free')" class="btn btn1">اضغط هنا</button>
                 <button  *ngIf="isWheelLoading" [disabled]="isWheelLoading" class="btn btn2 btn-transparent"><i
                     class="fas fa-spinner fa-spin"></i></button>
-                <button *ngIf="!isWheelLoading" (click)="spinAction('balance')" class="btn btn2 btn-transparent">أضغط مرة
+                <button *ngIf="!isWheelLoading" (click)="spinAction('balance')" class="btn btn2 btn-transparent">اضغط مرة
                   أخري بـ 3 نقاط</button>
               </div>
 
               <div class="mx-3 mt-3 gift px-4 py-3">
                 <div class="row align-items-center">
                   <div class="col text-center">
-                    <!-- <p class="mt-3 text-white ">مــبـروك</p>
-                    <p class="text-white ">لقد ربحت</p> -->
                     <p *ngIf="!(isWheelClicked && wheelMessage)" class="text-white mt-2">جرب حظك</p>
-                    <p *ngIf="!(isWheelClicked && wheelMessage)" class="text-white ">ولف العجلة</p>
-                    <p *ngIf="isWheelClicked && wheelMessage" class="text-white mt-2">خلصت محاولاتك النهارده</p>
-                    <!-- <p *ngIf="isWheelClicked && wheelMessage" class="text-white">
-                      {{wheelMessage == 'Try tomorrow'? 'جرب تاني بكره' : ''}}
-                    </p> -->
+                    <p *ngIf="!(isWheelClicked && wheelMessage)" class="text-white ">وأدر العجلة</p>
+                    <p *ngIf="isWheelClicked && wheelMessage" class="text-white mt-2">انتهت محاولاتك اليوم</p>    
                   </div>
                   
                   <div class="col">
-                    <h3 *ngIf="!(isWheelClicked && wheelMessage)" class="mt-3"> {{success?.data}} </h3>
-                    <h3 *ngIf="isWheelClicked && wheelMessage" class="mt-3"> جرب تاني بكره </h3>
+                    <h3 *ngIf="!(isWheelClicked && wheelMessage !='')" class="mt-3"> {{success?.data}} {{wheelMessage}} </h3>
+                    <h3 *ngIf="isWheelClicked && wheelMessage" class="mt-3"> حاول مرة أخرى غدًا </h3>
                   </div>
                 </div>
               </div>

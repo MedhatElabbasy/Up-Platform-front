@@ -23,12 +23,22 @@ export class AuthServices {
     return this._HttpClient.post(environment.baseUrl + '/login', loginModel)
   }
 
-  socialLogin(socialLoginModel: any): Observable<any> {
-    return this._HttpClient.post(environment.baseUrl + '/social-login', socialLoginModel)
+  // socialLogin(socialLoginModel: any): Observable<any> {
+  //   return this._HttpClient.post(environment.baseUrl + '/social-login', socialLoginModel)
+  // }
+
+  socialLogin(provider: string, token: string, email: string, name: string): Observable<any> {
+    const socialLoginModel = {
+      provider_name: provider,
+      token: token,
+      email: email,
+      name: name,
+    };
+    return this._HttpClient.post(environment.baseUrl + '/social-login', socialLoginModel);
   }
 
-  profile(profileModel: any): Observable<any> {
-    return this._HttpClient.get(environment.baseUrl + '/user', profileModel)
+  profile(): Observable<any> {
+    return this._HttpClient.get(`${environment.baseUrl}/user`);
   }
 
   register(registerModel: any): Observable<any> {
@@ -43,13 +53,14 @@ export class AuthServices {
     return this._HttpClient.post(environment.baseUrl + '/email/verify/resend', {})
   }
 
-  forgetPassword(forgetPasswordModel: any): Observable<any> {
-    return this._HttpClient.post(environment.baseUrl + '/send-otp', forgetPasswordModel)
+  forgetPassword(email: string): Observable<any> {
+    const emailData = { email: email };
+    return this._HttpClient.post(environment.baseUrl + '/send-otp', emailData);
   }
 
-  forgetPasswordVerifyCode(forgetPasswordVerifyCodeModel: any): Observable<any> {
-    return this._HttpClient.post(environment.baseUrl + '/password/forgot/verify', forgetPasswordVerifyCodeModel)
-  }
+  // forgetPasswordVerifyCode(forgetPasswordVerifyCodeModel: any): Observable<any> {
+  //   return this._HttpClient.post(environment.baseUrl + '/password/forgot/verify', forgetPasswordVerifyCodeModel)
+  // }
 
   resetPassword(resetPasswordModel: any): Observable<any> {
     return this._HttpClient.post(environment.baseUrl + '/reset', resetPasswordModel)

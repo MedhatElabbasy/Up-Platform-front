@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-
+  userDetails: any = {};
   isUserLoggedIn: boolean = false
 
   constructor(private _AuthServices: AuthServices, public _Router: Router) {
@@ -19,10 +19,27 @@ export class NavbarComponent {
     })
   }
 
-  logout() {
-    this._AuthServices.logout()
-    this._AuthServices.isUserLoggedIn.next(false)
-    localStorage.removeItem(environment.localStorageName)
-    this._Router.navigate(['/auth/login'])
+  
+  ngOnInit() {
+    this.getUserDetails();
   }
+
+  getUserDetails() {
+    this._AuthServices.profile().subscribe(
+      (data: any) => {
+        this.userDetails = data.data;
+        // console.log(this.userDetails);
+      },
+      (error: any) => {
+        console.error('Error fetching user details', error);
+      }
+    );
+  }
+
+  // logout() {
+  //   this._AuthServices.logout();
+  //   this._AuthServices.isUserLoggedIn.next(false)
+  //   localStorage.removeItem(environment.localStorageName)
+  //   this._Router.navigate(['/auth/login']);
+  // }
 }

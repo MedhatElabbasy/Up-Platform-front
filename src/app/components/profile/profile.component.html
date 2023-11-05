@@ -20,7 +20,7 @@
                       <img src="assets/images/profile/user.svg" style="width: 20px;">
                       <h3 class="pt-4 pe-2">الاسم</h3>
                     </div>
-                    <h3 class="text mx-2 pe-3 ">عبدالله المعيوف الدوسري</h3>
+                    <h3 class="text mx-2 pe-3 ">{{ userDetails.name }}</h3>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -29,7 +29,7 @@
                       <img src="assets/images/profile/email.svg" style="width: 20px;">
                       <h3 class="pt-3 pe-2">البريد الالكتروني</h3>
                     </div>
-                    <h3 class="text mx-2 pe-3 ">abdallahelmaouf501@gmail.com</h3>
+                    <h3 class="text mx-2 pe-3 ">{{ userDetails.email }}</h3>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -38,7 +38,7 @@
                       <img src="assets/images/profile/Path 9334.svg" style="width: 20px;">
                       <h3 class="pt-3 pe-2">رقم الجوال</h3>
                     </div>
-                    <h3 class="text mx-2 pe-3 ">96600000000000</h3>
+                    <h3 class="text mx-2 pe-3 ">{{ userDetails.phone }}</h3>
                   </div>
                 </div>
               </div>
@@ -180,9 +180,9 @@
           </div>
           <div class="col-8">
             <div class="text-end info">
-              <p>عبداالله المعيوف الدوسري
+              <p>{{ userDetails.name }}
                 <br>
-                <span>abdallaeldosery11@gmail.com</span>
+                <span>{{ userDetails.email }}</span>
               </p>
             </div>
           </div>

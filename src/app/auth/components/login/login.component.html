@@ -1,7 +1,7 @@
 <div class="px-3 main pt-5">
   <div class="bg-light rounded-4 pt-5  px-4 pb-3">
     <p class="text-center py-2 pt-4 pb-2">تسجيل الدخول</p>
-    <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
+    <form [formGroup]="loginForm" (ngSubmit)="login(loginForm, rememberMe)">
       <div class="input pb-3">
         <div class="input-container ">
           <i class="icon "><img src="assets/images/auth/email.svg"></i>
@@ -26,7 +26,7 @@
       <div class="d-flex justify-content-between know-me">
         <div>
           <div class="form-check ">
-            <input class="form-check-input pointer" type="checkbox" value="" id="flexCheckDefault">
+            <input class="form-check-input pointer" type="checkbox" formControlName="rememberMe" (change)="rememberMe = !rememberMe">
             <label class="form-check-label pe-2 pointer" for="flexCheckDefault">
               تذكرني
             </label>
@@ -47,19 +47,9 @@
       
     </form>
     <div class="mt-3 socialLogin">
-     
-      <!-- <asl-google-signin-button>
-        <button (click)="loginWithGoogle()" class=" w-100 bg-light rounded-2 "> أو تسجيل الدخول بــ<img src="assets/images/auth/google.svg"
-          class="pe-4"></button>
-      </asl-google-signin-button>
-      <asl-google-signin-button type='icon' size='medium'>
-        <button id="google-signin-button" class="w-100 bg-light rounded-2">
-          أو تسجيل الدخول بــ<img src="assets/images/auth/google.svg" class="pe-4">
-        </button>
-      </asl-google-signin-button> -->
       
-      <!-- <button (click)="loginWithGoogle()" class=" w-100 bg-light rounded-2 "> أو تسجيل الدخول بــ<img src="assets/images/auth/google.svg"
-        class="pe-4"></button> -->
+      <button (click)="signInWithGoogle()" class=" w-100 bg-light rounded-2" id="google-signin-button"> أو تسجيل الدخول بــ<img src="assets/images/auth/google.svg"
+        class="pe-4"></button>
     </div>
     <div class="mt-5 pt-4 notExist">
       <p>لا تمتلك حسابا؟ <a [routerLink]="'/auth/signUp'">تسجيل جديد</a></p>
