@@ -83,7 +83,11 @@ export class CartComponent implements OnInit {
   
     if (Array.isArray(this.cartItems)) {
       for (const item of this.cartItems) {
-        totalPrice += parseFloat(item.course.price) || 0;
+        if (item.type === 'course') {
+          totalPrice += parseFloat(item.course.price);
+      } else if (item.type === 'bundle') {
+          totalPrice += parseFloat(item.bundle.price);
+      }
       }
     }
   
