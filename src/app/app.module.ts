@@ -1,8 +1,8 @@
-
 import { RouterModule, Routes } from '@angular/router';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,8 +22,6 @@ import { CartComponent } from './services/components/cart/cart.component';
 import { VerifyAccountComponent } from './auth/components/verify-account/verify-account.component';
 import { PaymentComponent } from './services/components/payment/payment.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,8 +31,7 @@ import { PaymentComponent } from './services/components/payment/payment.componen
     WheelOfLuckComponent,
     CartComponent,
     VerifyAccountComponent,
-    PaymentComponent
-
+    PaymentComponent,
   ],
   imports: [
     NgxPaginationModule,
@@ -47,12 +44,18 @@ import { PaymentComponent } from './services/components/payment/payment.componen
     FormsModule,
     HttpClientModule,
     CarouselModule,
-    NgxWheelModule
+    NgxWheelModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      timeOut: 3000,
+      progressBar: true,
+      progressAnimation: 'increasing',
+      enableHtml: true,
+      toastClass: 'toastClass',
+    }),
   ],
-  exports: [
-    NavbarComponent,
-
-  ],
+  exports: [NavbarComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
@@ -64,12 +67,7 @@ import { PaymentComponent } from './services/components/payment/payment.componen
       useClass: AddApikeyInterceptor,
       multi: true,
     },
-
-
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-
-
-}
+export class AppModule {}

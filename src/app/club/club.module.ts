@@ -12,9 +12,10 @@ import { ActivitiesScheduleComponent } from './components/activities-schedule/ac
 
 @NgModule({
   declarations: [
-    MainClubComponent,
+    //MainClubComponent,
     ClubComponent,
-    ActivitiesScheduleComponent
+    ActivitiesScheduleComponent,
+    MainClubComponent 
   ],
   imports: [
     CommonModule,

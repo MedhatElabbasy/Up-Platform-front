@@ -121,7 +121,13 @@ export class CartComponent implements OnInit {
     this.router.navigate(['/biography/', id]);
   }
 
-  redirectToPayment() {
-    this.router.navigate(['/payment/']);
+  // redirectToPayment(totalAfterCoupon: number) {
+  //   this.router.navigate(['/payment/', totalAfterCoupon]);
+  // }
+  redirectToPayment(total: number) {
+    const navigationExtras = {
+      queryParams: { totalAfterCoupon: total }
+    };
+    this.router.navigate(['/payment'], navigationExtras);
   }
 }

@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { PaginationInstance } from 'ngx-pagination';
 import { AuthServices } from 'src/app/auth/services/auth-services.service';
 import { TrainingService } from 'src/app/training/Services/training.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-all-skills-library',
@@ -34,7 +35,7 @@ export class AllSkillsLibraryComponent {
   categories: any[] = []
   isLoading: boolean = true
    categoriesCourses!:any;
-  constructor(private _AuthServices: AuthServices, private _TrainingService: TrainingService) {
+  constructor(private _AuthServices: AuthServices, private _TrainingService: TrainingService, private toastr: ToastrService) {
     // _AuthServices.isUserLoggedIn.next(false)
   }
 
@@ -127,16 +128,23 @@ export class AllSkillsLibraryComponent {
     const cartBtn = document.getElementById("cartBtn") as HTMLButtonElement;
     this._TrainingService.addToCart(id, type).subscribe((res: any) => {
         console.log(res);
-        const cartBtn = document.getElementById("cartBtn") as HTMLButtonElement;
         if(res.success) {
-          cartBtn.innerText = 'تمت الإضافة للسلة';
-          cartBtn.disabled = true;
+          console.log(res.message);
+          this.showSuccessToast(res.message);
         }
         else{
-          cartBtn.innerText = 'مضاف بالفعل للسلة'; 
-          cartBtn.disabled = true;
+          console.log(res.message);
+          this.showErrorToast(res.message);
         }
     })
+  }
+
+  showSuccessToast(message: string) {
+    this.toastr.success("تم إضافة العنصر للسلة بنجاح");
+  }
+  
+  showErrorToast(message: string) {
+    this.toastr.error('العنصر موجود بالفعل في السلة');
   }
 
 

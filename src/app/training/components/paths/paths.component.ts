@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TrainingService } from '../../Services/training.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-paths',
@@ -9,7 +10,7 @@ import { TrainingService } from '../../Services/training.service';
 export class PathsComponent {
   isLoading: boolean = true
   trainingPaths:any = [];
-  constructor(private _trainingService:TrainingService){
+  constructor(private _trainingService:TrainingService, private toastr: ToastrService){
 
   }
 
@@ -30,19 +31,24 @@ export class PathsComponent {
   }
 
   addToCart(id:number, type: string) {
-    const cartBtn = document.getElementById("cartBtn") as HTMLButtonElement;
     this._trainingService.addToCart(id, type).subscribe((res: any) => {
         console.log(res);
-        const cartBtn = document.getElementById("cartBtn") as HTMLButtonElement;
         if(res.success) {
-          cartBtn.innerText = 'تمت الإضافة للسلة';
-          cartBtn.disabled = true;
+          console.log(res.message);
+          this.showSuccessToast(res.message);
         }
         else{
-          cartBtn.innerText = 'مضاف بالفعل للسلة'; 
-          cartBtn.disabled = true;
+          console.log(res.message);
+          this.showErrorToast(res.message);
         }
     })
+  }
+  showSuccessToast(message: string) {
+    this.toastr.success("تم إضافة العنصر للسلة بنجاح");
+  }
+  
+  showErrorToast(message: string) {
+    this.toastr.error('العنصر موجود بالفعل في السلة');
   }
 
 }

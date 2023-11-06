@@ -53,3 +53,18 @@ body {
   background-color: #555;
   /* Set the color of the scrollbar thumb on hover */
 }
+.toastClass {
+  background-color: #237b99;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  font-size: 18px;
+  color: white;
+  font-weight: 400;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 2%
+}
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

@@ -44,9 +44,11 @@
           ريال
         </h1>
 
-        <button class="btn w-100 paymentBtn" (click)="redirectToPayment()">ادفع الآن</button>
+        <button class="btn w-100 paymentBtn" *ngIf="totalAfterCoupon" (click)="redirectToPayment(totalAfterCoupon)">ادفع الآن</button>
+        <button class="btn w-100 paymentBtn" *ngIf="!totalAfterCoupon" (click)="redirectToPayment(totalPrice)">ادفع الآن</button>
+
       </div>
-    <!-- cART -->
+    <!-- CART -->
       <div class="col-8">
         <h2 class="pb-3 cartHead">السلة</h2>
         <div
@@ -57,11 +59,14 @@
         >
           <div class="px-3 pt-4 bg-white my-border">
             <div>
-              <p class="text-center p1" *ngIf="item.bundle != null">
+              <p class="text-center p1" *ngIf="item.type === 'bundle'">
                 {{ item.bundle.title}}
               </p>
-              <p class="text-center p1" *ngIf="item.bundle === null">
+              <p class="text-center p1" *ngIf="item.type === 'course'">
                 {{ item.course.title.ar || item.course.title.en }}
+              </p>
+              <p class="text-center p1" *ngIf="item.type === 'event'">
+                {{ item.event.title }}
               </p>
               <p
                 *ngIf="item.course"
@@ -80,24 +85,27 @@
               <div class="d-flex py-1">
                 <img src="assets/images/training/10.svg" class="image" />
                 <p class="mb-0 pe-2 text-muted muted">النوع:</p>
-                <span class="mb-0 pe-2" *ngIf="item.type == 'course'"
+                <span class="mb-0 pe-2" *ngIf="item.type == 'course' && item.course.type == '3'"
                   >دورات أونلاين</span
                 >
                 <span class="mb-0 pe-2" *ngIf="item.type == 'bundle'"
                 >مسارات تعليمية</span
                 >
-                <div *ngIf="item.type != 'course' && item.type != 'bundle'">
-                  <span class="mb-0 pe-2">مكتبة المهارات</span>
+                <div *ngIf="item.type == 'event'">
+                  <span class="mb-0 pe-2">فعالية</span>
                 </div>
+                <span class="mb-0 pe-2" *ngIf="item.type != 'bundle' && item.type != 'event' && item.course.type == '1'"
+                  > مكتبة المهارات</span
+                >
               </div>
-              <div class="d-flex py-1" *ngIf="item.type != 'bundle'">
+              <div class="d-flex py-1" *ngIf="item.type != 'bundle' && item.type != 'event'">
                 <img src="assets/images/training/3.svg" class="image" />
                 <p class="mb-0 pe-2 text-muted muted">المدة:</p>
                 <span class="mb-0 pe-2" 
                   >{{ item.course.duration || 0 }} دقيقة</span
                 >
               </div>
-              <div class="d-flex py-1 mb-3" *ngIf="item.type != 'bundle'">
+              <div class="d-flex py-1 mb-3" *ngIf="item.type != 'bundle' && item.type != 'event'">
                 <img src="assets/images/training/star.png" class="image" />
                 <p class="mb-0 pe-2 text-muted muted">
                   {{ item.course.reveiw }} نجوم
@@ -105,11 +113,14 @@
               </div>
               <div class="d-flex justify-content-between mt-2">
                 <div class="text-center">
-                  <h2 class="mb-0" *ngIf="item.type != 'bundle'">
+                  <h2 class="mb-0" *ngIf="item.type === 'course'">
                     {{ item.course.price }}
                   </h2>
                   <h2 class="mb-0" *ngIf="item.type === 'bundle'">
                     {{ item.bundle.price }}
+                  </h2>
+                  <h2 class="mb-0" *ngIf="item.type === 'event'">
+                    {{ item.event.price }}
                   </h2>
                   <p class="mt-0">ريال</p>
                 </div>

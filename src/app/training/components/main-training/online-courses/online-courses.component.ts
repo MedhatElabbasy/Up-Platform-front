@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PaginationInstance } from 'ngx-pagination';
 import { TrainingService } from 'src/app/training/Services/training.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-online-courses',
@@ -9,7 +10,6 @@ import { TrainingService } from 'src/app/training/Services/training.service';
   styleUrls: ['./online-courses.component.scss']
 })
 export class OnlineCoursesComponent implements OnInit {
-  cartItems: any = [];
   isLoading: boolean = true;
   zoomCourses: any = []
   public eventLog: string[] = [];
@@ -30,12 +30,12 @@ export class OnlineCoursesComponent implements OnInit {
     screenReaderPageLabel: 'page',
     screenReaderCurrentLabel: `You're on page`
   };
-  constructor(private _TrainingService: TrainingService ,private router: Router) {
+  constructor(private _TrainingService: TrainingService ,private router: Router, private toastr: ToastrService) {
 
   }
 
   ngOnInit(): void {
-    this.getAllCourses()
+    this.getAllCourses();
   }
 
   onPageChange(number: number) {
@@ -91,23 +91,21 @@ addToCart(id:number, type: string) {
   const cartBtn = document.getElementById("cartBtn") as HTMLButtonElement;
   this._TrainingService.addToCart(id, type).subscribe((res: any) => {
       console.log(res);
-      const cartBtn = document.getElementById("cartBtn") as HTMLButtonElement;
       if(res.success) {
-        cartBtn.innerText = 'تمت الإضافة للسلة';
-        cartBtn.disabled = true;
+        console.log(res.message);
+        this.showSuccessToast(res.message);
       }
       else{
-        cartBtn.innerText = 'مضاف بالفعل للسلة'; 
-        cartBtn.disabled = true;
+        console.log(res.message);
+        this.showErrorToast(res.message);
       }
   })
 }
-getAllItems() {
-  this.isLoading = true;
-  this._TrainingService.getCartItems().subscribe((res: any) => {
-    console.log(res);
-    this.cartItems = res.data;
-    this.isLoading = false;
-  });
+showSuccessToast(message: string) {
+  this.toastr.success("تم إضافة العنصر للسلة بنجاح");
+}
+
+showErrorToast(message: string) {
+  this.toastr.error('العنصر موجود بالفعل في السلة');
 }
 }
