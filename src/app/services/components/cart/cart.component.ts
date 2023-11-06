@@ -116,4 +116,8 @@ export class CartComponent implements OnInit {
   redirectBio(id: number) {
     this.router.navigate(['/biography/', id]);
   }
+
+  redirectToPayment() {
+    this.router.navigate(['/payment/']);
+  }
 }

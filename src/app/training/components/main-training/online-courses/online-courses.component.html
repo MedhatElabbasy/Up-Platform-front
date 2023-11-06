@@ -49,7 +49,7 @@
 
               <div>
                 <div class="login">
-                  <button id="cartBtn" class="btn w-100" [disabled]="course.addedToCart" (click)="addToCart(course.id)">
+                  <button id="cartBtn" class="btn w-100" [disabled]="course.addedToCart" (click)="addToCart(course.id, course.type)">
                     <i class="fa-solid fa-cart-shopping"></i>
                     إضافة للسلة
                   </button>                  

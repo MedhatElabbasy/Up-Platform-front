@@ -87,9 +87,9 @@ redirectBio(id:number){
   this.router.navigate(['/biography/',id])
 }
 
-addToCart(id:number){
+addToCart(id:number, type: string) {
   const cartBtn = document.getElementById("cartBtn") as HTMLButtonElement;
-  this._TrainingService.addToCart(id).subscribe((res: any) => {
+  this._TrainingService.addToCart(id, type).subscribe((res: any) => {
       console.log(res);
       const cartBtn = document.getElementById("cartBtn") as HTMLButtonElement;
       if(res.success) {

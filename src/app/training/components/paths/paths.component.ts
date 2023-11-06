@@ -29,9 +29,19 @@ export class PathsComponent {
     })
   }
 
-  addToCart(id:number){
-    this._trainingService.addToCart(id).subscribe((res: any) => {
+  addToCart(id:number, type: string) {
+    const cartBtn = document.getElementById("cartBtn") as HTMLButtonElement;
+    this._trainingService.addToCart(id, type).subscribe((res: any) => {
         console.log(res);
+        const cartBtn = document.getElementById("cartBtn") as HTMLButtonElement;
+        if(res.success) {
+          cartBtn.innerText = 'تمت الإضافة للسلة';
+          cartBtn.disabled = true;
+        }
+        else{
+          cartBtn.innerText = 'مضاف بالفعل للسلة'; 
+          cartBtn.disabled = true;
+        }
     })
   }
 

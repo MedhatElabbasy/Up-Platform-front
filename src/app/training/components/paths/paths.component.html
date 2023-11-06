@@ -25,7 +25,7 @@
                 <h4><span *ngIf="isLoading" class=" text-center ">--.--</span> {{trainingPaths[0]?.price}}<sub>نقطة</sub></h4>
               </div>
               <div class="d-flex align-items-end">
-                <button type="button" class="nav-link px-4 btn  btn2" (click)="addToCart(trainingPaths[0]?.id)">إضافة للسلة</button>
+                <button type="button" class="nav-link px-4 btn  btn2" (click)="addToCart(trainingPaths[0]?.id, trainingPaths[0]?.type)">إضافة للسلة</button>
               </div>
             </div>
           </div>
@@ -50,7 +50,7 @@
                 <h4><span *ngIf="isLoading" class=" text-center ">--.--</span>{{trainingPaths[1]?.price}}<sub>نقطة</sub></h4>
               </div>
               <div class="d-flex align-items-end">
-                  <button type="button" class="nav-link px-4 btn  btn2" (click)="addToCart(trainingPaths[1]?.id)">إضافة للسلة</button>
+                  <button type="button" class="nav-link px-4 btn  btn2" (click)="addToCart(trainingPaths[1]?.id, trainingPaths[0]?.type)">إضافة للسلة</button>
               </div>
             </div>
           </div>
@@ -79,7 +79,7 @@
                 <h4><span *ngIf="isLoading" class=" text-center ">--.--</span>{{trainingPaths[2]?.price}}<sub>نقطة</sub></h4>
               </div>
               <div class="d-flex align-items-end">
-                <button type="button" class="nav-link px-4 btn  btn2" (click)="addToCart(trainingPaths[2]?.id)">إضافة للسلة</button>
+                <button type="button" class="nav-link px-4 btn  btn2" (click)="addToCart(trainingPaths[2]?.id, trainingPaths[0]?.type)">إضافة للسلة</button>
               </div>
             </div>
           </div>

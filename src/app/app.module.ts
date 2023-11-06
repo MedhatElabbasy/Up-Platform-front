@@ -18,8 +18,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { WheelOfLuckComponent } from './components/wheel-of-luck/wheel-of-luck.component';
 import { NgxWheelModule } from 'ngx-wheel';
 import { AddApikeyInterceptor } from './Interceptors/add-apikey.interceptor';
-import { CartComponent } from './training/components/cart/cart.component';
+import { CartComponent } from './services/components/cart/cart.component';
 import { VerifyAccountComponent } from './auth/components/verify-account/verify-account.component';
+import { PaymentComponent } from './services/components/payment/payment.component';
 
 
 
@@ -31,7 +32,8 @@ import { VerifyAccountComponent } from './auth/components/verify-account/verify-
     ProfileComponent,
     WheelOfLuckComponent,
     CartComponent,
-    VerifyAccountComponent
+    VerifyAccountComponent,
+    PaymentComponent
 
   ],
   imports: [
