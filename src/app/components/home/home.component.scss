@@ -566,3 +566,27 @@ footer {
 owl-carousel-o {
   direction: ltr !important;
 }
+
+
+
+// media query
+@media only screen and (max-width: 600px) {
+  header{
+
+    .layer {
+      h1 {
+      font-size: 27px;
+      line-height: 0;
+      text-align: center;
+    }
+    p {
+      font-size: 40px !important;
+      text-align: center;
+    }
+    
+  }
+  }
+  .section2{
+    margin-top: -30px;
+  }
+}

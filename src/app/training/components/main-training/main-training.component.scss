@@ -53,9 +53,35 @@
     }
   }
 
-
-
-
-
-
 }
+
+/* ======================media query==============*/
+
+// MOBILE
+@media  (max-width: 480px) {
+  .left-section {
+    .training-card {
+      margin: 10px auto ;   
+      width: 75%;
+      p{
+font-size: 18px;
+      }
+    }
+  }
+}
+
+//TABLETS
+// 320px — 480px: Mobile devices
+// 481px — 768px: iPads, Tablets
+@media (min-width: 481px) and (max-width: 600px) {
+  .left-section {
+    .training-card {
+      margin: 10px auto ;   
+      width: 65%;
+      p{
+font-size: 18px;
+      }
+    }
+  }
+}
+
