@@ -59,6 +59,17 @@ export class TrainingService {
     });
   }
 
+  // addToCart(id:number, type:string){
+  //   const data = {
+  //     type: type,
+  //   };
+  //   return this._HttpClient.post(environment.baseUrl + '/add-to-cart/'+id, data, {
+  //     headers: {
+  //       ApiKey: environment.ApiKey
+  //     }
+  //   });
+  // }
+
   removeFromCart(id:number){
     return this._HttpClient.get(environment.baseUrl + '/remove-to-cart/'+id, {
       headers: {

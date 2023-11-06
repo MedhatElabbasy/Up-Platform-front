@@ -13,6 +13,8 @@ import { TrainingService } from 'src/app/training/Services/training.service';
 export class CartComponent implements OnInit {
   isLoading: boolean = true;
   cartItems: any = [];
+  codeError: string = "";
+  codeMsg: string = "";
   couponCode: string = '';
   public eventLog: string[] = [];
   public maxSize: number = 7;
@@ -20,9 +22,10 @@ export class CartComponent implements OnInit {
   public autoHide: boolean = true;
   public responsive: boolean = true;
   public totalPrice: number = this.calculateTotalPrice();
+  public totalAfterCoupon: number = 0;
   public config: PaginationInstance = {
     id: 'advanced',
-    itemsPerPage: 4,
+    itemsPerPage: 3,
     currentPage: 1,
   };
   public labels: any = {
@@ -64,6 +67,7 @@ export class CartComponent implements OnInit {
       this.cartItems = res.data;
       this.isLoading = false;
       this.totalPrice = this.calculateTotalPrice();
+      this.totalAfterCoupon = res.total
     });
   }
 
@@ -91,8 +95,14 @@ export class CartComponent implements OnInit {
       (response: any) => {
         console.log('API Response:', response);
         if (response.success) {
+          this.codeError=""
+          this.codeMsg="تم تطبيق الخصم بنجاح"
+          this.totalAfterCoupon = response.total;
+          this.calculateTotalPrice();
           console.log(response);
         } else {
+          this.codeError="هذا الكود غير صحيح"
+          this.codeMsg=""
           console.error('Failed:', response.message);
         }
       },

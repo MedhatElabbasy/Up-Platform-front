@@ -177,6 +177,7 @@
         <div class="row align-items-center">
           <div class=" col-4">
             <img src="../../../assets/images/profile/profile.svg" class="img-fluid">
+            <!-- <img *ngIf="userDetails && userDetails.image" :src="https://insrvs.com/api/image/demo/user/admin.jpg" class="img-fluid"> -->
           </div>
           <div class="col-8">
             <div class="text-end info">
@@ -194,7 +195,7 @@
                 <div class="d-flex">
                   <div>
                     <span>رصيد محفظتي</span>
-                    <p>5,469,32<sub class="px-1">SR</sub></p>
+                    <p>{{userDetails.balance}}<sub class="px-1">SR</sub></p>
                   </div>
                   <div class="mt-4">
                     <a href="" class="pe-1">إخفاء الارصدة</a>
@@ -203,7 +204,7 @@
               </div>
               <div class="col-xl-4">
                 <button class="btn btn-success px-4 d-block m-auto">شحن</button>
-                <a href="" class="pe-1 d-block text-center mt-2">المزيد من التفاصيل</a>
+                <!-- <a href="" class="pe-1 d-block text-center mt-2">المزيد من التفاصيل</a> -->
               </div>
             </div>
           </div>

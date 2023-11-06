@@ -3,6 +3,7 @@ export enum authRoutes {
   signup = 'signUp',
   sendCode = 'send-code',
   verifyCode = 'verify-code',
+  VerifyAccount = 'verify-account',
   success='success',
   resetPassword='reset-password',
 }

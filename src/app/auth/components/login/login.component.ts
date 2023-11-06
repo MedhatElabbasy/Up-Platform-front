@@ -13,7 +13,6 @@ declare var google: any;
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements AfterViewInit {
-  
   hide = true;
   isLoading: boolean = false
   errorMessage: string = ""
@@ -26,6 +25,10 @@ export class LoginComponent implements AfterViewInit {
   ) {
   }
 
+  ngOnInit() {
+    localStorage.removeItem(environment.localStorageName);
+    sessionStorage.removeItem(environment.localStorageName);
+  }
 
   loginForm: FormGroup = new FormGroup({
 
@@ -54,8 +57,13 @@ export class LoginComponent implements AfterViewInit {
             }
             
             this._AuthService.isUserLoggedIn.next(true)
-            this._Router.navigate(['/'])
-            this.isLoading = false
+            if(res.data.is_verify){
+              this._Router.navigate(['/']);
+              this.isLoading = false
+            }else{
+              this._Router.navigate(['/auth/verify-account']);
+              this.isLoading = false
+            }
           },
           error: (err: any) => {
             console.log(err.message);
@@ -115,6 +123,4 @@ export class LoginComponent implements AfterViewInit {
       }
     );
   }
-  
-
 }

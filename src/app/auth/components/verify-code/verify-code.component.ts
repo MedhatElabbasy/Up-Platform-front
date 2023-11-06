@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { AuthServices } from '../../services/auth-services.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-verify-code',

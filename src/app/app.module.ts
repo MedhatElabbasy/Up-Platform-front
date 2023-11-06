@@ -19,6 +19,7 @@ import { WheelOfLuckComponent } from './components/wheel-of-luck/wheel-of-luck.c
 import { NgxWheelModule } from 'ngx-wheel';
 import { AddApikeyInterceptor } from './Interceptors/add-apikey.interceptor';
 import { CartComponent } from './training/components/cart/cart.component';
+import { VerifyAccountComponent } from './auth/components/verify-account/verify-account.component';
 
 
 
@@ -29,7 +30,8 @@ import { CartComponent } from './training/components/cart/cart.component';
     HomeComponent,
     ProfileComponent,
     WheelOfLuckComponent,
-    CartComponent
+    CartComponent,
+    VerifyAccountComponent
 
   ],
   imports: [
