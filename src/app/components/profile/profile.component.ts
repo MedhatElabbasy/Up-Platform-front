@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthServices } from '../../auth/services/auth-services.service';
+import { PaymentService } from '../../../app/core/services/payment.service';
 import { environment } from 'src/environments/environment';
 
 
@@ -10,13 +11,15 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  cads: number = 0;
   userDetails: any = {};
 
-    constructor(private authService: AuthServices, private router: Router) {}
+    constructor(private authService: AuthServices, private router: Router, private PaymentService:PaymentService) {}
   
 
     ngOnInit() {
       this.getUserDetails();
+      this.getWalletCredit();
     }
   
     getUserDetails() {
@@ -31,7 +34,13 @@ export class ProfileComponent implements OnInit {
       );
     }
     
-
+    getWalletCredit() {
+      this.PaymentService.getWalletCredit().subscribe((res: any) => {
+        console.log(res);
+        this.cads = res.cap;
+      });
+    }
+    
     logout() {
       this.authService.logout();
       this.authService.isUserLoggedIn.next(false)

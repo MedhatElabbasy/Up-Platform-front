@@ -14,9 +14,6 @@
         <li class="nav-item ">
           <a class="nav-link" routerLink="/home/" routerLinkActive="activeLink">الرئيسية</a>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link" routerLink="/auth/login/" routerLinkActive="activeLink" *ngIf="!isUserLoggedIn">الدخول</a>
-        </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/training/" routerLinkActive="activeLink">التدريب</a>
         </li>
@@ -32,14 +29,17 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/wheelOfLuck/" routerLinkActive="activeLink">دولاب الحظ</a>
         </li>
+        <li class="nav-item ">
+          <a class="nav-link" routerLink="/auth/login/" routerLinkActive="activeLink" *ngIf="!isUserLoggedIn">الدخول</a>
+        </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/cart/" routerLinkActive="activeCart" *ngIf="isUserLoggedIn"><i class="fa-solid fa-cart-shopping"></i></a>
+          <a class="nav-link" routerLink="/cart/" routerLinkActive="activeCart" *ngIf="isUserLoggedIn"><i class="fa-solid fa-cart-shopping cartIcon"></i></a>
         </li>
         <li class="nav-item">
           <a class="nav-link ms-3"><img src="assets/images/nav/Group 43493.svg" *ngIf="isUserLoggedIn" class="w-75"></a>
         </li>
 
-        <div class="social-media d-flex me-3">
+        <!-- <div class="social-media d-flex me-3">
           <li class="nav-item">
             <a class="nav-link  mx-0"><img src="assets/images/nav/youtube (1).svg" class="w-75"></a>
           </li>
@@ -53,7 +53,7 @@
             <a class="nav-link mx-0"><img src="assets/images/nav/facebook (1).svg" class="w-75"></a>
           </li>
 
-        </div>
+        </div> -->
 
         <div class="info d-flex align-items-center me-2" routerLink="/profile/" *ngIf="isUserLoggedIn">
           <div class="text-start ps-2 mt-3">
@@ -64,7 +64,7 @@
 
           </div>
           <div>
-            <img src="assets/images/nav/Circle.svg" style="width: 45px;">
+            <img src="assets/images/nav/default_avatar.png" style="width: 45px;">
           </div>
 
         </div>

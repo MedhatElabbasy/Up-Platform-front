@@ -1,54 +1,7 @@
 <div class="mt-4" *ngIf="cartItems && cartItems.length > 0">
   <div class="container mt-4 pb-4">
     <div class="row">
-      <!-- total -->
-      <div class="total col-4" *ngIf="cartItems && cartItems.length > 0">
-        <div style="position: relative; direction: rtl">
-          <div class="inputDiv">
-            <input
-            type="text"
-            placeholder="أدخل كود الكوبون إذا كنت تمتلك واحدًا"
-            class="coupon-input"
-            style="padding-left: 20%;"
-            [(ngModel)]="couponCode"
-          />
-          <button
-            type="button"
-            class="applyBtn"
-            (click)="applyCoupon(couponCode, totalPrice)"
-          >
-            تطبيق
-          </button>
-          </div>
-          <h4 *ngIf="codeError" class="text-danger codeError">
-            {{ codeError }}
-          </h4>
-          <h4 *ngIf="codeMsg" class="text-success codeMsg">{{ codeMsg }}</h4>
-        </div>
-
-        <div class="cart-price">
-          <h4>
-            سعر العناصر المضافة: <span>{{ totalPrice }}</span> ريال
-          </h4>
-          <h4>
-            <!-- قيمة الخصم: <span>{{ discount || 0 }}</span> ريال -->
-            قيمة الخصم: <span *ngIf="!totalAfterCoupon">0</span>
-            <span *ngIf="totalAfterCoupon">{{ totalPrice - totalAfterCoupon }}</span> ريال
-          </h4>
-        </div>
-        <hr />
-        <h1>
-          السعر الإجمالي:
-          <span class="totalPrice" *ngIf="totalAfterCoupon">{{ totalAfterCoupon }}</span>
-          <span class="totalPrice" *ngIf="!totalAfterCoupon">{{ totalPrice }}</span>
-          ريال
-        </h1>
-
-        <button class="btn w-100 paymentBtn" *ngIf="totalAfterCoupon" (click)="redirectToPayment(totalAfterCoupon)">ادفع الآن</button>
-        <button class="btn w-100 paymentBtn" *ngIf="!totalAfterCoupon" (click)="redirectToPayment(totalPrice)">ادفع الآن</button>
-
-      </div>
-    <!-- CART -->
+      <!-- CART -->
       <div class="col-8">
         <h2 class="pb-3 cartHead">السلة</h2>
         <div
@@ -59,16 +12,7 @@
         >
           <div class="px-3 pt-4 bg-white my-border">
             <div>
-              <p class="text-center p1" *ngIf="item.type === 'bundle'">
-                {{ item.bundle.title}}
-              </p>
-              <p class="text-center p1" *ngIf="item.type === 'course'">
-                {{ item.course.title.ar || item.course.title.en }}
-              </p>
-              <p class="text-center p1" *ngIf="item.type === 'event'">
-                {{ item.event.title }}
-              </p>
-              <p
+              <!-- <p
                 *ngIf="item.course"
                 (click)="redirectBio(item.course.user.id)"
                 class="text-center p2 mt-3 cursor-pointer"
@@ -81,38 +25,21 @@
                 class="text-center p2 mt-3 cursor-pointer"
               >
                 {{ item.bundle.user.name }}
-              </p>
-              <div class="d-flex py-1">
-                <img src="assets/images/training/10.svg" class="image" />
-                <p class="mb-0 pe-2 text-muted muted">النوع:</p>
-                <span class="mb-0 pe-2" *ngIf="item.type == 'course' && item.course.type == '3'"
-                  >دورات أونلاين</span
-                >
-                <span class="mb-0 pe-2" *ngIf="item.type == 'bundle'"
-                >مسارات تعليمية</span
-                >
-                <div *ngIf="item.type == 'event'">
-                  <span class="mb-0 pe-2">فعالية</span>
+              </p> -->
+              <div class="d-flex py-1 row">
+                <div class="col-4">
+                  <p class="text-center p1" *ngIf="item.type === 'bundle'">
+                    {{ item.bundle.title }}
+                  </p>
+                  <p class="text-center p1" *ngIf="item.type === 'course'">
+                    {{ item.course.title.ar || item.course.title.en }}
+                  </p>
+                  <p class="text-center p1" *ngIf="item.type === 'event'">
+                    {{ item.event.title }}
+                  </p>
                 </div>
-                <span class="mb-0 pe-2" *ngIf="item.type != 'bundle' && item.type != 'event' && item.course.type == '1'"
-                  > مكتبة المهارات</span
-                >
-              </div>
-              <div class="d-flex py-1" *ngIf="item.type != 'bundle' && item.type != 'event'">
-                <img src="assets/images/training/3.svg" class="image" />
-                <p class="mb-0 pe-2 text-muted muted">المدة:</p>
-                <span class="mb-0 pe-2" 
-                  >{{ item.course.duration || 0 }} دقيقة</span
-                >
-              </div>
-              <div class="d-flex py-1 mb-3" *ngIf="item.type != 'bundle' && item.type != 'event'">
-                <img src="assets/images/training/star.png" class="image" />
-                <p class="mb-0 pe-2 text-muted muted">
-                  {{ item.course.reveiw }} نجوم
-                </p>
-              </div>
-              <div class="d-flex justify-content-between mt-2">
-                <div class="text-center">
+
+                <div class="text-center col-3">
                   <h2 class="mb-0" *ngIf="item.type === 'course'">
                     {{ item.course.price }}
                   </h2>
@@ -124,20 +51,41 @@
                   </h2>
                   <p class="mt-0">ريال</p>
                 </div>
-
-                <div>
-                  <div class="login">
-                    <button
-                      class="btn w-100"
-                      id="cartBtn"
-                      (click)="removeFromCart(item.id)"
-                    >
-                      <i
-                        class="fa-solid fa-trash"
-                        (click)="removeFromCart(item.id)"
-                      ></i>
-                    </button>
+                <div class="col-3">
+                  <p class="mb-0 pe-2 text-muted muted">النوع:</p>
+                  <span
+                    class="mb-0 pe-2"
+                    *ngIf="item.type == 'course' && item.course.type == '3'"
+                    >دورات أونلاين</span
+                  >
+                  <span class="mb-0 pe-2" *ngIf="item.type == 'bundle'"
+                    >مسارات تعليمية</span
+                  >
+                  <div *ngIf="item.type == 'event'">
+                    <span class="mb-0 pe-2">فعالية</span>
                   </div>
+                  <span
+                    class="mb-0 pe-2"
+                    *ngIf="
+                      item.type != 'bundle' &&
+                      item.type != 'event' &&
+                      item.course.type == '1'
+                    "
+                  >
+                    مكتبة المهارات</span
+                  >
+                </div>
+                <div class="login col-2">
+                  <button
+                    class="btn w-100"
+                    id="cartBtn"
+                    (click)="removeFromCart(item.id)"
+                  >
+                    <i
+                      class="fa-solid fa-trash"
+                      (click)="removeFromCart(item.id)"
+                    ></i>
+                  </button>
                 </div>
               </div>
             </div>
@@ -161,7 +109,71 @@
         </div>
       </div>
 
-      
+      <!-- total -->
+      <div class="total col-4" *ngIf="cartItems && cartItems.length > 0">
+        <div style="position: relative; direction: rtl">
+          <div class="inputDiv">
+            <input
+              type="text"
+              placeholder="أدخل كود الكوبون إذا كنت تمتلك واحدًا"
+              class="coupon-input"
+              style="padding-left: 20%"
+              [(ngModel)]="couponCode"
+            />
+            <button
+              type="button"
+              class="applyBtn"
+              (click)="applyCoupon(couponCode, totalPrice)"
+            >
+              تطبيق
+            </button>
+          </div>
+          <h4 *ngIf="codeError" class="text-danger codeError">
+            {{ codeError }}
+          </h4>
+          <h4 *ngIf="codeMsg" class="text-success codeMsg">{{ codeMsg }}</h4>
+        </div>
+
+        <div class="cart-price">
+          <h4>
+            سعر العناصر المضافة: <span>{{ totalPrice }}</span> ريال
+          </h4>
+          <h4>
+            <!-- قيمة الخصم: <span>{{ discount || 0 }}</span> ريال -->
+            قيمة الخصم: <span *ngIf="!totalAfterCoupon">0</span>
+            <span *ngIf="totalAfterCoupon">{{
+              totalPrice - totalAfterCoupon
+            }}</span>
+            ريال
+          </h4>
+        </div>
+        <hr />
+        <h1>
+          السعر الإجمالي:
+          <span class="totalPrice" *ngIf="totalAfterCoupon">{{
+            totalAfterCoupon
+          }}</span>
+          <span class="totalPrice" *ngIf="!totalAfterCoupon">{{
+            totalPrice
+          }}</span>
+          ريال
+        </h1>
+
+        <button
+          class="btn w-100 paymentBtn"
+          *ngIf="totalAfterCoupon"
+          (click)="redirectToPayment(totalAfterCoupon)"
+        >
+          ادفع الآن
+        </button>
+        <button
+          class="btn w-100 paymentBtn"
+          *ngIf="!totalAfterCoupon"
+          (click)="redirectToPayment(totalPrice)"
+        >
+          ادفع الآن
+        </button>
+      </div>
     </div>
     <div *ngIf="isLoading" class="row">
       <div class="col-lg-3 course-col">
@@ -217,7 +229,6 @@
         </div>
       </div>
     </div>
-    
   </div>
 
   <div class="mt-4" *ngIf="!cartItems || cartItems.length === 0">
