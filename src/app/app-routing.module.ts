@@ -8,6 +8,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { WheelOfLuckComponent } from './components/wheel-of-luck/wheel-of-luck.component';
 import { servicesRoutes } from './services/routes/services-routes';
 import { BiographyComponent } from './services/components/biography/biography.component';
+import { CartComponent } from './services/components/cart/cart.component'
+import { PaymentComponent } from './services/components/payment/payment.component'
 import { trainingRoutes } from './training/routes/training-routes';
 import { CourseDetailsComponent } from './training/components/course-details/course-details.component';
 import { CourseGeneralInfoComponent } from './training/components/course-details/course-general-info/course-general-info.component';
@@ -20,6 +22,14 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
+  },
+  {
+    path: 'payment',
+    component: PaymentComponent,
   },
   {
     path: 'home',

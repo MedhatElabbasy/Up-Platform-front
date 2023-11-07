@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ClubService } from '../../services/club.service';
 import { PaginationInstance } from 'ngx-pagination';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TrainingService } from 'src/app/training/Services/training.service';
+import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-main-club',

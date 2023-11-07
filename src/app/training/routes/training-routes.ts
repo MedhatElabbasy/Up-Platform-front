@@ -21,5 +21,6 @@ export enum trainingRoutes {
   courseschedule='course-schedule',
   courseRating='course-rating',
   courseInstructor='course-instructor',
-  courseGeneralInfo='course-general-info'
+  courseGeneralInfo='course-general-info',
+  cart='cart'
 }

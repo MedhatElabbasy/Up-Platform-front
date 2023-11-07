@@ -1,7 +1,8 @@
-
 import { RouterModule, Routes } from '@angular/router';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,8 +18,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { WheelOfLuckComponent } from './components/wheel-of-luck/wheel-of-luck.component';
 import { NgxWheelModule } from 'ngx-wheel';
 import { AddApikeyInterceptor } from './Interceptors/add-apikey.interceptor';
-
-
+import { CartComponent } from './services/components/cart/cart.component';
+import { VerifyAccountComponent } from './auth/components/verify-account/verify-account.component';
+import { PaymentComponent } from './services/components/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +28,13 @@ import { AddApikeyInterceptor } from './Interceptors/add-apikey.interceptor';
     NavbarComponent,
     HomeComponent,
     ProfileComponent,
-    WheelOfLuckComponent
-
+    WheelOfLuckComponent,
+    CartComponent,
+    VerifyAccountComponent,
+    PaymentComponent,
   ],
   imports: [
+    NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -39,12 +44,18 @@ import { AddApikeyInterceptor } from './Interceptors/add-apikey.interceptor';
     FormsModule,
     HttpClientModule,
     CarouselModule,
-    NgxWheelModule
+    NgxWheelModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      timeOut: 3000,
+      progressBar: true,
+      progressAnimation: 'increasing',
+      enableHtml: true,
+      toastClass: 'toastClass',
+    }),
   ],
-  exports: [
-    NavbarComponent,
-
-  ],
+  exports: [NavbarComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
@@ -56,12 +67,7 @@ import { AddApikeyInterceptor } from './Interceptors/add-apikey.interceptor';
       useClass: AddApikeyInterceptor,
       multi: true,
     },
-
-
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-
-
-}
+export class AppModule {}

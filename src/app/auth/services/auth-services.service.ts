@@ -45,6 +45,15 @@ export class AuthServices {
     return this._HttpClient.post(environment.baseUrl + '/signup', registerModel)
   }
 
+  sendPhoneCode(phone: string): Observable<any> {
+    const phoneData = { phone: phone };
+    return this._HttpClient.post(environment.baseUrl + '/send-phone-otp', phoneData)
+  }
+
+  phoneVerify(phoneVerifyModel: any): Observable<any> {
+    return this._HttpClient.post(environment.baseUrl + '/activate-phone', phoneVerifyModel)
+  }
+
   emailVerify(emailVerifyModel: any): Observable<any> {
     return this._HttpClient.post(environment.baseUrl + '/email/verify', emailVerifyModel)
   }

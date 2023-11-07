@@ -16,7 +16,7 @@ li button {
 
 }
 
-.activeLink {
+.activeLink, .activeCart {
   color: $light-blue !important;
   border-bottom: 4px solid $light-blue;
 }

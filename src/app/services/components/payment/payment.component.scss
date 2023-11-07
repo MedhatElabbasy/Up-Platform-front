@@ -1,0 +1,13 @@
+@import "../../../../assets/styles/variables.scss";
+.row{
+    margin-top: 50px;
+}
+.row>.col-6>p{
+    width: 60%;
+}
+h1{
+    font-weight: bold;
+    font-size: 25px;
+    color: $main-color;
+    font-family: "Bahij";
+}

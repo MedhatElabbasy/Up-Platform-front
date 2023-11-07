@@ -14,6 +14,9 @@
         <li class="nav-item ">
           <a class="nav-link" routerLink="/home/" routerLinkActive="activeLink">الرئيسية</a>
         </li>
+        <li class="nav-item ">
+          <a class="nav-link" routerLink="/auth/login/" routerLinkActive="activeLink" *ngIf="!isUserLoggedIn">الدخول</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/training/" routerLinkActive="activeLink">التدريب</a>
         </li>
@@ -24,13 +27,16 @@
           <a class="nav-link" routerLink="/club/" routerLinkActive="activeLink">النادي</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/projects/" routerLinkActive="activeLink">أطلاق المشاريع</a>
+          <a class="nav-link" routerLink="/projects/" routerLinkActive="activeLink">إطلاق المشاريع</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/wheelOfLuck/" routerLinkActive="activeLink">دولاب الحظ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link ms-3"><img src="assets/images/nav/Group 43493.svg" class="w-75"></a>
+          <a class="nav-link" routerLink="/cart/" routerLinkActive="activeCart" *ngIf="isUserLoggedIn"><i class="fa-solid fa-cart-shopping"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link ms-3"><img src="assets/images/nav/Group 43493.svg" *ngIf="isUserLoggedIn" class="w-75"></a>
         </li>
 
         <div class="social-media d-flex me-3">
@@ -49,7 +55,7 @@
 
         </div>
 
-        <div class="info d-flex align-items-center me-2" routerLink="/profile/">
+        <div class="info d-flex align-items-center me-2" routerLink="/profile/" *ngIf="isUserLoggedIn">
           <div class="text-start ps-2 mt-3">
             <p>{{ userDetails.name }}
               <br>

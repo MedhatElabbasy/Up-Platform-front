@@ -15,7 +15,7 @@ import { ClubEventsComponent } from './components/club-events/club-events.compon
 
 @NgModule({
   declarations: [
-    MainClubComponent,
+    //MainClubComponent,
     ClubComponent,
     ActivitiesScheduleComponent,
     ClubConditionsComponent,

@@ -1,0 +1,31 @@
+<div class="px-3 main pt-5">
+    <div class="bg-light rounded-4 pt-5  px-4 pb-3">
+      <p class="py-2 pt-4 pb-2">تأكيد الحساب</p>
+      <p class="py-2 pt-4 pb-2 subTitle">الرجاء كتابة الكود المرسل إلى {{this.userPhone}}</p>
+      <form [formGroup]="verifyAccountForm" (ngSubmit)="verifyCode(verifyAccountForm)">
+      <!-- <form [formGroup]="verifyAccountForm"> -->
+        <div class="input pb-3">
+          <div class="input-container ">
+            <input formControlName="otp" type="text" class="input-field" placeholder="الكود">
+          <p *ngIf="verifyAccountForm.get('otp')?.errors?.['required'] && verifyAccountForm.get('otp')?.touched" class="text-danger mt-1 error-message"> قم بإدخال الكود</p>
+          </div>
+          <div *ngIf="errorMessage" class="float-start pt-1 pb-4">
+            <span class="text-danger">كود غير صحيح أو منتهي الصلاحية</span>
+            <!-- <i *ngIf="isResendPhoneLoading" class="fas fa-spinner fa-spin"></i> -->
+          </div>
+        </div>
+  
+        <div class=" login mb-5 pb-4">
+          <button [disabled]="isLoading" class="btn w-100 mb-5">
+            <span *ngIf="!isLoading">التالي</span>
+            <span *ngIf="isLoading"><i class="fas fa-spinner fa-spin"></i></span>
+          </button>
+        </div>
+      </form>
+      <div class="d-flex justify-content-center notSend mt-5">
+        <span>لم تتلق الكود؟</span>
+        <a class="cursor-pointer" (click)="resendPhoneVerify()"> إعادة الإرسال</a>
+      </div>
+      <p *ngIf="resendMessage" class="fs-6 text-black mt-2 resendMessage alert alert-success mb-1 py-2">{{resendMessage}}</p>
+    </div>
+  </div>

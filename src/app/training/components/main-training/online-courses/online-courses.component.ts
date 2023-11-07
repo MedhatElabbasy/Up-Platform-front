@@ -5,6 +5,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthServices } from 'src/app/auth/services/auth-services.service';
 import { TrainingService } from 'src/app/training/Services/training.service';
 import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-online-courses',
@@ -95,5 +96,27 @@ redirectBio(id:number){
 
 redirectCourse(id:number){
   this.router.navigate(['/course-details',id])
+}
+
+addToCart(id:number, type: string) {
+  const cartBtn = document.getElementById("cartBtn") as HTMLButtonElement;
+  this._TrainingService.addToCart(id, type).subscribe((res: any) => {
+      console.log(res);
+      if(res.success) {
+        console.log(res.message);
+        this.showSuccessToast(res.message);
+      }
+      else{
+        console.log(res.message);
+        this.showErrorToast(res.message);
+      }
+  })
+}
+showSuccessToast(message: string) {
+  this.toastr.success("تم إضافة العنصر للسلة بنجاح");
+}
+
+showErrorToast(message: string) {
+  this.toastr.error('العنصر موجود بالفعل في السلة');
 }
 }
