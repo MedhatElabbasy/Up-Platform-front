@@ -10,6 +10,7 @@ import { servicesRoutes } from './services/routes/services-routes';
 import { BiographyComponent } from './services/components/biography/biography.component';
 import { CartComponent } from './services/components/cart/cart.component'
 import { PaymentComponent } from './services/components/payment/payment.component'
+import { PaymentCardComponent } from './services/components/payment-card/payment-card.component'
 import { trainingRoutes } from './training/routes/training-routes';
 import { CourseDetailsComponent } from './training/components/course-details/course-details.component';
 import { CourseGeneralInfoComponent } from './training/components/course-details/course-general-info/course-general-info.component';
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent,
+  },
+  {
+    path: 'card-payment',
+    component: PaymentCardComponent,
   },
   {
     path: 'payment',

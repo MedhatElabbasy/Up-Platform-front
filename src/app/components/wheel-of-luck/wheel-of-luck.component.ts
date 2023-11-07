@@ -24,10 +24,14 @@ export class WheelOfLuckComponent {
   wheelMessage: string = ""
   isWheelClicked: boolean = false
   isWheelLoading: boolean = true
+  isUserLoggedIn: boolean = false
 
   constructor(private _AuthServices: AuthServices, private _WheelService: WheelService) {    
     this.wheelSpinAudio = new Audio('../../../assets/sounds/wheel-spin.wav');
     this.clapAudio = new Audio('../../../assets/sounds/claps.mp3');
+    _AuthServices.isUserLoggedIn.subscribe((res) => {
+      this.isUserLoggedIn = res
+    })
   }
 
   probabilities: number[] = [];
@@ -89,10 +93,10 @@ export class WheelOfLuckComponent {
     const colors2 = ["#07487C", "#fff"]
     console.log(this.slicePrizes);
     this.items = this.slicePrizes.map((value: any) => ({
-      fillStyle: gradientColors[value.id % 2],
+      fillStyle: this.getColorForId(value.id),
       text: value.points,
       id: value.id,
-      textFillStyle: colors2[value.id % 2],
+      textFillStyle: '#fff',
       textFontSize: "14",
       textFontFamily: 'Bahij Regular'
     }));
@@ -101,6 +105,28 @@ export class WheelOfLuckComponent {
   });;
   }
 
+  getColorForId(id: number): string {
+    const colors = ['#005CA6', '#00AF7A', '#E45493', '#FFC300']; // Define your set of colors
+    if (!this.items.length) {
+      this.items.push({ fillStyle: colors[0] }); // Initialize the first color
+      return colors[0];
+    }
+  
+    const lastIndex = this.items.length - 1;
+    const lastColor = this.items[lastIndex].fillStyle;
+    const lastColorIndex = colors.indexOf(lastColor);
+  
+    let nextColorIndex = (lastColorIndex + 1) % colors.length; // Get the next color index in the cycle
+    if (nextColorIndex === 0) {
+      // Shuffle the colors to provide a different order after cycling through all colors
+      colors.sort(() => Math.random() - 0.5);
+    }
+  
+    const nextColor = colors[nextColorIndex];
+    this.items.push({ fillStyle: nextColor }); // Add the next color to the items
+  
+    return nextColor;
+  }
    reset() {
      this.wheel.reset();
      this.idToLandOn = this.slicePrizes[
@@ -228,6 +254,7 @@ export class WheelOfLuckComponent {
   checkIfUserCanSpin() {
     console.log(this._AuthServices.userToken);
     if (this._AuthServices.userToken) {
+      this.wheelMessage = "";
       this._WheelService.canSpin().subscribe((res) => {
         this.isWheelLoading = false
         console.log(res);

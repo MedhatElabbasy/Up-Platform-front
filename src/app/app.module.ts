@@ -21,6 +21,7 @@ import { AddApikeyInterceptor } from './Interceptors/add-apikey.interceptor';
 import { CartComponent } from './services/components/cart/cart.component';
 import { VerifyAccountComponent } from './auth/components/verify-account/verify-account.component';
 import { PaymentComponent } from './services/components/payment/payment.component';
+import { PaymentCardComponent } from './services/components/payment-card/payment-card.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { PaymentComponent } from './services/components/payment/payment.componen
     CartComponent,
     VerifyAccountComponent,
     PaymentComponent,
+    PaymentCardComponent,
   ],
   imports: [
     NgxPaginationModule,
