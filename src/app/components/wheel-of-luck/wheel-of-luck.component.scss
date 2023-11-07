@@ -58,7 +58,8 @@
   border-radius: 50%;
   padding-top: 10px;
   padding-right: 10px;
-  background-image: url('../../../assets/images/profile/Ellipse 1211.png');
+  //background-image: url('../../../assets/images/profile/Ellipse 1211.png');
+  background-color: #07487C;
   background-position: center;
 }
 
@@ -80,12 +81,11 @@
   position: absolute;
   top: -34.5px;
   right: -60.5%;
-  transform: translateX(-50%)
+  transform: translateX(-50%);
 }
 
 .wheel-child {
   position: relative;
-
   width: 80px;
   height: 80px;
   background-image: url('../../../assets/images/profile/Group\ 43460.png');
