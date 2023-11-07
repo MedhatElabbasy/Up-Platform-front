@@ -24,10 +24,14 @@ export class WheelOfLuckComponent {
   wheelMessage: string = ""
   isWheelClicked: boolean = false
   isWheelLoading: boolean = true
+  isUserLoggedIn: boolean = false
 
   constructor(private _AuthServices: AuthServices, private _WheelService: WheelService) {    
     this.wheelSpinAudio = new Audio('../../../assets/sounds/wheel-spin.wav');
     this.clapAudio = new Audio('../../../assets/sounds/claps.mp3');
+    _AuthServices.isUserLoggedIn.subscribe((res) => {
+      this.isUserLoggedIn = res
+    })
   }
 
   probabilities: number[] = [];
@@ -228,6 +232,7 @@ export class WheelOfLuckComponent {
   checkIfUserCanSpin() {
     console.log(this._AuthServices.userToken);
     if (this._AuthServices.userToken) {
+      this.wheelMessage = "";
       this._WheelService.canSpin().subscribe((res) => {
         this.isWheelLoading = false
         console.log(res);

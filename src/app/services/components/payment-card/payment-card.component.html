@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row container containerRow">
+      <div class="col-6">
+        <h1>صفحة الدفع</h1>
+        <p>
+          نستخدم نظام أمن وحية الدفع الالكتروني, مع نظام ذكاء صناعي لحية العمليات
+        </p>
+      </div>
+      <div class="col-6">
+        <div class="left">
+          <h3 class="leftTitle">صفحة الدفع من المحفظة</h3>
+          <h3>
+            <span class="wallet"
+              ><img src="../../../../assets/images/wallet.png" /> المحفظة</span
+            >
+          </h3>
+          <div class="payment">
+            <div class="credit-class row">
+              <div class="credit-right col-7">
+                <h3>رصيد محفظتي</h3>
+                <h2>
+                  <span class="creditNum">{{ this.credit }}</span
+                  >SR
+                </h2>
+              </div>
+              <div class="credit-left col-5">
+                <button class="btn btn-success">شحن</button>
+                <p>إخفاء الرصيد</p>
+              </div>
+            </div>
+            <div class="moneyAmount">
+              <h4>المبلغ</h4>
+              <p>
+                <span class="money">{{ totalAfterCoupon }}</span> ريال
+              </p>
+            </div>
+          </div>
+        </div>
+        <button class="payBtn btn btn-primary" (click)="navigateToCardPayment()">دفع</button>
+        <button class="btn btn-light" (click)="navigateToCart()">إلغاء</button>
+      </div>
+    </div>
+  </div>
+  >
+  
