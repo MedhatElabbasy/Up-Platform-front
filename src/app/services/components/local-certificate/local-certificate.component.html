@@ -6,7 +6,7 @@
       </p>
     </div>
     <div class="col-lg-6 left-section">
-      <div class="container">
+      <!-- <div class="container">
         <div class="row d-flex justify-content-end">
           <div class="col-4 px-1">
             <div class="second-card my-cards  rounded-3 p-4" routerLink="/services/local-certificate"  routerLinkActive="activeLink">
@@ -26,38 +26,37 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
-  <h3>شهادة محلية</h3>
+  <!-- <h3>شهادة محلية</h3> -->
   <div class="mt-4 second-section rounded-4 p-4">
     <div class="container mt-3">
       <div class="row justify-content-around">
-        <div class="col-lg-3">
-          <div class="card1">
-          <h5>أسم الشهادة</h5>
-          <p>هذا النص هو مثال لنص يمكن أن يـسـتبدل في نفس المساحة، لقد تم تـولــيـد هـذا الـنص مـن مولد النص العربى، حيث
-            يـمكنك أن تولد مــثــل</p>
+        <div  *ngFor="let exam of exams" class="col-lg-3">
+          <div class="card2">
+          <h5>{{exam.title.ar}}</h5>
+          <p>{{exam.about.ar}}</p>
           <span><img src="assets/images/services/Group 2993.png">جامعة الإمام محمد بن سعود الإسلامية</span>
           <hr>
           <div class="row declare">
             <div class="col-lg-6">
               <h6>السعر</h6>
-              <span class="price">19</span><span class="cap">ريال</span>
+              <span class="price">{{exam.price}}</span><span class="cap">ريال</span>
             </div>
             <div class="col-lg-6 d-flex align-items-end justify-content-end">
               <div class="d-flex justify-content-center mt-3">
                 <button class="nav-link px-4  btn btn2 mt-2" routerLink="">
-                  أختبر الأن</button>
+                   أضافة للسلة</button>
               </div>
             </div>
           </div>
         </div>
         <div class="details">
-          <a routerLink="/services/local-certificate/certificate-details" routerLinkActive="activeLink" >عرض تفاصيل الشهادة</a>
+          <a (click)="details(exam.id)" routerLinkActive="activeLink" class="text-white" >عرض تفاصيل الشهادة</a>
         </div>
         </div>
-        <div class="col-lg-3">
+        <!-- <div class="col-lg-3">
           <div class="card2">
           <h5>أسم الشهادة</h5>
           <p>هذا النص هو مثال لنص يمكن أن يـسـتبدل في نفس المساحة، لقد تم تـولــيـد هـذا الـنص مـن مولد النص العربى، حيث
@@ -104,8 +103,9 @@
           <div class="details">
             <a routerLink="/services/local-certificate/certificate-details" routerLinkActive="activeLink" >عرض تفاصيل الشهادة</a>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
+    <ngx-spinner *ngIf="isLoading" bdColor = "rgba(0, 0, 0, 0.2)" size = "medium" color = "#fff" type = "square-jelly-box"  fullScreen = "false"></ngx-spinner>
   </div>
 </div>

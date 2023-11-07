@@ -22,7 +22,7 @@
                     <div *ngFor="let blog of blogs  | paginate: config; let colIndex = index" class="col-lg-4 mt-2">
                         <div class="card1 cursor-pointer" routerLink="/services/advisor/submit-advisor" routerLinkActive="activeLink">
                             <div class="circleImage">
-                                <img [src]="blog.image" class="m">
+                                <img [src]="blog.image"  class="m">
                             </div>
                       <p>{{blog.description.ar | 
                         slice:0:150}}....</p>

@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PaginationInstance } from 'ngx-pagination';
 import { ClubService } from '../../services/club.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
+import { TrainingService } from 'src/app/training/Services/training.service';
 
 @Component({
   selector: 'app-club-events',
@@ -40,7 +42,7 @@ export class ClubEventsComponent {
   });
 
 
-  constructor(private spinner: NgxSpinnerService,private _club:ClubService){
+  constructor(private spinner: NgxSpinnerService,private _club:ClubService ,private TrainingService: TrainingService, private toastr: ToastrService){
 this.getAllEvents();
   }
 
@@ -112,5 +114,28 @@ this.getAllEvents();
        this.isLoading=false
        this.events=res
     })
+  }
+
+  addToCart(id:number, type: string) {
+    const cartBtn = document.getElementById("cartBtn") as HTMLButtonElement;
+    this.TrainingService.addToCart(id, type).subscribe((res: any) => {
+        console.log(res);
+        if(res.success) {
+          console.log(res.message);
+          this.showSuccessToast(res.message);
+        }
+        else{
+          console.log(res.message);
+          this.showErrorToast(res.message);
+        }
+    })
+  }
+
+  showSuccessToast(message: string) {
+    this.toastr.success("تم إضافة العنصر للسلة بنجاح");
+  }
+  
+  showErrorToast(message: string) {
+    this.toastr.error('العنصر موجود بالفعل في السلة');
   }
 }

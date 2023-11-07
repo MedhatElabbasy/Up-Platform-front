@@ -34,7 +34,7 @@ export class OnlineCoursesComponent implements OnInit {
     screenReaderPageLabel: 'page',
     screenReaderCurrentLabel: `You're on page`
   };
-  constructor(private spinner: NgxSpinnerService,private _TrainingService: TrainingService ,private router: Router ,private _auth:AuthServices) {
+  constructor(private toastr: ToastrService , private spinner: NgxSpinnerService,private _TrainingService: TrainingService ,private router: Router ,private _auth:AuthServices) {
 
 this.userInfo=localStorage.getItem(environment.localStorageName)
 //console.log(this.userInfo);

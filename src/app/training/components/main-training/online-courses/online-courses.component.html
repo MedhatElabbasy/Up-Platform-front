@@ -57,11 +57,11 @@
 
                 <div>
                   <div *ngIf="!userInfo" class="login">
-                    <button class="btn w-100 ">أضف للسلة</button>
+                    <button class="btn w-100 " routerLink="/auth/login">أضف للسلة</button>
                   </div>
                   <div *ngIf="userInfo" class="login">
                     <div *ngIf="course.is_enrolled==false">
-                      <button class="btn w-100 ">أضف للسلة</button>
+                      <button class="btn w-100 " (click)="addToCart(course.id, course.type)">أضف للسلة</button>
                     </div>
                     <div *ngIf="course.is_enrolled==true">
                       <button class="btn w-100 ">أكمل المشاهدة</button>

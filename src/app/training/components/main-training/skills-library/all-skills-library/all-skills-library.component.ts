@@ -39,7 +39,7 @@ export class AllSkillsLibraryComponent {
   isLoading: boolean = true
    categoriesCourses!:any;
    userInfo!:any
-  constructor(private spinner: NgxSpinnerService,private _AuthServices: AuthServices, private _TrainingService: TrainingService ,private router: Router) {
+  constructor(private toastr: ToastrService , private spinner: NgxSpinnerService,private _AuthServices: AuthServices, private _TrainingService: TrainingService ,private router: Router) {
     // _AuthServices.isUserLoggedIn.next(false)
     this.userInfo=localStorage.getItem(environment.localStorageName)
   }

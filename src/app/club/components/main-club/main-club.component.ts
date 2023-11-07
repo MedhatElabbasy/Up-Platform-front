@@ -21,5 +21,7 @@ export class MainClubComponent {
   constructor(private _Router: Router){
 
   }
- 
+ next(){
+  this._Router.navigate(['/club/club-conditions'])
+ }
 }
