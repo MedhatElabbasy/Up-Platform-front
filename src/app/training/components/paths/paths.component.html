@@ -7,7 +7,7 @@
         <div class="col-lg-4 h-100 mt-3">
           <div class="p-4 first-card  rounded-5 h-100 square">
             <h3 *ngIf="isLoading" class=" text-center">--</h3>
-            <h3 class=" text-center cursor-pointer" routerLink="/training/selected-path">{{trainingPaths[0]?.title}}
+            <h3 class=" text-center cursor-pointer" (click)="details(trainingPaths[0].id)">{{trainingPaths[0]?.title}}
             </h3>
             <div class="p-3 ">
               <ul class="pe-4">
@@ -33,7 +33,7 @@
         <div class="col-lg-4 h-100 mt-3">
           <div class="p-4 other-card  rounded-5 h-100 square">
             <h3 *ngIf="isLoading" class=" text-center" style="color:#07487C">--</h3>
-            <h3 class=" text-center">{{trainingPaths[1]?.title}}</h3>
+            <h3 class=" text-center cursor-pointer" (click)="details(trainingPaths[1].id)">{{trainingPaths[1]?.title}}</h3>
             <div class="p-3 ">
               <ul class="pe-4">
                 <li><span *ngIf="isLoading" class=" text-center ">--</span> <span

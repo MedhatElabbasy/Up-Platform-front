@@ -1,7 +1,10 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { PaginationInstance } from 'ngx-pagination';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthServices } from 'src/app/auth/services/auth-services.service';
 import { TrainingService } from 'src/app/training/Services/training.service';
+import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -35,13 +38,16 @@ export class AllSkillsLibraryComponent {
   categories: any[] = []
   isLoading: boolean = true
    categoriesCourses!:any;
-  constructor(private _AuthServices: AuthServices, private _TrainingService: TrainingService, private toastr: ToastrService) {
+   userInfo!:any
+  constructor(private toastr: ToastrService , private spinner: NgxSpinnerService,private _AuthServices: AuthServices, private _TrainingService: TrainingService ,private router: Router) {
     // _AuthServices.isUserLoggedIn.next(false)
+    this.userInfo=localStorage.getItem(environment.localStorageName)
   }
 
   ngOnInit(): void {
     this.getAllCourses()
     this.getAllCategoriesInSkillsLibrary()
+    this.spinner.show();
   }
 
 
@@ -54,6 +60,14 @@ export class AllSkillsLibraryComponent {
       this.isLoading = false
 
     })
+  }
+
+  redirectCourse(id:number ,e:Event){
+    // e.stopPropagation();
+    // e.preventDefault();
+    console.log("TEst");
+    
+    this.router.navigate(['/course-details',id])
   }
 
   myGetAllCourses(){
@@ -120,7 +134,7 @@ export class AllSkillsLibraryComponent {
       console.log(res);
       if(res){
       this.isLoading = false
-      this.categoriesCourses = res
+      this.categoriesCourses = res.data
      }
     })
   }

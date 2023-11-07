@@ -15,11 +15,22 @@
             </div>
         </div>
     </div>
-    <div class="mt-4 p-4 section">
-        <div class="second-section rounded-4">
-            <div class="container mt-3">
-                <div class="row justify-content-around">
-                    <div class="col-lg-3 mt-2">
+    <div class="">
+        <div class="all loader py-4 px-4 my-3 rounded-5 overflow-hidden">
+            <div class="container mt-4 pb-4 ">
+              <div class="row">
+                    <div *ngFor="let blog of blogs  | paginate: config; let colIndex = index" class="col-lg-4 mt-2">
+                        <div class="card1 cursor-pointer" routerLink="/services/advisor/submit-advisor" routerLinkActive="activeLink">
+                            <div class="circleImage">
+                                <img [src]="blog.image"  class="m">
+                            </div>
+                      <p>{{blog.description.ar | 
+                        slice:0:150}}....</p>
+                        </div>
+                    </div>
+
+                    <ngx-spinner *ngIf="isLoading" bdColor = "rgba(0, 0, 0, 0.2)" size = "medium" color = "#fff" type = "square-jelly-box"  fullScreen = "false"></ngx-spinner>
+                    <!-- <div class="col-lg-3 mt-2">
                         <div class="card1 cursor-pointer" routerLink="/services/advisor/submit-advisor" routerLinkActive="activeLink">
                             <div class="circleImage">
                                 <img src="../assets/images/services/images.png" class="m">
@@ -46,8 +57,25 @@
                                 مولد النص العربى، حيث يـمكنك أن تولد مــثــل</p>
                         </div>
                     </div>
+                    <div class="col-lg-3 mt-2">
+                        <div class="card1 cursor-pointer" routerLink="/services/advisor/submit-advisor" routerLinkActive="activeLink">
+                            <div class="circleImage">
+                                <img src="../assets/images/services/images.png" class="m">
+                            </div>
+                            <p>هذا النص هو مثال لنص يمكن أن يـسـتبدل في نفس المساحة، لقد تم تـولــيـد هـذا الـنص مـن
+                                مولد النص العربى، حيث يـمكنك أن تولد مــثــل</p>
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </div>
+    </div>
+    <div class="has-text-centered mt-4">
+        <pagination-controls [id]="config.id || ''" [maxSize]="maxSize" [directionLinks]="directionLinks"
+            [autoHide]="autoHide" [responsive]="responsive" [previousLabel]="labels.previousLabel"
+            [nextLabel]="labels.nextLabel" [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+            [screenReaderPageLabel]="labels.screenReaderPageLabel"
+            [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel" (pageChange)="onPageChange($event)"
+            (pageBoundsCorrection)="onPageBoundsCorrection($event)"></pagination-controls>
     </div>
 </div>

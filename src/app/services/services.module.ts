@@ -18,6 +18,8 @@ import { InternationalCertificateComponent } from './components/international-ce
 import { CertificateDetailsComponent } from './components/certificate-details/certificate-details.component';
 import { AdvisorComponent } from './components/advisor/advisor.component';
 import { SubmitAdvisorComponent } from './components/submit-advisor/submit-advisor.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -41,7 +43,10 @@ import { SubmitAdvisorComponent } from './components/submit-advisor/submit-advis
   imports: [
     CommonModule,
     ServicesRoutingModule,
-    CoreModule
+    CoreModule,
+    NgxPaginationModule,
+     NgxSpinnerModule.forRoot({ type: 'square-jelly-box' })
   ]
+  
 })
 export class ServicesModule { }

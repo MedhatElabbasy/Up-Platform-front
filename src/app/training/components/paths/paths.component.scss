@@ -22,8 +22,10 @@
   }
 
   .second-section {
-    background-color: #D3EBFF;
-    border: 1px solid $main-color;
+    background-image: url(../../../../assets/images/training/trainingBack.png);
+    background-size: cover;
+    background-position: center center;
+    min-height: 50vh;
 
     .first-card {
       color: $white-color;
@@ -72,7 +74,7 @@
     }
 
     h4 {
-      font-size: 33px;
+      font-size: 25px;
       font-weight: bold;
       margin-top: 20px;
       color: #FFB300;
@@ -89,7 +91,7 @@
     background-color: #FFB300;
 
     padding: 10px 0;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 600;
   }
 

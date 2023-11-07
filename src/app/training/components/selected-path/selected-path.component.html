@@ -1,14 +1,14 @@
 <div class="main container px-5">
   <div class="row align-items-center  content">
     <div class="col-lg-8">
-      <h2 class="pb-3 d-inline ">مسار تاهيل رواد الاعمال</h2>
+      <h2 class="pb-3 d-inline ">{{course.title+" "+"رواد الأعمال"}}</h2>
       <div class="container">
         <div class="row">
           <div class="col-7 my-border rounded-2"></div>
         </div>
       </div>
       <div class="d-flex align-items-end ">
-        <button class="nav-link px-3  btn btn1 mt-5" routerLink="/training/program">
+        <button class="nav-link px-3  btn btn1 mt-5" (click)="next()">
           <img src="assets/images/training/Group 1634.svg" class="ps-2">
           دخول</button>
       </div>

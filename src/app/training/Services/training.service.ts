@@ -43,6 +43,10 @@ export class TrainingService {
     return this._HttpClient.get(environment.baseUrl + '/user/'+user_id);
   }
 
+  getAllCourseDetailsByID(course_id:number){
+    return this._HttpClient.get(environment.baseUrl + '/get-course-details/'+course_id);
+  }
+
   getCartItems(){
     return this._HttpClient.get(environment.baseUrl + '/cart-list', {
       headers: {

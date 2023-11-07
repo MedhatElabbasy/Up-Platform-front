@@ -1,23 +1,29 @@
 <div>
     <div class="row mb-5">
-        <div class="col-lg-3 mt-3">
+        <div *ngFor="let course of courses.lessons"  class="col-lg-4 mt-3">
             <div class="startTime">
                 <div class="row">
+                    <h5 class="text-center">{{course.name}}</h5>
                     <div class="col-6">
+                        
                         <h5>
                             <img class="mx-1" src="../../../../../assets/images/training/g195.png" style="width:15px;"/>
                             تاريخ البداية</h5>
+                            <h5>
+                                <img class="mx-1" src="../../../../../assets/images/training/Layer 2.png" style="width:15px;"/>
+                                المده</h5>
                   
                     </div>
                     <div class="col-6 left">
+                       
                         <h5>
-                            11/11/2023</h5>
-                      
+                            {{course.created_at.split("T")[0]}}</h5>
+                            <h5>{{course.duration}}</h5>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 mt-3">
+        <!-- <div class="col-lg-3 mt-3">
             <div class="endTime">
                 <div class="row">
                     <div class="col-6">
@@ -34,8 +40,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-3 mt-3">
+        </div> -->
+        <!-- <div class="col-lg-3 mt-3">
             <div class="period">
                 <div class="row">
                     <div class="col-6">
@@ -48,10 +54,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
-    <div class="row mb-5">
+    <!-- <div class="row mb-5">
         <div class="col-lg-3 mt-3">
             <div class="startTime">
                 <div class="row">
@@ -101,5 +107,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+    
 </div>

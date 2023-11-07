@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TrainingService } from '../../Services/training.service';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -10,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class PathsComponent {
   isLoading: boolean = true
   trainingPaths:any = [];
-  constructor(private _trainingService:TrainingService, private toastr: ToastrService){
+  constructor(private _trainingService:TrainingService , private _router:Router, private toastr: ToastrService){
 
   }
 
@@ -30,6 +31,12 @@ export class PathsComponent {
     })
   }
 
+  details(id:number){
+    console.log(id);
+    
+   this._router.navigate(['/training/selected-path',id])
+  }
+  
   addToCart(id:number, type: string) {
     this._trainingService.addToCart(id, type).subscribe((res: any) => {
         console.log(res);

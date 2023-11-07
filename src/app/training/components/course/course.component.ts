@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TrainingService } from '../../Services/training.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-course',
@@ -8,16 +8,51 @@ import { Router } from '@angular/router';
   styleUrls: ['./course.component.scss']
 })
 export class CourseComponent {
-  courseInfo!:any
-constructor(private _trainingServices:TrainingService , private router: Router){
-this._trainingServices.getAllTrainingPaths().subscribe((res:any)=>{
-  console.log(res);
-   this.courseInfo =res.data[0];
-   this._trainingServices.bundleSubscription.next(this.courseInfo)
-})
-}
+  
+  trainingPaths!: any;
+  isLoading: boolean = true
+  id!:number;
+  path!:any;
+  constructor( private router: Router ,private route: ActivatedRoute ,private _trainingService: TrainingService){
+    this.route.params.subscribe((res:any) => {
+      console.log(res)
+      this.id=res.id
+    });
+  }
+
+ 
+
+  ngOnInit(): void {
+    this.getAllTrainingPaths()
+  }
+
+  getAllTrainingPaths() {
+    this.isLoading = true
+    this._trainingService.getAllTrainingPaths().subscribe((res) => {
+      console.log(res);
+      if (res) {
+        this.trainingPaths = res.data;
+        console.log(this.trainingPaths);
+        this.isLoading = false
+       this.trainingPaths.forEach((ele:any)=>{
+        if(ele.id == this.id){
+          console.log(ele);
+          this.path=ele;
+          this._trainingService.bundleSubscription.next(this.path)
+        }
+       })
+      }
+    });
+  }
+
 
 redirectBio(){
-  this.router.navigate(['/biography/',this.courseInfo.user_id])
+  this.router.navigate(['/biography/',this.path.user_id])
 }
+
+next(id:number){
+  this.router.navigate(['/course-details',id])
+
+}
+
 }

@@ -18,7 +18,7 @@ getAllLocations(){
   return this._HttpClient.get(environment.baseUrl + '/club-event/locations')
 }
 
-getAllLocationEvents(location:object){
-  return this._HttpClient.get(environment.baseUrl + '/club-event/location-events',location)
+getAllLocationEvents(location:string){
+  return this._HttpClient.get(environment.baseUrl + `/club-event/location-events?location=${location}`)
 }
 }

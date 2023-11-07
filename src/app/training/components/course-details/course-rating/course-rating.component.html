@@ -2,4 +2,4 @@
     <img class="mx-1" src="../../../../../assets/images/training/star.png" style="width:15px;"/>
      التقييم الكورس</h5>
 
-<p class="rating">4.6</p>
+<p class="rating"><span *ngIf="isLoading" class=" text-center ">--.--</span>{{course.review}}</p>

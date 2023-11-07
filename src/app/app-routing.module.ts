@@ -10,6 +10,12 @@ import { servicesRoutes } from './services/routes/services-routes';
 import { BiographyComponent } from './services/components/biography/biography.component';
 import { CartComponent } from './services/components/cart/cart.component'
 import { PaymentComponent } from './services/components/payment/payment.component'
+import { trainingRoutes } from './training/routes/training-routes';
+import { CourseDetailsComponent } from './training/components/course-details/course-details.component';
+import { CourseGeneralInfoComponent } from './training/components/course-details/course-general-info/course-general-info.component';
+import { CourseInstructorComponent } from './training/components/course-details/course-instructor/course-instructor.component';
+import { CourseScheduleComponent } from './training/components/course-details/course-schedule/course-schedule.component';
+import { CourseRatingComponent } from './training/components/course-details/course-rating/course-rating.component';
 
 const routes: Routes = [
   {
@@ -40,6 +46,33 @@ const routes: Routes = [
   {
     path: servicesRoutes.biography+'/:id',
     component: BiographyComponent,
+  },
+  {
+    path: trainingRoutes.courseDetails+`/:id`,
+    component: CourseDetailsComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: trainingRoutes.courseGeneralInfo,
+        pathMatch: 'full',
+      },
+      {
+        path: trainingRoutes.courseGeneralInfo,
+        component: CourseGeneralInfoComponent,
+      },
+      {
+        path: trainingRoutes.courseInstructor,
+        component: CourseInstructorComponent,
+      },
+      {
+        path: trainingRoutes.courseschedule,
+        component: CourseScheduleComponent,
+      },
+      {
+        path: trainingRoutes.courseRating,
+        component: CourseRatingComponent,
+      },
+    ]
   },
   {
     path: Routing.Auth.module,

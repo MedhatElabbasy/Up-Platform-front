@@ -87,7 +87,7 @@ const routes: Routes = [
             component: LocalCertificateComponent,
           },
            {
-            path: servicesRoutes.certificateDetails,
+            path: servicesRoutes.certificateDetails+'/:id',
             component: CertificateDetailsComponent,
           }
         ]
