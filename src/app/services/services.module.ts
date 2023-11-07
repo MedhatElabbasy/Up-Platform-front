@@ -19,6 +19,7 @@ import { CertificateDetailsComponent } from './components/certificate-details/ce
 import { AdvisorComponent } from './components/advisor/advisor.component';
 import { SubmitAdvisorComponent } from './components/submit-advisor/submit-advisor.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -43,7 +44,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CommonModule,
     ServicesRoutingModule,
     CoreModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+     NgxSpinnerModule.forRoot({ type: 'square-jelly-box' })
   ]
+  
 })
 export class ServicesModule { }

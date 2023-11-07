@@ -97,3 +97,18 @@
       padding: 0 !important;
     }
    }
+
+   .all {
+    background-image: url(../../../../assets/images/training/trainingBack.png);
+    background-size: cover;
+    background-position: center center;
+    min-height: 50vh;
+  }
+  
+  .loader{
+    position: relative;
+  }
+  
+  ::ng-deep .ngx-spinner-overlay{
+    position:absolute!important;
+  }

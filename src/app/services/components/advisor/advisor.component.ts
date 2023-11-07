@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ServicesapiService } from '../../services/servicesapi.service';
 import { PaginationInstance } from 'ngx-pagination';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-advisor',
@@ -29,15 +30,22 @@ export class AdvisorComponent {
 
   private popped: any = [];
   blogs!:any;
-constructor(private _services:ServicesapiService){
+  isLoading:boolean=true;
+constructor(private spinner: NgxSpinnerService,private _services:ServicesapiService){
 this.getAllBlogs();
 }
 
+ngOnInit(): void {
+  this.spinner.show();
+}
+
 getAllBlogs(){
+  this.isLoading=true
   this._services.getAllBlogs().subscribe((res)=>{
     console.log(res);
     
     console.log(res.data);
+    this.isLoading=false;
     this.blogs=res.data;
     
   })
