@@ -78,7 +78,7 @@
                                                         <button class="btn price-btn text-white" (click)="addToCart(course.id, course.type)" id="cartBtn"><i class="fa-solid fa-cart-shopping"></i>أضف للسلة</button>
                                                     </div>
                                                     <div *ngIf="course.is_enrolled==true">
-                                                        <button class="btn price-btn text-white">أكمل المشاهدة</button>
+                                                        <button class="btn price-btn text-white" (click)="redirectToExternalLink()">أكمل المشاهدة</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -197,7 +197,7 @@
                                                         <button class="btn price-btn text-white"(click)="addToCart(course.id, course.type)" id="cartBtn"><i class="fa-solid fa-cart-shopping"></i>أضف للسلة</button>
                                                     </div>
                                                     <div *ngIf="course.is_enrolled==true">
-                                                        <button class="btn price-btn text-white">أكمل المشاهدة</button>
+                                                        <button class="btn price-btn text-white" (click)="redirectToExternalLink()">أكمل المشاهدة</button>
                                                     </div>
                                                 </div>
                                             </div>

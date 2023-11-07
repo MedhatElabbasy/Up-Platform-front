@@ -160,7 +160,10 @@ export class AllSkillsLibraryComponent {
   showErrorToast(message: string) {
     this.toastr.error('العنصر موجود بالفعل في السلة');
   }
-
+  redirectToExternalLink(): void {
+    window.location.href = 'https://insrvs.com/login'; // Replace with your external link
+  }
+  
 
 }
 

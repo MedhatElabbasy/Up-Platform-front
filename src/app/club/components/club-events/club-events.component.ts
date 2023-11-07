@@ -5,6 +5,8 @@ import { ClubService } from '../../services/club.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { TrainingService } from 'src/app/training/Services/training.service';
+import { environment } from 'src/environments/environment';
+import { ModalService } from 'src/app/core/services/modal.service';
 
 @Component({
   selector: 'app-club-events',
@@ -41,9 +43,10 @@ export class ClubEventsComponent {
     cities: new FormControl(null, [Validators.required]),
   });
 
-
-  constructor(private spinner: NgxSpinnerService,private _club:ClubService ,private TrainingService: TrainingService, private toastr: ToastrService){
-this.getAllEvents();
+  userInfo!:any;
+  constructor(private spinner: NgxSpinnerService,private _ModalService: ModalService,private _club:ClubService ,private TrainingService: TrainingService, private toastr: ToastrService){
+    this.userInfo=localStorage.getItem(environment.localStorageName)
+    this.getAllEvents();
   }
 
 
@@ -92,6 +95,16 @@ this.getAllEvents();
       this.isLoading=false
     })
   }
+
+  ngAfterViewInit(): void {
+    if(!this.userInfo){
+      console.log("llllllll");
+     this._ModalService.open('events');
+   }
+   }
+   closer(){
+    this._ModalService.close('events')
+   }
 
   getAllLocations(){
     this._club.getAllLocations().subscribe((res)=>{

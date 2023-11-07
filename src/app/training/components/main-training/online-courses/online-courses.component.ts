@@ -37,7 +37,7 @@ export class OnlineCoursesComponent implements OnInit {
   constructor(private toastr: ToastrService , private spinner: NgxSpinnerService,private _TrainingService: TrainingService ,private router: Router ,private _auth:AuthServices) {
 
 this.userInfo=localStorage.getItem(environment.localStorageName)
-//console.log(this.userInfo);
+
   }
 
   ngOnInit(): void {
@@ -119,4 +119,9 @@ showSuccessToast(message: string) {
 showErrorToast(message: string) {
   this.toastr.error('العنصر موجود بالفعل في السلة');
 }
+
+redirectToExternalLink(): void {
+  window.location.href = 'https://insrvs.com/login'; // Replace with your external link
+}
+
 }

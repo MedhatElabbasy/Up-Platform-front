@@ -265,6 +265,19 @@
   position: relative;
 }
 
+
+
 ::ng-deep .ngx-spinner-overlay{
   position:absolute!important;
+  z-index: 99 !important;
+}
+
+.modalImg{
+  width:40px;
+}
+
+.btn1 {
+  background: linear-gradient(to right, #359BBA, #07487C);
+  color: $white-color;
+  padding: 15px 30px;
 }

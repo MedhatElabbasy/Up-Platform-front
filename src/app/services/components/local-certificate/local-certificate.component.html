@@ -53,7 +53,7 @@
           </div>
         </div>
         <div class="details">
-          <a (click)="details(exam.id)" routerLinkActive="activeLink" class="text-white" >عرض تفاصيل الشهادة</a>
+          <a (click)="details(exam.id)" routerLinkActive="activeLink" class="text-white cursor-pointer" >عرض تفاصيل الشهادة</a>
         </div>
         </div>
         <!-- <div class="col-lg-3">
@@ -109,3 +109,24 @@
     <ngx-spinner *ngIf="isLoading" bdColor = "rgba(0, 0, 0, 0.2)" size = "medium" color = "#fff" type = "square-jelly-box"  fullScreen = "false"></ngx-spinner>
   </div>
 </div>
+
+
+<app-modal id="local" classList="modal-dialog-centered">
+  <div class="row">
+      <div class="col-2 d-flex justify-content-center align-items-center">
+          <div class=" m-auto">
+              <img src="../../../../assets/images/projects/98.png"
+              class="modalImg ">
+          </div>
+      </div>
+      <div class="col-10"> 
+          <div class="card-body bg-white rounded-4">
+              <div class="d-flex flex-column align-items-center gap-3" style="margin-left: 65px;">
+                <h3 class="fw-600 text-center mt-3">يجب تسجيل الدخول أولا</h3>
+                <button  type="button" class="btn btn1
+                    mx-auto px-5 d-flex align-items-center gap-4"  (click)="closer()">إلغاء</button>
+              </div>
+            </div>
+      </div>
+  </div>
+</app-modal>

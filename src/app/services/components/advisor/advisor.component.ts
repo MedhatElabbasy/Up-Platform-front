@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ServicesapiService } from '../../services/servicesapi.service';
 import { PaginationInstance } from 'ngx-pagination';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { environment } from 'src/environments/environment';
+import { ModalService } from 'src/app/core/services/modal.service';
 
 @Component({
   selector: 'app-advisor',
@@ -31,7 +33,10 @@ export class AdvisorComponent {
   private popped: any = [];
   blogs!:any;
   isLoading:boolean=true;
-constructor(private spinner: NgxSpinnerService,private _services:ServicesapiService){
+  userInfo!:any;
+constructor(private spinner: NgxSpinnerService,private _services:ServicesapiService,private _ModalService: ModalService){
+  this.userInfo=localStorage.getItem(environment.localStorageName)
+ 
 this.getAllBlogs();
 }
 
@@ -50,6 +55,17 @@ getAllBlogs(){
     
   })
 }
+
+ngAfterViewInit(): void {
+  if(!this.userInfo){
+    console.log("llllllll");
+   this._ModalService.open('advisor');
+ }
+ }
+ closer(){
+  this._ModalService.close('advisor')
+ }
+
 
 onPageChange(number: number) {
   // this.scaledColumnIndex = null
