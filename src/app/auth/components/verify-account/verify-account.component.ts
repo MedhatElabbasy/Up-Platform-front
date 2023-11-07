@@ -9,6 +9,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./verify-account.component.scss']
 })
 export class VerifyAccountComponent {
+  userDetails: any = {};
+  userDetailsString: string = '';
   isLoading: boolean = false
   isResendMessageLoading: boolean = false
   errorMessage: string = ""
@@ -104,17 +106,24 @@ export class VerifyAccountComponent {
   }
 
   ngOnInit() {
-    this.getUserDetails();
+    const userDetailsString = localStorage.getItem('userDetails');
+    if (userDetailsString) {
+      const userDetails = JSON.parse(userDetailsString);
+      this.userDetails = userDetails;
+      console.log('User Details:', this.userDetails.name);
+    } else {
+      console.log('User details not found in local storage');
+    }
+  }
   }
 
-  getUserDetails() {
-    this._AuthService.profile().subscribe(
-      (data: any) => {
-        this.userPhone = data.data.phone;
-      },
-      (error: any) => {
-        console.error('Error fetching user details', error);
-      }
-    );
-  }
-}
+  // getUserDetails() {
+  //   this._AuthService.profile().subscribe(
+  //     (data: any) => {
+  //       this.userPhone = data.data.phone;
+  //     },
+  //     (error: any) => {
+  //       console.error('Error fetching user details', error);
+  //     }
+  //   );
+  // }

@@ -23,16 +23,21 @@ this.id=this.route.parent?.snapshot.url[1].path
 
   ngOnInit(): void {
     this.getCourseDetailsByID()
+    
   }
 
 
-  getCourseDetailsByID(){
-    this._trainingService.getAllCourseDetailsByID(this.id).subscribe((res:any)=>{
-      if(res){
+  getCourseDetailsByID() {
+  this._trainingService.getAllCourseDetailsByID(this.id).subscribe((res: any) => {
+    if (res) {
       console.log(res);
-      this.course=res.data;
+      this.course = res.data;
+      const testElement = document.getElementById("test");
+      if (testElement) {
+        testElement.innerHTML = this.course.about.en;
       }
-    })
-  }
+    }
+  });
+}
 
 }

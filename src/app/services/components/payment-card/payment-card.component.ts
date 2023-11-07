@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
 import { PaymentService } from 'src/app/core/services/payment.service';
 
 @Component({
@@ -14,7 +13,6 @@ export class PaymentCardComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private _Router: Router,
     private PaymentService: PaymentService
   ) {
     this.route.queryParams.subscribe((params) => {
@@ -33,11 +31,4 @@ export class PaymentCardComponent implements OnInit {
     });
   }
 
-  navigateToCardPayment(){
-    this._Router.navigate(['/card-payment']);
-  }
-
-  navigateToCart(){
-    this._Router.navigate(['/cart']);
-  }
 }

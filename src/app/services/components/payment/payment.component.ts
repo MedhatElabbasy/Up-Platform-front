@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { PaymentService } from 'src/app/core/services/payment.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class PaymentComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private PaymentService: PaymentService
+    private PaymentService: PaymentService,
+    private _Router: Router
   ) {
     this.route.queryParams.subscribe((params) => {
       this.totalAfterCoupon = params['totalAfterCoupon'];
@@ -29,5 +31,13 @@ export class PaymentComponent implements OnInit {
       console.log(res);
       this.credit = res.sr;
     });
+  }
+
+  navigateToCardPayment(){
+    this._Router.navigate(['/card-payment']);
+  }
+
+  navigateToCart(){
+    this._Router.navigate(['/cart']);
   }
 }

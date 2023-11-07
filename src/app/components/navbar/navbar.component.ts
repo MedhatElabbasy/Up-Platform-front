@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class NavbarComponent {
   userDetails: any = {};
+  userDetailsString: string = '';
   isUserLoggedIn: boolean = false
 
   constructor(private _AuthServices: AuthServices, public _Router: Router) {
@@ -21,17 +22,25 @@ export class NavbarComponent {
 
   
   ngOnInit() {
-    this.getUserDetails();
+    const userDetailsString = localStorage.getItem('userDetails');
+    if (userDetailsString) {
+      const userDetails = JSON.parse(userDetailsString);
+      this.userDetails = userDetails;
+      console.log('User Details:', this.userDetails.name);
+    } else {
+      console.log('User details not found in local storage');
+    }
+  }
   }
 
-  getUserDetails() {
-    this._AuthServices.profile().subscribe(
-      (data: any) => {
-        this.userDetails = data.data;
-      },
-      (error: any) => {
-        console.error('Error fetching user details', error);
-      }
-    );
-  }
-}
+  // getUserDetails() {
+  //   this._AuthServices.profile().subscribe(
+  //     (data: any) => {
+  //       this.userDetails = data.data;
+  //     },
+  //     (error: any) => {
+  //       console.error('Error fetching user details', error);
+  //     }
+  //   );
+  // }
+  
