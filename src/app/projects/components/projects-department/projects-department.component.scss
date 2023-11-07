@@ -9,18 +9,17 @@
     font-size: 35px;
     color: $main-color;
     font-family: "Bahij";
-
   }
-  h3{
+  h3 {
     font-weight: bold;
     font-size: 25px;
-    color:$main-color;
+    color: $main-color;
     font-family: "Bahij";
     margin-top: 20px;
 
-    img{
-        width: 25px;
-        margin: 10px;
+    img {
+      width: 25px;
+      margin: 10px;
     }
   }
 
@@ -29,31 +28,72 @@
     font-size: 16px;
     line-height: 30px;
     font-family: "Bahij";
-    color:$main-color;
-    margin-top:10px;
+    color: $main-color;
+    margin-top: 10px;
   }
 }
 
-
 .my-cards {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    cursor: pointer;
-  }
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  cursor: pointer;
+}
 
-  img {
-    height: 70px;
-  }
+img {
+  height: 70px;
+}
 
-  .first-card {
-    background-image: url('../../../../assets/images/training/Group\ 556.png');
-  }
+.first-card {
+  background-image: url("../../../../assets/images/training/Group\ 556.png");
+}
 
-  .second-card {
-    background-image: url('../../../../assets/images/training/Group\ 568.png');
-  }
+.second-card {
+  background-image: url("../../../../assets/images/training/Group\ 568.png");
+}
 
-  .third-card {
-    background-image: url('../../../../assets/images/training/Group\ 569.png');
+.third-card {
+  background-image: url("../../../../assets/images/training/Group\ 569.png");
+}
+
+// MEDIA QUERY CODE
+
+// Desktops, large screens
+@media (min-width: 990px) and (max-width: 1200px) {
+  .main {
+    width: 100% !important;
+    padding: 0 !important;
   }
+}
+
+// Tablets
+@media (min-width: 760px) and (max-width: 990px) {
+  .my-cards {
+    width: 240px;
+  }
+}
+
+// 320px — 480px: Mobile devices
+
+@media (min-width: 269px) and (max-width: 480px) {
+  .main {
+    width: 90% !important;
+    padding: 0 !important;
+    margin: 0 auto;
+    h2{
+      margin-top: 15px;
+      // font-size: ;
+    }
+    .department-card-container {
+      width: 80%;
+      // margin: 10px 30px !important;
+transform: translateX(-70px);
+      .row {
+        display: block;
+        .my-cards {
+          width: 200px;
+        }
+      }
+    }
+  }
+}
