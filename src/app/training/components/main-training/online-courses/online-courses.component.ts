@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PaginationInstance } from 'ngx-pagination';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { AuthServices } from 'src/app/auth/services/auth-services.service';
 import { TrainingService } from 'src/app/training/Services/training.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-online-courses',
@@ -11,6 +14,7 @@ import { TrainingService } from 'src/app/training/Services/training.service';
 export class OnlineCoursesComponent implements OnInit {
   isLoading: boolean = true;
   zoomCourses: any = []
+  userInfo!:any;
   public eventLog: string[] = [];
   public filter: string = '';
   public maxSize: number = 7;
@@ -29,12 +33,15 @@ export class OnlineCoursesComponent implements OnInit {
     screenReaderPageLabel: 'page',
     screenReaderCurrentLabel: `You're on page`
   };
-  constructor(private _TrainingService: TrainingService ,private router: Router) {
+  constructor(private spinner: NgxSpinnerService,private _TrainingService: TrainingService ,private router: Router ,private _auth:AuthServices) {
 
+this.userInfo=localStorage.getItem(environment.localStorageName)
+//console.log(this.userInfo);
   }
 
   ngOnInit(): void {
     this.getAllCourses()
+    this.spinner.show();
   }
 
   onPageChange(number: number) {

@@ -4,6 +4,8 @@ import { clubRoutes } from './routes/club-routes';
 import { MainClubComponent } from './components/main-club/main-club.component';
 import { ClubComponent } from './components/club/club.component';
 import { ActivitiesScheduleComponent } from './components/activities-schedule/activities-schedule.component';
+import { ClubConditionsComponent } from './components/club-conditions/club-conditions.component';
+import { ClubEventsComponent } from './components/club-events/club-events.component';
 
 const routes: Routes = [
   {
@@ -23,7 +25,16 @@ const routes: Routes = [
         path: clubRoutes.activitiesSchedule,
         component: ActivitiesScheduleComponent,
       },
-    ]
+      {
+        path: clubRoutes.clubConditions,
+        component: ClubConditionsComponent,
+      },
+      {
+        path: clubRoutes.clubEvents,
+        component: ClubEventsComponent,
+      }
+    ],
+    
   }
 
 ];

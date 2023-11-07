@@ -14,6 +14,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ModalComponent } from './components/modal/modal.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ModalComponent } from './components/modal/modal.component';
     NgxMatDatetimePickerModule,
     MatCardModule,
     MatNativeDateModule,
-    DropdownModule
+    DropdownModule,
+    NgxSpinnerModule
   ],
   exports: [
     DropdownModule,
@@ -44,7 +46,8 @@ import { ModalComponent } from './components/modal/modal.component';
     NgxMatDatetimePickerModule,
     MatCardModule,
     MatNativeDateModule,
-    ModalComponent
+    ModalComponent,
+    NgxSpinnerModule
   ]
 })
 export class CoreModule { }

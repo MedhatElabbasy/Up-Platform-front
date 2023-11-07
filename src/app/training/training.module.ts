@@ -28,6 +28,8 @@ import { CourseScheduleComponent } from './components/course-details/course-sche
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
 import { CourseInstructorComponent } from './components/course-details/course-instructor/course-instructor.component';
 import { CourseRatingComponent } from './components/course-details/course-rating/course-rating.component';
+import { CoreModule } from '../core/core.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -61,7 +63,8 @@ import { CourseRatingComponent } from './components/course-details/course-rating
   imports: [
     CommonModule,
     TrainingRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgxSpinnerModule.forRoot({ type: 'square-jelly-box' })
   ]
 })
 export class TrainingModule { }

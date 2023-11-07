@@ -1,7 +1,23 @@
-@import "../../../../../assets/styles/variables.scss";
+@import "../../../../assets/styles/variables.scss";
 
-.second-section {
-  border: 1px solid $main-color;
+.main {
+  margin-top: 30px;
+
+  .square {
+    width: 10px;
+    height: 10px;
+    background-color: #FFB300;
+    transform: rotate(45deg);
+    border-radius: 4px;
+  }
+
+  h2 {
+    font-weight: bold;
+    font-size: 35px;
+    color: $main-color;
+    font-family: "Bahij";
+
+  }
 
   h3 {
     font-weight: bold;
@@ -9,102 +25,129 @@
     color: $main-color;
     font-family: "Bahij";
 
-    img {
-      width: 35px;
-    }
   }
 
   p {
-    font-size: 16px;
-    line-height: 28px;
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    font-family: "Bahij";
+
   }
 
-  .container-image {
-    height: fit-content;
+  ::ng-deep .p-dropdown .p-dropdown-label {
+    color: $main-color;
+    font-family: "Bahij" !important;
+
+    .p-placeholder {
+      color: $main-color;
+      font-family: "Bahij" !important;
+
+    }
+  }
+
+  .my-cards {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+  }
+
+  .second-card {
+    padding: 18px 24px !important;
+
+    .details {
+      width: fit-content;
+      margin: auto;
+      padding: 25px;
+    }
+
+    background-image: url('/assets/images/Group 553.svg');
+
+    p {
+      font-size: 15px;
+      color: $main-color;
+    }
+
+    h4 {
+      font-weight: bold;
+      font-size: 40px;
+      color: $light-blue;
+      font-family: "Bahij";
+    }
+
+    span {
+      color: $main-color;
+      font-weight: 600;
+      font-size: 14px;
+      margin-top: 10px;
+      font-family: "Bahij";
+    }
+  }
+
+  .my-alert {
+    width: fit-content;
+    background-color: red;
+
+
+    p {
+      margin: 0px;
+      padding: 5px 10px !important;
+      font-size: 13px;
+      font-weight: 400;
+      color: white;
+    }
+  }
+
+  .btn1 {
+    background: #FFB300;
+    color: $white-color;
+    padding: 10px 0;
 
     img {
-      height: 220px;
+      width: 20px;
+    }
+  }
+
+
+
+  .section-two {
+    p {
+      font-size: 16px;
+    }
+
+    .form-check .form-check-input {
+      float: right;
+      margin-right: -1.5em;
+    }
+  }
+
+  .child {
+    background-color: $main-color;
+    color: white;
+
+    h3 {
+      color: white;
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+
+  }
+
+  .section {
+    .end-child {
+      p {
+        color: $main-color !important;
+      }
     }
 
   }
-
-
-
-  // .btn1 {
-  //   background: linear-gradient(to right, #359BBA, #07487C);
-  //   color: $white-color;
-  //   padding: 13px 0;
-
-  //   img {
-  //     width: 20px;
-  //   }
-  // }
-
-  // .btn2 {
-
-  //   color: $main-color;
-  //   padding: 13px 0;
-  //   border: 1px solid $main-color;
-  //   font-weight: bold;
-
-  //   img {
-  //     width: 25px;
-  //   }
-  // }
 }
 
-.p1 {
-  font-size: 22px;
-  color: $main-color;
-  font-family: "Bahij";
-  font-weight: 800;
-}
-
-.p2 {
-  font-size: 15px;
-  color: #FFB300;
-  font-family: "Bahij";
-  font-weight: 700;
-}
-
-h2 {
-  font-size: 40px;
-  color: #FFB300;
-  font-family: "Bahij";
-  font-weight: 700;
-}
-
-p {
-  font-size: 15px;
-  font-weight: bold;
-  font-family: "Bahij";
-
-}
-
-.login button {
-  background: linear-gradient(to right, #359BBA, #07487C);
-  color: $white-color;
-  padding: 5px 20px;
-  font-size: 15px;
-}
-
-.muted {
-  font-size: 14px;
-}
-
-span {
-  font-weight: bold;
-}
-
-.image {
-  height: 20px;
-}
-
-.my-border {
-  border: 1px solid $main-color;
-  // min-height: 280px;
-}
 
 ::ng-deep {
   .ngx-pagination {
@@ -173,6 +216,7 @@ span {
 }
 
 
+
 .card {
   // width: 300px;
   background: #fff;
@@ -205,16 +249,13 @@ span {
 
   p {
       height: 70px;
-      width: 80%;
-      float:left;
+      width: 100%;
+      // float:left;
   }
 }
 
-
-
-
 .all {
-  background-image: url(../../../../../assets/images/training/trainingBack.png);
+  background-image: url(../../../../assets/images/training/trainingBack.png);
   background-size: cover;
   background-position: center center;
   min-height: 50vh;

@@ -19,7 +19,15 @@
         <div class="second-section rounded-4">
             <div class="container mt-3">
                 <div class="row justify-content-around">
-                    <div class="col-lg-3 mt-2">
+                    <div *ngFor="let blog of blogs  | paginate: config; let colIndex = index" class="col-lg-3 mt-2">
+                        <div class="card1 cursor-pointer" routerLink="/services/advisor/submit-advisor" routerLinkActive="activeLink">
+                            <div class="circleImage">
+                                <img [src]="blog.image" class="m">
+                            </div>
+                      <p>{{blog.description.ar}}</p>
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-3 mt-2">
                         <div class="card1 cursor-pointer" routerLink="/services/advisor/submit-advisor" routerLinkActive="activeLink">
                             <div class="circleImage">
                                 <img src="../assets/images/services/images.png" class="m">
@@ -46,8 +54,25 @@
                                 مولد النص العربى، حيث يـمكنك أن تولد مــثــل</p>
                         </div>
                     </div>
+                    <div class="col-lg-3 mt-2">
+                        <div class="card1 cursor-pointer" routerLink="/services/advisor/submit-advisor" routerLinkActive="activeLink">
+                            <div class="circleImage">
+                                <img src="../assets/images/services/images.png" class="m">
+                            </div>
+                            <p>هذا النص هو مثال لنص يمكن أن يـسـتبدل في نفس المساحة، لقد تم تـولــيـد هـذا الـنص مـن
+                                مولد النص العربى، حيث يـمكنك أن تولد مــثــل</p>
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </div>
+    </div>
+    <div class="has-text-centered mt-4">
+        <pagination-controls [id]="config.id || ''" [maxSize]="maxSize" [directionLinks]="directionLinks"
+            [autoHide]="autoHide" [responsive]="responsive" [previousLabel]="labels.previousLabel"
+            [nextLabel]="labels.nextLabel" [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+            [screenReaderPageLabel]="labels.screenReaderPageLabel"
+            [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel" (pageChange)="onPageChange($event)"
+            (pageBoundsCorrection)="onPageBoundsCorrection($event)"></pagination-controls>
     </div>
 </div>

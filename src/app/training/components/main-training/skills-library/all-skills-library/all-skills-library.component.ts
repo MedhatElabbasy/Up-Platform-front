@@ -1,8 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { PaginationInstance } from 'ngx-pagination';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthServices } from 'src/app/auth/services/auth-services.service';
 import { TrainingService } from 'src/app/training/Services/training.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-all-skills-library',
@@ -35,13 +37,16 @@ export class AllSkillsLibraryComponent {
   categories: any[] = []
   isLoading: boolean = true
    categoriesCourses!:any;
-  constructor(private _AuthServices: AuthServices, private _TrainingService: TrainingService ,private router: Router) {
+   userInfo!:any
+  constructor(private spinner: NgxSpinnerService,private _AuthServices: AuthServices, private _TrainingService: TrainingService ,private router: Router) {
     // _AuthServices.isUserLoggedIn.next(false)
+    this.userInfo=localStorage.getItem(environment.localStorageName)
   }
 
   ngOnInit(): void {
     this.getAllCourses()
     this.getAllCategoriesInSkillsLibrary()
+    this.spinner.show();
   }
 
 

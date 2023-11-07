@@ -12,6 +12,8 @@ export class CourseDetailsComponent {
   isLoading: boolean = true
   id!:number;
   course!:any;
+  lastVisitedURL!:any
   constructor( private router: Router ,private route: ActivatedRoute ,private _trainingService: TrainingService){
+   
   }
 }

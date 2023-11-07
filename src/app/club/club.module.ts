@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { CoreModule } from '../core/core.module';
 import { ActivitiesScheduleComponent } from './components/activities-schedule/activities-schedule.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ClubConditionsComponent } from './components/club-conditions/club-conditions.component';
+import { ClubEventsComponent } from './components/club-events/club-events.component';
 // import { DropdownModule } from 'primeng/dropdown';
 
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,7 +17,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
   declarations: [
     MainClubComponent,
     ClubComponent,
-    ActivitiesScheduleComponent
+    ActivitiesScheduleComponent,
+    ClubConditionsComponent,
+    ClubEventsComponent
   ],
   imports: [
     CommonModule,

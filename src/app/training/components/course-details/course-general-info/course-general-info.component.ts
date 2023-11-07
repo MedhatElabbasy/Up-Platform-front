@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { TrainingService } from 'src/app/training/Services/training.service';
 
 @Component({
@@ -11,11 +11,14 @@ export class CourseGeneralInfoComponent {
   trainingPaths!: any;
   isLoading: boolean = true
   id!:any;
+  lastVisitedURL!: any;
   course!:any;
   constructor( private router: Router ,private route: ActivatedRoute ,private _trainingService: TrainingService){
 console.log(this.route.parent?.snapshot.url[1].path);
 this.id=this.route.parent?.snapshot.url[1].path
-  }
+
+}
+  
 
 
   ngOnInit(): void {
