@@ -209,6 +209,8 @@ export class WheelOfLuckComponent {
               this.wheelSpinAudio.play();
               setTimeout(() => {
                 this.clapAudio.play();
+                this.idToLandOn = parseInt(response.prize_id, 10);;
+                this.wheel.spin();
                 this.wheelMessage = "ربحت محاولة مجانية!"
               }, 2000);
             }
@@ -249,6 +251,8 @@ export class WheelOfLuckComponent {
               this.wheelSpinAudio.play();
               setTimeout(() => {
                 this.clapAudio.play();
+                this.idToLandOn = parseInt(response.prize_id, 10);;
+                this.wheel.spin();
                 this.wheelMessage = "ربحت محاولة أخرى (لم يتم خصم النقاط)!"
               }, 2000);
             }
