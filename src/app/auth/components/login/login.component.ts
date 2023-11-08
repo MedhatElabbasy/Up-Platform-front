@@ -13,6 +13,7 @@ declare var google: any;
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements AfterViewInit {
+  userDetails: any = {};
   hide = true;
   isLoading: boolean = false
   errorMessage: string = ""
@@ -52,8 +53,19 @@ export class LoginComponent implements AfterViewInit {
             console.log(res);
             if (rememberMe) {
               localStorage.setItem(environment.localStorageName, res.data.access_token)
+              this.getUserDetails();
             } else {
               sessionStorage.setItem(environment.localStorageName, res.data.access_token)
+              this._AuthService.profile().subscribe(
+                (data: any) => {
+                  this.userDetails = data.data;
+                  console.log(this.userDetails);
+                  sessionStorage.setItem('userDetails', JSON.stringify(this.userDetails));
+                },
+                (error: any) => {
+                  console.error('Error fetching user details', error);
+                }
+              );
             }
             
             this._AuthService.isUserLoggedIn.next(true)
@@ -115,6 +127,7 @@ export class LoginComponent implements AfterViewInit {
       (response) => {
         console.log('Social login response:', response);
         localStorage.setItem(environment.localStorageName, response.data.access_token);
+        this.getUserDetails();
         this._Router.navigate(['/']);
       },
       (error) => {
@@ -123,4 +136,18 @@ export class LoginComponent implements AfterViewInit {
       }
     );
   }
+
+  getUserDetails() {
+    this._AuthService.profile().subscribe(
+      (data: any) => {
+        this.userDetails = data.data;
+        console.log(this.userDetails);
+        localStorage.setItem('userDetails', JSON.stringify(this.userDetails));
+      },
+      (error: any) => {
+        console.error('Error fetching user details', error);
+      }
+    );
+  }
+  
 }

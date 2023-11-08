@@ -11,7 +11,7 @@
         <h3 class="leftTitle">صفحة الدفع من المحفظة</h3>
         <h3>
           <span class="wallet"
-            ><img src="../../../../assets/images/wallet.png" /> المحفظة</span
+            ><img src="../../../../assets/images/payment/wallet.png" /> المحفظة</span
           >
         </h3>
         <div class="payment">
@@ -24,7 +24,7 @@
               </h2>
             </div>
             <div class="credit-left col-5">
-              <button class="btn btn-success">شحن</button>
+              <button class="btn btn-success" (click)="navigateToCardPayment()">شحن</button>
               <p>إخفاء الرصيد</p>
             </div>
           </div>
@@ -36,8 +36,8 @@
           </div>
         </div>
       </div>
-      <button class="payBtn btn btn-primary">دفع</button>
-      <button class="btn btn-light">إلغاء</button>
+      <button class="payBtn btn btn-primary" (click)="navigateToCardPayment()">دفع</button>
+      <button class="btn btn-light" (click)="navigateToCart()">إلغاء</button>
     </div>
   </div>
 </div>

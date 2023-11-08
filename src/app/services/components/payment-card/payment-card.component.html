@@ -1,45 +1,68 @@
 <div class="container">
-    <div class="row container containerRow">
-      <div class="col-6">
-        <h1>صفحة الدفع</h1>
-        <p>
-          نستخدم نظام أمن وحية الدفع الالكتروني, مع نظام ذكاء صناعي لحية العمليات
-        </p>
-      </div>
-      <div class="col-6">
-        <div class="left">
-          <h3 class="leftTitle">صفحة الدفع من المحفظة</h3>
-          <h3>
-            <span class="wallet"
-              ><img src="../../../../assets/images/wallet.png" /> المحفظة</span
+  <div class="row container containerRow">
+    <div class="col-6">
+      <h1>صفحة الدفع</h1>
+      <p>
+        نستخدم نظام أمن وحية الدفع الالكتروني, مع نظام ذكاء صناعي لحية العمليات
+      </p>
+    </div>
+    <div class="col-6">
+      <div class="left">
+        <h3 class="leftTitle">اختر طريقة شحن المحفظة</h3>
+        <h3>
+          <span class="wallet">
+            <input type="radio" name="payment-method" value="wallet" /><img
+              src="../../../../assets/images/payment/master_card.webp"
+              alt="master_card"
+              class="payment-method-img"
+            />
+            ماستر كارد
+          </span>
+          <span class="wallet"
             >
-          </h3>
-          <div class="payment">
-            <div class="credit-class row">
-              <div class="credit-right col-7">
-                <h3>رصيد محفظتي</h3>
-                <h2>
-                  <span class="creditNum">{{ this.credit }}</span
-                  >SR
-                </h2>
-              </div>
-              <div class="credit-left col-5">
-                <button class="btn btn-success">شحن</button>
-                <p>إخفاء الرصيد</p>
-              </div>
-            </div>
-            <div class="moneyAmount">
-              <h4>المبلغ</h4>
-              <p>
-                <span class="money">{{ totalAfterCoupon }}</span> ريال
-              </p>
-            </div>
+            <input type="radio" name="payment-method" value="apple_pay" /><img
+              src="../../../../assets/images/payment/apple_pay.png"
+              alt="apple_pay"
+              class="payment-method-img"
+            />
+            pay</span
+          >
+          <span class="wallet"
+            >
+            <input type="radio" name="payment-method" value="mada" /><img
+              src="../../../../assets/images/payment/mada.png"
+              alt="mada"
+              class="payment-method-img"
+            />مدي</span
+          >
+        </h3>
+        <div class="payment">
+          <div class="row">
+            <img class="col-7" alt="shopping_card" src="../../../../assets/images/payment/shopping_card.png"/>
+          </div>
+          <div class="moneyAmount">
+            <h4>اسم حامل البطاقة</h4>
+            <input type="text" name="name" placeholder="---------------------------" class="pay_input"/>
+          </div>
+          <div class="moneyAmount">
+            <h4>رقم البطاقة</h4>
+            <input type="text" name="account_number" placeholder="---- ---- ---- ----" class="pay_input"/>
+          </div>
+          <div class="moneyAmount row">
+            <span class="col-6">
+            <h4>تاريخ الانتهاء</h4>
+            <input type="text" name="expire_date" placeholder="-- / --" class="pay_small_input"/>
+          </span>
+          <span class="col-6">
+            <h4>CVV</h4>
+            <input type="password" name="CVV" placeholder="----" class="pay_small_input"/>
+          </span>
           </div>
         </div>
-        <button class="payBtn btn btn-primary" (click)="navigateToCardPayment()">دفع</button>
-        <button class="btn btn-light" (click)="navigateToCart()">إلغاء</button>
       </div>
+      <button class="payBtn btn btn-primary">شحن</button>
+      <button class="btn btn-light">إلغاء</button>
     </div>
   </div>
-  >
-  
+</div>
+>

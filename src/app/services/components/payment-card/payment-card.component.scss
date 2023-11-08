@@ -69,7 +69,7 @@ h1 {
   font-size: 16px;
 }
 
-.moneyAmount > h4 {
+.moneyAmount > h4, .moneyAmount> span > h4 {
   color: gray;
 }
 
@@ -112,4 +112,28 @@ h1 {
   font-weight: 800;
   font-size: 35px;
   margin-right: 3%;
+}
+
+.payment-method-img{
+  width: 30px;
+}
+
+.pay_input, .pay_small_input{
+  width: 100%;
+  padding: 1%;
+  font-size: 20px;
+  background:none;
+  border: none;
+  border-bottom: 2px solid gray;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.pay_small_input{
+  border-bottom: none;
+}
+
+input[type="radio"]{
+  margin-right: 3%;
+  margin-left: 5px;
 }
