@@ -1,5 +1,7 @@
+
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PaginationInstance } from 'ngx-pagination';
 import { ClubService } from '../../services/club.service';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -16,6 +18,8 @@ export class ClubEventsComponent {
   cities!:any;
   events!:any;
   isLoading:boolean=true
+  userDetails: any = {};
+  userDetailsString: string = '';
   selectedCity: string = ''; // Initialize with a default value if needed
   public eventLog: string[] = [];
   public filter: string = '';
@@ -42,8 +46,8 @@ export class ClubEventsComponent {
   });
 
 
-  constructor(private spinner: NgxSpinnerService,private _club:ClubService ,private TrainingService: TrainingService, private toastr: ToastrService){
-this.getAllEvents();
+  constructor(private spinner: NgxSpinnerService,private _club:ClubService ,private TrainingService: TrainingService, private toastr: ToastrService, private _Router: Router){
+    this.getAllEvents();
   }
 
 
@@ -52,6 +56,16 @@ this.getAllEvents();
   }
 
   ngOnInit(): void {
+    const userDetailsString = localStorage.getItem('userDetails');
+    if (userDetailsString != null) {
+      const userDetails = JSON.parse(userDetailsString);
+      this.userDetails = userDetails;
+      const user_id = this.userDetails.id;
+      this.getEventsByID(user_id);
+    } else {
+      console.log('User details not found in local storage');
+    }
+    
     this.getAllEvents();
     this.getAllLocations();
     this.spinner.show();
@@ -67,7 +81,6 @@ this.getAllEvents();
      this.logEvent(`pageBoundsCorrection(${number})`);
      this.config.currentPage = number;
    }
- 
    
    private logEvent(message: string) {
      this.eventLog.unshift(`${new Date().toISOString()}: ${message}`)
@@ -116,6 +129,12 @@ this.getAllEvents();
     })
   }
 
+  getEventsByID(user_id:number){
+    this._club.getEventsByID(user_id).subscribe((res)=>{
+       console.log(res);
+    })
+  }
+
   addToCart(id:number, type: string) {
     const cartBtn = document.getElementById("cartBtn") as HTMLButtonElement;
     this.TrainingService.addToCart(id, type).subscribe((res: any) => {
@@ -137,5 +156,9 @@ this.getAllEvents();
   
   showErrorToast(message: string) {
     this.toastr.error('العنصر موجود بالفعل في السلة');
+  }
+
+  navigateToEventDetails(id: number) {
+    this._Router.navigate(['club/club-events/' + id])
   }
 }

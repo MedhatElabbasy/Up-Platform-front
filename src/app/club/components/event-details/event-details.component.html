@@ -1,0 +1,41 @@
+<div class="mt-4">
+  <div class="container bg-white p-4 rounded-4 second-section">
+    <div class="row align-items-center">
+      <div class="col-lg-12 offset-lg-1">
+        <h3 class="pb-2">
+          {{ this.event?.title }}
+        </h3>
+        <div class="row">
+          <div class="col-6">
+            <h4>تفاصيل الفعالية:</h4>
+            <p>{{ this.event?.description }}</p>
+          </div>
+          <!-- <button class="nav-link px-4  btn btn1" routerLink="/auth/login">
+                <img src="../assets/images/training/Group 530.svg" class="ps-2">
+                مشاهدة الدورة كاملة</button> -->
+          <div class="col-6 px-5">
+            <h4>المدينة:</h4>
+            <p>{{ this.event?.location }}</p>
+
+            <h4>التاريخ:</h4>
+            <p>{{ this.event?.created_at }}</p>
+          </div>
+        </div>
+        <div class="row">
+            <button
+            class="nav-link px-4 btn btn1 m-2 col-2"
+            (click)="addToCart(this.event?.id, 'event')">
+            إضافة للسلة
+          </button>
+          <button
+            class="nav-link px-4 btn btn1 m-2 col-2"
+            routerLink="/services/choose-advisor"
+            (click)="navigateToEvents()"
+          >
+             العودة للفعاليات
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -22,6 +22,7 @@ import { CartComponent } from './services/components/cart/cart.component';
 import { VerifyAccountComponent } from './auth/components/verify-account/verify-account.component';
 import { PaymentComponent } from './services/components/payment/payment.component';
 import { PaymentCardComponent } from './services/components/payment-card/payment-card.component';
+import { EventDetailsComponent } from './club/components/event-details/event-details.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { PaymentCardComponent } from './services/components/payment-card/payment
     VerifyAccountComponent,
     PaymentComponent,
     PaymentCardComponent,
+    EventDetailsComponent,
   ],
   imports: [
     NgxPaginationModule,

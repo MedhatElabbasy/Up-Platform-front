@@ -54,8 +54,9 @@ export class WheelOfLuckComponent {
     this.before()
     this.checkIfUserCanSpin()
     this._WheelService.getAllPrizes().subscribe((prizes: any) => {
+      prizes.push({'id': 6, 'points': "محاولة أخرى", 'probability': "100"});
       console.log('Received Prizes: ', prizes);
-    this.slicePrizes = prizes;
+      this.slicePrizes = prizes;
     this.probabilities = prizes.map((prize: any) => parseInt(prize.probability, 10));
 
     const canvas = document.createElement('canvas');
@@ -88,16 +89,13 @@ export class WheelOfLuckComponent {
 
     this.idToLandOn = this.weightedRandomNumber(this.probabilities);
     console.log(this.idToLandOn);
-
-    const colors = [gradient, "#ffff"];
-    const colors2 = ["#07487C", "#fff"]
     console.log(this.slicePrizes);
     this.items = this.slicePrizes.map((value: any) => ({
       fillStyle: this.getColorForId(value.id),
       text: value.points,
       id: value.id,
       textFillStyle: '#fff',
-      textFontSize: "14",
+      textFontSize: "18",
       textFontFamily: 'Bahij Regular'
     }));
     console.log('Items: ', this.items);
@@ -106,7 +104,7 @@ export class WheelOfLuckComponent {
   }
 
   getColorForId(id: number): string {
-    const colors = ['#005CA6', '#00AF7A', '#E45493', '#FFC300']; // Define your set of colors
+    const colors = ['#6ACBE4', '#00AF7A', '#005CA6', '#FFB300']; // Define your set of colors
     if (!this.items.length) {
       this.items.push({ fillStyle: colors[0] }); // Initialize the first color
       return colors[0];
@@ -207,6 +205,12 @@ export class WheelOfLuckComponent {
             console.error('Failed to spin:', response.message);
             if (response.message === 'Try tomorrow') {
               this.wheelMessage = 'حاول مجددًا غدًا';
+            } else{
+              this.wheelSpinAudio.play();
+              setTimeout(() => {
+                this.clapAudio.play();
+                this.wheelMessage = "ربحت محاولة مجانية!"
+              }, 2000);
             }
           }
         },
@@ -240,12 +244,18 @@ export class WheelOfLuckComponent {
             } else if ("You cannot try again more than 3 times in 24 hours") {
               this.wheelMessage = 'لا يمكنك المحاولة أكثر من 3 مرات خلال 24 ساعة';
             } else {
-              this.wheelMessage = 'فشلت العملية، يُرجى المحاولة مجددًا';
+              // Handle cases where the spin didn't happen or further error handling
+            console.error('Failed to spin:', response.message);
+              this.wheelSpinAudio.play();
+              setTimeout(() => {
+                this.clapAudio.play();
+                this.wheelMessage = "ربحت محاولة أخرى (لم يتم خصم النقاط)!"
+              }, 2000);
             }
           }
         },
         (error: any) => {
-          console.error('Balance Spin API Error:', error);
+          
         }
       );}
   }

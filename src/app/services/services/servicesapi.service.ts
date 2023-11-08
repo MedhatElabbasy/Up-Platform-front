@@ -17,4 +17,6 @@ export class ServicesapiService {
   getAllQuizes():Observable<any> {
     return this._HttpClient.get(environment.baseUrl + '/get-all-quizzes/for-my_exams')
   }
+
+  
 }

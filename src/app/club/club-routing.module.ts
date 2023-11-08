@@ -6,6 +6,8 @@ import { ClubComponent } from './components/club/club.component';
 import { ActivitiesScheduleComponent } from './components/activities-schedule/activities-schedule.component';
 import { ClubConditionsComponent } from './components/club-conditions/club-conditions.component';
 import { ClubEventsComponent } from './components/club-events/club-events.component';
+import { EventDetailsComponent } from './components/event-details/event-details.component';
+
 
 const routes: Routes = [
   {
@@ -32,6 +34,10 @@ const routes: Routes = [
       {
         path: clubRoutes.clubEvents,
         component: ClubEventsComponent,
+      },
+      {
+        path: clubRoutes.eventDetails,
+        component: EventDetailsComponent,
       }
     ],
     

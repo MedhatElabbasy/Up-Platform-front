@@ -32,10 +32,6 @@ this.id=this.route.parent?.snapshot.url[1].path
     if (res) {
       console.log(res);
       this.course = res.data;
-      const testElement = document.getElementById("test");
-      if (testElement) {
-        testElement.innerHTML = this.course.about.en;
-      }
     }
   });
 }
