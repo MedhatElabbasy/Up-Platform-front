@@ -26,7 +26,8 @@
         <div *ngFor="let course of zoomCourses | paginate: config; let colIndex = index" class="col-xl-3 col-lg-4 mb-3">
           <div class="px-3 pt-4 bg-white rounded-4 my-border">
             <div>
-              <p class="text-center p1 cursor-pointer" (click)="redirectCourse(course.id)">{{course.title.en}}</p>
+              <p class="text-center p1 cursor-pointer" (click)="redirectCourse(course.id)">{{course.title.ar}}</p>
+              <p class="text-center p1 cursor-pointer" *ngIf="!course.title.ar" (click)="redirectCourse(course.id)">{{course.title.en}}</p>
               <p (click)="redirectBio(course.user_id)" class="text-center p2 mt-3 cursor-pointer">
                 {{course.user.first_name + " " + course.user.last_name}}</p>
               <div class="d-flex py-1">

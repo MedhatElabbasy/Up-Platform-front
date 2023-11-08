@@ -28,26 +28,26 @@
               </p> -->
               <div class="d-flex py-1 row">
                 <div class="col-4">
-                  <p class="text-center p1" *ngIf="item.type === 'bundle'">
-                    {{ item.bundle.title }}
+                  <p class="text-center p1" *ngIf="item?.type === 'bundle'">
+                    {{ item?.bundle?.title }}
                   </p>
-                  <p class="text-center p1" *ngIf="item.type === 'course'">
-                    {{ item.course.title.ar || item.course.title.en }}
+                  <p class="text-center p1" *ngIf="item?.type === 'course'">
+                    {{ item?.course?.title?.ar || item?.course?.title?.en }}
                   </p>
-                  <p class="text-center p1" *ngIf="item.type === 'event'">
-                    {{ item.event.title }}
+                  <p class="text-center p1" *ngIf="item?.type === 'event'">
+                    {{ item?.event?.title }}
                   </p>
                 </div>
 
                 <div class="text-center col-3">
-                  <h2 class="mb-0" *ngIf="item.type === 'course'">
-                    {{ item.course.price }}
+                  <h2 class="mb-0" *ngIf="item?.type === 'course'">
+                    {{ item?.course?.price }}
                   </h2>
-                  <h2 class="mb-0" *ngIf="item.type === 'bundle'">
-                    {{ item.bundle.price }}
+                  <h2 class="mb-0" *ngIf="item?.type === 'bundle'">
+                    {{ item?.bundle?.price }}
                   </h2>
-                  <h2 class="mb-0" *ngIf="item.type === 'event'">
-                    {{ item.event.price }}
+                  <h2 class="mb-0" *ngIf="item?.type === 'event'">
+                    {{ item?.event?.price }}
                   </h2>
                   <p class="mt-0">ريال</p>
                 </div>
@@ -55,21 +55,21 @@
                   <p class="mb-0 pe-2 text-muted muted">النوع:</p>
                   <span
                     class="mb-0 pe-2"
-                    *ngIf="item.type == 'course' && item.course.type == '3'"
+                    *ngIf="item?.type == 'course' && item?.course?.type == '3'"
                     >دورات أونلاين</span
                   >
-                  <span class="mb-0 pe-2" *ngIf="item.type == 'bundle'"
+                  <span class="mb-0 pe-2" *ngIf="item?.type == 'bundle'"
                     >مسارات تعليمية</span
                   >
-                  <div *ngIf="item.type == 'event'">
+                  <div *ngIf="item?.type == 'event'">
                     <span class="mb-0 pe-2">فعالية</span>
                   </div>
                   <span
                     class="mb-0 pe-2"
                     *ngIf="
-                      item.type != 'bundle' &&
-                      item.type != 'event' &&
-                      item.course.type == '1'
+                      item?.type != 'bundle' &&
+                      item?.type != 'event' &&
+                      item?.course?.type == '1'
                     "
                   >
                     مكتبة المهارات</span

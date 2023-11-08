@@ -93,4 +93,8 @@ export class TrainingService {
       }
     });
   }
+
+  redirectTo(model:object){
+   return this._HttpClient.post(environment.baseUrl + 'redirect-to-continue-course' , model)
+  }
 }
