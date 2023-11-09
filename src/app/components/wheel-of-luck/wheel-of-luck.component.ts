@@ -54,7 +54,7 @@ export class WheelOfLuckComponent {
     this.before()
     this.checkIfUserCanSpin()
     this._WheelService.getAllPrizes().subscribe((prizes: any) => {
-      prizes.push({'id': 6, 'points': "محاولة أخرى", 'probability': "100"});
+      prizes.push({'id': 123, 'points': "محاولة أخرى", 'probability': "100"});
       console.log('Received Prizes: ', prizes);
       this.slicePrizes = prizes;
     this.probabilities = prizes.map((prize: any) => parseInt(prize.probability, 10));
@@ -194,7 +194,7 @@ export class WheelOfLuckComponent {
             this.wheelSpinAudio.play();
             console.log(response);
             console.log(response.prize_id)
-            this.idToLandOn = parseInt(response.prize_id, 10);;
+            this.idToLandOn = parseInt("123", 10);;
             this.wheel.spin();
             setTimeout(() => {
               this.clapAudio.play();
@@ -209,7 +209,7 @@ export class WheelOfLuckComponent {
               this.wheelSpinAudio.play();
               setTimeout(() => {
                 this.clapAudio.play();
-                this.idToLandOn = parseInt(response.prize_id, 10);;
+                this.idToLandOn = parseInt("123", 10);;
                 this.wheel.spin();
                 this.wheelMessage = "ربحت محاولة مجانية!"
               }, 2000);

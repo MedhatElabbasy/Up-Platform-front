@@ -24,7 +24,7 @@ export class CartComponent implements OnInit {
   public totalAfterCoupon: number = 0;
   public config: PaginationInstance = {
     id: 'advanced',
-    itemsPerPage: 3,
+    itemsPerPage: 10,
     currentPage: 1,
   };
   public labels: any = {

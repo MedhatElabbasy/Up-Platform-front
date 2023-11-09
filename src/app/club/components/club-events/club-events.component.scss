@@ -360,3 +360,30 @@
   font-size: 20px;
   font-weight: 800;
 }
+
+th{
+  text-align: center;
+  font-size: 17px;
+}
+
+td{
+  padding: 3%;
+  font-size: 17px;
+  color: gray;
+}
+
+td:hover{
+  background-color: #F6F6F8;
+}
+
+.first{
+  background-color: #ECEDF0;
+}
+
+.old, .new{
+  color: #E1E1E1;
+}
+
+table{
+  margin-top: 20px;
+}

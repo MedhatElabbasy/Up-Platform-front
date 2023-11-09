@@ -1,8 +1,9 @@
 import { RouterModule, Routes } from '@angular/router';
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,6 +49,7 @@ import { EventDetailsComponent } from './club/components/event-details/event-det
     FormsModule,
     HttpClientModule,
     CarouselModule,
+    CommonModule,
     NgxWheelModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
@@ -71,6 +73,7 @@ import { EventDetailsComponent } from './club/components/event-details/event-det
       useClass: AddApikeyInterceptor,
       multi: true,
     },
+    
   ],
   bootstrap: [AppComponent],
 })

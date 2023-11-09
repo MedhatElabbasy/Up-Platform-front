@@ -14,13 +14,15 @@ import { TrainingService } from 'src/app/training/Services/training.service';
   styleUrls: ['./club-events.component.scss']
 })
 export class ClubEventsComponent {
+  
   Allcities=['الكل'];
   cities!:any;
   events!:any;
   isLoading:boolean=true
   userDetails: any = {};
   userDetailsString: string = '';
-  selectedCity: string = ''; // Initialize with a default value if needed
+  selectedCity: string = '';
+  AllDurations: any[] = [];
   public eventLog: string[] = [];
   public filter: string = '';
   public maxSize: number = 7;
@@ -69,6 +71,16 @@ export class ClubEventsComponent {
     this.getAllEvents();
     this.getAllLocations();
     this.spinner.show();
+    this.addNumericalOptions();
+  }
+
+  addNumericalOptions() {
+    const numericalOptions = ["أسبوع", "أسبوعين", "3 أسابيع", "شهر"];
+  
+    // Adding numerical values to the existing city options
+    numericalOptions.forEach((num) => {
+      this.AllDurations.push({ label: num.toString(), value: num });
+    });
   }
 
   onPageChange(number: number) {
@@ -161,4 +173,7 @@ export class ClubEventsComponent {
   navigateToEventDetails(id: number) {
     this._Router.navigate(['club/club-events/' + id])
   }
+
+
+  
 }
