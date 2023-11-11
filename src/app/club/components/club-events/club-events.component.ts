@@ -289,9 +289,9 @@ export class ClubEventsComponent implements AfterViewInit {
         c.innerHTML =
           '<div class="row"><div class="col-12" style="font-size:1.5em;">' +
           numbersOnly +
-          '</div><div class="col-12" style="border-radius:50px; font-size:16px; background-color:#2F92B2; color:white; margin:auto; width:75px">' +
+          '</div><div class="col-12" style="border-radius:50px; font-size:16px; background-color:#2F92B2; color:white; margin:auto; width:75px"> <a routerLink="/club/club-events/{{eventsOnSelectedDate[0].id}}">' +
           eventTitle +
-          '</div></div>';
+          '</a></div></div>';
       });
     });
     console.log('applyStylesToEvents');

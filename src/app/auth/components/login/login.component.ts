@@ -67,6 +67,10 @@ export class LoginComponent implements AfterViewInit {
                 }
               );
             }
+
+            setTimeout(() => {
+              window.location.href = '/';
+            }, 2000);
             
             this._AuthService.isUserLoggedIn.next(true)
             if(res.data.is_verify){
