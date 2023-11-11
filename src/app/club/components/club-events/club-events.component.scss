@@ -399,17 +399,18 @@ li {
   border-radius: 0px !important;
 }
 
-// ::ng-deep.mat-calendar-body-cell-content:hover{
-//   background-color: #F6F6F8 !important;
-// }
+ ::ng-deep.mat-calendar-body-cell-content:hover{
+   background-color: #edf5f8 !important;
+ }
 
 // // ::ng-deep.mat-calendar-body-cell-content{
 // //   background-color: #F6F6F8 !important;
 // // }
 
-// .mat-calendar-body-selected{
-//   background-color: rgb(236,237,240) !important;
-// }
+::ng-deep.mat-calendar-body-selected{
+   background-color: #E6F5FA !important;
+   color: gray !important;
+ }
 
 mat-card {
   width: 80% !important;

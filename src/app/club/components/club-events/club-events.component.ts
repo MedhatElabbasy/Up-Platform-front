@@ -90,8 +90,6 @@ export class ClubEventsComponent implements AfterViewInit {
     endDate.setDate(currentDate.getDate() + numberOfDaysToAdd);
 
     this.choices = [];
-
-    // Loop through each day between now and the calculated end date
     for (
       let date = new Date(currentDate);
       date <= endDate;
@@ -100,7 +98,6 @@ export class ClubEventsComponent implements AfterViewInit {
       this.choices.push(`${this.formatDate(date)}`);
     }
     this.getAllEvents();
-
   }
 
   calculateDaysToAdd(choice: string): number {
@@ -142,6 +139,7 @@ export class ClubEventsComponent implements AfterViewInit {
     this.getAllEvents();
 
     this.getAllLocations();
+    console.log('ngOnInit');
   }
 
   onPageChange(number: number) {
@@ -156,6 +154,7 @@ export class ClubEventsComponent implements AfterViewInit {
 
   private logEvent(message: string) {
     this.eventLog.unshift(`${new Date().toISOString()}: ${message}`);
+    console.log('logEvent');
   }
 
   citiesFilteration(event: any) {
@@ -176,14 +175,13 @@ export class ClubEventsComponent implements AfterViewInit {
     //  if (this.selectedChoice == 'كل الفعاليات') {
     //    this.getAllEvents();
     //  }
-     if (this.selectedChoice == 'أسبوع') {
+    if (this.selectedChoice == 'أسبوع') {
       this.choiceEvents = [];
       this._club.eventFilter(7).subscribe((res) => {
         console.log(res);
         this.choiceEvents = res;
         this.choiceEvents = this.choiceEvents.data;
         console.log(this.choiceEvents);
-        this.isLoading = false;
         if (this.choiceEvents.length > 0) {
           this.getEventsBySelectedDate(this.selected);
         }
@@ -198,7 +196,6 @@ export class ClubEventsComponent implements AfterViewInit {
         console.log(res);
         this.choiceEvents = res;
         this.choiceEvents = this.choiceEvents.data;
-        this.isLoading = false;
         if (this.choiceEvents.length > 0) {
           this.getEventsBySelectedDate(this.selected);
         }
@@ -213,7 +210,6 @@ export class ClubEventsComponent implements AfterViewInit {
         console.log(res);
         this.choiceEvents = res;
         this.choiceEvents = this.choiceEvents.data;
-        this.isLoading = false;
         if (this.choiceEvents.length > 0) {
           this.getEventsBySelectedDate(this.selected);
         }
@@ -224,12 +220,10 @@ export class ClubEventsComponent implements AfterViewInit {
       this.isCalendarVisible = false;
     } else if (this.selectedChoice == 'شهر') {
       this.choiceEvents = [];
-      this.isLoading = true;
       this._club.eventFilter(30).subscribe((res) => {
         console.log(res);
         this.choiceEvents = res;
         this.choiceEvents = this.choiceEvents.data;
-        this.isLoading = false;
         if (this.choiceEvents.length > 0) {
           this.getEventsBySelectedDate(this.selected);
 
@@ -240,20 +234,20 @@ export class ClubEventsComponent implements AfterViewInit {
         this.AllChoices.push(ele);
       });
       this.isCalendarVisible = false;
-    }
-    else{
+    } else {
       this.isCalendarVisible = true;
     }
     // this.getAllEventsByLocations(this.selectedChoice);
     if (this.choiceEvents.length > 0) {
       this.getEventsBySelectedDate(this.selected);
     }
+    console.log('choiceFilteration');
   }
 
   handleCalendarVisibility() {
     this.isCalendarVisible = this.selectedChoice !== 'كل الفعاليات';
+    console.log('handleCalendarVisibility');
   }
-
 
   getAllEvents() {
     this.events = [];
@@ -270,6 +264,7 @@ export class ClubEventsComponent implements AfterViewInit {
     this.events.forEach((ele: any) => {
       this.AllChoices.push(ele);
     });
+    console.log('getAllEvents');
   }
 
   applyStylesToEvents() {
@@ -287,22 +282,25 @@ export class ClubEventsComponent implements AfterViewInit {
         );
         const eventTitle =
           eventsOnSelectedDate.length > 0 ? eventsOnSelectedDate[0].title : '';
-          console.log(eventTitle);
+        console.log(eventTitle);
         c.innerText = c.innerText.length == 1 ? '0' + c.innerText : c.innerText;
         const numbersOnly = this.extractNumbers(c.innerText);
 
         c.innerHTML =
           '<div class="row"><div class="col-12" style="font-size:1.5em;">' +
           numbersOnly +
-          '</div><div class="col-12" style="background-color:#E3F5F9; margin:auto; width:75px">' +
+          '</div><div class="col-12" style="border-radius:50px; font-size:16px; background-color:#2F92B2; color:white; margin:auto; width:75px">' +
           eventTitle +
           '</div></div>';
       });
     });
+    console.log('applyStylesToEvents');
   }
 
   extractNumbers(text: string) {
     const numericChars = text.match(/\d+/);
+    console.log('extractNumbers');
+
     return numericChars ? numericChars[0] : '';
   }
 
@@ -313,6 +311,7 @@ export class ClubEventsComponent implements AfterViewInit {
         this.Allcities.push(ele);
       });
     });
+    console.log('getAllLocations');
   }
 
   getAllEventsByLocations(city: string) {
@@ -326,18 +325,21 @@ export class ClubEventsComponent implements AfterViewInit {
         this.getEventsBySelectedDate(this.selected);
       }
     });
+    console.log('getAllEventsByLocations');
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if ('events' in changes && this.events.length > 0) {
       this.getEventsBySelectedDate(this.selected);
     }
+    console.log('ngOnChanges');
   }
 
   getEventsByID(user_id: number) {
     this._club.getEventsByID(user_id).subscribe((res) => {
       // console.log(res);
     });
+    console.log('getEventsByID');
   }
 
   addToCart(id: number, type: string) {
@@ -372,6 +374,7 @@ export class ClubEventsComponent implements AfterViewInit {
       formattedSelectedDate.setHours(0, 0, 0, 0);
       return startDate.getTime() === formattedSelectedDate.getTime();
     }
+    console.log('compareDates');
 
     return false;
   }
@@ -392,6 +395,8 @@ export class ClubEventsComponent implements AfterViewInit {
       );
       return isDateMatch;
     });
+    console.log('getEventsBySelectedDate');
+
     return dateObj;
   }
 
@@ -401,6 +406,7 @@ export class ClubEventsComponent implements AfterViewInit {
     if (eventsOnSelectedDate.length > 0) {
       return 'special-date-with-events';
     }
+    console.log('dateClass');
 
     return '';
   };
@@ -428,6 +434,7 @@ export class ClubEventsComponent implements AfterViewInit {
     }
 
     this.updateCalendar();
+    console.log('ngAfterViewInit');
   }
 
   updateCalendar() {
@@ -458,12 +465,14 @@ export class ClubEventsComponent implements AfterViewInit {
       });
     });
     this.applyStylesToEvents();
+    console.log('updateCalendar');
   }
 
   eventMatchesChoice(event: any, choice: string): boolean {
     const eventDuration = this.calculateDaysToAdd(choice);
     const eventDate = new Date(event.start_at.split(' ')[0]);
     const currentDate = new Date();
+    console.log('eventMatchesChoice');
 
     // Check if the event date is within the selected duration
     return (
