@@ -107,7 +107,7 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let event of choiceEvents;">
-                    <td>{{ event.title }}</td>
+                    <td><a routerLink="/club/club-events/{{event.id}}" style="text-decoration: none;">{{ event.title }}</a></td>
                     <td>{{ event.start_at }}</td>
                     <td>{{ event.location }}</td>
                   </tr>
