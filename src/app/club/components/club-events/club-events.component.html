@@ -28,7 +28,7 @@
                         </div>
 
                         <div class="col-6">
-                          <p>{{event.created_at.split("T")[0]}}</p>
+                          <p>{{event.start_at.split(" ")[0]}}</p>
                         </div>
                       </div>
                       <div class="row mt-2">
@@ -64,90 +64,6 @@
         </div>
         <ngx-spinner *ngIf="isLoading" bdColor = "rgba(0, 0, 0, 0.2)" size = "medium" color = "#fff" type = "square-jelly-box"  fullScreen = "false"></ngx-spinner>
       </div>
-      <!-- <div class="col-lg-4 col-md-6 section">
-        <div class="p-2">
-          <div class="bg-white rounded-4">
-            <div class="p-2">
-              <div class="rounded-4 child p-2 ">
-                <h3 class="text-center mt-2">اسم الفعالية</h3>
-                <div class="container">
-                  <div class="row">
-                    <div class="col-1">
-                      <img src="assets/images/club/g195.svg">
-                    </div>
-                    <div class="col-4">
-                      <p> التاريخ :</p>
-                    </div>
-
-                    <div class="col-6">
-                      <p>12-12-2024</p>
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-1">
-                      <img src="assets/images/club/g15.svg">
-                    </div>
-                    <div class="col-4">
-                      <p> المدينة:</p>
-                    </div>
-
-                    <div class="col-6">
-                      <p>الرياض</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <button class="btn btn1 px-2 d-block m-auto mt-3 cursor-pointer" routerLink="/club/activitie-schedule">التسجيل في  الفعالية</button>
-              <div class="d-flex justify-content-between px-2 end-child">
-                <p>التقديم كمشرف</p>
-                <p>التصويت</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 section">
-        <div class="p-2">
-          <div class="bg-white rounded-4">
-            <div class="p-2">
-              <div class="rounded-4 child p-2 ">
-                <h3 class="text-center mt-2">اسم الفعالية</h3>
-                <div class="container">
-                  <div class="row">
-                    <div class="col-1">
-                      <img src="assets/images/club/g195.svg">
-                    </div>
-                    <div class="col-4">
-                      <p> التاريخ :</p>
-                    </div>
-
-                    <div class="col-6">
-                      <p>12-12-2024</p>
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-1">
-                      <img src="assets/images/club/g15.svg">
-                    </div>
-                    <div class="col-4">
-                      <p> المدينة:</p>
-                    </div>
-
-                    <div class="col-6">
-                      <p>الرياض</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <button class="btn btn1 px-2 d-block m-auto mt-3 cursor-pointer" routerLink="/club/activitie-schedule">التسجيل في  الفعالية</button>
-              <div class="d-flex justify-content-between px-2 end-child">
-                <p>التقديم كمشرف</p>
-                <p>التصويت</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
     <div class="has-text-centered mt-4">
       <pagination-controls [id]="config.id || ''" [maxSize]="maxSize" [directionLinks]="directionLinks"
@@ -174,83 +90,30 @@
   
       <div class="days mt-3">
         <div class="container">
-          <div class="main container px-5">
-            <div class="mt-4 section-two pb-5">
-              <!--Schadule-->
-              <div class="section rounded-3 mt-5 pb-3 p-3 bg-white">
-                <div class="row">
-                  <p-dropdown [options]="AllDurations" [style]="{'min-width':'150px'}" placeholder="اعرض الفعاليات في خلال فترة معينة"></p-dropdown>
-                </div>
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>SUN</th>
-                      <th>MON</th>
-                      <th>TUE</th>
-                      <th>WED</th>
-                      <th>THU</th>
-                      <th>FRI</th>
-                      <th>SAT</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="first old">29</td>
-                      <td class="old">30</td>
-                      <td class="old">31</td>
-                      <td>1</td>
-                      <td>2</td>
-                      <td>3</td>
-                      <td class="first">4</td>
-                    </tr>
-                    <tr>
-                      <td class="first">5</td>
-                      <td>6</td>
-                      <td>7</td>
-                      <td>8</td>
-                      <td>9</td>
-                      <td>10</td>
-                      <td class="first">11</td>
-                    </tr>
-                    <tr>
-                      <td class="first">12</td>
-                      <td>13</td>
-                      <td>14</td>
-                      <td>15</td>
-                      <td>16</td>
-                      <td>17</td>
-                      <td class="first">18</td>
-                      
-                    </tr>
-                    <tr>
-                      <td class="first">19</td>
-                      <td>20</td>
-                      <td>21</td>
-                      <td>22</td>
-                      <td>23</td>
-                      <td>24</td>
-                      <td class="first">25</td>
-                      
-                    </tr>
-                    <tr>
-                      <td class="first">26</td>
-                      <td>27</td>
-                      <td>28</td>
-                      <td>29</td>
-                      <td>30</td>
-                      <!-- <td>31</td> -->
-                      <td class="new">1</td>
-                      <td class="first new">2</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              
-            </div>
-        </div>
+          <div class="row">
+              <p-dropdown [options]="AllChoices" [(ngModel)]="selectedChoice" [style]="{'min-width':'200px'}"
+                placeholder="اعرض الفعاليات في خلال فترة معينة" (onChange)="choiceFilteration($event)"></p-dropdown>
+                <ng-container *ngIf="isCalendarVisible">
+                  <mat-card class="demo-inline-calendar-card">
+                <mat-calendar [(selected)]="selected"></mat-calendar>
+              </mat-card>
+            </ng-container>
+            <ng-container *ngIf="!isCalendarVisible">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th *ngFor="let info of infoData;">{{ info }} <br/></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let event of choiceEvents;">
+                    <td>{{ event.title }}</td>
+                    <td>{{ event.start_at }}</td>
+                    <td>{{ event.location }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </ng-container>
       </div>
-      <!-- <div class="mt-3">
-        <textarea class="form-control rounded-3" id="exampleFormControlTextarea1" rows="3" placeholder="ملاحظات"></textarea>
-      </div> -->
     </div>
   </div>

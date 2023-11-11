@@ -6,7 +6,7 @@
   .square {
     width: 10px;
     height: 10px;
-    background-color: #FFB300;
+    background-color: #ffb300;
     transform: rotate(45deg);
     border-radius: 4px;
   }
@@ -16,7 +16,6 @@
     font-size: 35px;
     color: $main-color;
     font-family: "Bahij";
-
   }
 
   h3 {
@@ -24,7 +23,6 @@
     font-size: 25px;
     color: $main-color;
     font-family: "Bahij";
-
   }
 
   p {
@@ -32,7 +30,6 @@
     font-size: 20px;
     line-height: 30px;
     font-family: "Bahij";
-
   }
 
   ::ng-deep .p-dropdown .p-dropdown-label {
@@ -42,7 +39,6 @@
     .p-placeholder {
       color: $main-color;
       font-family: "Bahij" !important;
-
     }
   }
 
@@ -62,7 +58,7 @@
       padding: 25px;
     }
 
-    background-image: url('/assets/images/Group 553.svg');
+    background-image: url("/assets/images/Group 553.svg");
 
     p {
       font-size: 15px;
@@ -89,7 +85,6 @@
     width: fit-content;
     background-color: red;
 
-
     p {
       margin: 0px;
       padding: 5px 10px !important;
@@ -100,7 +95,7 @@
   }
 
   .btn1 {
-    background: #FFB300;
+    background: #ffb300;
     color: $white-color;
     padding: 10px 0;
 
@@ -108,8 +103,6 @@
       width: 20px;
     }
   }
-
-
 
   .section-two {
     p {
@@ -134,8 +127,6 @@
     p {
       font-size: 14px;
     }
-
-
   }
 
   .section {
@@ -150,14 +141,14 @@
       min-height: 250px;
 
       .day {
-        background-color: #FFB300;
+        background-color: #ffb300;
         color: white;
       }
     }
 
     textarea {
       min-height: 150px;
-      background-color: #EFEFEF;
+      background-color: #efefef;
       border: unset;
 
       /* top left and top right */
@@ -169,78 +160,73 @@
       padding: 10px 5px;
       color: black;
     }
-
   }
 }
 
-
 ::ng-deep {
   .ngx-pagination {
-      width: fit-content;
-      padding-left: 0;
-      margin-bottom: 0 !important;
-      background-color: #FFFFFF;
-      border-radius: 30px;
-      padding: 10px;
-      display: flex;
-      align-items: center;
+    width: fit-content;
+    padding-left: 0;
+    margin-bottom: 0 !important;
+    background-color: #ffffff;
+    border-radius: 30px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
   }
 
   .ngx-pagination .pagination-next a:after,
   .ngx-pagination .pagination-next.disabled:after {
-      content: "\f053" !important;
-      font-family: "Font Awesome 6 Free";
-      font-weight: 900;
-      margin-left: 0 !important;
+    content: "\f053" !important;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-left: 0 !important;
   }
 
   .ngx-pagination .pagination-previous a:before,
   .ngx-pagination .pagination-previous.disabled:before {
-      content: "\f054" !important;
-      font-family: "Font Awesome 6 Free";
-      font-weight: 900;
-      margin-right: 0 !important;
+    content: "\f054" !important;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 0 !important;
   }
 
   .ngx-pagination .current {
-      background-color: #07487C;
-      border: 1px solid #E7E7E7;
-      border-radius: 50%;
-      aspect-ratio: 1 / 1 !important;
-      display: flex;
-      align-items: center;
-
+    background-color: #07487c;
+    border: 1px solid #e7e7e7;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1 !important;
+    display: flex;
+    align-items: center;
   }
 
   .ngx-pagination li a {
-      border-radius: 50% !important;
+    border-radius: 50% !important;
   }
 
   .ngx-pagination li.pagination-previous,
   .ngx-pagination li.pagination-next {
-      border: 1px solid #E7E7E7;
-      padding: 10px;
-      border-radius: 50%;
-      // aspect-ratio: 1/1 !important;
+    border: 1px solid #e7e7e7;
+    padding: 10px;
+    border-radius: 50%;
+    // aspect-ratio: 1/1 !important;
 
-      display: flex;
-      width: 30px;
-      height: 30px;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      overflow: hidden;
+    display: flex;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
 
+    a {
+      padding: 10px !important;
+    }
 
-      a {
-          padding: 10px !important;
-      }
-
-      &::before {}
+    &::before {
+    }
   }
 }
-
-
 
 .card {
   // width: 300px;
@@ -248,34 +234,33 @@
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-
   .card__image,
   h2,
   p {
-      background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
-      border-radius: 5px;
-      background-size: 200% 100%;
-      animation: 1s shine linear infinite;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    border-radius: 5px;
+    background-size: 200% 100%;
+    animation: 1s shine linear infinite;
   }
 
   .card__image {
-      height: 200px;
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
+    height: 200px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   .card__content {
-      // padding: 20px;
+    // padding: 20px;
   }
 
   h2 {
-      height: 30px;
+    height: 30px;
   }
 
   p {
-      height: 70px;
-      width: 100%;
-      // float:left;
+    height: 70px;
+    width: 100%;
+    // float:left;
   }
 }
 
@@ -286,14 +271,13 @@
   min-height: 50vh;
 }
 
-.loader{
+.loader {
   position: relative;
 }
 
-::ng-deep .ngx-spinner-overlay{
-  position:absolute!important;
+::ng-deep .ngx-spinner-overlay {
+  position: absolute !important;
 }
-
 
 @import "../../../../assets/styles/variables.scss";
 
@@ -303,7 +287,7 @@
   .square {
     width: 10px;
     height: 10px;
-    background-color: #FFB300;
+    background-color: #ffb300;
     transform: rotate(45deg);
     border-radius: 4px;
   }
@@ -313,7 +297,6 @@
     font-size: 35px;
     color: $main-color;
     font-family: "Bahij";
-
   }
 
   h3 {
@@ -321,7 +304,6 @@
     font-size: 25px;
     color: $main-color;
     font-family: "Bahij";
-
   }
 
   p {
@@ -329,14 +311,13 @@
     font-size: 20px;
     line-height: 30px;
     font-family: "Bahij";
-
   }
 
   .section {
     //border: 1px $main-color solid;
 
     .header {
-      background-image: url('./../../../../assets/images/club/Group 43498.png');
+      background-image: url("./../../../../assets/images/club/Group 43498.png");
       background-position: center;
       background-size: cover;
 
@@ -348,42 +329,92 @@
         color: white;
       }
     }
-
-    
-
   }
 }
 
-.event-title{
+.event-title {
   text-decoration: none;
   color: white;
   font-size: 20px;
   font-weight: 800;
 }
 
-th{
+th {
   text-align: center;
   font-size: 17px;
 }
 
-td{
+td {
   padding: 3%;
   font-size: 17px;
   color: gray;
 }
 
-td:hover{
-  background-color: #F6F6F8;
+td:hover {
+  background-color: #f6f6f8;
 }
 
-.first{
-  background-color: #ECEDF0;
+.first {
+  background-color: #ecedf0;
 }
 
-.old, .new{
-  color: #E1E1E1;
+.old,
+.new {
+  color: #e1e1e1;
 }
 
-table{
+table {
   margin-top: 20px;
+}
+
+.eventForDay {
+  background-color: #aa66cc;
+  color: white;
+  padding: 2px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 400;
+  display: block;
+}
+
+//Calender
+
+.demo-inline-calendar-card {
+  width: 600px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+//Scheduler
+::ng-deep.mat-calendar-body-cell-content {
+  border-radius: 0px !important;
+}
+
+// ::ng-deep.mat-calendar-body-cell-content:hover{
+//   background-color: #F6F6F8 !important;
+// }
+
+// // ::ng-deep.mat-calendar-body-cell-content{
+// //   background-color: #F6F6F8 !important;
+// // }
+
+// .mat-calendar-body-selected{
+//   background-color: rgb(236,237,240) !important;
+// }
+
+mat-card {
+  width: 80% !important;
+}
+
+tr {
+  text-align: center;
 }

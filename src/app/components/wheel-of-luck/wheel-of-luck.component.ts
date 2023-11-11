@@ -24,11 +24,15 @@ export class WheelOfLuckComponent {
   wheelMessage: string = ""
   isWheelClicked: boolean = false
   isWheelLoading: boolean = true
+  isLoggedIn: boolean = false
   isUserLoggedIn: boolean = false
 
   constructor(private _AuthServices: AuthServices, private _WheelService: WheelService) {    
     this.wheelSpinAudio = new Audio('../../../assets/sounds/wheel-spin.wav');
     this.clapAudio = new Audio('../../../assets/sounds/claps.mp3');
+    if (localStorage.getItem("userDetails")){
+      this.isLoggedIn=true;
+    }
     _AuthServices.isUserLoggedIn.subscribe((res) => {
       this.isUserLoggedIn = res
     })
@@ -279,7 +283,7 @@ export class WheelOfLuckComponent {
         console.log(this.userCanSpin);
 
       })
-    } else {
+    } else if(!this.isLoggedIn) {
       this.isWheelLoading = false
       console.log("Please login");
       this.wheelMessage = "من فضلك قم بتسجيل الدخول أولًا"
