@@ -442,20 +442,20 @@ export class WheelOfLuckComponent implements OnInit {
   drawClock() {
     console.log("drawClock");
 
-    const canvas = this.clockCanvas.nativeElement;
+    const canvas = this.clockCanvas?.nativeElement;
     const ctx = this.ctx;
     const radius = canvas.width / 2;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx?.clearRect(0, 0, canvas.width, canvas.height);
 
     // Draw clock face
-    ctx.beginPath();
-    ctx.arc(radius, radius, radius - 10, 0, 2 * Math.PI);
+    ctx?.beginPath();
+    ctx?.arc(radius, radius, radius - 10, 0, 2 * Math.PI);
     ctx.fillStyle = 'white';
-    ctx.fill();
+    ctx?.fill();
     ctx.lineWidth = 11;
     ctx.strokeStyle = '#3BA5C0';
-    ctx.stroke();
-    ctx.closePath();
+    ctx?.stroke();
+    ctx?.closePath();
 
     // Draw clock numbers
     ctx.font = '19px Arial';
@@ -482,11 +482,11 @@ export class WheelOfLuckComponent implements OnInit {
     // this.drawHand(ctx, secondAngle, radius * 0.8, 2);
 
     // Add this code to draw the center circle in yellow
-    ctx.beginPath();
-    ctx.arc(radius, radius, 7.5, 0, 2 * Math.PI);
+    ctx?.beginPath();
+    ctx?.arc(radius, radius, 7.5, 0, 2 * Math.PI);
     ctx.fillStyle = 'orange';
-    ctx.fill();
-    ctx.closePath();
+    ctx?.fill();
+    ctx?.closePath();
   }
 
   drawHand(
@@ -500,7 +500,7 @@ export class WheelOfLuckComponent implements OnInit {
     const x = radius + length * Math.cos(angle);
     const y = radius + length * Math.sin(angle);
 
-    ctx.beginPath();
+    ctx?.beginPath();
     ctx.moveTo(radius, radius);
     ctx.lineTo(x, y);
     ctx.lineWidth = width;

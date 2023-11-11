@@ -28,7 +28,9 @@ export class NavbarComponent {
     if (userDetailsString) {
       const userDetails = JSON.parse(userDetailsString);
       this.userDetails = userDetails;
-      this.getItemsNum();
+      if(this.isUserLoggedIn){
+        this.getItemsNum();
+      }
     } else {
       console.log('User details not found in local storage');
     }
@@ -44,7 +46,7 @@ export class NavbarComponent {
   subscribeToCartItems() {
     this.cartItemsSubscription = this.TrainingService.getCartItems().subscribe((res: any) => {
       this.cartItemsNum = res.count;
-      console.log(res.count); // Verify if data is coming in real time
+      console.log(res.count);
     });
   }
 
