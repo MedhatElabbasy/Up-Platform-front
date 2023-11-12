@@ -134,7 +134,6 @@ export class LoginComponent implements AfterViewInit {
         }, 2000);
       },
       (error) => {
-        // Handle error if the social login fails
         console.error('Social login error:', error);
       }
     );
