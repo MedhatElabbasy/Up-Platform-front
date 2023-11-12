@@ -17,4 +17,25 @@ export class ServicesapiService {
   getAllQuizes():Observable<any> {
     return this._HttpClient.get(environment.baseUrl + '/get-all-quizzes/for-my_exams')
   }
+
+  addArticle(model:object){
+    return this._HttpClient.post(environment.baseUrl + '/blogs/store' , model)
+  }
+
+  getAllconsultants():Observable<any> {
+    return this._HttpClient.get(environment.baseUrl + '/all-consultants')
+  }
+
+  getAllCategories(){ 
+    return this._HttpClient.get(environment.baseUrl + '/blogs/categories')
+  }
+
+  getAllComments(blogId:number){
+    return this._HttpClient.get(environment.baseUrl + `/blogs/${blogId}/allComments-blog`)
+  }
+
+
+  addNewComment(blogId:number ,fd:FormData){
+    return this._HttpClient.post(environment.baseUrl + `/blogs/${blogId}/comments` , fd)
+  }
 }

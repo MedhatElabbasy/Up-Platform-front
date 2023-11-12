@@ -47,6 +47,10 @@ export class TrainingService {
     return this._HttpClient.get(environment.baseUrl + '/get-course-details/'+course_id);
   }
 
+  getAllOnlineCourseDetailsByID(course_id:number){
+    return this._HttpClient.get(environment.baseUrl + '/get-class-details/'+course_id);
+  }
+
   getCartItems(){
     return this._HttpClient.get(environment.baseUrl + '/cart-list', {
       headers: {
@@ -95,6 +99,23 @@ export class TrainingService {
   }
 
   redirectTo(model:object){
-   return this._HttpClient.post(environment.baseUrl + 'redirect-to-continue-course' , model)
+   return this._HttpClient.post(environment.baseUrl + '/redirect-to-continue-course' , model)
   }
+
+  getQuestions(): Observable<any>{
+    return this._HttpClient.get(environment.baseUrl + '/suggested-path-test')
+  }
+
+  startTest(): Observable<any>{
+    return this._HttpClient.get(environment.baseUrl + '/suggested-path-test/start')
+  }
+
+  submitResults(model:object){
+    return this._HttpClient.post(environment.baseUrl + '/suggested-path-test' , model)
+  }
+
+  getResultOfTest(): Observable<any>{
+    return this._HttpClient.get(environment.baseUrl + '/suggested-path-test/result')
+  }
+
 }

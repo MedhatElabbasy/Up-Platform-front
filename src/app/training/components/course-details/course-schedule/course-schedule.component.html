@@ -1,29 +1,29 @@
-<div>
-    <div class="row mb-5">
-        <div *ngFor="let course of courses.lessons"  class="col-lg-4 mt-3">
+<div *ngIf="id2==0">
+    <div *ngFor="let course of courses" class="row mb-5">
+        <div   class="col-lg-4 mt-3">
             <div class="startTime">
                 <div class="row">
-                    <h5 class="text-center">{{course.name}}</h5>
+                    <h5 class="text-center">{{course?.name}}</h5>
                     <div class="col-6">
                         
                         <h5>
                             <img class="mx-1" src="../../../../../assets/images/training/g195.png" style="width:15px;"/>
                             تاريخ البداية</h5>
-                            <h5>
+                            <!-- <h5>
                                 <img class="mx-1" src="../../../../../assets/images/training/Layer 2.png" style="width:15px;"/>
-                                المده</h5>
+                                المده</h5> -->
                   
                     </div>
                     <div class="col-6 left">
                        
                         <h5>
-                            {{course.created_at.split("T")[0]}}</h5>
-                            <h5>{{course.duration}}</h5>
+                            {{course?.start_time?.split(" ")[0]}}</h5>
+                            <!-- <h5>{{course?.duration}}</h5> -->
                     </div>
                 </div>
             </div>
         </div>
-        <!-- <div class="col-lg-3 mt-3">
+         <div   class="col-lg-3 mt-3">
             <div class="endTime">
                 <div class="row">
                     <div class="col-6">
@@ -35,13 +35,13 @@
                             نهاية الوقت</h5>
                     </div>
                     <div class="col-6 left">
-                        <h5>09:00 am</h5>
-                        <h5>05:00 am</h5>
+                        <h5>{{course?.start_time?.split(" ")[1]}}</h5>
+                        <h5>{{course?.end_time?.split(" ")[1]}}</h5>
                     </div>
                 </div>
             </div>
-        </div> -->
-        <!-- <div class="col-lg-3 mt-3">
+        </div> 
+         <div   class="col-lg-3 mt-3">
             <div class="period">
                 <div class="row">
                     <div class="col-6">
@@ -50,11 +50,11 @@
                             المده</h5>
                     </div>
                     <div class="col-6">
-                        <h5>45 ساعة و 20 دقيقة</h5>
+                        {{course?.meeting_duration + "دقيقة"}}
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div> 
     </div>
 
     <!-- <div class="row mb-5">
@@ -109,4 +109,23 @@
         </div>
     </div> -->
     
+</div>
+
+<div *ngIf="id2==1">
+<div class="row" *ngFor="let course of courses">
+    <div class="inner col-6 m-3" >
+        <h3 class="" data-bs-toggle="collapse" [attr.href]="'#' + course.id" role="button" aria-expanded="false" aria-controls="collapseExample">{{course.name}}</h3>
+        <div class="collapse" [attr.id]="course.id">
+         <div *ngFor="let lesson of course.lessons" class="card my-3">
+            <div class="row m-2">
+                <div class="col-6">
+                    <h3>{{"الدرس : " + lesson.name}}</h3>
+                </div>
+                <div class="col-6">{{"المدة : "+lesson.duration}}</div>
+            </div>
+            <p>{{lesson.description}}</p>
+         </div>
+        </div>
+    </div>
+</div>
 </div>

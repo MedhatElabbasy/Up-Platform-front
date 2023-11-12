@@ -14,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AllSkillsLibraryComponent {
   courses: any[] = []
-
+  path=1;
   public filter: string = '';
   public maxSize: number = 7;
   public directionLinks: boolean = true;
@@ -67,7 +67,7 @@ export class AllSkillsLibraryComponent {
     // e.preventDefault();
     console.log("TEst");
     
-    this.router.navigate(['/course-details',id])
+    this.router.navigate(['/course-details',id , this.path])
   }
 
   myGetAllCourses(){

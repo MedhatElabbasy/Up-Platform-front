@@ -1,252 +1,335 @@
-<div class=" mt-4">
-  <div class="container  bg-white p-4 rounded-4 second-section ">
-    <div class="row">
-      <div class="col-lg-6 offset-lg-1 pe-3">
-        <h3 class="pb-2">
-          <img src="assets/images/training/Layer 17.svg" class="ps-1" />
-          دورات أونلاين
-        </h3>
-        <p>
-          نقدم مجموعة من الدورات المباشرة عبر برنامج zoom ، لنثري تجربتك
-          الريادية، يقدمها خبراء مرخصون في مجالاتهم
-        </p>
-      </div>
-      <div class="col-lg-5 container-image">
-        <h4 class="fw-bold text-center">ديمو دورة (مفهوم الريادة)</h4>
-        <img
-          src="assets/images/training/Mask Group 2.png"
-          class="d-block img-fluid m-auto"
-        />
-      </div>
-    </div>
-  </div>
-  <div class="all loader py-4 px-4 my-3 rounded-5 overflow-hidden">
-    <div class="container mt-4 pb-4 ">
-      <div class="row">
-        <div *ngFor="let course of zoomCourses | paginate: config; let colIndex = index" class="col-xl-3 col-lg-4 mb-3">
-          <div class="px-3 pt-4 bg-white rounded-4 my-border">
-            <div>
-              <p class="text-center p1 cursor-pointer" (click)="redirectCourse(course.id)">{{course.title.ar}}</p>
-              <p class="text-center p1 cursor-pointer" *ngIf="!course.title.ar" (click)="redirectCourse(course.id)">{{course.title.en}}</p>
-              <p (click)="redirectBio(course.user_id)" class="text-center p2 mt-3 cursor-pointer">
-                {{course.user.first_name + " " + course.user.last_name}}</p>
-              <div class="d-flex py-1">
-                <img src="assets/images/training/g195.svg" class="image">
-                <p class="mb-0 pe-2 text-muted muted">تاريخ الدورة </p>
-                <span class="mb-0 pe-2 ">{{course.class.start_date}}</span>
+<div class="main py-3">
+  <div class="all py-4 px-4  rounded-5 overflow-hidden">
+      <div class="container">
+          <div class="d-flex justify-content-between">
+              <div>
+                  <!-- <h3 class="text-white"><img src="assets/images/training/library.svg" alt="" srcset=""> مكتبة
+                      المهارات</h3> -->
               </div>
-              <div class="d-flex py-1">
-                <img src="assets/images/training/2.svg" class="image">
-                <p class="mb-0 pe-2 text-muted muted">وقت الدورة</p>
-                <span class="mb-0 pe-2 ">9:00am </span>
-                <span class="mb-0 pe-3 ">01:00pm</span>
-              </div>
-              <div class="d-flex py-1">
-                <img src="assets/images/training/3.svg" class="image">
-                <p class="mb-0 pe-2 text-muted muted">مدة الدورة </p>
-                <span class="mb-0 pe-2 ">{{course.class.duration }} دقيقة</span>
-              </div>
-              <div class="d-flex py-1 mb-3">
-                <img src="assets/images/training/4.svg" class="image">
-                <p class="mb-0 pe-2 text-muted muted">عن طريق برنامج زووم </p>
-              </div>
-              <div class="d-flex justify-content-between mt-2">
-                <div class="text-center">
-                  <h2 class="mb-0">{{course.points}}</h2>
-                  <p class="mt-0">نقطة</p>
-                </div>
+              <div>
+                  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                      <li class="nav-item" role="presentation">
+                          <button (click)="myGetAllCourses()" class="nav-link active" id="pills-home-tab"
+                              data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab"
+                              aria-controls="pills-home" aria-selected="true">الكل</button>
+                      </li>
+                      <li *ngFor="let category of categories" class="nav-item" role="presentation">
+                          <button (click)="getAllCoursesBySubCategoryId(category.id)" class="nav-link"
+                              [id]="'pills-' + category.id +'-tab'" data-bs-toggle="pill"
+                              [attr.data-bs-target]="'#pills-' + category.id" type="button" role="tab"
+                              [attr.aria-controls]="'pills-' + category.id" aria-selected="false">
+                              {{category.name.ar}}</button>
+                      </li>
+                      <!-- <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                              data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                              aria-selected="false">الإبداع</button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-disabled-tab" data-bs-toggle="pill"
+                              data-bs-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled"
+                              aria-selected="false">تطوير الذات</button>
+                      </li> -->
+                  </ul>
 
-                <div>
-                  <div *ngIf="!userInfo" class="login">
-                    <button class="btn w-100 " routerLink="/auth/login">أضف للسلة</button>
+              </div>
+
+          </div>
+          <div class="tab-content d-block" style="direction: rtl;" id="pills-tabContent">
+              <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
+                  tabindex="0">
+                  <div class="container">
+
+                      <div class="row">
+                          <div *ngFor="let course of categoriesCourses | paginate: config; let colIndex = index"
+                              class="col-xl-3 col-lg-4 course-col mt-3">
+                            
+                              <div class="px-3 pt-4 bg-white rounded-4 my-border">
+                                <div>
+                                  <p class="text-center p1 cursor-pointer" (click)="redirectCourse(course.id)">{{course.title.ar}}</p>
+                                  <p class="text-center p1 cursor-pointer" *ngIf="!course.title.ar" (click)="redirectCourse(course.id)">{{course.title.en}}</p>
+                                  <p (click)="redirectBio(course.user_id)" class="text-center p2 mt-3 cursor-pointer">
+                                    {{course.user.first_name + " " + course.user.last_name}}</p>
+                                  <div class="d-flex py-1">
+                                    <img src="assets/images/training/g195.svg" class="image">
+                                    <p class="mb-0 pe-2 text-muted muted">تاريخ الدورة </p>
+                                    <span class="mb-0 pe-2 ">{{course.class.start_date}}</span>
+                                  </div>
+                                  <div class="d-flex py-1">
+                                    <img src="assets/images/training/2.svg" class="image">
+                                    <p class="mb-0 pe-2 text-muted muted">وقت الدورة</p>
+                                    <span class="mb-0 pe-2 ">9:00am </span>
+                                    <span class="mb-0 pe-3 ">01:00pm</span>
+                                  </div>
+                                  <div class="d-flex py-1">
+                                    <img src="assets/images/training/3.svg" class="image">
+                                    <p class="mb-0 pe-2 text-muted muted">مدة الدورة </p>
+                                    <span class="mb-0 pe-2 ">{{course.class.duration }} دقيقة</span>
+                                  </div>
+                                  <div class="d-flex py-1 mb-3">
+                                    <img src="assets/images/training/4.svg" class="image">
+                                    <p class="mb-0 pe-2 text-muted muted">عن طريق برنامج زووم </p>
+                                  </div>
+                                  <div class="d-flex justify-content-between mt-2">
+                                    <div class="text-center">
+                                      <h2 class="mb-0">{{course.points}}</h2>
+                                      <p class="mt-0">CAP</p>
+                                    </div>
+                    
+                                    <div>
+                                      <div *ngIf="!userInfo" class="login">
+                                        <button class="btn w-100 " routerLink="/auth/login">أضف للسلة</button>
+                                      </div>
+                                      <div *ngIf="userInfo" class="login">
+                                        <div *ngIf="course.is_enrolled==false">
+                                          <button class="btn w-100 " (click)="addToCart(course.id, course.type)">أضف للسلة</button>
+                                        </div>
+                                        <div *ngIf="course.is_enrolled==true">
+                                          <button class="btn w-100 " (click)="redirectToExternalLink(course)">أكمل المشاهدة</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                          <ngx-spinner *ngIf="isLoading" bdColor="rgba(0, 0, 0, 0.2)" size="medium" color="#fff"
+                              type="square-jelly-box" fullScreen="false"></ngx-spinner>
+                          <!-- <div *ngIf="isLoading" class="row">
+                              <div class="col-lg-4 course-col">
+                                  <div class="card rounded-4 p-3 pb-4 ">
+                                      <div class="card__image rounded-2"></div>
+                                      <div class="card__content">
+                                          <h2 class="mt-2"></h2>
+                                          <h2 class="mt-2"></h2>
+
+                                          <hr>
+                                          <p class="mb-0"></p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-lg-4 course-col">
+                                  <div class="card rounded-4 p-3 pb-4 ">
+                                      <div class="card__image rounded-2"></div>
+                                      <div class="card__content">
+                                          <h2 class="mt-2"></h2>
+                                          <h2 class="mt-2"></h2>
+
+                                          <hr>
+                                          <p class="mb-0"></p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-lg-4 course-col">
+                                  <div class="card rounded-4 p-3 pb-4 ">
+                                      <div class="card__image rounded-2"></div>
+                                      <div class="card__content">
+                                          <h2 class="mt-2"></h2>
+                                          <h2 class="mt-2"></h2>
+
+                                          <hr>
+                                          <p class="mb-0"></p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div> -->
+
+
+
+
+                      </div>
+
+
+
+                      <!-- <h3 class="title is-5">Event log</h3>
+                      <div class="event-log">
+                          <div *ngFor="let event of eventLog">{{ event }}</div>
+                      </div> -->
+
+
                   </div>
-                  <div *ngIf="userInfo" class="login">
-                    <div *ngIf="course.is_enrolled==false">
-                      <button class="btn w-100 " (click)="addToCart(course.id, course.type)">أضف للسلة</button>
-                    </div>
-                    <div *ngIf="course.is_enrolled==true">
-                      <button class="btn w-100 " (click)="redirectToExternalLink()">أكمل المشاهدة</button>
-                    </div>
+              </div>
+
+
+
+              <div *ngFor="let category of categories" class="tab-pane fade" [id]="'pills-'+category.id"
+                  role="tabpanel" [attr.aria-labelledby]="'pills-' + +category.id + '-tab'" tabindex="0">
+                  <!-- <h1>{{category.id}}</h1> -->
+                  <!-- <h1 class="text-white" *ngIf="categoriesCourses.total==0">لا يوجد كورسات</h1> -->
+                  <!--not exist data to display-->
+
+                  <div class="container ">
+
+                      <div class="row">
+                          <div *ngFor="let course of categoriesCourses | paginate: config; let colIndex = index"
+                              class="col-xl-3 col-lg-4 course-col mt-3"
+                              >
+                              <div class="px-3 pt-4 bg-white rounded-4 my-border">
+                                <div>
+                                  <p class="text-center p1 cursor-pointer" (click)="redirectCourse(course.id)">{{course.title.ar}}</p>
+                                  <p class="text-center p1 cursor-pointer" *ngIf="!course.title.ar" (click)="redirectCourse(course.id)">{{course.title.en}}</p>
+                                  <p (click)="redirectBio(course.user_id)" class="text-center p2 mt-3 cursor-pointer">
+                                    {{course.user.first_name + " " + course.user.last_name}}</p>
+                                  <div class="d-flex py-1">
+                                    <img src="assets/images/training/g195.svg" class="image">
+                                    <p class="mb-0 pe-2 text-muted muted">تاريخ الدورة </p>
+                                    <span class="mb-0 pe-2 ">{{course.class.start_date}}</span>
+                                  </div>
+                                  <div class="d-flex py-1">
+                                    <img src="assets/images/training/2.svg" class="image">
+                                    <p class="mb-0 pe-2 text-muted muted">وقت الدورة</p>
+                                    <span class="mb-0 pe-2 ">9:00am </span>
+                                    <span class="mb-0 pe-3 ">01:00pm</span>
+                                  </div>
+                                  <div class="d-flex py-1">
+                                    <img src="assets/images/training/3.svg" class="image">
+                                    <p class="mb-0 pe-2 text-muted muted">مدة الدورة </p>
+                                    <span class="mb-0 pe-2 ">{{course.class.duration }} دقيقة</span>
+                                  </div>
+                                  <div class="d-flex py-1 mb-3">
+                                    <img src="assets/images/training/4.svg" class="image">
+                                    <p class="mb-0 pe-2 text-muted muted">عن طريق برنامج زووم </p>
+                                  </div>
+                                  <div class="d-flex justify-content-between mt-2">
+                                    <div class="text-center">
+                                      <h2 class="mb-0">{{course.points}}</h2>
+                                      <p class="mt-0">CAP</p>
+                                    </div>
+                    
+                                    <div>
+                                      <div *ngIf="!userInfo" class="login">
+                                        <button class="btn w-100 " routerLink="/auth/login">أضف للسلة</button>
+                                      </div>
+                                      <div *ngIf="userInfo" class="login">
+                                        <div *ngIf="course.is_enrolled==false">
+                                          <button class="btn w-100 " (click)="addToCart(course.id, course.type)">أضف للسلة</button>
+                                        </div>
+                                        <div *ngIf="course.is_enrolled==true">
+                                          <button class="btn w-100 " (click)="redirectToExternalLink(course)">أكمل المشاهدة</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                          <ngx-spinner *ngIf="isLoading" bdColor="rgba(0, 0, 0, 0.2)" size="medium" color="#fff"
+                              type="square-jelly-box" fullScreen="false"></ngx-spinner>
+                          <!-- <div *ngIf="isLoading" class="row">
+                              <div class="col-lg-4 course-col">
+                                  <div class="card rounded-4 p-3 pb-4 ">
+                                      <div class="card__image rounded-2"></div>
+                                      <div class="card__content">
+                                          <h2 class="mt-2"></h2>
+                                          <h2 class="mt-2"></h2>
+
+                                          <hr>
+                                          <p class="mb-0"></p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-lg-4 course-col">
+                                  <div class="card rounded-4 p-3 pb-4 ">
+                                      <div class="card__image rounded-2"></div>
+                                      <div class="card__content">
+                                          <h2 class="mt-2"></h2>
+                                          <h2 class="mt-2"></h2>
+
+                                          <hr>
+                                          <p class="mb-0"></p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-lg-4 course-col">
+                                  <div class="card rounded-4 p-3 pb-4 ">
+                                      <div class="card__image rounded-2"></div>
+                                      <div class="card__content">
+                                          <h2 class="mt-2"></h2>
+                                          <h2 class="mt-2"></h2>
+
+                                          <hr>
+                                          <p class="mb-0"></p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div> -->
+
+
+
+
+                      </div>
+
+
+
+                      <!-- <h3 class="title is-5">Event log</h3>
+                      <div class="event-log">
+                          <div *ngFor="let event of eventLog">{{ event }}</div>
+                      </div> -->
+                      <div class="d-flex justify-content-center" *ngIf="categoriesCourses?.length==0 && !isLoading">
+                          <div class="bg-white w-100 rounded-3 mt-5">
+                              <h2 class="fs-3 text-center py-5 fw-bold ">لا يوجد كورسات لعرضها</h2>
+                          </div>
+                      </div>
+
                   </div>
-                </div>
+
+
+
+
+
+
+
+
+                  <!-- 
+                  <div *ngIf="isLoading" class="row">
+                      <div class="col-lg-4 course-col">
+                          <div class="card rounded-4 p-3 pb-4 ">
+                              <div class="card__image rounded-2"></div>
+                              <div class="card__content">
+                                  <h2 class="mt-2"></h2>
+                                  <h2 class="mt-2"></h2>
+
+                                  <hr>
+                                  <p class="mb-0"></p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-4 course-col">
+                          <div class="card rounded-4 p-3 pb-4 ">
+                              <div class="card__image rounded-2"></div>
+                              <div class="card__content">
+                                  <h2 class="mt-2"></h2>
+                                  <h2 class="mt-2"></h2>
+
+                                  <hr>
+                                  <p class="mb-0"></p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-4 course-col">
+                          <div class="card rounded-4 p-3 pb-4 ">
+                              <div class="card__image rounded-2"></div>
+                              <div class="card__content">
+                                  <h2 class="mt-2"></h2>
+                                  <h2 class="mt-2"></h2>
+
+                                  <hr>
+                                  <p class="mb-0"></p>
+                              </div>
+                          </div>
+                      </div>
+                  </div> -->
+
               </div>
-            </div>
           </div>
-        </div>
-
-
-
-        <!-- <div class="col-xl-3 col-lg-4 mb-3">
-        <div class="px-3 pt-4 bg-white rounded-4 my-border">
-          <div>
-            <p class="text-center p1">دورة التدريب المهني</p>
-            <p routerLink="/training/main/" class="text-center p2 mt-3">محمد عبدالله الدوسري</p>
-            <div class="d-flex py-1">
-              <img src="assets/images/training/g195.svg" class="image">
-              <p class="mb-0 pe-2 text-muted muted">تاريخ الدورة </p>
-              <span class="mb-0 pe-2 ">15-9-2023</span>
-            </div>
-            <div class="d-flex py-1">
-              <img src="assets/images/training/2.svg" class="image">
-              <p class="mb-0 pe-2 text-muted muted">وقت الدورة</p>
-              <span class="mb-0 pe-2 ">9:00am </span>
-              <span class="mb-0 pe-3 ">01:00pm</span>
-            </div>
-            <div class="d-flex py-1">
-              <img src="assets/images/training/3.svg" class="image">
-              <p class="mb-0 pe-2 text-muted muted">مدة الدورة </p>
-              <span class="mb-0 pe-2 ">ثلاث ساعات</span>
-            </div>
-            <div class="d-flex py-1 mb-3">
-              <img src="assets/images/training/4.svg" class="image">
-              <p class="mb-0 pe-2 text-muted muted">عن طريق برنامج زووم </p>
-            </div>
-            <div class="d-flex justify-content-between mt-2">
-              <div class="text-center">
-                <h2 class="mb-0">20</h2>
-                <p class="mt-0">نقطة</p>
-              </div>
-
-              <div>
-                <div class="login">
-                  <button class="btn w-100 ">سجل الآن</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-      <div class="col-xl-3 col-lg-4 mb-3">
-        <div class="px-3 pt-4 bg-white rounded-4 my-border">
-          <div>
-            <p class="text-center p1">دورة التدريب المهني</p>
-            <p routerLink="/training/main/" class="text-center p2 mt-3">محمد عبدالله الدوسري</p>
-            <div class="d-flex py-1">
-              <img src="assets/images/training/g195.svg" class="image">
-              <p class="mb-0 pe-2 text-muted muted">تاريخ الدورة </p>
-              <span class="mb-0 pe-2 ">15-9-2023</span>
-            </div>
-            <div class="d-flex py-1">
-              <img src="assets/images/training/2.svg" class="image">
-              <p class="mb-0 pe-2 text-muted muted">وقت الدورة</p>
-              <span class="mb-0 pe-2 ">9:00am </span>
-              <span class="mb-0 pe-3 ">01:00pm</span>
-            </div>
-            <div class="d-flex py-1">
-              <img src="assets/images/training/3.svg" class="image">
-              <p class="mb-0 pe-2 text-muted muted">مدة الدورة </p>
-              <span class="mb-0 pe-2 ">ثلاث ساعات</span>
-            </div>
-            <div class="d-flex py-1 mb-3">
-              <img src="assets/images/training/4.svg" class="image">
-              <p class="mb-0 pe-2 text-muted muted">عن طريق برنامج زووم </p>
-            </div>
-            <div class="d-flex justify-content-between mt-2">
-              <div class="text-center">
-                <h2 class="mb-0">20</h2>
-                <p class="mt-0">نقطة</p>
-              </div>
-
-              <div>
-                <div class="login">
-                  <button class="btn w-100 ">سجل الآن</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3 col-lg-4 mb-3">
-        <div class="px-3 pt-4 bg-white rounded-4 my-border">
-          <div>
-            <p class="text-center p1">دورة التدريب المهني</p>
-            <p routerLink="/training/main/" class="text-center p2 mt-3">محمد عبدالله الدوسري</p>
-            <div class="d-flex py-1">
-              <img src="assets/images/training/g195.svg" class="image">
-              <p class="mb-0 pe-2 text-muted muted">تاريخ الدورة </p>
-              <span class="mb-0 pe-2 ">15-9-2023</span>
-            </div>
-            <div class="d-flex py-1">
-              <img src="assets/images/training/2.svg" class="image">
-              <p class="mb-0 pe-2 text-muted muted">وقت الدورة</p>
-              <span class="mb-0 pe-2 ">9:00am </span>
-              <span class="mb-0 pe-3 ">01:00pm</span>
-            </div>
-            <div class="d-flex py-1">
-              <img src="assets/images/training/3.svg" class="image">
-              <p class="mb-0 pe-2 text-muted muted">مدة الدورة </p>
-              <span class="mb-0 pe-2 ">ثلاث ساعات</span>
-            </div>
-            <div class="d-flex py-1 mb-3">
-              <img src="assets/images/training/4.svg" class="image">
-              <p class="mb-0 pe-2 text-muted muted">عن طريق برنامج زووم </p>
-            </div>
-            <div class="d-flex justify-content-between mt-2">
-              <div class="text-center">
-                <h2 class="mb-0">20</h2>
-                <p class="mt-0">نقطة</p>
-              </div>
-
-              <div>
-                <div class="login">
-                  <button class="btn w-100 ">سجل الآن</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      </div>
-      <ngx-spinner *ngIf="isLoading" bdColor = "rgba(0, 0, 0, 0.2)" size = "medium" color = "#fff" type = "square-jelly-box"  fullScreen = "false"></ngx-spinner>
-      <!-- <div *ngIf="isLoading" class="row">
-        <div class="col-lg-3 course-col">
-          <div class="card rounded-4 p-3 pb-4 ">
-            <div class="card__content">
-              <h2 class="mt-2"></h2>
-              <h2 class="mt-2"></h2>
-              <h2 class="mt-2"></h2>
-              <h2 class="mt-2"></h2>
-              <hr>
-              <p class="mb-0"></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 course-col">
-          <div class="card rounded-4 p-3 pb-4 ">
-           
-            <div class="card__content">
-              <h2 class="mt-2"></h2>
-              <h2 class="mt-2"></h2>
-              <h2 class="mt-2"></h2>
-              <h2 class="mt-2"></h2>
-              <hr>
-              <p class="mb-0"></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 course-col">
-          <div class="card rounded-4 p-3 pb-4 ">
-            
-            <div class="card__content">
-              <h2 class="mt-2"></h2>
-              <h2 class="mt-2"></h2>
-              <h2 class="mt-2"></h2>
-              <h2 class="mt-2"></h2>
-              <hr>
-              <p class="mb-0"></p>
-            </div>
-          </div>
-        </div>
-
-      </div> -->
-    </div>
   </div>
-
   <div class="has-text-centered mt-4">
-    <pagination-controls [id]="config.id || ''" [maxSize]="maxSize" [directionLinks]="directionLinks"
-      [autoHide]="autoHide" [responsive]="responsive" [previousLabel]="labels.previousLabel"
-      [nextLabel]="labels.nextLabel" [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
-      [screenReaderPageLabel]="labels.screenReaderPageLabel"
-      [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel" (pageChange)="onPageChange($event)"
-      (pageBoundsCorrection)="onPageBoundsCorrection($event)"></pagination-controls>
+      <pagination-controls [id]="config.id || ''" [maxSize]="maxSize" [directionLinks]="directionLinks"
+          [autoHide]="autoHide" [responsive]="responsive" [previousLabel]="labels.previousLabel"
+          [nextLabel]="labels.nextLabel" [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+          [screenReaderPageLabel]="labels.screenReaderPageLabel"
+          [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel" (pageChange)="onPageChange($event)"
+          (pageBoundsCorrection)="onPageBoundsCorrection($event)"></pagination-controls>
   </div>
+</div>

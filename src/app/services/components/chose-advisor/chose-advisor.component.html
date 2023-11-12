@@ -8,6 +8,85 @@
             <img src="assets/images/services/Rectangle 120.png" class="">
             <span class="span4">أختر مستشارك</span>
             <div class="row justify-content-center">
+                <div *ngFor="let consult of consultants" class="col-md-2 m-2">
+                    <div class="d-flex flex-column justify-content-center align-items-center circle rounded-circle cursor-pointer"  (click)="redirect(consult.id)" routerLinkActive="activeLink">
+                        <div>
+                          <img [src]="consult.image" class="d-block m-auto">
+                        </div>
+                        <div class="mt-3 px-2  text-center">
+                          <div>
+                            <span>{{consult.first_name}}</span>
+                          </div>
+                          <div class="mt-1">
+                            <span class="span2">{{consult.short_details}}</span> 
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <!-- <div class="col-md-2 m-2">
+                    <div class="d-flex flex-column justify-content-center align-items-center circle rounded-circle cursor-pointer" routerLink="/services/choose-advisor/types-of-consultations" routerLinkActive="activeLink">
+                        <div>
+                          <img src="assets/images/training/user.svg" class="d-block m-auto">
+                        </div>
+                        <div class="mt-3 px-2  text-center">
+                          <div>
+                            <span>عبدالله الدوسري المعيوف</span>
+                          </div>
+                          <div class="mt-2">
+                            <span class="span2">محاضر في الأمن السيبراني</span> 
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-2 m-2">
+                    <div class="d-flex flex-column justify-content-center align-items-center circle rounded-circle cursor-pointer" routerLink="/services/choose-advisor/types-of-consultations" routerLinkActive="activeLink">
+                        <div>
+                          <img src="assets/images/training/user.svg" class="d-block m-auto">
+                        </div>
+                        <div class="mt-3 px-2  text-center">
+                          <div>
+                            <span>عبدالله الدوسري المعيوف</span>
+                          </div>
+                          <div class="mt-2">
+                            <span class="span2">محاضر في الأمن السيبراني</span> 
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-2 m-2">
+                    <div class="d-flex flex-column justify-content-center align-items-center circle rounded-circle cursor-pointer" routerLink="/services/choose-advisor/types-of-consultations" routerLinkActive="activeLink">
+                        <div>
+                          <img src="assets/images/training/user.svg" class="d-block m-auto">
+                        </div>
+                        <div class="mt-3 px-2  text-center">
+                          <div>
+                            <span>عبدالله الدوسري المعيوف</span>
+                          </div>
+                          <div class="mt-2">
+                            <span class="span2">محاضر في الأمن السيبراني</span> 
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-2 m-2">
+                    <div class="d-flex flex-column justify-content-center align-items-center circle rounded-circle cursor-pointer" routerLink="/services/choose-advisor/types-of-consultations" routerLinkActive="activeLink">
+                        <div>
+                          <img src="assets/images/training/user.svg" class="d-block m-auto">
+                        </div>
+                        <div class="mt-3 px-2  text-center">
+                          <div>
+                            <span>عبدالله الدوسري المعيوف</span>
+                          </div>
+                          <div class="mt-2">
+                            <span class="span2">محاضر في الأمن السيبراني</span> 
+                          </div>
+                        </div>
+                      </div>
+                </div> -->
+                
+            </div>
+            <ngx-spinner *ngIf="!isLoading" bdColor = "rgba(0, 0, 0, 0.2)" size = "medium" color = "#fff" type = "square-jelly-box"  fullScreen = "false"></ngx-spinner>
+            <!-- <div class="row justify-content-center">
                 <div class="col-md-2 m-2">
                     <div class="d-flex flex-column justify-content-center align-items-center circle rounded-circle cursor-pointer" routerLink="/services/choose-advisor/types-of-consultations" routerLinkActive="activeLink">
                         <div>
@@ -32,7 +111,7 @@
                           <div>
                             <span>عبدالله الدوسري المعيوف</span>
                           </div>
-                          <div class="mt-2">
+                          <div class="mt-1">
                             <span class="span2">محاضر في الأمن السيبراني</span> 
                           </div>
                         </div>
@@ -47,7 +126,7 @@
                           <div>
                             <span>عبدالله الدوسري المعيوف</span>
                           </div>
-                          <div class="mt-2">
+                          <div class="mt-1">
                             <span class="span2">محاضر في الأمن السيبراني</span> 
                           </div>
                         </div>
@@ -62,7 +141,7 @@
                           <div>
                             <span>عبدالله الدوسري المعيوف</span>
                           </div>
-                          <div class="mt-2">
+                          <div class="mt-1">
                             <span class="span2">محاضر في الأمن السيبراني</span> 
                           </div>
                         </div>
@@ -77,92 +156,34 @@
                           <div>
                             <span>عبدالله الدوسري المعيوف</span>
                           </div>
-                          <div class="mt-2">
+                          <div class="mt-1">
                             <span class="span2">محاضر في الأمن السيبراني</span> 
                           </div>
                         </div>
                       </div>
                 </div>
                 
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-2 m-2">
-                    <div class="d-flex flex-column justify-content-center align-items-center circle rounded-circle cursor-pointer" routerLink="/services/choose-advisor/types-of-consultations" routerLinkActive="activeLink">
-                        <div>
-                          <img src="assets/images/training/user.svg" class="d-block m-auto">
-                        </div>
-                        <div class="mt-3 px-2  text-center">
-                          <div>
-                            <span>عبدالله الدوسري المعيوف</span>
-                          </div>
-                          <div class="mt-1">
-                            <span class="span2">محاضر في الأمن السيبراني</span> 
-                          </div>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-md-2 m-2">
-                    <div class="d-flex flex-column justify-content-center align-items-center circle rounded-circle cursor-pointer" routerLink="/services/choose-advisor/types-of-consultations" routerLinkActive="activeLink">
-                        <div>
-                          <img src="assets/images/training/user.svg" class="d-block m-auto">
-                        </div>
-                        <div class="mt-3 px-2  text-center">
-                          <div>
-                            <span>عبدالله الدوسري المعيوف</span>
-                          </div>
-                          <div class="mt-1">
-                            <span class="span2">محاضر في الأمن السيبراني</span> 
-                          </div>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-md-2 m-2">
-                    <div class="d-flex flex-column justify-content-center align-items-center circle rounded-circle cursor-pointer" routerLink="/services/choose-advisor/types-of-consultations" routerLinkActive="activeLink">
-                        <div>
-                          <img src="assets/images/training/user.svg" class="d-block m-auto">
-                        </div>
-                        <div class="mt-3 px-2  text-center">
-                          <div>
-                            <span>عبدالله الدوسري المعيوف</span>
-                          </div>
-                          <div class="mt-1">
-                            <span class="span2">محاضر في الأمن السيبراني</span> 
-                          </div>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-md-2 m-2">
-                    <div class="d-flex flex-column justify-content-center align-items-center circle rounded-circle cursor-pointer" routerLink="/services/choose-advisor/types-of-consultations" routerLinkActive="activeLink">
-                        <div>
-                          <img src="assets/images/training/user.svg" class="d-block m-auto">
-                        </div>
-                        <div class="mt-3 px-2  text-center">
-                          <div>
-                            <span>عبدالله الدوسري المعيوف</span>
-                          </div>
-                          <div class="mt-1">
-                            <span class="span2">محاضر في الأمن السيبراني</span> 
-                          </div>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-md-2 m-2">
-                    <div class="d-flex flex-column justify-content-center align-items-center circle rounded-circle cursor-pointer" routerLink="/services/choose-advisor/types-of-consultations" routerLinkActive="activeLink">
-                        <div>
-                          <img src="assets/images/training/user.svg" class="d-block m-auto">
-                        </div>
-                        <div class="mt-3 px-2  text-center">
-                          <div>
-                            <span>عبدالله الدوسري المعيوف</span>
-                          </div>
-                          <div class="mt-1">
-                            <span class="span2">محاضر في الأمن السيبراني</span> 
-                          </div>
-                        </div>
-                      </div>
-                </div>
-                
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
+
+<app-modal id="choose-advisor" classList="modal-dialog-centered">
+  <div class="row">
+      <div class="col-2 d-flex justify-content-center align-items-center">
+          <div class=" m-auto">
+              <img src="../../../../assets/images/projects/98.png"
+              class="modalImg ">
+          </div>
+      </div>
+      <div class="col-10"> 
+          <div class="card-body bg-white rounded-4">
+              <div class="d-flex flex-column align-items-center gap-3" style="margin-left: 65px;">
+                <h3 class="fw-600 text-center mt-3">يجب تسجيل الدخول أولا</h3>
+                <button  type="button" class="btn btn1
+                    mx-auto px-5 d-flex align-items-center gap-4" (click)="closer()">إلغاء</button>
+              </div>
+            </div>
+      </div>
+  </div>
+</app-modal>

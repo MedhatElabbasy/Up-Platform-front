@@ -4,6 +4,7 @@ import { PaginationInstance } from 'ngx-pagination';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { environment } from 'src/environments/environment';
 import { ModalService } from 'src/app/core/services/modal.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-advisor',
@@ -34,7 +35,7 @@ export class AdvisorComponent {
   blogs!:any;
   isLoading:boolean=true;
   userInfo!:any;
-constructor(private spinner: NgxSpinnerService,private _services:ServicesapiService,private _ModalService: ModalService){
+constructor(private spinner: NgxSpinnerService,private _router:Router,private _services:ServicesapiService,private _ModalService: ModalService){
   this.userInfo=localStorage.getItem(environment.localStorageName)
  
 this.getAllBlogs();
@@ -83,6 +84,8 @@ onPageChange(number: number) {
    this.eventLog.unshift(`${new Date().toISOString()}: ${message}`)
  }
 
- 
+ redirect(id:number){
+  this._router.navigate(['/services/advisor/submit-advisor',id])
+ }
 
 }

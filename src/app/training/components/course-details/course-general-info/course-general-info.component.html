@@ -55,7 +55,7 @@
 
     <h4>تفاصيل الدورة : </h4>
     <!-- <p>هذا النص هو مثال لنص يمكن أن يستبدل في نـفس المساحـة، لـقد تـم تـوليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النصهذا النص هو مثال لنص يمكن أن يستبدل في نـفس المساحـة، لـقد تـم تـوليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النصهذا النص هو مثال لنص يمكن أن يستبدل في نـفس المساحـة، لـقد تـم تـوليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص</p> -->
-<div *ngIf="course?.about?.ar">
+<div >
     <p>{{course?.about?.ar}}</p>
 </div>
 <div *ngIf="!course?.about?.ar">
@@ -72,27 +72,27 @@
         <p class=""> المدة ----- دقيقة</p>
     </li>
 
-        <li *ngIf="course?.course_level.title.ar">
-            <p>{{" مستوى المهارة "+course?.course_level.title.ar}}</p>
+        <li *ngIf="course?.course_level?.title?.ar">
+            <p>{{" مستوى المهارة "+course?.course_level?.title?.ar}}</p>
         </li>
-        <li *ngIf="!course?.course_level.title.ar">
+        <li *ngIf="!course?.course_level?.title?.ar">
             <p>مستوى المهارة -----</p>
         </li>
     <li *ngIf="course?.lessons.length">
-        <p>{{"محاضرات"+" "+course?.lessons.length+" "+"درس"}}</p>
+        <p>{{"محاضرات"+" "+course?.lessons?.length+" "+"درس"}}</p>
     </li>
-    <li *ngIf="!course?.lessons.length">
+    <li *ngIf="!course?.lessons?.length">
         <p>درس ----- محاضرات</p>
     </li>
-    <li *ngIf="course?.enrolls.length">
-        <p>{{"تم التسجيل"+" "+course?.enrolls.length+" "+"طلاب"}}</p>
+    <li *ngIf="course?.enrolls?.length">
+        <p>{{"تم التسجيل"+" "+course?.enrolls?.length+" "+"طلاب"}}</p>
     </li>
-    <li *ngIf="!course?.enrolls.length">
+    <li *ngIf="!course?.enrolls?.length">
         <p>طلاب ---- تم التسجيل</p>
     </li>
-    <li>
+    <!-- <li>
         <p id="test"></p>
-    </li>
+    </li> -->
 
     
 </ul>

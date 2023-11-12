@@ -53,7 +53,7 @@ const routes: Routes = [
     component: BiographyComponent,
   },
   {
-    path: trainingRoutes.courseDetails+`/:id`,
+    path: trainingRoutes.courseDetails+'/:id1/:id2',
     component: CourseDetailsComponent,
     children: [
       {

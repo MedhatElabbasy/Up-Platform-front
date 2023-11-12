@@ -7,6 +7,9 @@
                 في نفس المساحة، لقد تم توليد
                 هذا النص مـن مولد النص العربى، حيث يـمكنك أن تولد مـثـل هـذا الـنـص
             </p>
+            <button class="nav-link px-4  btn btn1 mt-2" routerLink="/services/advisor/add-article">
+                <img src="../assets/images/training/Group 1634.svg" class="ps-2">
+                اضافة مقال</button>
         </div>
         <div class="col-lg-6">
             <div>
@@ -20,7 +23,7 @@
             <div class="container mt-4 pb-4 ">
               <div class="row">
                     <div *ngFor="let blog of blogs  | paginate: config; let colIndex = index" class="col-lg-4 mt-2">
-                        <div class="card1 cursor-pointer" routerLink="/services/advisor/submit-advisor" routerLinkActive="activeLink">
+                        <div class="card1 cursor-pointer" (click)="redirect(blog.id)" routerLinkActive="activeLink">
                             <div *ngIf="blog.image" class="circleImage">
                                 <img [src]="blog.image"  class="m">
                             </div>

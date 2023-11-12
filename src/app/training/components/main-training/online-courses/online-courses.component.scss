@@ -219,6 +219,7 @@ span {
   background-size: cover;
   background-position: center center;
   min-height: 50vh;
+  position: relative;
 }
 
 .loader{
@@ -227,4 +228,23 @@ span {
 
 ::ng-deep .ngx-spinner-overlay{
   position:absolute!important;
+}
+
+.nav-pills .nav-link.active {
+  background-color: white;
+  color: #07487C;
+}
+
+
+.nav-pills {
+  float: inline-end;
+  font-size: 17px;
+}
+
+.nav-link {
+  color: white;
+}
+
+.coll div {
+  width: fit-content;
 }

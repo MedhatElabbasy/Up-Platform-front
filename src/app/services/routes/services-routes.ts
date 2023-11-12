@@ -12,5 +12,7 @@ localcertificate='local-certificate',
 internationalCertificate='international-certificate',
 certificateDetails='certificate-details',
 advisor='advisor',
-submitAdvisor='submit-advisor'
+submitAdvisor='submit-advisor',
+addArticle='add-article',
+ConsultantBiography='Consultant-biography'
 }
