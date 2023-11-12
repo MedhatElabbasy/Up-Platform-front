@@ -34,6 +34,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/cart/" routerLinkActive="activeCart" *ngIf="isUserLoggedIn"><i class="fa-solid fa-cart-shopping cartIcon"></i></a>
+          <div class="cart-couneter">
+            <span>{{this.cartItemsNum || 0}}</span>
+          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link ms-3"><img src="assets/images/nav/Group 43493.svg" *ngIf="isUserLoggedIn" class="w-75"></a>

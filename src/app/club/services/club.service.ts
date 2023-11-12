@@ -14,11 +14,28 @@ export class ClubService {
     return this._HttpClient.get(environment.baseUrl + '/club-events')
   }
 
-getAllLocations(){
-  return this._HttpClient.get(environment.baseUrl + '/club-event/locations')
-}
+  getAllLocations(){
+    return this._HttpClient.get(environment.baseUrl + '/club-event/locations')
+  }
 
-getAllLocationEvents(location:string){
-  return this._HttpClient.get(environment.baseUrl + `/club-event/location-events?location=${location}`)
-}
+  getAllLocationEvents(location:string){
+    return this._HttpClient.get(environment.baseUrl + `/club-event/location-events?location=${location}`)
+  }
+
+  getEventsByID(user_id:number){
+    return this._HttpClient.get(environment.baseUrl + `/club-event/user/events/${user_id}`)
+  }
+
+  getOneEvent(event_id:number){
+    return this._HttpClient.get(environment.baseUrl + `/club-events/${event_id}`)
+  }
+
+  eventFilter(duration:number){
+    const durationObj = {duration:duration}
+    return this._HttpClient.post(environment.baseUrl + `/calendar/events`, durationObj, {
+      headers: {
+        ApiKey: environment.ApiKey
+      }
+    });
+  }
 }

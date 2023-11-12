@@ -18,16 +18,16 @@
     font-family: "Bahij";
 
   }
-  h3{
+  h3 {
     font-weight: bold;
     font-size: 25px;
-    color:#FFB300;
+    color: #ffb300;
     font-family: "Bahij";
     margin-top: 20px;
 
-    img{
-        width: 25px;
-        margin: 10px;
+    img {
+      width: 25px;
+      margin: 10px;
     }
   }
 
@@ -36,39 +36,37 @@
     font-size: 16px;
     line-height: 30px;
     font-family: "Bahij";
-    color:$main-color;
-    margin-top:10px;
+    color: $main-color;
+    margin-top: 10px;
   }
 }
 
-
-.demo{
-    color: $main-color;
+.demo {
+  color: $main-color;
 }
 
-.price{
-    color:$main-color;
-    font-size: 50px;
-    font-weight: bold;
-  
-  }
-  
-  .cap{
-    color: $main-color;
-  }
-  
-  .btn1 {
-    background: linear-gradient(to right, #359BBA, #07487C);
-    color: $white-color;
-    padding: 13px 0;
+.price {
+  color: $main-color;
+  font-size: 50px;
+  font-weight: bold;
+}
 
-    img {
-      width: 20px;
-    }
+.cap {
+  color: $main-color;
+}
+
+.btn1 {
+  background: linear-gradient(to right, #359bba, #07487c);
+  color: $white-color;
+  padding: 13px 0;
+
+  img {
+    width: 20px;
   }
-  .second-section {
-    margin-bottom: -150px;
-  }
+}
+.second-section {
+  margin-bottom: -150px;
+}
 
   .card1{
     background-color: #fff;
@@ -86,25 +84,25 @@
     margin: auto;
   }
 
-  .m{
-    width: 50px;
-    height: 50px;
-    margin: 22px;
-  }
+.m {
+  width: 50px;
+  height: 50px;
+  margin: 22px;
+}
 
-  .section{
-    background-color: #07487C;
-    /* height: 100%; */
-    overflow: revert;
-    height: auto;
-    border-radius: 10px;
-  }
+.section {
+  background-color: #07487c;
+  /* height: 100%; */
+  overflow: revert;
+  height: auto;
+  border-radius: 10px;
+}
 
-  @media screen and (max-width: 992px) {
-    .section{
-      padding: 0 !important;
-    }
-   }
+@media screen and (max-width: 992px) {
+  .section {
+    padding: 0 !important;
+  }
+}
 
    .all {
     background-image: url(../../../../assets/images/training/trainingBack.png);

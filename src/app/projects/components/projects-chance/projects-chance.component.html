@@ -24,10 +24,12 @@
                 <div class="col-lg-7">
                     <div class="row">
                         <div class="col-lg-4 searchBarInput"> <div>
-                            <p-dropdown
+                            <!-- <p-dropdown
                                 placeholder="القطاع"
                                 styleClass="w-100 text-center fw-bold ">
-                            </p-dropdown>
+                            </p-dropdown> -->
+                            <p-dropdown [options]="allCategories" styleClass="w-100 text-center fw-bold"
+                            placeholder="التصنيف"></p-dropdown>
                         </div></div>
                         <div class="col-lg-4 searchBarInput">
                             <div>
@@ -44,64 +46,26 @@
                         </p-dropdown>
                             </div></div>
                     </div>
-                   
-                    
-              
                 </div>
             </div>
          
-            <div class="row justify-content-around">
-                <div class="col-lg-3">
+            <div class="row justify-content-around" >
+                <div class="col-lg-3" *ngFor="let project of projects">
                     <div class="card1 pt-5">
                         <div class="card-circle d-flex justify-content-center align-items-center">
                             <div>
-                                <img src="assets/images/projects/LOGO.png" class="">
+                                <img src="assets/images/projects/LOGO.png" class="" >
                             </div>
                         </div>
+                        <h3 class="mb-2">{{project.opp_name}}</h3>
                         <ul class="px-4 py-2 ">
-                            <li class="mb-2">مدة العقد</li>
-                            <li class="mb-2">القطاع</li>
-                            <li class="mb-2">التكاليف</li>
-                            <li class="mb-2">شروط قبول الطلب</li>
+                            <li class="mb-2">{{project.opp_desc}}</li>
+                            <li class="mb-2">المدة: {{project.opp_contract_duration}}</li>
+                            <li class="mb-2">المكان: {{project.opp_location}}</li>
+                            <li class="mb-2">التكلفة: {{project.opp_cost_from}} : {{project.opp_cost_to}}</li>
                         </ul>
                         <div class="d-flex justify-content-end mt-3">
-                            <button class="nav-link px-4  btn btn2 mt-2" routerLink="">مزيد من المعلومات</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="card1 bg-white pt-5">
-                        <div class="card-circle d-flex justify-content-center align-items-center">
-                            <div>
-                                <img src="assets/images/projects/LOGO.png" class="">
-                            </div>
-                        </div>
-                        <ul class="px-4 py-2 ">
-                            <li class="mb-2">مدة العقد</li>
-                            <li class="mb-2">القطاع</li>
-                            <li class="mb-2">التكاليف</li>
-                            <li class="mb-2">شروط قبول الطلب</li>
-                        </ul>
-                        <div class="d-flex justify-content-end mt-3">
-                            <button class="nav-link px-4  btn btn2 mt-2" routerLink="">مزيد من المعلومات</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="card1 bg-white pt-5">
-                        <div class="card-circle d-flex justify-content-center align-items-center">
-                            <div>
-                                <img src="assets/images/projects/LOGO.png" class="">
-                            </div>
-                        </div>
-                        <ul class="px-4 py-2 ">
-                            <li class="mb-2">مدة العقد</li>
-                            <li class="mb-2">القطاع</li>
-                            <li class="mb-2">التكاليف</li>
-                            <li class="mb-2">شروط قبول الطلب</li>
-                        </ul>
-                        <div class="d-flex justify-content-end mt-3">
-                            <button class="nav-link px-4  btn btn2 mt-2" routerLink="">مزيد من المعلومات</button>
+                            <button class="nav-link px-4  btn btn2 mt-2 mx-auto" routerLink="">مزيد من المعلومات</button>
                         </div>
                     </div>
                 </div>

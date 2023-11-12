@@ -39,6 +39,10 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  navigateToCardPayment(){
+    this.router.navigate(['/card-payment']);
+  }
+
   logout() {
     this.authService.logout();
     this.authService.isUserLoggedIn.next(false);

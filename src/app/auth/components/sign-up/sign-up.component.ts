@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { AuthServices } from '../../services/auth-services.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators, ValidatorFn, AbstractControl} from '@angular/forms';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-sign-up',

@@ -68,57 +68,23 @@
             </div>
          
             <div class="row justify-content-around">
-                <div class="col-lg-3">
+                <div class="col-lg-3" *ngFor="let partener of parteners">
                     <div class="card1 pt-5">
                         <div class="card-circle d-flex justify-content-center align-items-center">
                             <div>
                                 <img src="assets/images/projects/Project.png" class="">
                             </div>
                         </div>
+                        <h3 class="mb-2">{{partener.part_title}}</h3>
                         <ul class="px-4 py-2 ">
-                            <li class="mb-2">مدة العقد</li>
-                            <li class="mb-2">القطاع</li>
-                            <li class="mb-2">التكاليف</li>
-                            <li class="mb-2">شروط قبول الطلب</li>
+                            <li class="mb-2">{{partener.part_desc}}</li>
+                            <li class="mb-2">المدة: {{partener.part_duration}}</li>
+                            <li class="mb-2">المكان: {{partener.part_location}}</li>
+                            <li class="mb-2">التكلفة: {{partener.part_cost}}</li>
+                            <li class="mb-2">النسبة: {{partener.part_percentage}}</li>
                         </ul>
                         <div class="d-flex justify-content-end mt-3">
-                            <button class="nav-link px-4  btn btn2 mt-2" routerLink="">مزيد من المعلومات</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="card1 bg-white pt-5">
-                        <div class="card-circle d-flex justify-content-center align-items-center">
-                            <div>
-                                <img src="assets/images/projects/Project.png" class="">
-                            </div>
-                        </div>
-                        <ul class="px-4 py-2 ">
-                            <li class="mb-2">مدة العقد</li>
-                            <li class="mb-2">القطاع</li>
-                            <li class="mb-2">التكاليف</li>
-                            <li class="mb-2">شروط قبول الطلب</li>
-                        </ul>
-                        <div class="d-flex justify-content-end mt-3">
-                            <button class="nav-link px-4  btn btn2 mt-2" routerLink="">مزيد من المعلومات</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="card1 bg-white pt-5">
-                        <div class="card-circle d-flex justify-content-center align-items-center">
-                            <div>
-                                <img src="assets/images/projects/Project.png" class="">
-                            </div>
-                        </div>
-                        <ul class="px-4 py-2 ">
-                            <li class="mb-2">مدة العقد</li>
-                            <li class="mb-2">القطاع</li>
-                            <li class="mb-2">التكاليف</li>
-                            <li class="mb-2">شروط قبول الطلب</li>
-                        </ul>
-                        <div class="d-flex justify-content-end mt-3">
-                            <button class="nav-link px-4  btn btn2 mt-2" routerLink="">مزيد من المعلومات</button>
+                            <button class="nav-link px-4  btn btn2 mt-2 mx-auto" routerLink="">مزيد من المعلومات</button>
                         </div>
                     </div>
                 </div>

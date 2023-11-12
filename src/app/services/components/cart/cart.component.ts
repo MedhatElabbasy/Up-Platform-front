@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { PaginationInstance } from 'ngx-pagination';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
 import { TrainingService } from 'src/app/training/Services/training.service';
 
 @Component({
@@ -25,7 +24,7 @@ export class CartComponent implements OnInit {
   public totalAfterCoupon: number = 0;
   public config: PaginationInstance = {
     id: 'advanced',
-    itemsPerPage: 3,
+    itemsPerPage: 10,
     currentPage: 1,
   };
   public labels: any = {

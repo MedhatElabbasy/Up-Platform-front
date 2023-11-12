@@ -17,7 +17,7 @@
               <div class="bg-white rounded-4">
                 <div class="p-2">
                   <div class="rounded-4 child p-2 ">
-                    <h3 class="text-center mt-2">{{event.title}}</h3>
+                    <a class="text-center mt-2 event-title" (click)="navigateToEventDetails(event.id)">{{event.title}}</a>
                     <div class="container">
                       <div class="row">
                         <div class="col-1">
@@ -28,7 +28,7 @@
                         </div>
 
                         <div class="col-6">
-                          <p>{{event.created_at.split("T")[0]}}</p>
+                          <p>{{event.start_at.split(" ")[0]}}</p>
                         </div>
                       </div>
                       <div class="row mt-2">
@@ -64,90 +64,6 @@
         </div>
         <ngx-spinner *ngIf="isLoading" bdColor = "rgba(0, 0, 0, 0.2)" size = "medium" color = "#fff" type = "square-jelly-box"  fullScreen = "false"></ngx-spinner>
       </div>
-      <!-- <div class="col-lg-4 col-md-6 section">
-        <div class="p-2">
-          <div class="bg-white rounded-4">
-            <div class="p-2">
-              <div class="rounded-4 child p-2 ">
-                <h3 class="text-center mt-2">اسم الفعالية</h3>
-                <div class="container">
-                  <div class="row">
-                    <div class="col-1">
-                      <img src="assets/images/club/g195.svg">
-                    </div>
-                    <div class="col-4">
-                      <p> التاريخ :</p>
-                    </div>
-
-                    <div class="col-6">
-                      <p>12-12-2024</p>
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-1">
-                      <img src="assets/images/club/g15.svg">
-                    </div>
-                    <div class="col-4">
-                      <p> المدينة:</p>
-                    </div>
-
-                    <div class="col-6">
-                      <p>الرياض</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <button class="btn btn1 px-2 d-block m-auto mt-3 cursor-pointer" routerLink="/club/activitie-schedule">التسجيل في  الفعالية</button>
-              <div class="d-flex justify-content-between px-2 end-child">
-                <p>التقديم كمشرف</p>
-                <p>التصويت</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 section">
-        <div class="p-2">
-          <div class="bg-white rounded-4">
-            <div class="p-2">
-              <div class="rounded-4 child p-2 ">
-                <h3 class="text-center mt-2">اسم الفعالية</h3>
-                <div class="container">
-                  <div class="row">
-                    <div class="col-1">
-                      <img src="assets/images/club/g195.svg">
-                    </div>
-                    <div class="col-4">
-                      <p> التاريخ :</p>
-                    </div>
-
-                    <div class="col-6">
-                      <p>12-12-2024</p>
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-1">
-                      <img src="assets/images/club/g15.svg">
-                    </div>
-                    <div class="col-4">
-                      <p> المدينة:</p>
-                    </div>
-
-                    <div class="col-6">
-                      <p>الرياض</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <button class="btn btn1 px-2 d-block m-auto mt-3 cursor-pointer" routerLink="/club/activitie-schedule">التسجيل في  الفعالية</button>
-              <div class="d-flex justify-content-between px-2 end-child">
-                <p>التقديم كمشرف</p>
-                <p>التصويت</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
     <div class="has-text-centered mt-4">
       <pagination-controls [id]="config.id || ''" [maxSize]="maxSize" [directionLinks]="directionLinks"
@@ -156,6 +72,49 @@
         [screenReaderPageLabel]="labels.screenReaderPageLabel"
         [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel" (pageChange)="onPageChange($event)"
         (pageBoundsCorrection)="onPageBoundsCorrection($event)"></pagination-controls>
+    </div>
+
+    <!--Schadule-->
+    <div class="section rounded-3 mt-5 pb-3 p-3 bg-white">
+      <div class="header rounded-3 px-3 pt-2">
+        <div class="d-flex justify-content rounded-3 text-center-between ">
+          <div class=" d-flex align-items-center ">
+            <img src="assets/images/club/pen-filled-writing-tool.svg">
+            <p class="pt-1 pe-2"> جدول الأنشطة</p>
+          </div>
+          <div class="d-flex align-items-center pt-1">
+            <p>Year 2023</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="days mt-3">
+        <div class="container">
+          <div class="row">
+              <p-dropdown [options]="AllChoices" [(ngModel)]="selectedChoice" [style]="{'min-width':'200px'}"
+                placeholder="اعرض الفعاليات في خلال فترة معينة" (onChange)="choiceFilteration($event)"></p-dropdown>
+                <ng-container *ngIf="isCalendarVisible">
+                  <mat-card class="demo-inline-calendar-card">
+                <mat-calendar [(selected)]="selected"></mat-calendar>
+              </mat-card>
+            </ng-container>
+            <ng-container *ngIf="!isCalendarVisible">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th *ngFor="let info of infoData;">{{ info }} <br/></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let event of choiceEvents;">
+                    <td><a routerLink="/club/club-events/{{event.id}}" style="text-decoration: none;">{{ event.title }}</a></td>
+                    <td>{{ event.start_at }}</td>
+                    <td>{{ event.location }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </ng-container>
+      </div>
     </div>
   </div>
 

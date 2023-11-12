@@ -129,6 +129,9 @@ export class LoginComponent implements AfterViewInit {
         localStorage.setItem(environment.localStorageName, response.data.access_token);
         this.getUserDetails();
         this._Router.navigate(['/']);
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 2000);
       },
       (error) => {
         // Handle error if the social login fails

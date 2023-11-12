@@ -1,8 +1,10 @@
 import { RouterModule, Routes } from '@angular/router';
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +24,8 @@ import { CartComponent } from './services/components/cart/cart.component';
 import { VerifyAccountComponent } from './auth/components/verify-account/verify-account.component';
 import { PaymentComponent } from './services/components/payment/payment.component';
 import { PaymentCardComponent } from './services/components/payment-card/payment-card.component';
+import { EventDetailsComponent } from './club/components/event-details/event-details.component';
+import { AddArticleComponent } from './services/components/add-article/add-article.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,8 @@ import { PaymentCardComponent } from './services/components/payment-card/payment
     VerifyAccountComponent,
     PaymentComponent,
     PaymentCardComponent,
+    EventDetailsComponent,
+    AddArticleComponent
   ],
   imports: [
     NgxPaginationModule,
@@ -46,7 +52,9 @@ import { PaymentCardComponent } from './services/components/payment-card/payment
     FormsModule,
     HttpClientModule,
     CarouselModule,
+    CommonModule,
     NgxWheelModule,
+    
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
       preventDuplicates: true,
@@ -69,6 +77,7 @@ import { PaymentCardComponent } from './services/components/payment-card/payment
       useClass: AddApikeyInterceptor,
       multi: true,
     },
+    
   ],
   bootstrap: [AppComponent],
 })

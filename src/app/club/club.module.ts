@@ -9,6 +9,9 @@ import { ActivitiesScheduleComponent } from './components/activities-schedule/ac
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ClubConditionsComponent } from './components/club-conditions/club-conditions.component';
 import { ClubEventsComponent } from './components/club-events/club-events.component';
+import { MatCardModule } from '@angular/material/card';  // Import MatCardModule here
+import { MatDatepickerModule } from '@angular/material/datepicker';  // Import MatDatepickerModule here
+import { MatNativeDateModule } from '@angular/material/core';
 // import { DropdownModule } from 'primeng/dropdown';
 
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,7 +29,10 @@ import { ClubEventsComponent } from './components/club-events/club-events.compon
     ClubRoutingModule,
     FormsModule,
     CoreModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatCardModule,  // Add MatCardModule to the imports array
+    MatDatepickerModule,  // Add MatDatepickerModule to the imports array
+    MatNativeDateModule 
     // DropdownModule,
     // BrowserModule,
     // BrowserAnimationsModule

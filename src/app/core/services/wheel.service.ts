@@ -8,13 +8,12 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class WheelService {
-
   constructor(private _HttpClient: HttpClient) { }
-
    canSpin(): Observable<any> {
      return this._HttpClient.get(environment.baseUrl + '/lottery-wheel', {
        headers: {
-         ApiKey: environment.ApiKey
+         ApiKey: environment.ApiKey,
+         Authorization: `Bearer ${localStorage.getItem('authToken')}`
        }
      })
    }
@@ -34,6 +33,14 @@ export class WheelService {
       }
     });
   }
+
+  // isAllowedToSpin(): Observable<any> {
+  //   return this._HttpClient.get(environment.baseUrl + '/lottery-wheel', {
+  //     headers: {
+  //       ApiKey: environment.ApiKey
+  //     }
+  //   });
+  // }
 
   lotteryWheelOperation(prize_id: number, type: string): Observable<any> {
     const data = {
