@@ -5,6 +5,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,6 +25,7 @@ import { VerifyAccountComponent } from './auth/components/verify-account/verify-
 import { PaymentComponent } from './services/components/payment/payment.component';
 import { PaymentCardComponent } from './services/components/payment-card/payment-card.component';
 import { EventDetailsComponent } from './club/components/event-details/event-details.component';
+import { AddArticleComponent } from './services/components/add-article/add-article.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { EventDetailsComponent } from './club/components/event-details/event-det
     PaymentComponent,
     PaymentCardComponent,
     EventDetailsComponent,
+    AddArticleComponent
   ],
   imports: [
     NgxPaginationModule,
@@ -51,6 +54,7 @@ import { EventDetailsComponent } from './club/components/event-details/event-det
     CarouselModule,
     CommonModule,
     NgxWheelModule,
+    
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
       preventDuplicates: true,

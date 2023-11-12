@@ -16,6 +16,8 @@ import { InternationalCertificateComponent } from './components/international-ce
 import { CertificateDetailsComponent } from './components/certificate-details/certificate-details.component';
 import { AdvisorComponent } from './components/advisor/advisor.component';
 import { SubmitAdvisorComponent } from './components/submit-advisor/submit-advisor.component';
+import { AddArticleComponent } from '../../app/services/components/add-article/add-article.component';
+
 
 const routes: Routes = [
   {
@@ -121,7 +123,8 @@ const routes: Routes = [
            {
             path: servicesRoutes.submitAdvisor,
             component: SubmitAdvisorComponent,
-          }
+          },
+          { path: servicesRoutes.addArticle, component: AddArticleComponent },
         ]
       },
     ]

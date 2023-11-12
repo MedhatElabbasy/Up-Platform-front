@@ -1,0 +1,147 @@
+<div class="main container px-5 pb-5">
+    <div class="row">
+        <div class="col-lg-6">
+            <h2 class="header">
+                اضافة مقال </h2>
+            <h3>نموذج لاضافة مقال : </h3>
+        </div>
+
+    </div>
+    <div class="mt-4 second-section rounded-4 p-4 ">
+        <div class="container mt-3">
+            <form class="" (ngSubmit)="addArticle()">
+                <div class="row">
+                    <div class="col-lg-6 mt-3">
+                        <div class="form-group row">
+                            <label for="title" class="col-sm-4 col-form-label"> عنوان المقال : </label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="InputTitle" placeholder="" [(ngModel)]="title" name="title">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-6 mt-3">
+                        <div class="form-group row">
+                            <label for="inputslug" class="col-sm-4 col-form-label"> عنوان مختصر : </label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="inputslug" placeholder="">
+                            </div>
+                        </div>
+                    </div> -->
+                    <!---->
+                        <div class="col-lg-6 mt-3">
+                        <div class="form-group row">
+                            <label for="slug" class="col-sm-4 col-form-label">  slug : </label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="slug" placeholder="" [(ngModel)]="slug" name="slug">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-3">
+                        <div class="form-group row">
+                            <label for="category_id" class="col-sm-4 col-form-label"> category_id  : </label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="category_id" placeholder="" [(ngModel)]="category_id" name="category_id">
+                            </div>
+                        </div>
+                    </div>
+                    <!---->
+                    <div class="col-lg-6 mt-3">
+                        <div class="form-group row">
+                            <label for="inputurl" class="col-sm-4 col-form-label"> الرابط : </label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="inputurl" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <label for="inputdesc" class="col-sm-2 col-form-label"> تفاصيل المقال : </label>
+                    <div class="col-sm-10">
+                        <textarea type="text" class="form-control" id="inputdesc" placeholder="" [(ngModel)]="description" name="description"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <label for="inputdcate" class="col-sm-2 col-form-label"> الفئه: </label>
+                    <div class="col-sm-3">
+                        <!-- <p-dropdown placeholder="تحديد الفئه" styleClass="w-100 text-center fw-bold "
+                            id="inputdcate"></p-dropdown> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 mt-3">
+                        <div class="form-group row">
+                            <label for="inputdate" class="col-sm-4 col-form-label"> تاريخ النشر : </label>
+                            <div class="col-sm-7">
+                                <!-- <mat-form-field>
+                                    <mat-label>اختر تاريخ </mat-label>
+                                    <input matInput [matDatepicker]="picker">
+                                    <mat-hint>MM/DD/YYYY</mat-hint>
+                                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-3">
+                        <div class="form-group row">
+                            <label for="inputdate" class="col-sm-4 col-form-label"> وقت النشر : </label>
+                            <div class="col-sm-7">
+                                <input type="time" id="with_placeholder" placeholder='hh:mm'
+                                    onfocus="this.placeholder = ''" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-6 col-sm-12 mt-3">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label"> صورة مصغرة للعمل : </label>
+                            <div class="col-sm-8">
+                                <div class="box d-flex justify-content-center align-items-center">
+                                    <div class="uploadBox">
+                                        <img src="../../../../assets/images/services/Folder.png"
+                                            class="d-block w-20 m-auto boxImg">
+                                        <p>إرفق صور او فديو او صوت هنا لبدء التحميل</p>
+                                        <p>- أو -</p>
+                                        <!-- <button class="nav-link px-4  btn btn1 mt-2 m-auto" routerLink="">Browse
+                                            files</button> -->
+                                            <input type="file" [(ngModel)]="image" id="image" name="image"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12
+                         d-flex justify-content-end align-items-center">
+                    <div class="">
+                        <input type="submit" value="اضافه" class="btn btn1 mt-5 rounded " style="border:none" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- <app-modal id="addResturant" classList="modal-dialog-centered">
+    <div class="row">
+        <div class="col-2 d-flex justify-content-center align-items-center">
+            <div class=" m-auto">
+                ../../../../assets/images/projects/98.png -->
+              <!--  <img src="../../../../assets/images/projects/98.png" class="modalImg ">
+            </div>
+        </div>
+        <div class="col-10">
+            <div class="card-body bg-white rounded-4">
+                <div class="d-flex flex-column align-items-center gap-3" style="margin-left: 65px;">
+                    <h3 class="fw-600 text-center mt-3">تم تقديم طلبك وهو الآن قيد المراجعة</h3>
+                    <button type="button" class="btn btn1
+                      mx-auto px-5 d-flex align-items-center gap-4">العودة للصفحة الرئيسية</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-modal> -->
