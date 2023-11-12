@@ -25,7 +25,8 @@ import { VerifyAccountComponent } from './auth/components/verify-account/verify-
 import { PaymentComponent } from './services/components/payment/payment.component';
 import { PaymentCardComponent } from './services/components/payment-card/payment-card.component';
 import { EventDetailsComponent } from './club/components/event-details/event-details.component';
-import { AddArticleComponent } from './services/components/add-article/add-article.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+//import { AddArticleComponent } from './services/components/add-article/add-article.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { AddArticleComponent } from './services/components/add-article/add-artic
     PaymentComponent,
     PaymentCardComponent,
     EventDetailsComponent,
-    AddArticleComponent
+    PrivacyPolicyComponent,
   ],
   imports: [
     NgxPaginationModule,

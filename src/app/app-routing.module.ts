@@ -17,6 +17,7 @@ import { CourseGeneralInfoComponent } from './training/components/course-details
 import { CourseInstructorComponent } from './training/components/course-details/course-instructor/course-instructor.component';
 import { CourseScheduleComponent } from './training/components/course-details/course-schedule/course-schedule.component';
 import { CourseRatingComponent } from './training/components/course-details/course-rating/course-rating.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,10 @@ const routes: Routes = [
   {
     path: 'wheelOfLuck',
     component: WheelOfLuckComponent
+  },
+  {
+    path: 'privacy',
+    component: PrivacyPolicyComponent
   },
   {
     path: servicesRoutes.biography+'/:id',

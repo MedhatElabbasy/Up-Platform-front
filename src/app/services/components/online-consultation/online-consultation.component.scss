@@ -199,7 +199,8 @@ border-left: 1px dotted $main-color;
     margin-top: 80px;
   }
   textarea{
-    border:none;
+    border:1px solid $main-color;
+    border-radius: 10px;
     background-color: transparent;
   }
 

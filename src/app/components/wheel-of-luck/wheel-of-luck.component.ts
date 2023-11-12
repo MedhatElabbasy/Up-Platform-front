@@ -295,14 +295,17 @@ export class WheelOfLuckComponent implements OnInit {
               this.clapAudio.play();
               this.wheelMessage = 'لقد ربحت: ' + points + ' نقاط!';
             }, 2000);
+            setTimeout(() => {
+              window.location.reload();
+            }, 6000);
           } else {
             // Handle cases where the spin didn't happen or further error handling
             console.error('Failed to spin:', response.message);
             if (response.message === 'Try tomorrow') {
               this.wheelMessage = 'حاول مجددًا غدًا';
-              setTimeout(() => {
-                window.location.href = '/wheelOfLuck';
-              }, 2000);
+              // setTimeout(() => {
+              //   window.location.href = '/#/wheelOfLuck';
+              // }, 2000);
             } else {
               this.wheelSpinAudio.play();
               setTimeout(() => {
@@ -372,12 +375,13 @@ export class WheelOfLuckComponent implements OnInit {
         this.canSpin = false;
         console.log(res);
         if (res.message == 'Try tomorrow') {
+          this.wheelMessage = 'حاول مجددًا غدًا';
+          
           this.updateCountdown(res.latest_date.time);
           setInterval(() => this.updateCountdown(res.latest_date.time), 1000);
           setInterval(() => this.updateClockEveryMinute(), 60000);
           setInterval(() => this.checkIfUserCanSpin(), 60000);
           console.log(res.latest_date.time);
-          this.wheelMessage = 'حاول مجددًا غدًا';
           this.isClock=true;
         }else{
           this.isClock=false;

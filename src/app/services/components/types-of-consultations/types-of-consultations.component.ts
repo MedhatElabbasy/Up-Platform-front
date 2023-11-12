@@ -42,12 +42,12 @@ console.log(this.consultant);
   textcons(){
     console.log(this.id);
     
-    this.router.navigate([`/services/types-of-consultations/${this.id}/text-consultation`])
+      this.router.navigate([`/services/choose-advisor/types-of-consultations/${this.id}/text-consultation`])
   }
 
   onlinecons(){
     console.log(this.id);
-    this.router.navigate([`/services/types-of-consultations/${this.id}/online-consultation`])
+    this.router.navigate([`/services/choose-advisor/types-of-consultations/${this.id}/online-consultation`])
   }
 
 }

@@ -18,7 +18,7 @@ export class ServicesapiService {
     return this._HttpClient.get(environment.baseUrl + '/get-all-quizzes/for-my_exams')
   }
 
-  addArticle(model:object){
+  addArticle(model:FormData){
     return this._HttpClient.post(environment.baseUrl + '/blogs/store' , model)
   }
 
@@ -38,4 +38,13 @@ export class ServicesapiService {
   addNewComment(blogId:number ,fd:FormData){
     return this._HttpClient.post(environment.baseUrl + `/blogs/${blogId}/comments` , fd)
   }
+
+  addTextConsultation(model:any){
+    return this._HttpClient.post(environment.baseUrl + '/consultant-message-request' , model)
+  }
+
+  addOnlineConsultation(model:any){
+    return this._HttpClient.post(environment.baseUrl + '/consultant-appointment-request' , model)
+  }
+
 }

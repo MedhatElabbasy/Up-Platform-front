@@ -1,0 +1,73 @@
+@import "../../../assets/styles/variables.scss";
+
+// General styling
+h1,
+h2 {
+  font-weight: bold;
+  font-family: "Bahij";
+  text-align: center;
+}
+h1 {
+  font-size: 45px;
+  margin: 20px auto;
+  background-color: $light-blue;
+  padding: 16px;
+  width: 35%;
+  color: white;
+  border-radius: 15px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+h2 {
+  font-size: 27px;
+  color: $main-color;
+}
+
+h3 {
+  color: $main-color;
+  font-weight: bold;
+  font-size: 24px;
+  font-family: "Bahij";
+  padding: 20px 0 0;
+}
+
+p {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 35px;
+  font-family: "Bahij";
+  margin-top: 5px;
+  margin-right: 20px;
+}
+
+h4,
+span {
+  font-weight: bold;
+  font-size: 20px;
+  color: $light-blue;
+  font-family: "Bahij";
+  margin-right: 10px;
+}
+
+.text-container {
+  background-color: #f2f3f5;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+ol,
+ul {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 35px;
+  font-family: "Bahij";
+  margin-top: 5px;
+  margin-right: 65px;
+}
+.main {
+  padding-bottom: 40px;
+  .heading-container {
+    border-bottom: 3px solid $main-color;
+    width: 70%;
+    margin: 0 auto;
+  }
+}

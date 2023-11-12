@@ -481,4 +481,6 @@ export class ClubEventsComponent implements AfterViewInit {
         new Date(currentDate.setDate(currentDate.getDate() + eventDuration))
     );
   }
+
+  closer(){}
 }
