@@ -8,7 +8,7 @@ import {
 import { NgxWheelComponent, TextAlignment, TextOrientation } from 'ngx-wheel';
 import { AuthServices } from 'src/app/auth/services/auth-services.service';
 import { WheelService } from 'src/app/core/services/wheel.service';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-wheel-of-luck',
@@ -29,7 +29,7 @@ export class WheelOfLuckComponent implements OnInit {
   userCanSpin: boolean = false;
   wheelMessage: string = '';
   isWheelClicked: boolean = false;
-  // isWheelLoading: boolean = true;
+  isWheelLoading: boolean = true;
   isLoggedIn: boolean = false;
   isUserLoggedIn: boolean = false;
 
@@ -51,7 +51,8 @@ export class WheelOfLuckComponent implements OnInit {
 
   constructor(
     private _AuthServices: AuthServices,
-    private _WheelService: WheelService
+    private _WheelService: WheelService,
+    private spinner: NgxSpinnerService
   ) {
     this.wheelSpinAudio = new Audio('../../../assets/sounds/wheel-spin.wav');
     this.clapAudio = new Audio('../../../assets/sounds/claps.mp3');
@@ -82,6 +83,7 @@ export class WheelOfLuckComponent implements OnInit {
   ngOnInit() {
     this.before();
     this.checkIfUserCanSpin();
+    this.spinner.show();
     this._WheelService.getAllPrizes().subscribe((prizes: any) => {
       prizes.push({ id: 123, points: 'محاولة أخرى', probability: '100' });
       console.log('Received Prizes: ', prizes);
@@ -130,6 +132,8 @@ export class WheelOfLuckComponent implements OnInit {
         textFontFamily: 'Bahij Regular',
       }));
       console.log('Items: ', this.items);
+      this.isWheelLoading=false;
+      this.spinner.hide();
     });
 
     this._WheelService.getAllPrizes().subscribe((prizes: any) => {
