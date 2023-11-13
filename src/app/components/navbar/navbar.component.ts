@@ -52,9 +52,8 @@ export class NavbarComponent implements OnDestroy {
   }
 
   subscribeToCartItems() {
-    this.cartItemsSubscription = this.TrainingService.getCartItems().subscribe((res: any) => {
-      this.cartItemsNum = res.count;
-      console.log(res.count);
+    this.cartItemsSubscription = this.TrainingService.getCartItemCount().subscribe((count: number) => {
+      this.cartItemsNum = count;
     });
   }
 }
