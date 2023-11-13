@@ -102,7 +102,8 @@ export class LoginComponent implements AfterViewInit {
     const button = document.getElementById('google-signin-button');
     const that = this;
     google.accounts.id.initialize({
-      client_id: '605141817130-p3r8jrcukibc9ehs66dl3ls9bn1gja0o.apps.googleusercontent.com',
+      // client_id: '605141817130-p3r8jrcukibc9ehs66dl3ls9bn1gja0o.apps.googleusercontent.com',
+      client_id: '284023678726-p0simg5vvja5679nnjo1qnjsh5bq2uu2.apps.googleusercontent.com',
       callback: function (response: any) {
         that.onGoogleSignIn(response);
       }
