@@ -9,6 +9,7 @@ import { NgxWheelComponent, TextAlignment, TextOrientation } from 'ngx-wheel';
 import { AuthServices } from 'src/app/auth/services/auth-services.service';
 import { WheelService } from 'src/app/core/services/wheel.service';
 
+
 @Component({
   selector: 'app-wheel-of-luck',
   templateUrl: './wheel-of-luck.component.html',
@@ -297,7 +298,7 @@ export class WheelOfLuckComponent implements OnInit {
             }, 2000);
             setTimeout(() => {
               window.location.reload();
-            }, 6000);
+            }, 7000);
           } else {
             // Handle cases where the spin didn't happen or further error handling
             console.error('Failed to spin:', response.message);

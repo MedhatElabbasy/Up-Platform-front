@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PaginationInstance } from 'ngx-pagination';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { TrainingService } from 'src/app/training/Services/training.service';
 
 @Component({
@@ -38,7 +39,8 @@ export class CartComponent implements OnInit {
   constructor(
     private _HttpClient: HttpClient,
     private _TrainingService: TrainingService,
-    private router: Router
+    private router: Router,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {
@@ -60,13 +62,15 @@ export class CartComponent implements OnInit {
   }
 
   getAllItems() {
-    this.isLoading = true;
+    // this.isLoading = true;
+    this.spinner.show();
     this._TrainingService.getCartItems().subscribe((res: any) => {
       console.log(res);
       this.cartItems = res.data;
       this.isLoading = false;
       this.totalPrice = this.calculateTotalPrice();
       this.totalAfterCoupon = res.total
+      this.spinner.hide();
     });
   }
 
