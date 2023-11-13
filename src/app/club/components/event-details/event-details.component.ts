@@ -36,9 +36,10 @@ export class EventDetailsComponent {
     this.ClubService.getOneEvent(this.id).subscribe((res: any) => {
       this.event = res;
       console.log(this.event);
-    });
-    this.isLoading = false;
+      this.isLoading = false;
     this.spinner.hide();
+    });
+    
   }
   
   addToCart(id:number, type: string) {
