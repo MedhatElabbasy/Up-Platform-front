@@ -31,7 +31,7 @@
   }
 
   .circle {
-    background: linear-gradient(315deg, #FFFFFF, #F7F7F8, #EBECED);
+    background: linear-gradient(315deg, #ffffff, #f7f7f8, #ebeced);
     width: 50px;
     height: 50px;
 
@@ -40,8 +40,6 @@
       font-size: 20px;
       font-weight: 600;
     }
-
-
   }
 
   .answer {
@@ -57,7 +55,7 @@
     width: 90%;
 
     .btn1 {
-      background: linear-gradient(to right, #359BBA, #07487C);
+      background: linear-gradient(to right, #359bba, #07487c);
       color: $white-color;
       padding: 10px 0;
 
@@ -67,15 +65,52 @@
     }
 
     .btn2 {
-      background-color: #FFB300;
+      background-color: #ffb300;
       color: $white-color;
       padding: 10px 0;
       font-size: 15px;
-
     }
   }
 
   .btn-active {
-    background-color: #D6F7FF;
+    // background-color: #d6f7ff;
   }
+}
+
+// MEDIA QUERY
+
+@media (min-width: 279px) and (max-width: 440px) {
+  .main {
+    padding: 0 !important;
+    h2 {
+      font-size: 31px !important;
+      padding-right: 10px;
+    }
+    .questions {
+      .question > :first-child {
+        display: block !important;
+        h3 {
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}
+
+
+.modalImg {
+  width: 40px;
+}
+
+
+.btn1 {
+  background: linear-gradient(to right, #359BBA, #07487C);
+  color: $white-color;
+  padding: 15px 30px;
+}
+
+
+::ng-deep .ngx-spinner-overlay{
+  position:absolute!important;
+  z-index: 99 !important;
 }

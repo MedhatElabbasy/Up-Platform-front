@@ -16,8 +16,8 @@ import { InternationalCertificateComponent } from './components/international-ce
 import { CertificateDetailsComponent } from './components/certificate-details/certificate-details.component';
 import { AdvisorComponent } from './components/advisor/advisor.component';
 import { SubmitAdvisorComponent } from './components/submit-advisor/submit-advisor.component';
-import { AddArticleComponent } from '../../app/services/components/add-article/add-article.component';
-
+import { AddArticleComponent } from './components/add-article/add-article.component';
+import { ConsultantbiographyComponent } from './components/consultantbiography/consultantbiography.component';
 
 const routes: Routes = [
   {
@@ -61,7 +61,7 @@ const routes: Routes = [
         component: ChoseAdvisorComponent,
         },
         {
-          path: servicesRoutes.TypesOfConsultations,
+          path: servicesRoutes.TypesOfConsultations+'/:id',
          // component: TypesOfConsultationsComponent,
          children:[
           {
@@ -75,7 +75,7 @@ const routes: Routes = [
           {
             path: servicesRoutes.OnlineConsultation,
             component: OnlineConsultationComponent,
-          }
+          },
          ]
         }
        ]
@@ -121,12 +121,19 @@ const routes: Routes = [
             component: AdvisorComponent,
           },
            {
-            path: servicesRoutes.submitAdvisor,
+            path: servicesRoutes.submitAdvisor+'/:id',
             component: SubmitAdvisorComponent,
           },
-          { path: servicesRoutes.addArticle, component: AddArticleComponent },
+          {
+            path: servicesRoutes.addArticle,
+            component: AddArticleComponent,
+          }
         ]
       },
+      {
+        path: servicesRoutes.ConsultantBiography+'/:id',
+        component: ConsultantbiographyComponent,
+      }
     ]
   },
 ]

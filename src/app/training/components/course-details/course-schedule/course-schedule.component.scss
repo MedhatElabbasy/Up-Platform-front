@@ -1,3 +1,5 @@
+
+@import "../../../../../assets/styles/variables.scss";
 .startTime{
     border:1px solid #828282;
     border-radius: 10px;
@@ -5,20 +7,26 @@
  
 }
 
-// .endTime{
-//     border:1px solid #828282;
-//     border-radius: 10px;
-//     padding:10px;
-//     height: 90px;
-// }
+.endTime{
+    border:1px solid #828282;
+    border-radius: 10px;
+    padding:10px;
+   // height: 90px;
+}
 
-// .period{
-//     border:1px solid #828282;
-//     border-radius: 10px;
-//     padding:10px;
+.period{
+    border:1px solid #828282;
+    border-radius: 10px;
+    padding:10px;
    
-// }
+}
 
 .left{
     text-align: left;
+}
+
+.inner{
+    background-color:  $light-blue;
+    color: #fff;
+    border-radius: 10px;
 }

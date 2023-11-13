@@ -1,0 +1,106 @@
+@import "../../../../assets/styles/variables.scss";
+
+.container {
+  margin-top: 30px;
+
+  .bigrahp-title {
+    font-family: "Bahij";
+    font-size: 30px;
+    color: $main-color;
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+
+  .profile-nav,
+  .profile-info {
+    margin-top: 30px;
+  }
+
+  .profile-nav {
+    .user-heading {
+      background: $light-blue;
+      color: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+
+      &.round a {
+        border-radius: 50%;
+        border: 10px solid rgba(255, 255, 255, 0.3);
+        display: inline-block;
+      }
+
+      a img {
+        width: 112px;
+        height: 112px;
+        border-radius: 50%;
+      }
+
+      h1,
+      h2 {
+        font-size: 22px;
+        font-weight: 300;
+        margin-bottom: 5px;
+        font-family: "Bahij";
+      }
+    }
+  }
+
+  .profile-info {
+    .panel {
+      .bio-graph-heading {
+        background: $light-blue;
+        color: #fff;
+        text-align: center;
+        font-style: italic;
+        padding: 40px 110px;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.6;
+        font-family: "Bahij";
+      }
+
+      .row {
+        margin-top: 3rem;
+
+        .col-md-6 {
+          .panel-body {
+            .bio-chart {
+              width: 40%;
+            }
+
+            .bio-desk {
+              width: 60%;
+            }
+
+            h4 {
+              font-size: 15px;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .p-text-area,
+  .p-text-area:focus {
+    border: none;
+    font-weight: 300;
+    box-shadow: none;
+    color: #c3c3c3;
+    font-size: 16px;
+  }
+
+  .subtitle {
+    font-size: 25px !important;
+    font-family: "Bahij";
+    color: $main-color;
+    letter-spacing: unset;
+  }
+
+  .value-subtitle {
+    font-size: 18px;
+  }
+}

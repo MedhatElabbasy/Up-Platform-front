@@ -30,6 +30,7 @@ import { CourseInstructorComponent } from './components/course-details/course-in
 import { CourseRatingComponent } from './components/course-details/course-rating/course-rating.component';
 import { CoreModule } from '../core/core.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -64,6 +65,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     CommonModule,
     TrainingRoutingModule,
     NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CoreModule,
     NgxSpinnerModule.forRoot({ type: 'square-jelly-box' })
   ]
 })

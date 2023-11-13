@@ -8,9 +8,12 @@
                 <li class="nav-item m-3">
                   <div class="nav-link" [routerLink]="['course-general-info']" routerLinkActive="active">معلومات عامة</div>
                 </li>
-                <li class="nav-item m-3">
+                <li class="nav-item m-3" *ngIf="id2==0">
                     <div class="nav-link"  [routerLink]="['course-schedule']" routerLinkActive="active">الجدول الدراسي</div>
                 </li>
+                <li class="nav-item m-3" *ngIf="id2==1">
+                  <div class="nav-link"  [routerLink]="['course-schedule']" routerLinkActive="active">المحتوي</div>
+              </li>
                 <li class="nav-item m-3">
                     <div class="nav-link" [routerLink]="['course-instructor']" routerLinkActive="active">المحاضر</div>
                 </li>

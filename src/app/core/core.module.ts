@@ -15,6 +15,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ModalComponent } from './components/modal/modal.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatCardModule,
     MatNativeDateModule,
     DropdownModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgxDropzoneModule
   ],
   exports: [
     DropdownModule,
@@ -47,7 +49,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatCardModule,
     MatNativeDateModule,
     ModalComponent,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    // NgxDropzoneModule
   ]
 })
 export class CoreModule { }

@@ -26,5 +26,20 @@ export class ServicesapiService {
     }
     )}
 
-  
+  getAllconsultants():Observable<any> {
+    return this._HttpClient.get(environment.baseUrl + '/all-consultants')
+  }
+
+  getAllCategories(){ 
+    return this._HttpClient.get(environment.baseUrl + '/blogs/categories')
+  }
+
+  getAllComments(blogId:number){
+    return this._HttpClient.get(environment.baseUrl + `/blogs/${blogId}/allComments-blog`)
+  }
+
+
+  addNewComment(blogId:number ,fd:FormData){
+    return this._HttpClient.post(environment.baseUrl + `/blogs/${blogId}/comments` , fd)
+  }
 }

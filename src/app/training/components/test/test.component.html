@@ -1,63 +1,26 @@
 <div class="main container px-5">
   <h2 class="pb-2 d-inline ">اختبار القياس</h2>
-  <div class="questions">
-    <div class="question">
-      <div class="d-flex mt-4">
-        <img src="assets/images/training/Path 1577.svg">
-        <h3 class="pe-2">سؤال1</h3>
-        <p class="pe-3">المؤهل الاكاديمي </p>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-3 col-lg-6 col-md-12">
-            <div class="px-3 py-1">
-              <div class="d-flex  align-items-center">
-                <div class=" circle rounded-circle border border-1 border-white d-flex align-items-center
-              justify-content-center">
-                  <p class="pt-4">أ</p>
-                </div>
-                <div class="answer pe-2 ">
-                  <p>جامعي</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6 col-md-12">
-            <div class="px-3 py-1">
-              <div class="d-flex align-items-center">
-                <div class=" circle rounded-circle border border-1 border-white d-flex align-items-center
-              justify-content-center">
-                  <p class="pt-3">ب</p>
-                </div>
-                <div class="answer pe-2">
-                  <p>ثانوي</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6 col-md-12">
-            <div class="px-3 py-1">
-              <div class="d-flex  align-items-center">
-                <div class=" circle rounded-circle border border-1 border-white d-flex align-items-center
-              justify-content-center">
-                  <p class="pt-2">ج</p>
-                </div>
-                <div class="answer pe-2">
-                  <p>دبلوم</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6 col-md-12">
-            <div class="px-3 py-1">
-              <div class="d-flex  align-items-center">
-                <div class=" circle rounded-circle border border-1 border-white d-flex align-items-center
-              justify-content-center">
-                  <p class="pt-3">د</p>
-                </div>
-                <div class="answer pe-2">
-                  <p>ماجستير</p>
+  <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+    <div *ngFor="let question of questions" class="questions">
+      <div class="question">
+        <div class="d-flex mt-4">
+          <img src="assets/images/training/Path 1577.svg">
+          <h3 class="pe-2">{{"سؤال" + question.id }}</h3>
+          <p class="pe-3">{{question.question}}</p>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div *ngFor="let answer of question.answers" class="col-xl-3 col-lg-6 col-md-12">
+              <div class="px-3 py-1">
+                <div class="d-flex align-items-center">
+                  <div class="circle rounded-circle border border-1 border-white d-flex align-items-center justify-content-center">
+                    <p class="pt-3">
+                      <input type="radio" [formControlName]="'question' + question.id" [value]="answer.id">
+                    </p>
+                  </div>
+                  <div class="answer pe-2">
+                    <p>{{answer.title}}</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -65,201 +28,61 @@
         </div>
       </div>
     </div>
-    <div class="question">
-      <div class="d-flex mt-4">
-        <img src="assets/images/training/Path 1577.svg">
-        <h3 class="pe-2"> سؤال2</h3>
-        <p class="pe-3">هل سبق لك خوض تجربة ريادة الاعمال ؟ </p>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-3 col-lg-6 col-md-12">
-            <div class="px-3 py-1">
-              <div class="d-flex  align-items-center">
-                <div class=" circle rounded-circle border border-1 border-white d-flex align-items-center
-              justify-content-center">
-                  <p class="pt-4">أ</p>
-                </div>
-                <div class="answer pe-2">
-                  <p>بشكل مستقل</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6 col-md-12">
-            <div class="px-3 py-1">
-              <div class="d-flex  align-items-center">
-                <div class=" circle rounded-circle border border-1 border-white d-flex align-items-center
-              justify-content-center">
-                  <p class="pt-3">ب</p>
-                </div>
-                <div class="answer pe-2">
-                  <p>ضمن اعضاء فريق</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6 col-md-12">
-            <div class="px-3 py-1">
-              <div class="d-flex  align-items-center">
-                <div class=" circle rounded-circle border border-1 border-white d-flex align-items-center
-              justify-content-center">
-                  <p class="pt-2">ج</p>
-                </div>
-                <div class="answer pe-2">
-                  <p>لا </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- <div class="col-xl-3 col-lg-6 col-md-12">
-            <div class="px-3 py-1">
-              <div class="d-flex  align-items-center">
-                <div class=" circle rounded-circle border border-1 border-white d-flex align-items-center
-              justify-content-center">
-                  <p class="pt-3">د</p>
-                </div>
-                <div class="answer pe-2">
-                  <p>جميع ما سبق</p>
-                </div>
-              </div>
-            </div>
-          </div> -->
-        </div>
-      </div>
+    <div class="mt-5 pb-2 next m-auto d-flex justify-content-between">
+      <button class="nav-link px-3 btn btn1" type="submit">
+        <img src="assets/images/training/Group 1634.svg" class="ps-2">
+        التالي
+      </button>
     </div>
-    <div class="question">
-      <div class="d-flex mt-3">
-        <img src="assets/images/training/Path 1577.svg">
-        <h3 class="pe-2">سؤال3</h3>
-        <p class="pe-3">هل لديك دورات سابقة ضمن ريادة الاعمال ؟</p>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-3 col-lg-6 col-md-12">
-            <div class="px-3 py-1">
-              <div class="d-flex  align-items-center">
-                <div class=" circle rounded-circle border border-1 border-white d-flex align-items-center
-              justify-content-center">
-                  <p class="pt-4">أ</p>
-                </div>
-                <div class="answer pe-2">
-                  <p>نعم </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6 col-md-12">
-            <div class="px-3 py-1">
-              <div class="d-flex  align-items-center">
-                <div class=" circle rounded-circle border border-1 border-white d-flex align-items-center
-              justify-content-center">
-                  <p class="pt-3">ب</p>
-                </div>
-                <div class="answer pe-2">
-                  <p>بشكل مكثف</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6 col-md-12 ">
-            <div class="px-3 py-1 btn-active rounded-3">
-              <div class="d-flex  align-items-center">
-                <div class=" circle rounded-circle border border-1 border-white d-flex align-items-center
-              justify-content-center">
-                  <p class="pt-2">ج</p>
-                </div>
-                <div class="answer pe-2">
-                  <p>نعم دورة واحدة </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6 col-md-12">
-            <div class="px-3 py-1">
-              <div class="d-flex  align-items-center">
-                <div class=" circle rounded-circle border border-1 border-white d-flex align-items-center
-              justify-content-center">
-                  <p class="pt-3">د</p>
-                </div>
-                <div class="answer pe-2">
-                  <p>لا</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="question">
-      <div class="d-flex mt-3">
-        <img src="assets/images/training/Path 1577.svg">
-        <h3 class="pe-2">سؤال4</h3>
-        <p class="pe-3">هل تخطط لخوص تجربة ريادة الاعمال ام بدأت في الفكرة للمشروع؟</p>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-3 col-lg-6 col-md-12">
-            <div class="px-3 py-1">
-              <div class="d-flex  align-items-center">
-                <div class=" circle rounded-circle border border-1 border-white d-flex align-items-center
-              justify-content-center">
-                  <p class="pt-4">أ</p>
-                </div>
-                <div class="answer pe-2">
-                  <p>نعم</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6 col-md-12">
-            <div class="px-3 py-1">
-              <div class="d-flex  align-items-center">
-                <div class=" circle rounded-circle border border-1 border-white d-flex align-items-center
-              justify-content-center">
-                  <p class="pt-3">ب</p>
-                </div>
-                <div class="answer pe-2">
-                  <p>لا</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- <div class="col-xl-3 col-lg-6 col-md-12">
-            <div class="px-3 py-1">
-              <div class="d-flex  align-items-center">
-                <div class=" circle rounded-circle border border-1 border-white d-flex align-items-center
-              justify-content-center">
-                  <p class="pt-2">ج</p>
-                </div>
-                <div class="answer pe-2">
-                  <p>وزارة الموارد الطبيعية</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6 col-md-12">
-            <div class="px-3 py-1">
-              <div class="d-flex  align-items-center">
-                <div class=" circle rounded-circle border border-1 border-white d-flex align-items-center
-              justify-content-center">
-                  <p class="pt-3">د</p>
-                </div>
-                <div class="answer pe-2">
-                  <p>جميع ما سبق</p>
-                </div>
-              </div>
-            </div>
-          </div> -->
-        </div>
-      </div>
-    </div>
-  </div>
+  </form>
+  
   <div class="mt-3 pb-2 next m-auto d-flex justify-content-between">
-    <button class="nav-link px-3  btn btn1" routerLink="/training/paths">
-      <img src="assets/images/training/Group 1634.svg" class="ps-2" >
-      التالي</button>
-    <button class="nav-link px-3  btn btn2" routerLink="/auth/login">
-      من 10 : 12 سؤال</button>
+    <!-- <button class="nav-link px-3  btn btn1" routerLink="/training/paths">
+      <img src="assets/images/training/Group 1634.svg" class="ps-2">
+      التالي</button> -->
+    <!-- <button class="nav-link px-3  btn btn2" routerLink="/auth/login">
+      من 10 : 12 سؤال</button> -->
   </div>
 </div>
+<ngx-spinner *ngIf="isLoading" bdColor = "rgba(0, 0, 0, 0.2)" size = "medium" color = "#fff" type = "square-jelly-box"  fullScreen = "false"></ngx-spinner>
+<app-modal id="startTest" classList="modal-dialog-centered">
+  <div class="row">
+      <div class="col-2 d-flex justify-content-center align-items-center">
+          <div class=" m-auto">
+              <!-- ../../../../assets/images/projects/98.png -->
+              <img src="../../../../assets/images/projects/98.png" class="modalImg ">
+          </div>
+      </div>
+      <div class="col-10">
+          <div class="card-body bg-white rounded-4">
+              <div class="d-flex flex-column align-items-center gap-3" style="margin-left: 65px;">
+                  <h3 class="fw-600 text-center mt-3">لقد أنتهى الأختبار</h3>
+                  <button type="button" class="btn btn1
+                    mx-auto px-5 d-flex align-items-center gap-4" (click)="cancel()">إلغاء</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</app-modal>
+
+<!--------------------------------------------------------------------->
+<app-modal id="success" classList="modal-dialog-centered">
+  <div class="row">
+      <div class="col-2 d-flex justify-content-center align-items-center">
+          <div class=" m-auto">
+              <!-- ../../../../assets/images/projects/98.png -->
+              <img src="../../../../assets/images/projects/98.png" class="modalImg ">
+          </div>
+      </div>
+      <div class="col-10">
+          <div class="card-body bg-white rounded-4">
+              <div class="d-flex flex-column align-items-center gap-3" style="margin-left: 65px;">
+                <h3 class="fw-600 text-center mt-3">{{"عدد نقاطك :" + points}}</h3>
+                  <h3 id="successTitle" class="fw-600 text-center mt-3"></h3>
+                  <button type="button" class="btn btn1
+                    mx-auto px-5 d-flex align-items-center gap-4" (click)="done()">تم</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</app-modal>

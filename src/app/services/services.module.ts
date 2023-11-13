@@ -20,6 +20,8 @@ import { AdvisorComponent } from './components/advisor/advisor.component';
 import { SubmitAdvisorComponent } from './components/submit-advisor/submit-advisor.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { AddArticleComponent } from './components/add-article/add-article.component';
+import { ConsultantbiographyComponent } from './components/consultantbiography/consultantbiography.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     InternationalCertificateComponent,
     CertificateDetailsComponent,
     AdvisorComponent,
-    SubmitAdvisorComponent
+    SubmitAdvisorComponent,
+    AddArticleComponent,
+    ConsultantbiographyComponent,
   ],
   imports: [
     CommonModule,

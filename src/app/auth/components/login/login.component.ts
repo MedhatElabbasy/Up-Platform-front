@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { AuthServices } from '../../services/auth-services.service';
 import { Router } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 declare var google: any;
 
@@ -13,6 +15,7 @@ declare var google: any;
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements AfterViewInit {
+  isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   userDetails: any = {};
   hide = true;
   isLoading: boolean = false
@@ -70,6 +73,7 @@ export class LoginComponent implements AfterViewInit {
             
             this._AuthService.isUserLoggedIn.next(true)
             if(res.data.is_verify){
+              this.isUserLoggedIn.next(true);
               this._Router.navigate(['/']);
               this.isLoading = false
             }else{
