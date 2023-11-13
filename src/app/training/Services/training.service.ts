@@ -90,7 +90,7 @@ export class TrainingService {
     }).pipe(
       map((response: any) => {
         this.updateCartItemCount(response.count);
-        return response; // You can adjust this based on your needs
+        return response;
       })
     );
   }
@@ -101,7 +101,12 @@ export class TrainingService {
       headers: {
         ApiKey: environment.ApiKey
       }
-    });
+    }).pipe(
+      map((response: any) => {
+        this.updateCartItemCount(response.count);
+        return response;
+      })
+    );
   }
   
 
