@@ -394,6 +394,7 @@ export class WheelOfLuckComponent implements OnInit {
     } else if (!this.isLoggedIn) {
       // this.isWheelLoading = false;
       console.log('Please login');
+      this.isWheelLoading = false;
       this.wheelMessage = 'من فضلك قم بتسجيل الدخول أولًا';
     }
   }
