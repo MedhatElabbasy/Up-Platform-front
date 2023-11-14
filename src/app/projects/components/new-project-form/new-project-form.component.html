@@ -8,8 +8,8 @@
         </div>
 
     </div>
-    <div class="row mt-5">
-        <div class="col-lg-12">
+    <div class="row">
+        <div class="col-lg-8" style="margin: auto;">
             <!-- <div class="form-group row">
     <label for="inputEmail3" class="col-sm-4 col-form-label"> اختر المدينة: </label>
     <div class="col-sm-7">
@@ -35,7 +35,9 @@
             <div class="mt-4 second-section rounded-4 p-4 ">
                 <div class="container mt-3">
                     <form [formGroup]="newProjectForm" (ngSubmit)="newPartener()">
-                        <div class="row">
+                        <div class="form-group mt-3 row">
+
+                        <div class="col-6">
                             <label for="inputEmail3" class="col-sm-4 col-form-label"> العنوان </label>
                             <input type="text" class="form-control" id="inputEmail3" placeholder=""
                                 formControlName="part_title">
@@ -47,22 +49,23 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group mt-3 row">
-
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-4 col-form-label"> التكاليف </label>
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder=""
-                                        formControlName="part_cost">
-                                </div>
-                                <div
-                                    *ngIf="isFormSubmitted && newProjectForm.get('part_cost')?.touched && newProjectForm.get('part_cost')?.errors">
-                                    <div *ngIf="newProjectForm.get('part_cost')?.hasError('required')">
-                                        <p class="text-danger error-message">{{ validationMessages.part_cost?.required
-                                            }}</p>
-                                    </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-4 col-form-label"> التكاليف </label>
+                                <input type="text" class="form-control" id="inputEmail3" placeholder=""
+                                    formControlName="part_cost">
+                            </div>
+                            <div
+                                *ngIf="isFormSubmitted && newProjectForm.get('part_cost')?.touched && newProjectForm.get('part_cost')?.errors">
+                                <div *ngIf="newProjectForm.get('part_cost')?.hasError('required')">
+                                    <p class="text-danger error-message">{{ validationMessages.part_cost?.required
+                                        }}</p>
                                 </div>
                             </div>
+                        </div>
+                        </div>
+                        <div class="form-group mt-3 row">
+
                             <div class="col-6">
                                 <div class="form-group row">
                                     <label for="inputEmail3" class="col-sm-4 col-form-label"> المدة </label>
@@ -77,12 +80,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-
-                        <div class="row">
                             <div class="col-6">
-                                <div class="form-group mt-3 ">
+                                <div class="form-group ">
                                     <label for="inputEmail3" class="col-sm-4 col-form-label"> النسبة </label>
                                     <input type="text" class="form-control" id="inputEmail3" placeholder=""
                                         formControlName="part_percentage">
@@ -95,6 +95,11 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+
+                        <div class="row">
+                            
                             <div class="col-6">
                                 <div class="form-group mt-3">
                                     <label for="inputEmail3" class="col-5 col-form-label"> المكان </label>
