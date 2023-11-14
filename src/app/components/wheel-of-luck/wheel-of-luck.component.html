@@ -1,3 +1,4 @@
+<ngx-spinner *ngIf="isWheelLoading" bdColor = "rgba(0, 0, 0, 0.2)" size = "medium" color = "#fff" type = "square-jelly-box"  fullScreen = "false"></ngx-spinner>
 <div class="main container px-5 pb-5">
   <h2 class="pb-3 ">دولاب الحظ</h2>
   <div class="container">
@@ -68,13 +69,18 @@
                   </div>
                 </div>
               </div>
-              <div class="reset d-flex justify-content-around mt-3" *ngIf="isUserLoggedIn">
+              <!-- <div class="reset d-flex justify-content-around mt-3" *ngIf="isUserLoggedIn">
                 <button *ngIf="isWheelLoading" [disabled]="isWheelLoading" class="btn btn1"> <i
                     class="fas fa-spinner fa-spin"></i></button>
                 <button *ngIf="!isWheelLoading" (click)="spinAction('free')" class="btn btn1" id="wheelBtn" [disabled]="isClock">محاولة مجانية</button>
                 <button  *ngIf="isWheelLoading" [disabled]="isWheelLoading" class="btn btn2 btn-transparent"><i
                     class="fas fa-spinner fa-spin"></i></button>
                 <button *ngIf="!isWheelLoading" (click)="spinAction('balance')" class="btn btn2 btn-transparent" id="wheelBtn2">اضغط مرة
+                  أخري بـ 3 نقاط</button>
+              </div> -->
+              <div class="reset d-flex justify-content-around mt-3" *ngIf="isUserLoggedIn">
+                <button (click)="spinAction('free')" class="btn btn1" id="wheelBtn" [disabled]="isClock">محاولة مجانية</button>
+                <button (click)="spinAction('balance')" class="btn btn2 btn-transparent" id="wheelBtn2">اضغط مرة
                   أخري بـ 3 نقاط</button>
               </div>
 

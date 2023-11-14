@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ProjectsService } from 'src/app/projects/projects.service';
-import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-projects-chance',
@@ -9,12 +8,10 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class ProjectsChanceComponent {
   projects!: any;
-  isLoading: boolean = true;
   categories!: any;
   allCategories = ['الكل'];
 
   constructor(
-    private spinner: NgxSpinnerService,
     private ProjectsService: ProjectsService,
   ) {
     this.getAllOpps();
@@ -26,11 +23,9 @@ export class ProjectsChanceComponent {
 
   getAllOpps() {
     this.projects = [];
-    this.isLoading = true;
     this.ProjectsService.getAllOpps().subscribe((res) => {
       this.projects = res;
       console.log(this.projects);
-      this.isLoading = false;
     });
   }
 

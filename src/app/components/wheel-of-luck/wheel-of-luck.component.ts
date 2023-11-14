@@ -8,6 +8,7 @@ import {
 import { NgxWheelComponent, TextAlignment, TextOrientation } from 'ngx-wheel';
 import { AuthServices } from 'src/app/auth/services/auth-services.service';
 import { WheelService } from 'src/app/core/services/wheel.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-wheel-of-luck',
@@ -50,7 +51,8 @@ export class WheelOfLuckComponent implements OnInit {
 
   constructor(
     private _AuthServices: AuthServices,
-    private _WheelService: WheelService
+    private _WheelService: WheelService,
+    private spinner: NgxSpinnerService
   ) {
     this.wheelSpinAudio = new Audio('../../../assets/sounds/wheel-spin.wav');
     this.clapAudio = new Audio('../../../assets/sounds/claps.mp3');
@@ -81,6 +83,7 @@ export class WheelOfLuckComponent implements OnInit {
   ngOnInit() {
     this.before();
     this.checkIfUserCanSpin();
+    this.spinner.show();
     this._WheelService.getAllPrizes().subscribe((prizes: any) => {
       prizes.push({ id: 123, points: 'حاول مرةأخرى', probability: '100' });
       console.log('Received Prizes: ', prizes);
@@ -129,6 +132,8 @@ export class WheelOfLuckComponent implements OnInit {
         textFontFamily: 'Bahij Regular',
       }));
       console.log('Items: ', this.items);
+      this.isWheelLoading=false;
+      this.spinner.hide();
     });
 
     this._WheelService.getAllPrizes().subscribe((prizes: any) => {
@@ -181,11 +186,6 @@ export class WheelOfLuckComponent implements OnInit {
       console.log('Items: ', this.items);
     });
     this.updateClockEveryMinute();
-    // Call the method to update the clock every minute
-  // setInterval(() => {
-  //   console.log("aaaaaaaaaaaaaaaaaaaaa");
-  //   this.updateClockEveryMinute();
-  // }, 60000); // 60000 milliseconds = 1 minute
   setInterval(() => this.updateClockEveryMinute(), 1000);
 
   }
@@ -297,7 +297,7 @@ export class WheelOfLuckComponent implements OnInit {
             }, 2000);
             setTimeout(() => {
               window.location.reload();
-            }, 6000);
+            }, 7000);
           } else {
             // Handle cases where the spin didn't happen or further error handling
             console.error('Failed to spin:', response.message);
@@ -371,7 +371,7 @@ export class WheelOfLuckComponent implements OnInit {
     if (this._AuthServices.userToken) {
       this.wheelMessage = '';
       this._WheelService.canSpin().subscribe((res) => {
-        this.isWheelLoading = false;
+        // this.isWheelLoading = false;
         this.canSpin = false;
         console.log(res);
         if (res.message == 'Try tomorrow') {
@@ -387,8 +387,9 @@ export class WheelOfLuckComponent implements OnInit {
           this.isClock=false;
         }});
     } else if (!this.isLoggedIn) {
-      this.isWheelLoading = false;
+      // this.isWheelLoading = false;
       console.log('Please login');
+      this.isWheelLoading = false;
       this.wheelMessage = 'من فضلك قم بتسجيل الدخول أولًا';
     }
   }
@@ -532,7 +533,7 @@ export class WheelOfLuckComponent implements OnInit {
     console.log(hoursDiff, "aaaa", targetDate.getTime());
 
     // Format the countdown string
-    this.countdown = `${this.formatTime(hoursDiff)} ساعة ${this.formatTime(minutesDiff)}دقيقة ${this.formatTime(secondsDiff)}ثانية`;
+    this.countdown = `${this.formatTime(hoursDiff)} ساعة ${this.formatTime(minutesDiff+1)}دقيقة ${this.formatTime(secondsDiff)}ثانية`;
   }
 
   formatTime(time: number): string {

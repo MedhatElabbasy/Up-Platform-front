@@ -50,7 +50,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     MatNativeDateModule,
     ModalComponent,
     NgxSpinnerModule,
-    NgxDropzoneModule
+    // NgxDropzoneModule
   ]
 })
 export class CoreModule { }

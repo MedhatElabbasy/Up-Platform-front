@@ -33,7 +33,6 @@ import { MarketingDistractionsComponent } from './components/marketing-distracti
 import { FinalReportComponent } from './components/final-report/final-report.component';
 import { MarketingDesignAdComponent } from './components/marketing-design-ad/marketing-design-ad.component';
 
-
 @NgModule({
   declarations: [
     ProjectsDepartmentComponent,
@@ -64,7 +63,8 @@ import { MarketingDesignAdComponent } from './components/marketing-design-ad/mar
     MarketingSalesComponent,
     MarketingDistractionsComponent,
     FinalReportComponent,
-    MarketingDesignAdComponent
+    MarketingDesignAdComponent,
+    NewProjectFormComponent
   ],
   imports: [
     CommonModule,

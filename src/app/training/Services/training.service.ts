@@ -2,6 +2,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -67,24 +68,47 @@ export class TrainingService {
   //   });
   // }
 
-   addToCart(id:number, type:string){
-     const data = {
-       type: type,
-     };
-     return this._HttpClient.post(environment.baseUrl + '/add-to-cart/'+id, data, {
-       headers: {
-         ApiKey: environment.ApiKey
-       }
-     });
-   }
+  private cartItemCount = new BehaviorSubject<number>(0);
 
-  removeFromCart(id:number){
-    return this._HttpClient.get(environment.baseUrl + '/remove-to-cart/'+id, {
+  getCartItemCount() {
+    return this.cartItemCount.asObservable();
+  }
+
+  updateCartItemCount(count: number) {
+    this.cartItemCount.next(count);
+  }
+
+  addToCart(id: number, type: string): Observable<any> {
+    const data = {
+      type: type,
+    };
+  
+    return this._HttpClient.post(environment.baseUrl + '/add-to-cart/' + id, data, {
       headers: {
         ApiKey: environment.ApiKey
       }
-    });
+    }).pipe(
+      map((response: any) => {
+        this.updateCartItemCount(response.count);
+        return response;
+      })
+    );
   }
+  
+
+   removeFromCart(id: number): Observable<any> {
+    return this._HttpClient.get(environment.baseUrl + '/remove-to-cart/' + id, {
+      headers: {
+        ApiKey: environment.ApiKey
+      }
+    }).pipe(
+      map((response: any) => {
+        this.updateCartItemCount(response.count);
+        return response;
+      })
+    );
+  }
+  
 
   applyCoupon(code: string, total: number){
     const data = {

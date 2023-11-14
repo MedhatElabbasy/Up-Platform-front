@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthServices } from 'src/app/auth/services/auth-services.service';
 import { TrainingService } from 'src/app/training/Services/training.service';
@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnDestroy {
   userDetails: any = {};
   cartItemsNum: any = [];
   userDetailsString: string = '';
@@ -17,22 +17,30 @@ export class NavbarComponent {
   cartItemsSubscription!: Subscription;
 
   constructor(private _AuthServices: AuthServices, public _Router: Router, private TrainingService: TrainingService,) {
-    _AuthServices.isUserLoggedIn.subscribe((res) => {
-      this.isUserLoggedIn = res
+    this._AuthServices.isUserLoggedIn.subscribe((res) => {
+      this.isUserLoggedIn = res;
+      if (this.isUserLoggedIn) {
+        this.getItemsNum();
+      }
+      this.getUserDetails();
     });
     this.subscribeToCartItems();
   }
 
-  ngOnInit() {
-    const userDetailsString = localStorage.getItem('userDetails');
-    if (userDetailsString) {
-      const userDetails = JSON.parse(userDetailsString);
-      this.userDetails = userDetails;
-      if(this.isUserLoggedIn){
-        this.getItemsNum();
+  getUserDetails() {
+    this._AuthServices.profile().subscribe(
+      (data: any) => {
+        this.userDetails = data.data;
+      },
+      (error: any) => {
+        console.error('Error fetching user details', error);
       }
-    } else {
-      console.log('User details not found in local storage');
+    );
+  }
+
+  ngOnDestroy() {
+    if (this.cartItemsSubscription) {
+      this.cartItemsSubscription.unsubscribe();
     }
   }
 
@@ -44,27 +52,8 @@ export class NavbarComponent {
   }
 
   subscribeToCartItems() {
-    this.cartItemsSubscription = this.TrainingService.getCartItems().subscribe((res: any) => {
-      this.cartItemsNum = res.count;
-      console.log(res.count);
+    this.cartItemsSubscription = this.TrainingService.getCartItemCount().subscribe((count: number) => {
+      this.cartItemsNum = count;
     });
   }
-
-  ngOnDestroy() {
-    if (this.cartItemsSubscription) {
-      this.cartItemsSubscription.unsubscribe();
-    }
-  }
-  }
-
-  // getUserDetails() {
-  //   this._AuthServices.profile().subscribe(
-  //     (data: any) => {
-  //       this.userDetails = data.data;
-  //     },
-  //     (error: any) => {
-  //       console.error('Error fetching user details', error);
-  //     }
-  //   );
-  // }
-  
+}

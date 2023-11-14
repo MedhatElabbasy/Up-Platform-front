@@ -68,23 +68,24 @@
             </div>
          
             <div class="row justify-content-around">
-                <div class="col-lg-3" *ngFor="let partener of parteners">
+                <div class="col-lg-4 my-5" *ngFor="let partener of parteners">
                     <div class="card1 pt-5">
                         <div class="card-circle d-flex justify-content-center align-items-center">
                             <div>
                                 <img src="assets/images/projects/Project.png" class="">
                             </div>
                         </div>
-                        <h3 class="mb-2">{{partener.part_title}}</h3>
-                        <ul class="px-4 py-2 ">
-                            <li class="mb-2">{{partener.part_desc}}</li>
+                        <h3 class="mb-2" style="text-align: center; padding-top:8px">{{partener.part_title}}</h3>
+                        <ul class="px-4 py-2">
+                            <!-- <li class="mb-2">{{partener.part_desc}}</li> -->
                             <li class="mb-2">المدة: {{partener.part_duration}}</li>
                             <li class="mb-2">المكان: {{partener.part_location}}</li>
                             <li class="mb-2">التكلفة: {{partener.part_cost}}</li>
                             <li class="mb-2">النسبة: {{partener.part_percentage}}</li>
                         </ul>
-                        <div class="d-flex justify-content-end mt-3">
-                            <button class="nav-link px-4  btn btn2 mt-2 mx-auto" routerLink="">مزيد من المعلومات</button>
+                        <div class="d-flex justify-content-end mt-3 row">
+                            <button class="nav-link px-4  btn btn2 mt-2 mx-auto mx-2 col-5" routerLink="">مزيد من المعلومات</button>
+                            <button class="nav-link px-4  btn btn2 mt-2 mx-auto col-5" (click)="applyAppForPart(partener.id)">إضافة كشريك</button>
                         </div>
                     </div>
                 </div>
@@ -92,3 +93,23 @@
         </div>
     </div>
 </div>
+
+<app-modal id="events" classList="modal-dialog-centered">
+    <div class="row">
+        <div class="col-2 d-flex justify-content-center align-items-center">
+            <div class=" m-auto">
+                <img src="../../../../assets/images/projects/98.png"
+                class="modalImg ">
+            </div>
+        </div>
+        <div class="col-10"> 
+            <div class="card-body bg-white rounded-4">
+                <div class="d-flex flex-column align-items-center gap-3" style="margin-left: 65px;">
+                  <h3 class="fw-600 text-center mt-3">تم تقديم طلبك وسيتم التواصل معك عبر البريد الإلكتروني</h3>
+                      <button  type="button" class="btn btn1
+                      mx-auto px-5 d-flex align-items-center gap-4" (click)="cancel()" >إغلاق</button>
+                </div>
+              </div>
+        </div>
+    </div>
+  </app-modal>

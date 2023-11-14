@@ -10,7 +10,7 @@ import { ModalService } from 'src/app/core/services/modal.service';
 @Component({
   selector: 'app-add-article',
   templateUrl: './add-article.component.html',
-  styleUrls: ['./add-article.component.scss']
+  styleUrls: ['./add-article.component.scss'],
 })
 export class AddArticleComponent {
   addBlogForm!: FormGroup;

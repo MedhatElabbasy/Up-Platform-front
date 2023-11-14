@@ -3,6 +3,7 @@ import { ClubService } from 'src/app/club/services/club.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TrainingService } from 'src/app/training/Services/training.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-event-details',
@@ -12,13 +13,15 @@ import { ToastrService } from 'ngx-toastr';
 export class EventDetailsComponent {
   event: any;
   id: any;
+  isLoading: boolean = true;
 
   constructor(
     private ClubService: ClubService,
     private route: ActivatedRoute,
     private TrainingService: TrainingService,
     private _Router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {
@@ -29,10 +32,14 @@ export class EventDetailsComponent {
   }
 
   getEventDetailsByID() {
+    this.spinner.show();
     this.ClubService.getOneEvent(this.id).subscribe((res: any) => {
       this.event = res;
       console.log(this.event);
+      this.isLoading = false;
+    this.spinner.hide();
     });
+    
   }
   
   addToCart(id:number, type: string) {

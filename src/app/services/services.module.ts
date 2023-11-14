@@ -42,7 +42,7 @@ import { ConsultantbiographyComponent } from './components/consultantbiography/c
     AdvisorComponent,
     SubmitAdvisorComponent,
     AddArticleComponent,
-    ConsultantbiographyComponent
+    ConsultantbiographyComponent,
   ],
   imports: [
     CommonModule,
