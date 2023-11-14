@@ -87,7 +87,7 @@ const routes: Routes = [
         {
           path: projectsRoutes.newProjectForm,
           component:NewProjectFormComponent,
-        }
+        },
       ]
     },
    

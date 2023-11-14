@@ -186,11 +186,6 @@ export class WheelOfLuckComponent implements OnInit {
       console.log('Items: ', this.items);
     });
     this.updateClockEveryMinute();
-    // Call the method to update the clock every minute
-  // setInterval(() => {
-  //   console.log("aaaaaaaaaaaaaaaaaaaaa");
-  //   this.updateClockEveryMinute();
-  // }, 60000); // 60000 milliseconds = 1 minute
   setInterval(() => this.updateClockEveryMinute(), 1000);
 
   }
@@ -538,7 +533,7 @@ export class WheelOfLuckComponent implements OnInit {
     console.log(hoursDiff, "aaaa", targetDate.getTime());
 
     // Format the countdown string
-    this.countdown = `${this.formatTime(hoursDiff)} ساعة ${this.formatTime(minutesDiff)}دقيقة ${this.formatTime(secondsDiff)}ثانية`;
+    this.countdown = `${this.formatTime(hoursDiff)} ساعة ${this.formatTime(minutesDiff+1)}دقيقة ${this.formatTime(secondsDiff)}ثانية`;
   }
 
   formatTime(time: number): string {

@@ -39,6 +39,7 @@ import { EventDetailsComponent } from './club/components/event-details/event-det
     PaymentComponent,
     PaymentCardComponent,
     EventDetailsComponent,
+    // NewPartnerFormComponent,
     // AddArticleComponent
   ],
   imports: [

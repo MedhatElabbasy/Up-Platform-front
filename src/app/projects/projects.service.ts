@@ -21,4 +21,20 @@ export class ProjectsService {
   getAllOppsCategories(): Observable<any> {
     return this._HttpClient.get(environment.baseUrl + '/opp_category/index')
   }
+
+  newPartener(formData: FormData){
+    return this._HttpClient.post(environment.baseUrl + '/part/store', formData,{
+      headers: {
+        ApiKey: environment.ApiKey
+      }
+    }
+  )}
+
+  applyAppForPart(formData: FormData){
+    return this._HttpClient.post(environment.baseUrl + '/part_app/store', formData,{
+      headers: {
+        ApiKey: environment.ApiKey
+      }
+    }
+  )}
 }
