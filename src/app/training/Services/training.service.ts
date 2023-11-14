@@ -118,4 +118,8 @@ export class TrainingService {
     return this._HttpClient.get(environment.baseUrl + '/suggested-path-test/result')
   }
 
+  getpathsDetails(course_id:number){
+    return this._HttpClient.get(environment.baseUrl + '/bundle-subscription/'+course_id);
+  }
+
 }

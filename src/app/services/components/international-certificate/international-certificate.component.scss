@@ -67,8 +67,13 @@
 
 
 .second-section {
-  background-color: #D3EBFF;
+  // background-color: #D3EBFF;
   // border: 1px solid $main-color;
+  background-image: url(../../../../assets/images/training/trainingBack.png);
+  background-size: cover;
+  background-position: center center;
+  min-height: 50vh;
+  position: relative;
 }
 
 .card1{
@@ -162,3 +167,19 @@ h6{
  .activeLink{
   border:1px solid $main-color;
  }
+
+ 
+ ::ng-deep .ngx-spinner-overlay{
+  position:absolute!important;
+  z-index: 99 !important;
+}
+
+.modalImg{
+  width:40px;
+}
+
+.btn1 {
+  background: linear-gradient(to right, #359BBA, #07487C);
+  color: $white-color;
+  padding: 15px 30px;
+}

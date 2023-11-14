@@ -17,6 +17,7 @@ export class OnlineConsultationComponent {
   id!:any;
   consultants!:any;
   consultant!:any;
+  formateDate!:string;
   constructor( private router: Router,private route: ActivatedRoute,private _domSanitizer: DomSanitizer,private fb: FormBuilder,private _service:ServicesapiService,
     private _modal:ModalService){
       this.id=this.route.parent?.snapshot.url[1].path
@@ -68,13 +69,23 @@ export class OnlineConsultationComponent {
    
     }
 
+    formatDate(inputDate: string) {
+      const date = new Date(`${inputDate}T00:00:00Z`); // Assuming input date is in UTC
+      const year = date.getUTCFullYear();
+      const month = ('0' + (date.getUTCMonth() + 1)).slice(-2); // Months are zero-based
+      const day = ('0' + date.getUTCDate()).slice(-2);
+      const formattedDate = `${day}/${month}/${year}`;
+      this.formateDate = formattedDate;
+    }
+
 
   submitOnline(){
     let formBlog = new FormData();
     let formattedDate = this.onlineForm.controls['appointment_date'].value.toISOString().split('T')[0];
+    this.formatDate(formattedDate);
     formBlog.append('message', this.onlineForm.controls['message'].value);
     formBlog.append('receiver_id',this.id);
-    formBlog.append('appointment_date',formattedDate);
+    formBlog.append('appointment_date',this.formateDate);
     formBlog.append('appointment_time',this.onlineForm.controls['appointment_time'].value);
 
     this._service.addOnlineConsultation(formBlog).subscribe((res)=>{

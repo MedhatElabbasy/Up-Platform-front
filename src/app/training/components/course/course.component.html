@@ -19,7 +19,7 @@
         <div>
         <div class="ay7aga">
           <ul>
-            <li class="m-5 course text-white d-inline-block cursor-pointer"  *ngFor="let course of path.course"><a (click)="next(course.course.id)">{{course.course.title.ar}}</a></li>
+            <li class="m-5 course text-white d-inline-block cursor-pointer"  *ngFor="let course of path?.course"><a (click)="next(course.course.id)">{{course?.course?.title?.ar}}</a></li>
           </ul>
         </div>
       </div>
@@ -55,10 +55,10 @@
           </div>
           <div class="mt-3 px-2  text-center">
             <div>
-              <span>{{path?.user.first_name}}</span>
+              <span>{{path?.user?.first_name}}</span>
             </div>
             <div class="mt-3">
-              <span class="span2">{{path?.user.headline}}</span>
+              <span class="span2">{{path?.user?.headline}}</span>
             </div>
           </div>
         </div>

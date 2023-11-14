@@ -15,6 +15,8 @@ export class CourseScheduleComponent {
   id!:any
   courses!:any;
   courseCategory!:any;
+  course!:any;
+  path!:any;
   constructor( private router: Router ,private route: ActivatedRoute ,private _trainingService: TrainingService){
     this.id1=this.route.parent?.snapshot.url[1].path
     this.id2=this.route.parent?.snapshot.url[2].path
@@ -29,6 +31,8 @@ export class CourseScheduleComponent {
     }
     else if(this.id2==1){
       this.getCourseDetailsByID()
+    }else if(this.id2==2){
+      this.getPathDetailsByID()
     }
   }
 
@@ -53,6 +57,14 @@ export class CourseScheduleComponent {
       this.courses=res.data.chapters;  
       console.log(this.courses); 
       }
+    })
+  }
+
+ 
+
+  getPathDetailsByID(){
+    this._trainingService.getAllCourseDetailsByID(this.id1).subscribe((res:any)=>{
+      this.courses=res.data.chapters
     })
   }
 }

@@ -13,6 +13,7 @@ export class CourseComponent {
   isLoading: boolean = true
   id!:number;
   path!:any;
+  pathID=2
   constructor( private router: Router ,private route: ActivatedRoute ,private _trainingService: TrainingService){
     this.route.params.subscribe((res:any) => {
       console.log(res)
@@ -51,7 +52,9 @@ redirectBio(){
 }
 
 next(id:number){
-  this.router.navigate(['/course-details',id])
+  console.log(id);
+  console.log(this.pathID);
+  this.router.navigate(['/course-details',id , this.pathID])
 
 }
 

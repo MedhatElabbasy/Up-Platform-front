@@ -29,6 +29,8 @@ export class CourseInstructorComponent {
     }
     else if(this.id2==1){
       this.getCourseDetailsByID()
+    }else if(this.id2==2){
+      this.getPathDetailsByID()
     }
   }
 
@@ -52,6 +54,12 @@ export class CourseInstructorComponent {
       console.log(res);
       this.course=res.data;   
       }
+    })
+  }
+
+  getPathDetailsByID(){
+    this._trainingService.getAllCourseDetailsByID(this.id1).subscribe((res:any)=>{
+      this.course=res.data
     })
   }
 

@@ -44,7 +44,10 @@ fetchExams(){
   this._service.getAllQuizes().subscribe((response:any)=>{
     if(response){
       this.exams = response.data
-      console.log(response)
+     this.exams= this.exams.filter((ele:any) => {
+        return ele.exam_type=="local"
+      });
+      console.log(this.exams)
       this.isLoading=false;
     } 
   })

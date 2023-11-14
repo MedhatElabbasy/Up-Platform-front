@@ -78,7 +78,7 @@
         <li *ngIf="!course?.course_level?.title?.ar">
             <p>مستوى المهارة -----</p>
         </li>
-    <li *ngIf="course?.lessons.length">
+    <li *ngIf="course?.lessons?.length">
         <p>{{"محاضرات"+" "+course?.lessons?.length+" "+"درس"}}</p>
     </li>
     <li *ngIf="!course?.lessons?.length">

@@ -25,19 +25,19 @@ export class CourseDetailsComponent {
       console.log(params['id1']) 
        console.log(params['id2']) //log the value of id
     });
-    this.  getCourseDetailsByID()
+    //this.  getCourseDetailsByID()
   }
 
   
 
-  getCourseDetailsByID(){
-    this._trainingService.getAllCourseDetailsByID(this.id1).subscribe((res:any)=>{
-      if(res){
-      console.log(res);
-      this.courses=res.data;
-      this.courseCategory=res.data.course_category;
-      console.log(this.courseCategory);
-      }
-    })
-  }
+  // getCourseDetailsByID(){
+  //   this._trainingService.getAllCourseDetailsByID(this.id1).subscribe((res:any)=>{
+  //     if(res){
+  //     console.log(res);
+  //     this.courses=res.data;
+  //     this.courseCategory=res.data.course_category;
+  //     console.log(this.courseCategory);
+  //     }
+  //   })
+  // }
 }
