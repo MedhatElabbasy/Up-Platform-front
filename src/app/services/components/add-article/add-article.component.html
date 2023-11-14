@@ -9,7 +9,7 @@
     </div>
     <div class="mt-4 second-section rounded-4 p-4 ">
         <div class="container mt-3">
-            <form [formGroup]="addBlogForm" class="">
+            <form [formGroup]="addBlogForm">
                 <div class="row">
                     <div class="col-lg-6 mt-3">
                         <div class="form-group row">
@@ -17,14 +17,21 @@
                             <div class="col-sm-7">
                                 <input type="text" formControlName="title" class="form-control" id="inputitle"
                                     placeholder="">
+                                <div *ngIf="isFormSubmitted && addBlogForm.get('title')?.hasError('required')" class="text-danger">
+                                    {{ validationMessages.title?.required }}
+                                </div>
                             </div>
                         </div>
                     </div>
-                     <div class="col-lg-6 mt-3">
+                    <div class="col-lg-6 mt-3">
                         <div class="form-group row">
                             <label for="inputslug" class="col-sm-4 col-form-label"> عنوان مختصر : </label>
                             <div class="col-sm-7">
-                                <input type="text" formControlName="slug" class="form-control" id="inputslug" placeholder="">
+                                <input type="text" formControlName="slug" class="form-control" id="inputslug"
+                                    placeholder="">
+                                <div *ngIf="isFormSubmitted && addBlogForm.get('slug')?.hasError('required')" class="text-danger">
+                                    {{ validationMessages.slug?.required }}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -36,58 +43,62 @@
                             </div>
                         </div>
                     </div> -->
-                </div> 
-            
-        <div class="form-group row mt-3">
-            <label for="inputdesc" class="col-sm-2 col-form-label"> تفاصيل المقال : </label>
-            <div class="col-sm-10">
-                <textarea type="text" formControlName="description" class="form-control" id="inputdesc"
-                    placeholder=""></textarea>
-            </div>
-        </div>
-         <div class="form-group row mt-3">
+                </div>
+
+                <div class="form-group row mt-3">
+                    <label for="inputdesc" class="col-sm-2 col-form-label"> تفاصيل المقال : </label>
+                    <div class="col-sm-10">
+                        <textarea type="text" formControlName="description" class="form-control" id="inputdesc"
+                            placeholder=""></textarea>
+                        <div *ngIf="isFormSubmitted && addBlogForm.get('description')?.hasError('required')" class="text-danger">
+                            {{ validationMessages.description?.required }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
                     <label for="inputdcate" class="col-sm-2 col-form-label"> الفئه: </label>
                     <div class="col-sm-3">
-                        <p-dropdown placeholder="تحديد الفئه" 
-                        formControlName="category_id"
-                        [options]="categories"
-                        optionLabel="title.ar"
-                        optionValue="id"
-                        (onChange)="category($event)"
-                        styleClass="w-100 text-center fw-bold "
-                            id="inputdcate"></p-dropdown>
+                        <p-dropdown placeholder="تحديد الفئه" formControlName="category_id" [options]="categories"
+                            optionLabel="title.ar" optionValue="id" (onChange)="category($event)"
+                            styleClass="w-100 text-center fw-bold " id="inputdcate"></p-dropdown>
                     </div>
                 </div>
                 <div class="row">
-                     <div class="col-lg-6 mt-3">
+                    <div class="col-lg-6 mt-3">
                         <div class="form-group row">
                             <label for="inputdate" class="col-sm-4 col-form-label"> تاريخ النشر : </label>
                             <div class="col-sm-7">
-                                 <mat-form-field>
+                                <mat-form-field>
                                     <mat-label>اختر تاريخ </mat-label>
                                     <input matInput formControlName="authored_date" [matDatepicker]="picker">
                                     <mat-hint>MM/DD/YYYY</mat-hint>
                                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                                     <mat-datepicker #picker></mat-datepicker>
-                                </mat-form-field> 
-        </div>
+                                </mat-form-field>
+                                <div *ngIf="isFormSubmitted && addBlogForm.get('authored_date')?.hasError('required')" class="text-danger">
+                                    {{ validationMessages.authored_date?.required }}
+                                </div>
+                            </div>
                         </div>
-                    </div> 
-        <div class="col-lg-6 mt-3">
+                    </div>
+                    <div class="col-lg-6 mt-3">
                         <div class="form-group row">
                             <label for="inputdate" class="col-sm-4 col-form-label"> وقت النشر : </label>
                             <div class="col-sm-7">
-                                <input type="time" formControlName="authored_time" id="with_placeholder" placeholder='hh:mm'
-                                    onfocus="this.placeholder = ''" class="form-control">
+                                <input type="time" formControlName="authored_time" id="with_placeholder"
+                                    placeholder='hh:mm' onfocus="this.placeholder = ''" class="form-control">
+                                    <div *ngIf="isFormSubmitted && addBlogForm.get('authored_date')?.hasError('required')" class="text-danger">
+                                        {{ validationMessages.authored_time?.required }}
+                                    </div>
                             </div>
                         </div>
                     </div>
 
-    </div>
-    <div class="row">
+                </div>
+                <div class="row">
 
-        <div class="col-lg-6 col-sm-12 mt-3">
-            <!-- <div class="form-group row">
+                    <div class="col-lg-6 col-sm-12 mt-3">
+                        <!-- <div class="form-group row">
                             <label for="" class="col-sm-4 col-form-label"> صورة مصغرة للعمل : </label>
                             <div class="col-sm-8">
                                 <ngx-dropzone (change)="onImageUpload($event)" class="position-relative">
@@ -105,33 +116,37 @@
                                   </ngx-dropzone>
                             </div>
                         </div> -->
-            <div class="form-group row">
-                <label for="" class="col-sm-4 col-form-label"> صورة مصغرة للعمل : </label>
-                <div class="col-sm-8">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <div class="uploadBox">
-                            <img src="../../../../assets/images/services/Folder.png" class="d-block w-20 m-auto boxImg">
-                            <p>إرفق صور او فديو او صوت هنا لبدء التحميل</p>
-                            <p>- أو -</p>
-                            <!-- <button class="nav-link px-4  btn btn1 mt-2 m-auto" routerLink="">Browse
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label"> صورة مصغرة للعمل : </label>
+                            <div class="col-sm-8">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="uploadBox">
+                                        <img src="../../../../assets/images/services/Folder.png"
+                                            class="d-block w-20 m-auto boxImg">
+                                        <p>إرفق صور او فديو او صوت هنا لبدء التحميل</p>
+                                        <p>- أو -</p>
+                                        <!-- <button class="nav-link px-4  btn btn1 mt-2 m-auto" routerLink="">Browse
                                             files</button> -->
-                            <input type="file" (change)="onFileSelected($event)" />
+                                        <input type="file" (change)="onFileSelected($event)" />
+                                    <div *ngIf="isFormSubmitted && addBlogForm.get('image')?.hasError('required')" class="text-danger">
+                                            {{ validationMessages.image?.required }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-12
+                <div class="col-lg-12
                          d-flex justify-content-end align-items-center">
-        <div class="">
-            <button class=" btn btn1 mt-5" (click)="addArticle()">
-                اضافة</button>
+                    <div class="">
+                        <button class=" btn btn1 mt-5" (click)="addArticle()">
+                            اضافة</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-    </form>
-</div>
-</div>
 </div>
 
 
@@ -139,7 +154,7 @@
     <div class="row">
         <div class="col-2 d-flex justify-content-center align-items-center">
             <div class=" m-auto">
-                  <img src="../../../../assets/images/projects/98.png" class="modalImg ">
+                <img src="../../../../assets/images/projects/98.png" class="modalImg ">
             </div>
         </div>
         <div class="col-10">

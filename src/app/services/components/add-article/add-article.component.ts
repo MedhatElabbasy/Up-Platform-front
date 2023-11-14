@@ -13,13 +13,38 @@ import { ModalService } from 'src/app/core/services/modal.service';
   styleUrls: ['./add-article.component.scss'],
 })
 export class AddArticleComponent {
+  isFormSubmitted = false;
   addBlogForm!: FormGroup;
   categories:[]=[]
   profileImage!: string | null;
   message: string = '';
   imageIsLoading: boolean = false;
   image: File | null = null;
-  articleID="article"
+  articleID="article";
+  validationMessages = {
+    title: {
+      required: 'عنوان المقال مطلوب'
+    },
+    description: {
+      required: ' وصف المقال مطلوب',
+    },
+    image: {
+      required: 'الصورة مطلوبة',
+    },
+    authored_date: {
+      required: 'تاريخ النشر مطلوب'
+    },
+    authored_time: {
+      required: 'وقت النشر مطلوب'
+    },
+    category_id: {
+      required: ' الفئة مطلوبة'
+    },
+    slug: {
+      required: 'العنوان المختصر مطلوب',
+    },
+  };
+
   constructor( private router: Router,private _domSanitizer: DomSanitizer,private fb: FormBuilder,private _service:ServicesapiService,
     private _modal:ModalService){
     this.generateForm();
@@ -28,34 +53,15 @@ export class AddArticleComponent {
 
   generateForm() {
     this.addBlogForm = this.fb.group({
-      title: [
-        '',
-        [Validators.required],
-      ],
-      description: [
-        '',
-        [Validators.required],
-      ],
-      image: [
-        ''
-      ],
-      slug: [
-        '',
-        [Validators.required],
-      ],
-      authored_date: [
-        '',
-        [Validators.required],
-      ],
-      authored_time: [
-        '',
-        [Validators.required]
-      ],
+      title: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      image: ['', [Validators.required]],
+      slug: ['', [Validators.required]],
+      authored_date: ['', [Validators.required]],
+      authored_time: ['', [Validators.required]],
       category_id: [null, Validators.required],
-     
     });
 
-   
   }
 
   //get control
@@ -74,6 +80,7 @@ export class AddArticleComponent {
 
 
   addArticle() {
+    this.isFormSubmitted = true;
     console.log(this.addBlogForm);
     
     if (!this.image) {
