@@ -28,7 +28,7 @@
     <div class="mt-4 second-section rounded-4 p-4">
         <div class="container mt-3">
             <div class="row justify-content-around mt-5">
-                <div class="col-lg-4" *ngFor="let project of teamProjects">
+                <div class="col-lg-4" *ngFor="let project of teamProjects  | paginate: config; let colIndex = index">
                     <div class="card1 pt-5">
                         <div class="card-circle d-flex justify-content-center align-items-center">
                             <div>
@@ -55,7 +55,19 @@
                 </div>
             </div>
         </div>
+        <ngx-spinner *ngIf="!isLoading" bdColor="rgba(0, 0, 0, 0.2)" size="medium" color="#fff"
+                              type="square-jelly-box" fullScreen="false"></ngx-spinner>
     </div>
+
+    <div class="has-text-centered mt-4">
+        <pagination-controls [id]="config.id || ''" [maxSize]="maxSize" [directionLinks]="directionLinks"
+            [autoHide]="autoHide" [responsive]="responsive" [previousLabel]="labels.previousLabel"
+            [nextLabel]="labels.nextLabel" [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+            [screenReaderPageLabel]="labels.screenReaderPageLabel"
+            [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel" (pageChange)="onPageChange($event)"
+            (pageBoundsCorrection)="onPageBoundsCorrection($event)"></pagination-controls>
+    </div>
+
 </div>
 
 <app-modal id="applyApplication" classList="modal-dialog-centered">

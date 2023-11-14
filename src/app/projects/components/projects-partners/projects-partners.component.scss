@@ -46,7 +46,13 @@
 
 .second-section {
     background-color: #D3EBFF;
+    position: relative;
   }
+
+  ::ng-deep .ngx-spinner-overlay{
+    position:absolute!important;
+  }
+  
   
   .card1{
     background-color: $main-color;

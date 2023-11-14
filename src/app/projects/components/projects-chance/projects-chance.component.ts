@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ProjectsService } from 'src/app/projects/projects.service';
 
 @Component({
@@ -11,8 +12,10 @@ export class ProjectsChanceComponent {
   projects!: any;
   categories!: any;
   allCategories = ['الكل'];
-  constructor(private service: ProjectsService, private router: Router) {}
+  isLoading:boolean=true
+  constructor(private service: ProjectsService, private router: Router,private spinner: NgxSpinnerService) {}
   ngOnInit(): void {
+    this.spinner.show();
     this.getAllOpps();
     this.getAllOppsCategories();
   }
@@ -24,8 +27,12 @@ export class ProjectsChanceComponent {
     console.log(id);
   }
   getAllOpps() {
+    this.isLoading=false
     this.service.getAllOpps().subscribe((res) => {
+      if(res){
       this.projects = res;
+      this.isLoading=true
+      }
     });
   }
 
