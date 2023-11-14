@@ -1,0 +1,91 @@
+<div class="main container px-5">
+
+    <h2 class="header">
+        تفاصيل المشروع
+    </h2>
+    <div>
+
+        <div class="first-section d-flex  align-items-center justify-content-between">
+            <div class="name-container d-flex align-items-center ">
+                <h3>اسم المشروع : </h3>
+                <h5> {{chance?.opp_name}}</h5>
+            </div>
+            <div class="image-container">
+                <img [src]="chance?.opp_image">
+            </div>
+        </div>
+        <div class="second-section d-flex  justify-content-between ">
+            <h3>
+                تفاصيل المشروع :
+            </h3>
+            <h5>
+                {{chance?.opp_desc}}
+            </h5>
+        </div>
+        <div class="thrid-section d-flex  justify-content-between ">
+            <h3 style="width: 100px">
+                القواعد :
+            </h3>
+            <h5>
+                {{chance?.opp_rules}}
+            </h5>
+        </div>
+        <div class="thrid-section d-flex  align-items-center">
+            <h3>
+                مدة العقد :
+            </h3>
+            <h5>
+                {{chance?.opp_contract_duration}}
+            </h5>
+        </div>
+        <div class="thrid-section d-flex  align-items-center">
+            <h3>
+                الموقع :
+            </h3>
+            <h5>
+                {{chance?.opp_location}}
+            </h5>
+        </div>
+        <div class="thrid-section d-flex  align-items-center justify-content-around">
+            <div class="d-flex align-items-center">
+
+                <h3>
+                    نسبة حقوق النشر :
+                </h3>
+                <h5>
+                    {{chance?.opp_copyrights_percentage}}
+                </h5>
+            </div>
+            <div class="d-flex align-items-center">
+
+                <h3>
+                    نسبة التسويق :
+                </h3>
+                <h5>
+                    {{chance?.opp_markting_percentage}}
+                </h5>
+            </div>
+        </div>
+        <div class="thrid-section d-flex  align-items-center justify-content-around">
+            <div class="d-flex align-items-center">
+
+                <h3>
+                    التكلفه من :
+                </h3>
+                <h5>
+                    {{chance?.opp_cost_from}}
+                </h5>
+            </div>
+            <div class="d-flex align-items-center">
+
+                <h3>
+                    التكلفه الي :
+                </h3>
+                <h5>
+                    {{chance?.opp_cost_to}}
+                </h5>
+            </div>
+        </div>
+    </div>
+
+</div>

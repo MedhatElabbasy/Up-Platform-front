@@ -19,7 +19,7 @@
   h3 {
     font-weight: 700;
     font-size: 30px;
-    color: #FFB300;
+    color: #ffb300;
     font-family: "Bahij";
   }
 
@@ -32,10 +32,8 @@
       margin-top: 23px;
     }
 
-
-
     .btn1 {
-      background: linear-gradient(to right, #359BBA, #07487C);
+      background: linear-gradient(to right, #359bba, #07487c);
       color: $white-color;
       padding: 10px 0;
 
@@ -45,104 +43,126 @@
     }
   }
 }
-.define{
-    margin-right: 75px;
-    border-right: 6px solid #3CA7C3;
-    padding-right: 5px;
-    border-radius: 5px;
+.define {
+  margin-right: 75px;
+  border-right: 6px solid #3ca7c3;
+  padding-right: 5px;
+  border-radius: 5px;
 }
 
 .second-section {
-    background-color: #D3EBFF;
-  }
-  
-  .card1{
-    background-color: $main-color;
-    color:#fff;
-    border-radius: 10px;
-    padding:10px;
-    position:relative;
-  }
+  background-color: #d3ebff;
+}
 
-  .btn2 {
-    background-color: #FFB300;
-    color: $white-color;
-    padding: 13px 0;
-  }
+.card1 {
+  background-color: $main-color;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+}
 
-  .card-circle{
-    position: absolute;
-    left: 50%;
-    top: 0;
-    width: 100px;
-    height:100px;
-    background-color: #fff;
-    border-radius: 50%;
-    transform:translate(-50%, -50%);
+.btn2 {
+  background-color: #ffb300;
+  color: $white-color;
+  padding: 13px 0;
+}
 
-  }
+.card-circle {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
 
-  .bg-white{
-    color:$light-blue;
-  }
+.bg-white {
+  color: $light-blue;
+}
 
-  
-  .input {
+.input {
   // margin-bottom: 75px;
 
-    .input-container {
-      position: relative;
-      display: inline-block;
-      width: 100%;
+  .input-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
 
-      .icon {
-        position: absolute;
-        top: 50%;
-        left: 10px;
-        transform: translateY(-50%);
+    .icon {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
 
-        img {
-          width: 85%;
-        }
-      }
-
-      .mdc-icon-button {
-        position: absolute !important;
-        left: 0%;
-      }
-
-      .input-field {
-        padding-right: 30px;
-        border: 2px solid $gray-color;
-        border-radius: 10px;
-        width: 100%;
-        height: 45px;
-
-        &::placeholder {
-          font-size: 12px;
-          font-weight: bold;
-        }
-      }
-
-      input:focus-visible {
-        outline-color: $main-color;
+      img {
+        width: 85%;
       }
     }
-  }
 
-  .searchBar{
-    margin-bottom: 100px;
-  }
+    .mdc-icon-button {
+      position: absolute !important;
+      left: 0%;
+    }
 
+    .input-field {
+      padding-right: 30px;
+      border: 2px solid $gray-color;
+      border-radius: 10px;
+      width: 100%;
+      height: 45px;
+
+      &::placeholder {
+        font-size: 12px;
+        font-weight: bold;
+      }
+    }
+
+    input:focus-visible {
+      outline-color: $main-color;
+    }
+  }
+}
+
+.searchBar {
+  margin-bottom: 100px;
+}
+
+
+
+// media Query
 @media screen and (max-width: 992px) {
-  .searchBar{
+  .searchBar {
     margin-bottom: 75px;
   }
-  .searchBarInput{
+  .searchBarInput {
     margin-bottom: 10px;
   }
 
-  .card1{
-margin-bottom: 65px;
+  .card1 {
+    margin-bottom: 65px;
   }
+}
+
+
+@media (max-width: 400px) {
+  .main{
+
+padding: 0 10px !important;
+    .header {
+      font-size: 25px !important;
+      margin-bottom: 0px !important;
+    }
+    h3 {
+      font-size: 23px !important;
+      img{
+        width: 26px;
+      }}
+      .define{
+        border-right: 6px solid #3ca7c3;
+        margin: 0;
+      }
+    }
 }

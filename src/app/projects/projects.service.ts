@@ -37,4 +37,30 @@ export class ProjectsService {
       }
     }
   )}
+
+  getProjectFinancingData(): Observable<any> {
+    return this._HttpClient.get(environment.baseUrl + '/fund_agency/index')
+  }
+
+  getAllFinancingCategory(): Observable<any> {
+    return this._HttpClient.get(environment.baseUrl + '/fund_cat/index')
+  }
+
+  getAllTeamCategories(){
+    return this._HttpClient.get(environment.baseUrl + '/service_category/index')
+  }
+
+
+  addNewTeamProject(formData: FormData){
+    return this._HttpClient.post(environment.baseUrl + '/freelance_services/store', formData)
+  }
+
+  getAllTeamProjects(): Observable<any>{
+    return this._HttpClient.get(environment.baseUrl + '/freelance_services/index')
+  }
+
+
+  applyServiceApllication(formData: FormData){
+    return this._HttpClient.post(environment.baseUrl + '/service_applications/store', formData)
+  }
 }

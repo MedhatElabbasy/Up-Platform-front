@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProjectsService } from 'src/app/projects/projects.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { ModalService } from 'src/app/core/services/modal.service';
 
 @Component({
   selector: 'app-new-project-form',
@@ -18,8 +19,8 @@ export class NewProjectFormComponent {
   part_cost: string = '';
   user_id: string = '';
   partcat_id: string = '';
-
-  constructor(public _ProjectService: ProjectsService, private toastr: ToastrService, private _Router: Router) {}
+  modalID="newProject"
+  constructor(public _ProjectService: ProjectsService, private _modal: ModalService, private _Router: Router) {}
 
   newPartener() {
     const formData = new FormData();
@@ -40,22 +41,27 @@ export class NewProjectFormComponent {
       console.log(res);
       if (res.status == 200) {
         console.log(res.message);
-        this.showSuccessToast(res.msg);
-        setTimeout(() => {
-          this._Router.navigate(['/projects/projects-partners'])
-        }, 2000);
-      } else {
-        console.log(res.message);
-        this.showErrorToast(res.msg);
+        this._modal.open(this.modalID);
       }
+        // this.showSuccessToast(res.msg);
+        // setTimeout(() => {
+        //   this._Router.navigate(['/projects/projects-partners'])
+        // }, 2000);
+     // } else {
+        // console.log(res.message);
+        // this.showErrorToast(res.msg);
+      //}
     });
   }
+cancel(){
+  this._modal.close(this.modalID)
+  this._Router.navigate(['/projects/projects-partners'])
+}
+  // showSuccessToast(message: string) {
+  //   this.toastr.success('تمت الإضافة بنجاح');
+  // }
 
-  showSuccessToast(message: string) {
-    this.toastr.success('تمت الإضافة بنجاح');
-  }
-
-  showErrorToast(message: string) {
-    this.toastr.error('فشل الإضافة');
-  }
+  // showErrorToast(message: string) {
+  //   this.toastr.error('فشل الإضافة');
+  // }
 }

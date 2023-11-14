@@ -14,6 +14,7 @@
 
   .header {
     font-size: 35px;
+
   }
 
   h3 {
@@ -146,9 +147,38 @@ margin-bottom: 65px;
   }
 }
 
-p{
-  text-align: center;
-  font-size: 16px;
-  font-weight: 400;
-  padding-top: 4px !important;
+// media Query
+@media screen and (max-width: 992px) {
+  .searchBar {
+    margin-bottom: 75px;
+  }
+  .searchBarInput {
+    margin-bottom: 10px;
+  }
+
+  .card1 {
+    margin-bottom: 65px;
+  }
 }
+
+
+@media (max-width: 400px) {
+  .main{
+
+padding: 0 10px !important;
+    .header {
+      font-size: 25px !important;
+      margin-bottom: 0px !important;
+    }
+    h3 {
+      font-size: 23px !important;
+      img{
+        width: 26px;
+      }}
+      .define{
+        border-right: 6px solid #3ca7c3;
+        margin: 0;
+      }
+    }
+}
+  

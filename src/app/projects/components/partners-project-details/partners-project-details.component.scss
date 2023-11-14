@@ -1,0 +1,63 @@
+@import "../../../../assets/styles/variables.scss";
+
+// General Styling
+h2 {
+  font-weight: bold;
+  color: $main-color;
+  line-height: 80px;
+  font-family: "Bahij";
+}
+h3 {
+  font-weight: 700;
+  font-size: 25px;
+  color: #ffb300;
+  font-family: "Bahij";
+}
+h5 {
+  font-weight: 600;
+  font-size: 20px;
+  font-family: "Bahij";
+  line-height: 40px;
+  color: #555;
+}
+p {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 35px;
+  font-family: "Bahij";
+  margin-top: 5px;
+  margin-right: 20px;
+}
+div {
+  margin-top: 10px;
+}
+//   page style
+.main {
+  margin-top: 5px;
+  padding-bottom: 20px;
+
+  .header {
+    font-size: 35px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    width: fit-content;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: $light-blue;
+    color: white;
+    margin-bottom: 45px;
+  }
+  .image-container {
+    img {
+      border-radius: 15px;
+    }
+  }
+  .second-section {
+    margin-top: 25px;
+    h3 {
+      width: 220px;
+      transform: translateY(5px);
+    }
+  }
+}

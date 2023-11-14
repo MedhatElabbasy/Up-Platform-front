@@ -68,7 +68,7 @@
             </div>
          
             <div class="row justify-content-around">
-                <div class="col-lg-4 my-5" *ngFor="let partener of parteners">
+                <div class="col-lg-4 my-5" *ngFor="let partener of parteners  | paginate: config; let colIndex = index">
                     <div class="card1 pt-5">
                         <div class="card-circle d-flex justify-content-center align-items-center">
                             <div>
@@ -84,13 +84,21 @@
                             <li class="mb-2">النسبة: {{partener.part_percentage}}</li>
                         </ul>
                         <div class="d-flex justify-content-end mt-3 row">
-                            <button class="nav-link px-4  btn btn2 mt-2 mx-auto mx-2 col-5" routerLink="">مزيد من المعلومات</button>
+                            <button class="nav-link px-4  btn btn2 mt-2 mx-auto mx-2 col-5" (click)="redirect(partener.id)">مزيد من المعلومات</button>
                             <button class="nav-link px-4  btn btn2 mt-2 mx-auto col-5" (click)="applyAppForPart(partener.id)">إضافة كشريك</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="has-text-centered mt-4">
+        <pagination-controls [id]="config.id || ''" [maxSize]="maxSize" [directionLinks]="directionLinks"
+            [autoHide]="autoHide" [responsive]="responsive" [previousLabel]="labels.previousLabel"
+            [nextLabel]="labels.nextLabel" [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+            [screenReaderPageLabel]="labels.screenReaderPageLabel"
+            [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel" (pageChange)="onPageChange($event)"
+            (pageBoundsCorrection)="onPageBoundsCorrection($event)"></pagination-controls>
     </div>
 </div>
 

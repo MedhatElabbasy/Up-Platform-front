@@ -32,6 +32,13 @@ import { MarketingSalesComponent } from './components/marketing-sales/marketing-
 import { MarketingDistractionsComponent } from './components/marketing-distractions/marketing-distractions.component';
 import { FinalReportComponent } from './components/final-report/final-report.component';
 import { MarketingDesignAdComponent } from './components/marketing-design-ad/marketing-design-ad.component';
+import { ChanceProjectDetailComponent } from './components/chance-project-detail/chance-project-detail.component';
+import { FinancingProjectDetailComponent } from './components/financing-project-detail/financing-project-detail.component';
+import { PartnersProjectDetailsComponent } from './components/partners-project-details/partners-project-details.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { TeamProjectDetailComponent } from './components/team-project-detail/team-project-detail.component';
 
 @NgModule({
   declarations: [
@@ -64,12 +71,20 @@ import { MarketingDesignAdComponent } from './components/marketing-design-ad/mar
     MarketingDistractionsComponent,
     FinalReportComponent,
     MarketingDesignAdComponent,
-    NewProjectFormComponent
+    NewProjectFormComponent,
+    ChanceProjectDetailComponent,
+    FinancingProjectDetailComponent,
+    PartnersProjectDetailsComponent,
+    TeamProjectDetailComponent
   ],
   imports: [
     CommonModule,
     ProjectsRoutingModule,
-    CoreModule
+    NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CoreModule,
+    NgxSpinnerModule.forRoot({ type: 'square-jelly-box' })
   ]
 })
 export class ProjectsModule { }

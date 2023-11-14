@@ -26,6 +26,10 @@ export enum projectsRoutes {
     marketingCampaign='marketing-campaign',
     marketingSales='marketing-sales',
     marketingDistractions='marketing-distractions',
-    finalReport='final-report'
+    finalReport='final-report',
+    chanceProjectInfo='chance-project-info',
+    financingProjectDetail='financing-project-info',
+    partnersProjectInfo='partners-project-info',
+    teamProjectInfo='team-project-info'
 }
    

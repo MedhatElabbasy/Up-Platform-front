@@ -16,95 +16,69 @@
                 <div class="col-lg-3 searchBarInput">
                     <div class="input">
                         <div class="input-container ">
-                          <i class="icon "><img src="assets/images/projects/Icon.png"></i>
-                          <input type="text" class="input-field" placeholder="بحث و تصفية">
+                            <i class="icon "><img src="assets/images/projects/Icon.png"></i>
+                            <input type="text" class="input-field" placeholder="بحث و تصفية">
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <div class="row">
-                        <div class="col-lg-4 searchBarInput"> <div>
-                            <p-dropdown
-                                placeholder="القطاع"
-                                styleClass="w-100 text-center fw-bold ">
-                            </p-dropdown>
-                        </div></div>
                         <div class="col-lg-4 searchBarInput">
                             <div>
-                                <p-dropdown
-                                placeholder="التكاليف"
-                                styleClass="w-100 text-center fw-bold ">
-                            </p-dropdown>
+                                <p-dropdown [options]="allCate" placeholder="التصنيف"
+                                    styleClass="w-100 text-center fw-bold ">
+
+                                </p-dropdown>
+                            </div>
                         </div>
+                        <div class="col-lg-4 searchBarInput">
+                            <div>
+                                <p-dropdown placeholder="التكاليف" styleClass="w-100 text-center fw-bold ">
+                                </p-dropdown>
+                            </div>
                         </div>
-                        <div class="col-lg-4 searchBarInput">  <div>
-                            <p-dropdown
-                            placeholder="بلد العلامة التجارية"
-                            styleClass="w-100 text-center fw-bold ">
-                        </p-dropdown>
-                            </div></div>
+                        <div class="col-lg-4 searchBarInput">
+                            <div>
+                                <p-dropdown placeholder="بلد العلامة التجارية" styleClass="w-100 text-center fw-bold ">
+                                </p-dropdown>
+                            </div>
+                        </div>
                     </div>
-                   
-                    
-              
+
+
+
                 </div>
             </div>
-         
+
             <div class="row justify-content-around">
-                <div class="col-lg-3">
+                <div class="col-lg-3" *ngFor="let project of financingProjects">
                     <div class="card1 pt-5">
                         <div class="card-circle d-flex justify-content-center align-items-center">
                             <div>
-                                <img src="assets/images/projects/LOGO.png" class="">
+                                <img [src]="project.fund_logo" alt="LOGO" class="">
                             </div>
                         </div>
-                        <ul class="px-4 py-2 ">
-                            <li class="mb-2">مدة العقد</li>
-                            <li class="mb-2">القطاع</li>
-                            <li class="mb-2">التكاليف</li>
-                            <li class="mb-2">شروط قبول الطلب</li>
-                        </ul>
-                        <div class="d-flex justify-content-end mt-3">
-                            <button class="nav-link px-4  btn btn2 mt-2" routerLink="">مزيد من المعلومات</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="card1 bg-white pt-5">
-                        <div class="card-circle d-flex justify-content-center align-items-center">
-                            <div>
-                                <img src="assets/images/projects/LOGO.png" class="">
+
+                        <div class="">
+                            <h3 class="text-center py-2">{{project.fund_name}}</h3>
+                            <ul class="px-4 py-2 ">
+                                <li class="mb-2"> الوصف : {{project.fund_desc}}</li>
+                                <li class="mb-2">النسبة : {{project.fund_interset_percentage}}</li>
+                                <li class="mb-2"> المدة : {{project.fund_repay_period}}</li>
+                                <li class="mb-2"> القواعد :{{project.fund_rules}}</li>
+
+
+
+                            </ul>
+                            <div class="d-flex justify-content-end mt-3">
+                                <button class="nav-link px-4  btn btn2 mt-2 mx-auto" (click)="navigate(project.fund_categories_id)">مزيد من
+                                    المعلومات</button>
+                                </div>
                             </div>
-                        </div>
-                        <ul class="px-4 py-2 ">
-                            <li class="mb-2">مدة العقد</li>
-                            <li class="mb-2">القطاع</li>
-                            <li class="mb-2">التكاليف</li>
-                            <li class="mb-2">شروط قبول الطلب</li>
-                        </ul>
-                        <div class="d-flex justify-content-end mt-3">
-                            <button class="nav-link px-4  btn btn2 mt-2" routerLink="">مزيد من المعلومات</button>
-                        </div>
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    <div class="card1 bg-white pt-5">
-                        <div class="card-circle d-flex justify-content-center align-items-center">
-                            <div>
-                                <img src="assets/images/projects/LOGO.png" class="">
-                            </div>
-                        </div>
-                        <ul class="px-4 py-2 ">
-                            <li class="mb-2">مدة العقد</li>
-                            <li class="mb-2">القطاع</li>
-                            <li class="mb-2">التكاليف</li>
-                            <li class="mb-2">شروط قبول الطلب</li>
-                        </ul>
-                        <div class="d-flex justify-content-end mt-3">
-                            <button class="nav-link px-4  btn btn2 mt-2" routerLink="">مزيد من المعلومات</button>
-                        </div>
-                    </div>
-                </div>
+
+
             </div>
         </div>
     </div>

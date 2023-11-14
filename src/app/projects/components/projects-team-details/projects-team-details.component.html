@@ -15,26 +15,12 @@
         </div>
         <div class="col-lg-7 m-auto">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-3" *ngFor="let category of teamCategories">
                     <div class="specialCard">
-                        <p>البرمجة و التصاميم</p>
+                        <p> {{category.scategory_name}} </p>
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    <div class="specialCard1">
-                        <p>محامى</p>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="specialCard1">
-                        <p>محاسب</p>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="specialCard1">
-                        <p>call center</p>
-                    </div>
-                </div>
+
             </div>
 
         </div>
@@ -42,151 +28,52 @@
     <div class="mt-4 second-section rounded-4 p-4">
         <div class="container mt-3">
             <div class="row justify-content-around mt-5">
-                <div class="col-lg-4">
+                <div class="col-lg-4" *ngFor="let project of teamProjects">
                     <div class="card1 pt-5">
                         <div class="card-circle d-flex justify-content-center align-items-center">
                             <div>
-                                <img src="assets/images/projects/شــعـارمـــزودالخدمة.png" class="">
+                                <img [src]="project.service_image" class="">
                             </div>
                         </div>
-                        <h5><img src="assets/images/projects/Ellipse 29.png" class="m-auto mx-2">معلومات عن الخدمة</h5>
-                        <p>هذا النص هو مثال لنص يمكن أن يـسـتبدل في نفس المساحة، لقد تم تـولــيـد هـذا الـنص مـن مولد
-                            النص العربى، حيث
-                            يـمكنك أن تولد مــثــل</p>
+                        <h3 class="text-center my-3">{{project.free_service_name }}</h3>
+                        <h6 class=" my-3"> معلومات عن الخدمة :</h6>
+                        <p style="font-size: 20px;">{{project.free_service_desc}}</p>
                         <div class="row declare mt-4">
                             <div class="col-6">
-                                <h6>سعر الخدمة</h6>
-                                <span class="price">120</span><span class="cap">ريال</span>
+                                <h6>سعر الخدمة : </h6>
+                                <span class="price">{{project.service_cost_from}}</span><span class="price">:
+                                    {{project.service_cost_to}} ريال</span>
                             </div>
-                            <div class="col-6 d-flex align-items-end justify-content-end">
-                                <div class="d-flex justify-content-center mt-3">
-                                    <button class="nav-link px-4  btn btn2 mt-2" routerLink="">وظفنى</button>
+                        </div>
+                            <div class=" d-flex align-items-center justify-content-center">
+                                <div class="d-flex justify-content-end mt-3 row">
+                                    <button class="nav-link px-4  btn btn2 mt-2 mx-auto mx-2 col-5" (click)="redirect(project.id)">مزيد من المعلومات</button>
+                                    <button class="nav-link px-4  btn btn2 mt-2 mx-auto col-5" (click)="applyAppForPart(project.id)">وظفنى</button>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card1 bg-white pt-5">
-                        <div class="card-circle d-flex justify-content-center align-items-center">
-                            <div>
-                                <img src="assets/images/projects/شــعـارمـــزودالخدمة.png" class="">
-                            </div>
-                        </div>
-                        <h5><img src="assets/images/projects/Ellipse 28.png" class="m-auto mx-2">معلومات عن الخدمة</h5>
-                        <p>هذا النص هو مثال لنص يمكن أن يـسـتبدل في نفس المساحة، لقد تم تـولــيـد هـذا الـنص مـن مولد
-                            النص العربى، حيث
-                            يـمكنك أن تولد مــثــل</p>
-                        <div class="row declare mt-4">
-                            <div class="col-6">
-                                <h6>سعر الخدمة</h6>
-                                <span class="price">120</span><span class="cap">ريال</span>
-                            </div>
-                            <div class="col-6 d-flex align-items-end justify-content-end">
-                                <div class="d-flex justify-content-center mt-3">
-                                    <button class="nav-link px-4  btn btn2 mt-2" routerLink="">وظفنى</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card1 bg-white pt-5">
-                        <div class="card-circle d-flex justify-content-center align-items-center">
-                            <div>
-                                <img src="assets/images/projects/شــعـارمـــزودالخدمة.png" class="">
-                            </div>
-                        </div>
-                        <h5><img src="assets/images/projects/Ellipse 28.png" class="m-auto mx-2">معلومات عن الخدمة</h5>
-                        <p>هذا النص هو مثال لنص يمكن أن يـسـتبدل في نفس المساحة، لقد تم تـولــيـد هـذا الـنص مـن مولد
-                            النص العربى، حيث
-                            يـمكنك أن تولد مــثــل</p>
-                        <div class="row declare mt-4">
-                            <div class="col-6">
-                                <h6>سعر الخدمة</h6>
-                                <span class="price">120</span><span class="cap">ريال</span>
-                            </div>
-                            <div class="col-6 d-flex align-items-end justify-content-end">
-                                <div class="d-flex justify-content-center mt-3">
-                                    <button class="nav-link px-4  btn btn2 mt-2" routerLink="">وظفنى</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card1 bg-white pt-5">
-                        <div class="card-circle d-flex justify-content-center align-items-center">
-                            <div>
-                                <img src="assets/images/projects/شــعـارمـــزودالخدمة.png" class="">
-                            </div>
-                        </div>
-                        <h5><img src="assets/images/projects/Ellipse 28.png" class="m-auto mx-2">معلومات عن الخدمة</h5>
-                        <p>هذا النص هو مثال لنص يمكن أن يـسـتبدل في نفس المساحة، لقد تم تـولــيـد هـذا الـنص مـن مولد
-                            النص العربى، حيث
-                            يـمكنك أن تولد مــثــل</p>
-                        <div class="row declare mt-4">
-                            <div class="col-6">
-                                <h6>سعر الخدمة</h6>
-                                <span class="price">120</span><span class="cap">ريال</span>
-                            </div>
-                            <div class="col-6 d-flex align-items-end justify-content-end">
-                                <div class="d-flex justify-content-center mt-3">
-                                    <button class="nav-link px-4  btn btn2 mt-2" routerLink="">وظفنى</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card1 bg-white pt-5">
-                        <div class="card-circle d-flex justify-content-center align-items-center">
-                            <div>
-                                <img src="assets/images/projects/شــعـارمـــزودالخدمة.png" class="">
-                            </div>
-                        </div>
-                        <h5><img src="assets/images/projects/Ellipse 28.png" class="m-auto mx-2">معلومات عن الخدمة</h5>
-                        <p>هذا النص هو مثال لنص يمكن أن يـسـتبدل في نفس المساحة، لقد تم تـولــيـد هـذا الـنص مـن مولد
-                            النص العربى، حيث
-                            يـمكنك أن تولد مــثــل</p>
-                        <div class="row declare mt-4">
-                            <div class="col-6">
-                                <h6>سعر الخدمة</h6>
-                                <span class="price">120</span><span class="cap">ريال</span>
-                            </div>
-                            <div class="col-6 d-flex align-items-end justify-content-end">
-                                <div class="d-flex justify-content-center mt-3">
-                                    <button class="nav-link px-4  btn btn2 mt-2" routerLink="">وظفنى</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card1 bg-white pt-5">
-                        <div class="card-circle d-flex justify-content-center align-items-center">
-                            <div>
-                                <img src="assets/images/projects/شــعـارمـــزودالخدمة.png" class="">
-                            </div>
-                        </div>
-                        <h5><img src="assets/images/projects/Ellipse 28.png" class="m-auto mx-2">معلومات عن الخدمة</h5>
-                        <p>هذا النص هو مثال لنص يمكن أن يـسـتبدل في نفس المساحة، لقد تم تـولــيـد هـذا الـنص مـن مولد
-                            النص العربى، حيث
-                            يـمكنك أن تولد مــثــل</p>
-                        <div class="row declare mt-4">
-                            <div class="col-6">
-                                <h6>سعر الخدمة</h6>
-                                <span class="price">120</span><span class="cap">ريال</span>
-                            </div>
-                            <div class="col-6 d-flex align-items-end justify-content-end">
-                                <div class="d-flex justify-content-center mt-3">
-                                    <button class="nav-link px-4  btn btn2 mt-2" routerLink="">وظفنى</button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<app-modal id="applyApplication" classList="modal-dialog-centered">
+    <div class="row">
+        <div class="col-2 d-flex justify-content-center align-items-center">
+            <div class=" m-auto">
+                <img src="../../../../assets/images/projects/98.png"
+                class="modalImg ">
+            </div>
+        </div>
+        <div class="col-10"> 
+            <div class="card-body bg-white rounded-4">
+                <div class="d-flex flex-column align-items-center gap-3" style="margin-left: 65px;">
+                  <h3 class="fw-600 text-center mt-3">تم تقديم طلبك وسيتم التواصل معك عبر البريد الإلكتروني</h3>
+                      <button  type="button" class="btn btn1
+                      mx-auto px-5 d-flex align-items-center gap-4" (click)="cancel()" >إغلاق</button>
+                </div>
+              </div>
+        </div>
+    </div>
+  </app-modal>

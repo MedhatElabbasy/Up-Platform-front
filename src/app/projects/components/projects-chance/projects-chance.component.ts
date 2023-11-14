@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProjectsService } from 'src/app/projects/projects.service';
 
 @Component({
@@ -10,33 +11,32 @@ export class ProjectsChanceComponent {
   projects!: any;
   categories!: any;
   allCategories = ['الكل'];
-
-  constructor(
-    private ProjectsService: ProjectsService,
-  ) {
-    this.getAllOpps();
-  }
-
+  constructor(private service: ProjectsService, private router: Router) {}
   ngOnInit(): void {
+    this.getAllOpps();
     this.getAllOppsCategories();
   }
 
+  navigate(id: any) {
+    this.router.navigate([
+      '/projects/projects-chance/chance-project-info/' + id,
+    ]);
+    console.log(id);
+  }
   getAllOpps() {
-    this.projects = [];
-    this.ProjectsService.getAllOpps().subscribe((res) => {
+    this.service.getAllOpps().subscribe((res) => {
       this.projects = res;
-      console.log(this.projects);
     });
   }
 
   getAllOppsCategories() {
-    this.ProjectsService.getAllOppsCategories().subscribe((res) => {
+    this.service.getAllOppsCategories().subscribe((res) => {
       this.categories = res;
-      console.log(this.categories);
+
       this.categories.forEach((ele: any) => {
-        console.log(ele.opp_cat_name);
         this.allCategories.push(ele.opp_cat_name);
       });
     });
   }
+
 }
