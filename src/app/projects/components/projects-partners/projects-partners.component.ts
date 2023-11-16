@@ -43,6 +43,10 @@ export class ProjectsPartnersComponent {
     this.getAllParteners();
   }
 
+  ngOnInit(): void {
+    this.spinner.show();
+  }
+
   getAllParteners() {
     this.parteners = [];
     this.isLoading = true;

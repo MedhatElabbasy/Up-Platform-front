@@ -69,20 +69,38 @@ export class OnlineConsultationComponent {
    
     }
 
-    formatDate(inputDate: string) {
-      const date = new Date(`${inputDate}T00:00:00Z`); // Assuming input date is in UTC
-      const year = date.getUTCFullYear();
-      const month = ('0' + (date.getUTCMonth() + 1)).slice(-2); // Months are zero-based
-      const day = ('0' + date.getUTCDate()).slice(-2);
-      const formattedDate = `${day}/${month}/${year}`;
-      this.formateDate = formattedDate;
-    }
+    // formatDate(inputDate: string) {
+    //   const date = new Date(`${inputDate}T00:00:00Z`); // Assuming input date is in UTC
+    //   const year = date.getUTCFullYear();
+    //   const month = ('0' + (date.getUTCMonth() + 1)).slice(-2); // Months are zero-based
+    //   const day = ('0' + date.getUTCDate()).slice(-2);
+    //   const formattedDate = `${day}/${month}/${year}`;
+    //   this.formateDate = formattedDate;
+    // }
 
+    //  formatDate(inputDate: string) {
+    //   const [year, month, day] = inputDate.split('-');
+    //   const formattedDate = `${day}/${month}/${year}`;
+    //   this.formateDate=formattedDate;
+    //   console.log(this.formateDate);
+    // }
+
+     formatDate(inputDate: string): string {
+      const date = new Date(inputDate);
+      const day = ('0' + date.getDate()).slice(-2);
+      const month = ('0' + (date.getMonth() + 1)).slice(-2); // Months are zero-based
+      const year = date.getFullYear();
+    
+      return `${day}-${month}-${year}`;
+    }
 
   submitOnline(){
     let formBlog = new FormData();
-    let formattedDate = this.onlineForm.controls['appointment_date'].value.toISOString().split('T')[0];
-    this.formatDate(formattedDate);
+  let date=this.onlineForm.controls['appointment_date'].value
+  console.log(date);
+  const formattedDate = this.formatDate(date);
+console.log(formattedDate);
+  
     formBlog.append('message', this.onlineForm.controls['message'].value);
     formBlog.append('receiver_id',this.id);
     formBlog.append('appointment_date',this.formateDate);

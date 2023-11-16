@@ -42,9 +42,9 @@ export class TestComponent {
       this.isLoading=true
       if(this.start==false){
           this._model.open(this.startTestID)
+          
       }else if(this.start==true){
-      
-        this. getAllQuestions();
+        this.getAllQuestions();
       }
     })
   }
