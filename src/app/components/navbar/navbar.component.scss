@@ -9,10 +9,10 @@ li a {
   margin-top: 10px;
 }
 
-li button {
+.btnStyle {
   background: linear-gradient(to right, #359BBA, #07487C);
   color: $white-color;
-  padding: 13px 0;
+  padding: 10px 0;
 }
 
 .activeLink, .activeCart {

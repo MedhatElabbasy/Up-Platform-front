@@ -30,7 +30,9 @@
           <a class="nav-link" routerLink="/wheelOfLuck/" routerLinkActive="activeLink">دولاب الحظ</a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link" routerLink="/auth/login/" routerLinkActive="activeLink" *ngIf="!isUserLoggedIn">الدخول</a>
+          <a class="nav-link px-4 btn btnStyle" routerLink="/auth/login/" routerLinkActive="activeLink" *ngIf="!isUserLoggedIn">
+            تسجيل الدخول</a>
+          <!-- <a class="nav-link" routerLink="/auth/login/" routerLinkActive="activeLink" *ngIf="!isUserLoggedIn">الدخول</a> -->
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/cart/" routerLinkActive="activeCart" *ngIf="isUserLoggedIn">
