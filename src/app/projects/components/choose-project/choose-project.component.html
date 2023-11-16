@@ -15,46 +15,46 @@
         <div class="second-section rounded-4">
             <div class="container mt-3">
                 <div class="row justify-content-around">
-                    <div class="col-lg-2 col-sm-4 mt-2">
+                    <div *ngFor="let sub of subCategory" class="col-lg-2 col-sm-4 mt-2">
                         <div class="card1">
                             <div class="cardLogo cursor-pointer cursor-pointer" routerLink="/projects/power-of-idea">
                                 <img src="../../../../assets/images/projects/shopping-cart.png">
-                                <p>مفروشات</p>
+                                <p>{{sub.name}}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-sm-4 mt-2">
+                    <!-- <div class="col-lg-2 col-sm-4 mt-2">
                         <div class="card1">
                             <div class="cardLogo cursor-pointer" routerLink="/projects/power-of-idea">
                                 <img src="../../../../assets/images/projects/shopping-cart.png">
                                 <p>خردوات</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-2 col-sm-4 mt-2">
+                    </div> -->
+                    <!-- <div class="col-lg-2 col-sm-4 mt-2">
                         <div class="card1">
                             <div class="cardLogo cursor-pointer" routerLink="/projects/power-of-idea">
                                 <img src="../../../../assets/images/projects/shopping-cart.png">
                                 <p>ملابس</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-2 col-sm-4 mt-2">
+                    </div> -->
+                    <!-- <div class="col-lg-2 col-sm-4 mt-2">
                         <div class="card1">
                             <div class="cardLogo cursor-pointer" routerLink="/projects/power-of-idea">
                                 <img src="../../../../assets/images/projects/shopping-cart.png">
                                 <p>إلكترونيات</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-2 col-sm-4 mt-2">
+                    </div> -->
+                    <!-- <div class="col-lg-2 col-sm-4 mt-2">
                         <div class="card1">
                             <div class="cardLogo cursor-pointer" routerLink="/projects/power-of-idea">
                                 <img src="../../../../assets/images/projects/shopping-cart.png">
                                 <p>بقالة</p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -64,42 +64,42 @@
             <div class="mt-4 p-4 section">
                 <div class="second-section2 rounded-4">
                     <div class="container mt-3">
-                        <div class="row justify-content-around">
-                            <div class="col-sm-2 mt-2">
+                        <div class=" justify-content-around">
+                            <div *ngFor="let lesson of lessons" class=" mt-2">
                                 <div class="card">
                                     <div class="cardhead">
-                                        <h3>درس 1</h3>
+                                        <h3><a [href]="lesson.link">درس 1</a></h3>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-2 mt-2">
+                            <!-- <div class="col-sm-2 mt-2">
                                 <div class="card">
                                     <div class="cardhead">
                                         <h3>درس 2</h3>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-2 mt-2">
+                            </div> -->
+                            <!-- <div class="col-sm-2 mt-2">
                                 <div class="card">
                                     <div class="cardhead">
                                         <h3>درس 3</h3>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-2 mt-2">
+                            </div> -->
+                            <!-- <div class="col-sm-2 mt-2">
                                 <div class="card">
                                     <div class="cardhead">
                                         <h3>درس 4</h3>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-2 mt-2">
+                            </div> -->
+                            <!-- <div class="col-sm-2 mt-2">
                                 <div class="card">
                                     <div class="cardhead">
                                         <h3>درس 5</h3>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -107,4 +107,6 @@
         </div>
         <div class="col-6"></div>
     </div>
+    <ngx-spinner *ngIf="!isLoading" bdColor="rgba(0, 0, 0, 0.2)" size="medium" color="#fff"
+    type="square-jelly-box" fullScreen="false"></ngx-spinner>
 </div>

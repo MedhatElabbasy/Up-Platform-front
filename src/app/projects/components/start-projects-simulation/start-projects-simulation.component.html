@@ -23,35 +23,41 @@
 
     <div class="mt-4 p-4 section">
         <div class="second-section rounded-4">
-            <h4>أختر مجال المشروع</h4>
+            <h4 class="chooseProject">أختر مجال المشروع</h4>
             <div class="container mt-3">
                 <div class="row justify-content-around">
-                    <div class="col-lg-3 mt-2">
-                        <div class="card1">
+                    <div *ngFor="let category of categories" class="col-lg-3 mt-2">
+                        <div class="card1" (click)="getCategoryDetails(category.id)">
                             <img src="../../../../assets/images/projects/Group 1839.png" class="m-auto img-fluid">
                             <div class="circleImage cursor-pointer" routerLink="/projects/choose-project">
                                 <img src="../../../../assets/images/projects/03.png" class="m">
+                                <p>{{category.name}}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 mt-2">
+                    <!-- <div class="col-lg-3 mt-2">
                         <div class="card1">
                             <img src="../../../../assets/images/projects/Group 1839.png" class="m-auto img-fluid">
                             <div class="circleImage cursor-pointer" routerLink="/projects/choose-project">
                                 <img src="../../../../assets/images/projects/Path 1862.png" class="m">
+                                <p>مفروشات</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 mt-2">
+                    </div> -->
+                    <!-- <div class="col-lg-3 mt-2">
                         <div class="card1">
                             <img src="../../../../assets/images/projects/Group 1839.png" class="m-auto img-fluid">
                             <div class="circleImage cursor-pointer" routerLink="/projects/choose-project">
                                 <img src="../../../../assets/images/projects/shopping-cart.png" class="m">
+                                <p>مفروشات</p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
     </div>
+
+    <ngx-spinner *ngIf="!isLoading" bdColor="rgba(0, 0, 0, 0.2)" size="medium" color="#fff"
+    type="square-jelly-box" fullScreen="false"></ngx-spinner>
 </div>

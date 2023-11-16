@@ -22,6 +22,10 @@
                             <label for="inputEmail3" class="col-sm-4 col-form-label">مجال العمل : </label>
                             <div class="col-sm-7">
                                 <input type="text" formControlName="free_service_name" class="form-control" id="inputEmail3" placeholder="">
+                                <div *ngIf="submitted && teamForm.controls['free_service_name'].hasError('required')"
+                                class="alert alert-danger">
+                                {{ VALIDATION_MESSAGES.service_name.required }}
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -30,6 +34,10 @@
                             <label for="inputEmail3" class="col-sm-4 col-form-label">المسمي الوظيفي : </label>
                             <div class="col-sm-7">
                                 <input type="text" formControlName="free_jobtitle" class="form-control" id="inputEmail3" placeholder="">
+                                <div *ngIf="submitted && teamForm.controls['free_jobtitle'].hasError('required')"
+                                class="alert alert-danger">
+                                {{ VALIDATION_MESSAGES.free_jobtitle.required }}
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -38,6 +46,10 @@
                             <label for="inputEmail3" class="col-sm-4 col-form-label">نبذة تعريفية : </label>
                             <div class="col-sm-7">
                                 <textarea type="text" formControlName="free_service_desc" class="form-control" id="inputEmail3" placeholder=""></textarea>
+                                <div *ngIf="submitted && teamForm.controls['free_service_desc'].hasError('required')"
+                                class="alert alert-danger">
+                                {{ VALIDATION_MESSAGES.free_service_desc.required }}
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -46,6 +58,10 @@
                             <label for="inputEmail3" class="col-sm-4 col-form-label"> المهارات : </label>
                             <div class="col-sm-7">
                                 <textarea type="text" formControlName="free_service_skills" class="form-control" id="inputEmail3" placeholder=""></textarea>
+                                <div *ngIf="submitted && teamForm.controls['free_service_skills'].hasError('required')"
+                                class="alert alert-danger">
+                                {{ VALIDATION_MESSAGES.free_service_skills.required }}
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -60,6 +76,10 @@
                     <label for="inputEmail3" class="col-sm-2 col-form-label"> عنوان العمل : </label>
                     <div class="col-sm-10">
                         <input type="text" formControlName="service_location" class="form-control" id="inputEmail3" placeholder="">
+                        <div *ngIf="submitted && teamForm.controls['service_location'].hasError('required')"
+                        class="alert alert-danger">
+                        {{ VALIDATION_MESSAGES.service_location.required }}
+                    </div>
                     </div>
                 </div>
                 <div class="row">
@@ -91,6 +111,10 @@
                                 optionValue="id"
                                 styleClass="w-100 text-center fw-bold "
                                     id="inputdcate"></p-dropdown>
+                                    <div *ngIf="submitted && teamForm.controls['service_category'].hasError('required')"
+                                    class="alert alert-danger">
+                                    {{ VALIDATION_MESSAGES.service_category.required }}
+                                </div>
                             </div>
                         </div>
                         <!-- <div class="form-group row">
@@ -116,6 +140,10 @@
                             <label for="inputEmail3" class="col-sm-4 col-form-label"> التكلفة من : </label>
                             <div class="col-sm-7">
                                 <input type="text" formControlName="service_cost_from" class="form-control" id="inputEmail3" placeholder="">
+                                <div *ngIf="submitted && teamForm.controls['service_cost_from'].hasError('required')"
+                                class="alert alert-danger">
+                                {{ VALIDATION_MESSAGES.service_cost_from.required }}
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -124,6 +152,10 @@
                             <label for="inputEmail3" class="col-sm-4 col-form-label">التكلفة إلى : </label>
                             <div class="col-sm-7">
                                 <input type="text" formControlName="service_cost_to" class="form-control" id="inputEmail3" placeholder="">
+                                <div *ngIf="submitted && teamForm.controls['service_cost_to'].hasError('required')"
+                                class="alert alert-danger">
+                                {{ VALIDATION_MESSAGES.service_cost_to.required }}
+                            </div>
                             </div>
                         </div>
                     </div>

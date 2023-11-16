@@ -1,269 +1,295 @@
 <div class="main container px-5">
-  <div class="row mt-3">
-    <div class="col-lg-6">
-      <h2 class="header">أختبار قوة الفكرة</h2>
-      <p>
-        يقوم المستخدم بتعبئة <span>5</span> عوامل لكل فقرة ويحدد معدل قوة قياس
-        العامل من <span>1-5</span>
-      </p>
-    </div>
-    <div class="col-lg-6 d-flex justify-content-center align-items-center mb-2">
-      <div>
-        <img
-          src="../../../../assets/images/projects/Group 2022.png"
-          class="d-block w-75 m-auto"
-        />
+    <div class="row mt-3">
+      <div class="col-lg-6">
+        <h2 class="header">أختبار قوة الفكرة</h2>
+        <p>
+          يقوم المستخدم بتعبئة <span>5</span> عوامل لكل فقرة ويحدد معدل قوة قياس
+          العامل من <span>1-5</span>
+        </p>
       </div>
-    </div>
-  </div>
-  <div class="row mt-5 pb-5">
-    <div class="col-lg-9">
-      <form [formGroup]="pointsForm">
-        <div class="sectionChances">
-          <div class="row">
-            <div class="col-6 mt-3">
-              <div class="header-container">
-                <h4 class="w-100 fw-bold header">نقاط الضعف</h4>
-              </div>
-              <div class="sectionCard">
-                <div class="row text-right">
-                  <div class="col-lg-6">
-                    <h3>معدل القياس</h3>
-                  </div>
-                  <div class="col-lg-4">
-                    <h3>العامل</h3>
-                  </div>
-                  <div class="col-lg-2">
-                    <span class="number">1</span>
-                  </div>
-                </div>
-                <div
-                  class="row text-right d-flex align-items-center mb-2"
-                  *ngFor="let range of weaknessesRanges; let i = index"
-                >
-                  <div class="col-lg-6">
-                    <input
-                      type="range"
-                      min="1"
-                      max="5"
-                      [(ngModel)]="range.value"
-                      (ngModelChange)="onRangeChange(range, weaknessesRanges)"
-                      formControlName="{{ range.name }}"
-                    />
-                  </div>
-                  <div class="col-lg-6">
-                    <input
-                      type="text"
-                      class="input-text"
-                      formControlName="{{ range.name }}Text"
-                    />
-                  </div>
-                </div>
-                <div class="group-container">
-                  <input type="text" [value]="weaknessesTotal" disabled />
-                  <label for="">المجموع</label>
-                </div>
-              </div>
-            </div>
-            <div class="col-6 mt-3">
-              <div class="header-container">
-                <h4 class="w-100 fw-bold header">نقاط القوة</h4>
-              </div>
-              <div class="sectionCard">
-                <div class="row text-right">
-                  <div class="col-lg-6">
-                    <h3>معدل القياس</h3>
-                  </div>
-                  <div class="col-lg-4">
-                    <h3>العامل</h3>
-                  </div>
-                  <div class="col-lg-2">
-                    <span class="number">2</span>
-                  </div>
-                </div>
-                <div
-                  class="row text-right d-flex align-items-center mb-2"
-                  *ngFor="let range of strengthsRanges; let i = index"
-                >
-                  <div class="col-lg-6">
-                    <input
-                      type="range"
-                      min="1"
-                      max="5"
-                      [(ngModel)]="range.value"
-                      (ngModelChange)="onRangeChange(range, strengthsRanges)"
-                      formControlName="{{ range.name }}"
-                    />
-                  </div>
-                  <div class="col-lg-6">
-                    <input
-                      type="text"
-                      class="input-text"
-                      formControlName="{{ range.name }}Text"
-                    />
-                  </div>
-                </div>
-                <div class="group-container">
-                  <input type="text" [value]="strengthsTotal" disabled/>
-                  <label for="">المجموع</label>
-                </div>
-              </div>
-            </div>
-            <div class="col-6 mt-3">
-              <div class="header-container">
-                <h4 class="w-100 fw-bold header">التهديدات</h4>
-              </div>
-              <div class="sectionCard">
-                <div class="row text-right">
-                  <div class="col-lg-6">
-                    <h3>معدل القياس</h3>
-                  </div>
-                  <div class="col-lg-4">
-                    <h3>العامل</h3>
-                  </div>
-                  <div class="col-lg-2">
-                    <span class="number">3</span>
-                  </div>
-                </div>
-                <div
-                  class="row text-right d-flex align-items-center mb-2"
-                  *ngFor="let range of threatsRanges; let i = index"
-                >
-                  <div class="col-lg-6">
-                    <input
-                      type="range"
-                      min="1"
-                      max="5"
-                      [(ngModel)]="range.value"
-                      (ngModelChange)="onRangeChange(range, threatsRanges)"
-                      formControlName="{{ range.name }}"
-                    />
-                  </div>
-                  <div class="col-lg-6">
-                    <input
-                      type="text"
-                      class="input-text"
-                      formControlName="{{ range.name }}Text"
-                    />
-                  </div>
-                </div>
-                <div class="group-container">
-                  <input type="text" [value]="threatsTotal" disabled/>
-                  <label for="">المجموع</label>
-                </div>
-              </div>
-            </div>
-            <div class="col-6 mt-3">
-              <div class="header-container">
-                <h4 class="w-100 fw-bold header">الفرص</h4>
-              </div>
-              <div class="sectionCard">
-                <div class="row text-right">
-                  <div class="col-lg-6">
-                    <h3>معدل القياس</h3>
-                  </div>
-                  <div class="col-lg-4">
-                    <h3>العامل</h3>
-                  </div>
-                  <div class="col-lg-2">
-                    <span class="number">4</span>
-                  </div>
-                </div>
-                <div
-                  class="row text-right d-flex align-items-center mb-2"
-                  *ngFor="let range of opportunitiesRanges; let i = index"
-                >
-                  <div class="col-lg-6">
-                    <input
-                      type="range"
-                      min="1"
-                      max="5"
-                      [(ngModel)]="range.value"
-                      (ngModelChange)="
-                        onRangeChange(range, opportunitiesRanges)
-                      "
-                      formControlName="{{ range.name }}"
-                    />
-                  </div>
-                  <div class="col-lg-6">
-                    <input
-                      type="text"
-                      class="input-text"
-                      formControlName="{{ range.name }}Text"
-                    />
-                  </div>
-                </div>
-                <div class="group-container">
-                  <input type="text" [value]="opportunitiesTotal" disabled/>
-                  <label for="">المجموع</label>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="col-lg-6 d-flex justify-content-center align-items-center mb-2">
+        <div>
+          <img
+            src="../../../../assets/images/projects/Group 2022.png"
+            class="d-block w-75 m-auto"
+          />
         </div>
-      </form>
-    </div>
-    <div class="col-lg-3 d-flex align-items-center mb-2 justify-content-center">
-      <div>
-        <img src="../../../../assets/images/projects/Group 1810.png" />
       </div>
     </div>
-    <div class="col-lg-6 col-sm-12 section2">
-      <div class="mt-4 p-4 section">
-        <div class="second-section2 rounded-4">
-          <div class="container mt-3">
-            <div class="row justify-content-around">
-              <div class="col-sm-2 mt-2">
-                <div class="card">
-                  <div class="cardhead">
-                    <h3>درس 1</h3>
+    <div class="row mt-5 pb-5">
+      <div class="col-lg-9">
+        <form [formGroup]="pointsForm">
+          <div class="sectionChances">
+            <div class="row">
+              <div class="col-6 mt-3">
+                <div class="header-container">
+                  <h4 class="w-100 fw-bold header">نقاط الضعف</h4>
+                </div>
+                <div class="sectionCard">
+                  <div class="row text-right">
+                    <div class="col-lg-6">
+                      <h3>معدل القياس</h3>
+                    </div>
+                    <div class="col-lg-4">
+                      <h3>العامل</h3>
+                    </div>
+                    <div class="col-lg-2">
+                      <span class="number">1</span>
+                    </div>
+                  </div>
+                  <div
+                    class="row text-right d-flex align-items-center mb-2"
+                    *ngFor="let range of weaknessesRanges; let i = index"
+                  >
+                    <div class="col-lg-6">
+                      <input
+                        type="range"
+                        min="1"
+                        max="5"
+                        [(ngModel)]="range.value"
+                        (ngModelChange)="onRangeChange(range, weaknessesRanges)"
+                        formControlName="{{ range.name }}"
+                      />
+                    </div>
+                    <div class="col-lg-6">
+                      <input
+                        type="text"
+                        class="input-text"
+                        formControlName="{{ range.name }}Text"
+                      />
+                    </div>
+                  </div>
+                  <div class="group-container">
+                    <input type="text" [value]="weaknessesTotal" disabled />
+                    <label for="">المجموع</label>
                   </div>
                 </div>
               </div>
-              <div class="col-sm-2 mt-2">
-                <div class="card">
-                  <div class="cardhead">
-                    <h3>درس 2</h3>
+              <div class="col-6 mt-3">
+                <div class="header-container">
+                  <h4 class="w-100 fw-bold header">نقاط القوة</h4>
+                </div>
+                <div class="sectionCard">
+                  <div class="row text-right">
+                    <div class="col-lg-6">
+                      <h3>معدل القياس</h3>
+                    </div>
+                    <div class="col-lg-4">
+                      <h3>العامل</h3>
+                    </div>
+                    <div class="col-lg-2">
+                      <span class="number">2</span>
+                    </div>
+                  </div>
+                  <div
+                    class="row text-right d-flex align-items-center mb-2"
+                    *ngFor="let range of strengthsRanges; let i = index"
+                  >
+                    <div class="col-lg-6">
+                      <input
+                        type="range"
+                        min="1"
+                        max="5"
+                        [(ngModel)]="range.value"
+                        (ngModelChange)="onRangeChange(range, strengthsRanges)"
+                        formControlName="{{ range.name }}"
+                      />
+                    </div>
+                    <div class="col-lg-6">
+                      <input
+                        type="text"
+                        class="input-text"
+                        formControlName="{{ range.name }}Text"
+                      />
+                    </div>
+                  </div>
+                  <div class="group-container">
+                    <input type="text" [value]="strengthsTotal" disabled/>
+                    <label for="">المجموع</label>
                   </div>
                 </div>
               </div>
-              <div class="col-sm-2 mt-2">
-                <div class="card">
-                  <div class="cardhead">
-                    <h3>درس 3</h3>
+              <div class="col-6 mt-3">
+                <div class="header-container">
+                  <h4 class="w-100 fw-bold header">التهديدات</h4>
+                </div>
+                <div class="sectionCard">
+                  <div class="row text-right">
+                    <div class="col-lg-6">
+                      <h3>معدل القياس</h3>
+                    </div>
+                    <div class="col-lg-4">
+                      <h3>العامل</h3>
+                    </div>
+                    <div class="col-lg-2">
+                      <span class="number">3</span>
+                    </div>
+                  </div>
+                  <div
+                    class="row text-right d-flex align-items-center mb-2"
+                    *ngFor="let range of threatsRanges; let i = index"
+                  >
+                    <div class="col-lg-6">
+                      <input
+                        type="range"
+                        min="1"
+                        max="5"
+                        [(ngModel)]="range.value"
+                        (ngModelChange)="onRangeChange(range, threatsRanges)"
+                        formControlName="{{ range.name }}"
+                      />
+                    </div>
+                    <div class="col-lg-6">
+                      <input
+                        type="text"
+                        class="input-text"
+                        formControlName="{{ range.name }}Text"
+                      />
+                    </div>
+                  </div>
+                  <div class="group-container">
+                    <input type="text" [value]="threatsTotal" disabled/>
+                    <label for="">المجموع</label>
                   </div>
                 </div>
               </div>
-              <div class="col-sm-2 mt-2">
-                <div class="card">
-                  <div class="cardhead">
-                    <h3>درس 4</h3>
-                  </div>
+              <div class="col-6 mt-3">
+                <div class="header-container">
+                  <h4 class="w-100 fw-bold header">الفرص</h4>
                 </div>
-              </div>
-              <div class="col-sm-2 mt-2">
-                <div class="card">
-                  <div class="cardhead">
-                    <h3>درس 5</h3>
+                <div class="sectionCard">
+                  <div class="row text-right">
+                    <div class="col-lg-6">
+                      <h3>معدل القياس</h3>
+                    </div>
+                    <div class="col-lg-4">
+                      <h3>العامل</h3>
+                    </div>
+                    <div class="col-lg-2">
+                      <span class="number">4</span>
+                    </div>
+                  </div>
+                  <div
+                    class="row text-right d-flex align-items-center mb-2"
+                    *ngFor="let range of opportunitiesRanges; let i = index"
+                  >
+                    <div class="col-lg-6">
+                      <input
+                        type="range"
+                        min="1"
+                        max="5"
+                        [(ngModel)]="range.value"
+                        (ngModelChange)="
+                          onRangeChange(range, opportunitiesRanges)
+                        "
+                        formControlName="{{ range.name }}"
+                      />
+                    </div>
+                    <div class="col-lg-6">
+                      <input
+                        type="text"
+                        class="input-text"
+                        formControlName="{{ range.name }}Text"
+                      />
+                    </div>
+                  </div>
+                  <div class="group-container">
+                    <input type="text" [value]="opportunitiesTotal" disabled/>
+                    <label for="">المجموع</label>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </form>
+      </div>
+      <div class="col-lg-3 d-flex align-items-center mb-2 justify-content-center">
+        <div>
+          <img src="../../../../assets/images/projects/Group 1810.png" />
         </div>
       </div>
-    </div>
+      
+      <div *ngIf="commonErrorMessage" class="text-danger mt-3 mx-5 alert alert-danger col-8">
+        {{ commonErrorMessage }}
+      </div>
 
-    <div class="col-12 d-flex align-items-end">
-      <div class="">
-        <button
-          class="btn btn1 mt-5"
-          (click)="sendPointsData(11)"
-          type="submit"
-        >
-          التالى
-        </button>
+      <div class="col-lg-6 col-sm-12 section2">
+        <div class="mt-4 p-4 section">
+          <div class="second-section2 rounded-4">
+            <div class="container mt-3">
+              <div class="row justify-content-around">
+                <div class="col-sm-2 mt-2">
+                  <div class="card">
+                    <div class="cardhead">
+                      <h3>درس 1</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 mt-2">
+                  <div class="card">
+                    <div class="cardhead">
+                      <h3>درس 2</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 mt-2">
+                  <div class="card">
+                    <div class="cardhead">
+                      <h3>درس 3</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 mt-2">
+                  <div class="card">
+                    <div class="cardhead">
+                      <h3>درس 4</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 mt-2">
+                  <div class="card">
+                    <div class="cardhead">
+                      <h3>درس 5</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-12 d-flex align-items-end">
+        <div class="">
+          <button
+            class="btn btn1 mt-5"
+            (click)="sendPointsData(11)"
+            type="submit"
+          >
+            التالى
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  
+
+  <app-modal id="idea" classList="modal-dialog-centered">
+    <div class="row">
+        <div class="col-2 d-flex justify-content-center align-items-center">
+            <div class=" m-auto">
+                <img src="../../../../assets/images/projects/98.png"
+                class="modalImg ">
+            </div>
+        </div>
+        <div class="col-10"> 
+            <div class="card-body bg-white rounded-4">
+                <div class="d-flex flex-column align-items-center gap-3" style="margin-left: 65px;">
+                  <h3 class="fw-600 text-center mt-3">تمت الأضافة بنجاح</h3>
+                  <button  type="button" class="btn btn1
+                      mx-auto px-5 d-flex align-items-center gap-4" (click)="next()" >التالى</button>
+                </div>
+              </div>
+        </div>
+    </div>
+</app-modal>

@@ -10,6 +10,10 @@
                     <form [formGroup]="onlineForm">
                         <textarea rows="6" class="py-4" formControlName="message" cols="80"
                             placeholder="----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"></textarea>
+                            <div *ngIf="submitted && onlineForm.get('message')?.hasError('required')"
+                            class="alert alert-danger">
+                            {{ VALIDATION_MESSAGES.message.required }}
+                        </div>
                             <div class="row">
                                 <div class="col-lg-6 mt-3">
                                     <div class="form-group row">
@@ -22,6 +26,10 @@
                                                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                                                 <mat-datepicker #picker></mat-datepicker>
                                             </mat-form-field>
+                                            <div *ngIf="submitted && onlineForm.controls['appointment_date'].hasError('required')"
+                                            class="alert alert-danger">
+                                            {{ VALIDATION_MESSAGES.appointment_date.required }}
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -31,6 +39,10 @@
                                         <div class="col-sm-7">
                                             <input type="time" formControlName="appointment_time" id="with_placeholder" placeholder='hh:mm'
                                                 onfocus="this.placeholder = ''" class="form-control">
+                                                <div *ngIf="submitted && onlineForm.controls['appointment_date'].hasError('required')"
+                                                class="alert alert-danger">
+                                                {{ VALIDATION_MESSAGES.appointment_date.required }}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

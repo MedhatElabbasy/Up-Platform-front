@@ -1,33 +1,24 @@
 import { Component } from '@angular/core';
 import { ProjectsService } from '../../projects.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import {
-  FormControl,
-  FormGroup,
-  Validators,
-  ValidatorFn,
-  AbstractControl,
-  FormBuilder,
-} from '@angular/forms';
-
+import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ModalService } from 'src/app/core/services/modal.service';
 export interface Range {
   value: number;
   name: string;
 }
-
-
 @Component({
   selector: 'app-power-of-idea',
   templateUrl: './power-of-idea.component.html',
   styleUrls: ['./power-of-idea.component.scss'],
 })
 export class PowerOfIdeaComponent {
-  
-
+  ideaID="idea"
   constructor(
     private _ProjectsService: ProjectsService,
     private formBuilder: FormBuilder,
     private _Router: Router,
+    private _model:ModalService
   ) {
   }
 
@@ -64,52 +55,52 @@ export class PowerOfIdeaComponent {
   strengthsTotal: number = this.calculateTotal(this.strengthsRanges);
   threatsTotal: number = this.calculateTotal(this.threatsRanges);
   opportunitiesTotal: number = this.calculateTotal(this.opportunitiesRanges);
-
+  commonErrorMessage: string = '';
   pointsForm!: FormGroup;
 
   ngOnInit() {
     
     this.pointsForm = this.formBuilder.group({
       weakness1: [''],
-      weakness1Text: [''],
+      weakness1Text: ['', Validators.required],
       weakness2: [''],
-      weakness2Text: [''],
+      weakness2Text: ['', Validators.required],
       weakness3: [''],
-      weakness3Text: [''],
+      weakness3Text: ['', Validators.required],
       weakness4: [''],
-      weakness4Text: [''],
+      weakness4Text: ['', Validators.required],
       weakness5: [''],
-      weakness5Text: [''],
+      weakness5Text: ['', Validators.required],
       strength1: [''],
-      strength1Text: [''],
+      strength1Text: ['', Validators.required],
       strength2: [''],
-      strength2Text: [''],
+      strength2Text: ['', Validators.required],
       strength3: [''],
-      strength3Text: [''],
+      strength3Text: ['', Validators.required],
       strength4: [''],
-      strength4Text: [''],
+      strength4Text: ['', Validators.required],
       strength5: [''],
-      strength5Text: [''],
+      strength5Text: ['', Validators.required],
       opport1: [''],
-      opport1Text: [''],
+      opport1Text: ['', Validators.required],
       opport2: [''],
-      opport2Text: [''],
+      opport2Text: ['', Validators.required],
       opport3: [''],
-      opport3Text: [''],
+      opport3Text: ['', Validators.required],
       opport4: [''],
-      opport4Text: [''],
+      opport4Text: ['', Validators.required],
       opport5: [''],
-      opport5Text: [''],
+      opport5Text: ['', Validators.required],
       threat1: [''],
-      threat1Text: [''],
+      threat1Text: ['', Validators.required],
       threat2: [''],
-      threat2Text: [''],
+      threat2Text: ['', Validators.required],
       threat3: [''],
-      threat3Text: [''],
+      threat3Text: ['', Validators.required],
       threat4: [''],
-      threat4Text: [''],
+      threat4Text: ['', Validators.required],
       threat5: [''],
-      threat5Text: [''],
+      threat5Text: ['', Validators.required],
     });
   }
 
@@ -135,6 +126,10 @@ export class PowerOfIdeaComponent {
   }
 
   sendPointsData(id: number) {
+    if (this.pointsForm.invalid) {
+      this.displayValidationMessages();
+      return;
+    }
     const data = {
       "points": {
       "strength": {
@@ -228,20 +223,41 @@ export class PowerOfIdeaComponent {
     }
   }
     
-    this._ProjectsService.sendPointsData(data, id).subscribe({
+    this._ProjectsService.sendPointsData(data).subscribe({
       next: (res: any) => {
         console.log(res);
         const finalTotal = (this.opportunitiesTotal+this.strengthsTotal)- (this.threatsTotal+this.weaknessesTotal);
-        // localStorage.setItem('finalTotal', finalTotal);
+        this._model.open(this.ideaID)
         console.log(finalTotal);
-          setTimeout(() => {
-            this._Router.navigate(['/projects/power-of-idea-details'])
-          }, 2000);
       },
       error: (err: any) => {
         console.log(err.message);
       },
     });
+    this.commonErrorMessage = '';
   }
 
+  private displayValidationMessages() {
+    let commonErrorMessages: string = "";
+  
+    Object.keys(this.pointsForm.controls).forEach((controlName) => {
+      const control = this.pointsForm.get(controlName);
+  
+      if (control?.invalid) {
+        const errors = control?.errors;
+  
+        if (errors?.['required']) {
+          commonErrorMessages="يرجى التأكد من تعبئة كل الحقول";
+        }
+      }
+    });
+  
+    this.commonErrorMessage = commonErrorMessages;
+  }
+  
+
+  next(){
+    this._model.close(this.ideaID)
+    this._Router.navigate(['/projects/feasibility-study'])
+  }
 }

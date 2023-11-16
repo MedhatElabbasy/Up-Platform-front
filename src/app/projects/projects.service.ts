@@ -64,7 +64,33 @@ export class ProjectsService {
     return this._HttpClient.post(environment.baseUrl + '/service_applications/store', formData)
   }
 
-  sendPointsData(data: any, id: number){
-    return this._HttpClient.post(environment.baseUrl + '/projects/'+ id +'/points', data)
+  getAllCategoriesForProjects(){
+    return this._HttpClient.get(environment.baseUrl + '/projects/categories')
+  }
+
+  getDetailsOfCategory(id:number){
+    return this._HttpClient.get(environment.baseUrl + '/projects/categories/'+ id)
+  }
+
+  getAllLessons(model:object){
+    return this._HttpClient.get(environment.baseUrl + '/projects/lessons',model)
+  }
+
+  getLessonDetails(id:number){
+    return this._HttpClient.get(environment.baseUrl + '/projects/lessons/'+ id)
+  }
+
+  AllProject(){
+    return this._HttpClient.get(environment.baseUrl + '/projects')
+  }
+
+  sendDataForProject(model:object){
+    return this._HttpClient.post(environment.baseUrl + '/projects/12/case-study-notes',model)
+  }
+  sendPointsData(data:object){
+    return this._HttpClient.post(environment.baseUrl + '/projects/12/points',data)
+  }
+  sendFeasibilityStudyForm(data:object){
+    return this._HttpClient.post(environment.baseUrl + '/projects/12/case-study',data)
   }
 }
