@@ -1,189 +1,269 @@
 <div class="main container px-5">
-    <div class="row mt-3">
-        <div class="col-lg-6">
-            <h2 class="header">
-              أختبار قوة الفكرة  
-            </h2>
-            <p>يقوم المستخدم بتعبئة <span>5</span> عوامل لكل فقرة ويحدد معدل قوة قياس العامل من <span>1-5</span></p>
-        </div>
-        <div class="col-lg-6 d-flex justify-content-center align-items-center">
-            <div>
-                <img src="../../../../assets/images/projects/Group 2022.png" class="d-block w-75 m-auto">
-            </div>
-        </div>
+  <div class="row mt-3">
+    <div class="col-lg-6">
+      <h2 class="header">أختبار قوة الفكرة</h2>
+      <p>
+        يقوم المستخدم بتعبئة <span>5</span> عوامل لكل فقرة ويحدد معدل قوة قياس
+        العامل من <span>1-5</span>
+      </p>
     </div>
-    <div class="row mt-5 pb-5">
-        <div class="col-lg-9">
-          <div class="sectionChances">
-            <div class="row">
-                <div class="col-6 mt-3">
-                    <div>
-                        <p-dropdown
-                        placeholder="نقاط الضعف"
-                        styleClass="w-100 text-center fw-bold ">
-                        </p-dropdown>
-                   </div>
-                <div class="sectionCard">
-                    <div class="row text-right">
-                        <div class="col-lg-6">
-                            <h3>معدل القياس</h3>
-                            <input type="range">
-                        </div>
-                        <div class="col-lg-6">
-                            <span>العامل</span>
-                           <span class="number float-left">1</span>
-                            <textarea rows="6" cols="20" placeholder="------------------------------------------------------------------------------------------"></textarea>
-                            <div class="form-group row">
-                                <label for="inputEmail3" class="col-sm-4 col-form-label"> المجموع</label>
-                                <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="col-lg-6 d-flex justify-content-center align-items-center mb-2">
+      <div>
+        <img
+          src="../../../../assets/images/projects/Group 2022.png"
+          class="d-block w-75 m-auto"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5 pb-5">
+    <div class="col-lg-9">
+      <form [formGroup]="pointsForm">
+        <div class="sectionChances">
+          <div class="row">
+            <div class="col-6 mt-3">
+              <div class="header-container">
+                <h4 class="w-100 fw-bold header">نقاط الضعف</h4>
+              </div>
+              <div class="sectionCard">
+                <div class="row text-right">
+                  <div class="col-lg-6">
+                    <h3>معدل القياس</h3>
+                  </div>
+                  <div class="col-lg-4">
+                    <h3>العامل</h3>
+                  </div>
+                  <div class="col-lg-2">
+                    <span class="number">1</span>
+                  </div>
                 </div>
+                <div
+                  class="row text-right d-flex align-items-center mb-2"
+                  *ngFor="let range of weaknessesRanges; let i = index"
+                >
+                  <div class="col-lg-6">
+                    <input
+                      type="range"
+                      min="1"
+                      max="5"
+                      [(ngModel)]="range.value"
+                      (ngModelChange)="onRangeChange(range, weaknessesRanges)"
+                      formControlName="{{ range.name }}"
+                    />
+                  </div>
+                  <div class="col-lg-6">
+                    <input
+                      type="text"
+                      class="input-text"
+                      formControlName="{{ range.name }}Text"
+                    />
+                  </div>
                 </div>
-                <div class="col-6 mt-3">
-                    <div>
-                        <p-dropdown
-                        placeholder="نقاط القوة"
-                        styleClass="w-100 text-center fw-bold ">
-                        </p-dropdown>
-                   </div>
-                <div class="sectionCard">
-                    <div class="row text-right">
-                        <div class="col-lg-6">
-                            <h3>معدل القياس</h3>
-                            <input type="range">
-                        </div>
-                        <div class="col-lg-6">
-                            <span>العامل</span>
-                           <span class="number">2</span>
-                            <textarea rows="6" cols="20" placeholder="------------------------------------------------------------------------------------------"></textarea>
-                            <div class="form-group row">
-                                <label for="inputEmail3" class="col-sm-4 col-form-label"> المجموع</label>
-                                <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="group-container">
+                  <input type="text" [value]="weaknessesTotal" disabled />
+                  <label for="">المجموع</label>
                 </div>
+              </div>
+            </div>
+            <div class="col-6 mt-3">
+              <div class="header-container">
+                <h4 class="w-100 fw-bold header">نقاط القوة</h4>
+              </div>
+              <div class="sectionCard">
+                <div class="row text-right">
+                  <div class="col-lg-6">
+                    <h3>معدل القياس</h3>
+                  </div>
+                  <div class="col-lg-4">
+                    <h3>العامل</h3>
+                  </div>
+                  <div class="col-lg-2">
+                    <span class="number">2</span>
+                  </div>
                 </div>
-                <div class="col-6 mt-3">
-                    <div>
-                        <p-dropdown
-                        placeholder="التهديدات"
-                        styleClass="w-100 text-center fw-bold ">
-                        </p-dropdown>
-                   </div>
-                <div class="sectionCard">
-                    <div class="row text-right">
-                        <div class="col-lg-6">
-                            <h3>معدل القياس</h3>
-                            <input type="range">
-                        </div>
-                        <div class="col-lg-6">
-                            <span>العامل</span>
-                           <span class="number">3</span>
-                            <textarea rows="6" cols="20" placeholder="------------------------------------------------------------------------------------------"></textarea>
-                            <div class="form-group row">
-                                <label for="inputEmail3" class="col-sm-4 col-form-label"> المجموع</label>
-                                <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div
+                  class="row text-right d-flex align-items-center mb-2"
+                  *ngFor="let range of strengthsRanges; let i = index"
+                >
+                  <div class="col-lg-6">
+                    <input
+                      type="range"
+                      min="1"
+                      max="5"
+                      [(ngModel)]="range.value"
+                      (ngModelChange)="onRangeChange(range, strengthsRanges)"
+                      formControlName="{{ range.name }}"
+                    />
+                  </div>
+                  <div class="col-lg-6">
+                    <input
+                      type="text"
+                      class="input-text"
+                      formControlName="{{ range.name }}Text"
+                    />
+                  </div>
                 </div>
+                <div class="group-container">
+                  <input type="text" [value]="strengthsTotal" disabled/>
+                  <label for="">المجموع</label>
                 </div>
-                <div class="col-6 mt-3">
-                    <div>
-                        <p-dropdown
-                        placeholder="الفرص"
-                        styleClass="w-100 text-center fw-bold ">
-                        </p-dropdown>
-                   </div>
-                <div class="sectionCard">
-                    <div class="row text-right">
-                        <div class="col-lg-6">
-                            <h3>معدل القياس</h3>
-                            <input type="range">
-                        </div>
-                        <div class="col-lg-6">
-                            <span>العامل</span>
-                           <span class="number">4</span>
-                            <textarea rows="6" cols="20" placeholder="------------------------------------------------------------------------------------------"></textarea>
-                            <div class="form-group row">
-                                <label for="inputEmail3" class="col-sm-4 col-form-label"> المجموع</label>
-                                <div class="col-sm-7">
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+              </div>
+            </div>
+            <div class="col-6 mt-3">
+              <div class="header-container">
+                <h4 class="w-100 fw-bold header">التهديدات</h4>
+              </div>
+              <div class="sectionCard">
+                <div class="row text-right">
+                  <div class="col-lg-6">
+                    <h3>معدل القياس</h3>
+                  </div>
+                  <div class="col-lg-4">
+                    <h3>العامل</h3>
+                  </div>
+                  <div class="col-lg-2">
+                    <span class="number">3</span>
+                  </div>
                 </div>
+                <div
+                  class="row text-right d-flex align-items-center mb-2"
+                  *ngFor="let range of threatsRanges; let i = index"
+                >
+                  <div class="col-lg-6">
+                    <input
+                      type="range"
+                      min="1"
+                      max="5"
+                      [(ngModel)]="range.value"
+                      (ngModelChange)="onRangeChange(range, threatsRanges)"
+                      formControlName="{{ range.name }}"
+                    />
+                  </div>
+                  <div class="col-lg-6">
+                    <input
+                      type="text"
+                      class="input-text"
+                      formControlName="{{ range.name }}Text"
+                    />
+                  </div>
                 </div>
+                <div class="group-container">
+                  <input type="text" [value]="threatsTotal" disabled/>
+                  <label for="">المجموع</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 mt-3">
+              <div class="header-container">
+                <h4 class="w-100 fw-bold header">الفرص</h4>
+              </div>
+              <div class="sectionCard">
+                <div class="row text-right">
+                  <div class="col-lg-6">
+                    <h3>معدل القياس</h3>
+                  </div>
+                  <div class="col-lg-4">
+                    <h3>العامل</h3>
+                  </div>
+                  <div class="col-lg-2">
+                    <span class="number">4</span>
+                  </div>
+                </div>
+                <div
+                  class="row text-right d-flex align-items-center mb-2"
+                  *ngFor="let range of opportunitiesRanges; let i = index"
+                >
+                  <div class="col-lg-6">
+                    <input
+                      type="range"
+                      min="1"
+                      max="5"
+                      [(ngModel)]="range.value"
+                      (ngModelChange)="
+                        onRangeChange(range, opportunitiesRanges)
+                      "
+                      formControlName="{{ range.name }}"
+                    />
+                  </div>
+                  <div class="col-lg-6">
+                    <input
+                      type="text"
+                      class="input-text"
+                      formControlName="{{ range.name }}Text"
+                    />
+                  </div>
+                </div>
+                <div class="group-container">
+                  <input type="text" [value]="opportunitiesTotal" disabled/>
+                  <label for="">المجموع</label>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 d-flex align-items-center justify-content-center">
-            <div>
-                <img src="../../../../assets/images/projects/Group 1810.png"/>
-            </div>
-        </div>
-        <div class="col-lg-6 col-sm-12 section2">
-            <div class="mt-4 p-4 section">
-                <div class="second-section2 rounded-4">
-                    <div class="container mt-3">
-                        <div class="row justify-content-around">
-                            <div class="col-sm-2 mt-2">
-                                <div class="card">
-                                    <div class="cardhead">
-                                        <h3>درس 1</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-2 mt-2">
-                                <div class="card">
-                                    <div class="cardhead">
-                                        <h3>درس 2</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-2 mt-2">
-                                <div class="card">
-                                    <div class="cardhead">
-                                        <h3>درس 3</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-2 mt-2">
-                                <div class="card">
-                                    <div class="cardhead">
-                                        <h3>درس 4</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-2 mt-2">
-                                <div class="card">
-                                    <div class="cardhead">
-                                        <h3>درس 5</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>       
-        </div>
-
-        <div class="col-12 d-flex align-items-end">
-            <div class="">
-                <button class=" btn btn1 mt-5" routerLink="/projects/power-of-idea-details">
-                    التالى</button>
-             </div>
-        </div>
-
+      </form>
     </div>
+    <div class="col-lg-3 d-flex align-items-center mb-2 justify-content-center">
+      <div>
+        <img src="../../../../assets/images/projects/Group 1810.png" />
+      </div>
+    </div>
+    <div class="col-lg-6 col-sm-12 section2">
+      <div class="mt-4 p-4 section">
+        <div class="second-section2 rounded-4">
+          <div class="container mt-3">
+            <div class="row justify-content-around">
+              <div class="col-sm-2 mt-2">
+                <div class="card">
+                  <div class="cardhead">
+                    <h3>درس 1</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-2 mt-2">
+                <div class="card">
+                  <div class="cardhead">
+                    <h3>درس 2</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-2 mt-2">
+                <div class="card">
+                  <div class="cardhead">
+                    <h3>درس 3</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-2 mt-2">
+                <div class="card">
+                  <div class="cardhead">
+                    <h3>درس 4</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-2 mt-2">
+                <div class="card">
+                  <div class="cardhead">
+                    <h3>درس 5</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 d-flex align-items-end">
+      <div class="">
+        <button
+          class="btn btn1 mt-5"
+          (click)="sendPointsData(11)"
+          type="submit"
+        >
+          التالى
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -3,8 +3,6 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { ServicesapiService } from '../../services/servicesapi.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import { AcceptedExtension } from 'src/app/core/data/accepted_extension';
-import { environment } from 'src/environments/environment';
 import { ModalService } from 'src/app/core/services/modal.service';
 
 @Component({

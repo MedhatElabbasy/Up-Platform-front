@@ -63,4 +63,8 @@ export class ProjectsService {
   applyServiceApllication(formData: FormData){
     return this._HttpClient.post(environment.baseUrl + '/service_applications/store', formData)
   }
+
+  sendPointsData(data: any, id: number){
+    return this._HttpClient.post(environment.baseUrl + '/projects/'+ id +'/points', data)
+  }
 }

@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./power-of-idea-details.component.scss']
 })
 export class PowerOfIdeaDetailsComponent {
-
+  
 }
