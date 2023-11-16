@@ -17,6 +17,36 @@ export class ProjectsTeamFormComponent {
   categories:[]=[]
   teamID="teamModal"
   userInfo!:any;
+  submitted = false;
+  VALIDATION_MESSAGES = {
+    service_name: {
+      required: 'مجال العمل مطلوب',
+    },
+    free_jobtitle: {
+      required: 'المسمي الوظيفي مطلوب',
+    },
+    free_service_desc: {
+      required: 'النبذه التعريفيه مطلوبه',
+    },
+    free_service_skills: {
+      required: 'المهارات مطلوبه',
+    },
+    service_location: {
+      required: 'عنوان العمل مطلوب',
+    },
+    smallImage: {
+      required: 'الصوره المصغره للغمل مطلوبه',
+    },
+    service_category: {
+      required: 'تحديد الفئة مطلوبه',
+    },
+    service_cost_from: {
+      required: 'التكلفه من مطلوبه',
+    },
+    service_cost_to: {
+       required: 'التكلفه الي مطلوبه' 
+      }
+  };
   constructor( private router: Router,private fb: FormBuilder,private _project:ProjectsService,
     private _modal:ModalService){
   
@@ -35,7 +65,8 @@ export class ProjectsTeamFormComponent {
         [Validators.required],
       ],
       free_service_desc: [
-        ''
+        '',
+        [Validators.required],
       ],
       free_service_skills: [
         '',
@@ -77,6 +108,7 @@ export class ProjectsTeamFormComponent {
   }
 
   onSubmit(){
+    this.submitted=true;
     if (!this.image) {
       console.error('Please select an image.');
       return;

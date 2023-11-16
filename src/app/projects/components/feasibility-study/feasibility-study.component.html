@@ -7,7 +7,7 @@
             <h3><img src="assets/images/services/Rectangle 120.png" class="m-auto mx-2" style="
                 width: 20px;
             ">نموذج العمل</h3>
-            <p>رابط نموذج دورة العمل <a>الذهاب إلى مكتبة المهارات</a></p>
+            <p>رابط نموذج دورة العمل <a routerLink="/training/main/all-skills-library">الذهاب إلى مكتبة المهارات</a></p>
         </div>
         <div class="col-lg-6 d-flex justify-content-center align-items-center">
             <div class="mt-3">
@@ -15,91 +15,136 @@
             </div>
         </div>
     </div>
+    <form [formGroup]="scheduleForm">
     <div class="section rounded-3 mt-5 pb-3 p-3">
         <div class="days mt-3">
-           
-                <div class="row ">
-                    <div class="col-xl col-lg-3 col-md-4 mt-2">
-                        
-                            <div class="day mx-2 mt-2 rounded-3">
-                                <p class="titleStyle">الشراكات الرئيسية <img src="../../../../assets/images/projects/handshake.png" class="imgIcon"></p>
-                            </div>
-                            <div class="content rounded-3 text-center">
-                            </div>
-                    </div>
-                    <div class="col-xl col-lg-3 col-md-4 mt-2">
-                        
-                            <div class="day mx-2 mt-2 rounded-3">
-                                <p class="titleStyle">الأنشطة الرئيسية <img src="../../../../assets/images/projects/global.png" class="imgIcon"></p>
-                            </div>
-                            <div class="content rounded-3 text-center">
-                            </div>
-                    </div>
-                    <div class="col-xl col-lg-3 col-md-4 mt-2">
-                        
-                            <div class="day mx-2 mt-2 rounded-3">
-                                <p class="titleStyle">القيم المضافة<img src="../../../../assets/images/projects/statistics.png" class="imgIcon"></p>
-                            </div>
-                            <div class="content rounded-3 text-center">
-                            </div>
-                    </div>
-                    <div class="col-xl col-lg-3 col-md-4 mt-2">
-                        
-                            <div class="day mx-2 mt-2 rounded-3">
-                                <p class="titleStyle">العلاقات مع العملاء<img src="../../../../assets/images/projects/users-relation.png" class="imgIcon"></p>
-                            </div>
-                            <div class="content rounded-3 text-center">
-                            </div>
-                    </div>
-                    <div class="col-xl col-lg-3 col-md-4 mt-2">
 
-                        <div class="day mx-2 mt-2 rounded-3">
-                            <p class="titleStyle">شرائح العملاء <img src="../../../../assets/images/projects/customer.png" class="imgIcon"></p>
-                        </div>
-                        <div class="content rounded-3 text-center">
-                        </div>
-                    </div>
-                    <div class="col-xl col-lg-3 col-md-4 mt-2">
+            <div class="row ">
+                <div class="col-xl col-lg-3 col-md-4 mt-2">
 
-                        <div class="day mx-2 mt-2 rounded-3">
-                            <p class="titleStyle">المواد الرئيسية <img src="../../../../assets/images/projects/responsible.png" class="imgIcon"></p>
-                        </div>
-                        <div class="content rounded-3 text-center">
-                        </div>
+                    <div class="day mx-2 mt-2 rounded-3">
+                        <p class="titleStyle">الشراكات الرئيسية <img
+                                src="../../../../assets/images/projects/handshake.png" class="imgIcon"></p>
                     </div>
-                    <div class="col-xl col-lg-3 col-md-4 mt-2">
-                        <div class="day mx-2 mt-2 rounded-3">
-                            <p class="titleStyle">القنوات<img src="../../../../assets/images/projects/business-affiliate-network.png" class="imgIcon"></p>
-                        </div>
-                        <div class="content rounded-3 text-center">
-                        </div>
+                    <div class="content rounded-3 text-center">
+                        <textarea class="text" formControlName="main_partnerships" placeholder="الشراكة مع شركات الصيانة والتصليح"></textarea>
                     </div>
                 </div>
-                <div class="row mt-5">
-                    <div class="col-lg-6">
-                        <div class="day mx-2 mt-2 rounded-3">
-                            <p class="titleStyle">مصادر الايرادات<img src="../../../../assets/images/projects/money.png" class="imgIcon"></p>
-                        </div>
-                        <div class="content rounded-3 text-center">
-                        </div>
+                <div class="col-xl col-lg-3 col-md-4 mt-2">
+
+                    <div class="day mx-2 mt-2 rounded-3">
+                        <p class="titleStyle">الأنشطة الرئيسية <img src="../../../../assets/images/projects/global.png"
+                                class="imgIcon"></p>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="day mx-2 mt-2 rounded-3">
-                            <p class="titleStyle">هيكل التكاليف<img src="../../../../assets/images/projects/calculation.png" class="imgIcon"></p>
-                        </div>
-                        <div class="content rounded-3 text-center">
-                        </div>
+                    <div class="content rounded-3 text-center">
+                        <textarea class="text" formControlName="main_activities" placeholder="بيع و خدمات صيانة"></textarea>
                     </div>
                 </div>
+                <div class="col-xl col-lg-3 col-md-4 mt-2">
+
+                    <div class="day mx-2 mt-2 rounded-3">
+                        <p class="titleStyle">القيم المضافة<img src="../../../../assets/images/projects/statistics.png"
+                                class="imgIcon"></p>
+                    </div>
+                    <div class="content rounded-3 text-center">
+                        <textarea class="text" formControlName="added_value" placeholder="تقديم منتجات و خدمات عالية الجودة"></textarea>
+                    </div>
+                </div>
+                <div class="col-xl col-lg-3 col-md-4 mt-2">
+
+                    <div class="day mx-2 mt-2 rounded-3">
+                        <p class="titleStyle">العلاقات مع العملاء<img
+                                src="../../../../assets/images/projects/users-relation.png" class="imgIcon"></p>
+                    </div>
+                    <div class="content rounded-3 text-center">
+                        <textarea class="text" formControlName="customer_relations" placeholder="بناء الثقة مع العملاء"></textarea>
+                    </div>
+                </div>
+                <div class="col-xl col-lg-3 col-md-4 mt-2">
+
+                    <div class="day mx-2 mt-2 rounded-3">
+                        <p class="titleStyle">شرائح العملاء <img src="../../../../assets/images/projects/customer.png"
+                                class="imgIcon"></p>
+                    </div>
+                    <div class="content rounded-3 text-center">
+                        <textarea class="text" formControlName="customer_category" placeholder="جميع الفئات بمدينة جدة"></textarea>
+                    </div>
+                </div>
+                <div class="col-xl col-lg-3 col-md-4 mt-2">
+
+                    <div class="day mx-2 mt-2 rounded-3">
+                        <p class="titleStyle">المواد الرئيسية <img
+                                src="../../../../assets/images/projects/responsible.png" class="imgIcon"></p>
+                    </div>
+                    <div class="content rounded-3 text-center">
+                        <textarea class="text" formControlName="main_sub_activities"
+                            placeholder=".بيع الجوالات الجديدة و المستعملة&#10;.بيع ملحقات الجوالات , مثل البطاريات و الشواحن أجهزة الحماية&#10;. تقديم خدمات الصيانة و التصليح"></textarea>
+                    </div>
+                </div>
+                <div class="col-xl col-lg-3 col-md-4 mt-2">
+                    <div class="day mx-2 mt-2 rounded-3">
+                        <p class="titleStyle">القنوات<img
+                                src="../../../../assets/images/projects/business-affiliate-network.png" class="imgIcon">
+                        </p>
+                    </div>
+                    <div class="content rounded-3 text-center">
+                        <textarea class="text" formControlName="marketing_channels"
+                            placeholder=". الأعلانات المطبوعة و التليفزيونية&#10;. الأعلانات عبر الأنترنت&#10;. التسويق عبر وسائل التواصل الأجتماعي"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6">
+                    <div class="day mx-2 mt-2 rounded-3">
+                        <p class="titleStyle">مصادر الايرادات<img src="../../../../assets/images/projects/money.png"
+                                class="imgIcon"></p>
+                    </div>
+                    <div class="content rounded-3 text-center">
+                        <textarea class="text2" formControlName="project_revenue"
+                            placeholder="متوسط إيرادات مشروع محل جوالات بجدة من 200,000 ريال سعودي إلى 500,000 ريال سعودي شهريًا."></textarea>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="day mx-2 mt-2 rounded-3">
+                        <p class="titleStyle">هيكل التكاليف<img src="../../../../assets/images/projects/calculation.png"
+                                class="imgIcon"></p>
+                    </div>
+                    <div class="content rounded-3 text-center">
+                        <textarea class="text2" formControlName="project_costs"
+                            placeholder="1- إيجار المبنى 25 ألف ريال&#10;2- فواتير الخدمات 5000 ريال&#10;3- رسوم الترخيص 2000 ريال&#10;4-تكلفة المخرون 160,000 ألف ريال&#10;5-تكلفة العمالة 15,000 ريال&#10;6- التسويق و الاعلان10,000 ألف ريال"></textarea>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
-<div class="row">
-    <div class="col-12 d-flex align-items-end">
-        <div class="">
-            <button class=" btn btn1 mt-5" routerLink="/projects/feasibility-study-form">
-                التالى</button>
-         </div>
+    <div class="row">
+        <div class="col-12 d-flex align-items-end">
+            <div class="">
+                <button class=" btn btn1 mt-5" (click)="submit()">
+                    إضافة</button>
+            </div>
+        </div>
     </div>
+    </form>
 </div>
-</div>
+
+<app-modal id="schedule" classList="modal-dialog-centered">
+    <div class="row">
+        <div class="col-2 d-flex justify-content-center align-items-center">
+            <div class=" m-auto">
+                <img src="../../../../assets/images/projects/98.png"
+                class="modalImg ">
+            </div>
+        </div>
+        <div class="col-10"> 
+            <div class="card-body bg-white rounded-4">
+                <div class="d-flex flex-column align-items-center gap-3" style="margin-left: 65px;">
+                  <h3 class="fw-600 text-center mt-3">تمت الأضافة بنجاح</h3>
+                  <button  type="button" class="btn btn1
+                      mx-auto px-5 d-flex align-items-center gap-4" (click)="next()" >التالى</button>
+                </div>
+              </div>
+        </div>
+    </div>
+</app-modal>

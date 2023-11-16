@@ -135,7 +135,7 @@ const routes: Routes = [
       component:StartProjectsSimulationComponent
     },
     {
-      path: projectsRoutes.chooseProject,
+      path: projectsRoutes.chooseProject+'/:id',
       component:ChooseProjectComponent
     },
     {
