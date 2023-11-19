@@ -222,7 +222,7 @@ export class PowerOfIdeaComponent {
     this._ProjectsService.sendPointsData(data).subscribe({
       next: (res: any) => {
         console.log(res);
-        const finalTotal = (this.opportunitiesTotal+this.strengthsTotal)- (this.threatsTotal+this.weaknessesTotal);
+        let finalTotal = (this.opportunitiesTotal+this.strengthsTotal)- (this.threatsTotal+this.weaknessesTotal);
         // localStorage.setItem('finalTotal', finalTotal);
         this._model.open(this.ideaID)
         console.log(finalTotal);

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-feasibility-study-form',
@@ -6,5 +7,138 @@ import { Component } from '@angular/core';
   styleUrls: ['./feasibility-study-form.component.scss']
 })
 export class FeasibilityStudyFormComponent {
+  feasibility!: FormGroup;
+  submitted = false;
+  test: any[] = [50, 100];
+  capitalTrue = false;
+  addOnsTrue = false;
 
+  VALIDATION_MESSAGES = {
+    projectName: {
+      required: 'اسم المشروع',
+    },
+    capital: {
+      required: ' راس المال مطلوب',
+    },
+    rentValue: {
+      required: ' قمية الابجار مطلوبه',
+    },
+    yearSalary: {
+      required: 'قيمة الرواتب مطلوبه',
+    },
+
+    monthlyInterest: {
+      required: 'الفايده الشهريه مطلوبه',
+    },
+    decorationCost: {
+      required: ' تكلفة الديكور مطلوبه',
+    },
+    license: {
+      required: '   الترخيص مطلوب',
+    },
+    valueLicense: {
+      required: 'قيمة الترخيص مطلوبه',
+    },
+    valuesGoods: {
+      required: 'تكلفة البضاعه مطلوبه',
+    },
+    marketingValue: {
+      required: 'قيمة التسويق مطلوبه',
+    },
+    addOns: {
+      required: ' النثريات مطلوبه',
+    },
+    tools: {
+      required: 'تكلفة المعدات مطلوبه',
+    },
+    capitalRange: {
+      required: 'راس المال غير متوافق',
+    },
+    added: {
+      required: 'النثريات اكبر من 10 % من راس المال',
+    },
+  };
+
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.validateForm();
+  }
+
+  validateForm() {
+    this.feasibility = this.fb.group({
+      projectName: ['', Validators.required],
+      capital: ['', Validators.required],
+      rentValue: ['', Validators.required],
+      yearSalary: ['', Validators.required],
+      monthlyInterest: ['', Validators.required],
+      decorationCost: ['', Validators.required],
+      license: ['', Validators.required],
+      valueLicense: ['', Validators.required],
+      valuesGoods: ['', Validators.required],
+      marketingValue: ['', Validators.required],
+      addOns: ['', Validators.required],
+      tools: ['', Validators.required],
+      capitalRange: ['', Validators.required],
+      added: ['', Validators.required],
+    });
+  }
+
+  // handle (Yes , NO ) buttons
+  // ========1- handle buttons of monthly Interest=======
+  handleYesRate() {
+    this.feasibility.get('monthlyInterest')?.enable();
+    this.feasibility
+      .get('monthlyInterest')
+      ?.setValidators([Validators.required]);
+    this.feasibility.get('monthlyInterest')?.updateValueAndValidity();
+  }
+  handleNoRate() {
+    this.feasibility.get('monthlyInterest')?.disable();
+    this.feasibility.get('monthlyInterest')?.clearValidators();
+    this.feasibility.get('monthlyInterest')?.updateValueAndValidity();
+  }
+
+  // ========2- handle buttons of monthly Interest=======
+  handleYesTools() {
+    this.feasibility.get('tools')?.enable();
+    this.feasibility.get('tools')?.setValidators([Validators.required]);
+    this.feasibility.get('tools')?.updateValueAndValidity();
+  }
+  handleNoTools() {
+    this.feasibility.get('tools')?.disable();
+    this.feasibility.get('tools')?.clearValidators();
+    this.feasibility.get('tools')?.updateValueAndValidity();
+  }
+
+  handleCapitalRange() {
+    const capitalValue = parseInt(this.feasibility.controls['capital'].value);
+    console.log(capitalValue);
+    if (capitalValue >= this.test[0] && capitalValue <= this.test[1]) {
+      this.capitalTrue = false;
+    } else {
+      this.capitalTrue = true;
+    }
+  }
+  handleAddOns() {
+    const capitalValue = parseInt(
+      this.feasibility.controls['capital'].value,
+      10
+    );
+    const addOnsValue = parseInt(this.feasibility.controls['addOns'].value, 10);
+    console.log(addOnsValue);
+    console.log(0.1 * capitalValue);
+
+    if (addOnsValue > 0.1 * capitalValue) {
+      this.addOnsTrue = true;
+    } else {
+      this.addOnsTrue = false;
+    }
+  }
+
+  handleValidation() {
+    this.submitted = true;
+    this.handleCapitalRange();
+    this.handleAddOns();
+  }
 }
