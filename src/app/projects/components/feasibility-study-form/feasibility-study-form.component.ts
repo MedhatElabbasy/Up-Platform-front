@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ProjectsService } from '../../projects.service';
+import { ModalService } from 'src/app/core/services/modal.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-feasibility-study-form',
@@ -12,7 +15,7 @@ export class FeasibilityStudyFormComponent {
   test: any[] = [50, 100];
   capitalTrue = false;
   addOnsTrue = false;
-
+  modalID="feasibility"
   VALIDATION_MESSAGES = {
     projectName: {
       required: 'اسم المشروع',
@@ -59,7 +62,7 @@ export class FeasibilityStudyFormComponent {
     },
   };
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder ,private _ProjectsService:ProjectsService , private _model:ModalService , private _Router:Router) {}
 
   ngOnInit(): void {
     this.validateForm();
@@ -68,11 +71,11 @@ export class FeasibilityStudyFormComponent {
   validateForm() {
     this.feasibility = this.fb.group({
       projectName: ['', Validators.required],
-      capital: ['', Validators.required],
-      rentValue: ['', Validators.required],
-      yearSalary: ['', Validators.required],
+      capital_cost: ['', Validators.required],
+      rent_per_year: ['', Validators.required],
+      salary_per_year: ['', Validators.required],
       monthlyInterest: ['', Validators.required],
-      decorationCost: ['', Validators.required],
+      decor_cost_per_month: ['', Validators.required],
       license: ['', Validators.required],
       valueLicense: ['', Validators.required],
       valuesGoods: ['', Validators.required],
@@ -140,5 +143,55 @@ export class FeasibilityStudyFormComponent {
     this.submitted = true;
     this.handleCapitalRange();
     this.handleAddOns();
+
+  }
+
+  sendFormData() {
+    const data = {
+      capital_cost: this.feasibility.get('capital_cost')?.value,
+      loan_interest_percentage: this.feasibility.get(
+        'loan_interest_percentage'
+      )?.value,
+      salary_per_year: this.feasibility.get('salary_per_year')?.value,
+      rent_per_year: this.feasibility.get('rent_per_year')?.value,
+      purchases_cost_per_year: this.feasibility.get(
+        'purchases_cost_per_year'
+      )?.value,
+      decor_cost_per_month: this.feasibility.get(
+        'decor_cost_per_month'
+      )?.value,
+      marketing_cost: this.feasibility.get('marketing_cost')?.value,
+      additional_costs:
+        this.feasibility.get('additional_costs')?.value,
+      government_fees: [
+        {
+          name: this.feasibility.get('government_fees1_name')?.value,
+          value: this.feasibility.get('government_fees1_value')?.value,
+        },
+        {
+          name: this.feasibility.get('government_fees2_name')?.value,
+          value: this.feasibility.get('government_fees2_value')?.value,
+        },
+        {
+          name: this.feasibility.get('government_fees3_name')?.value,
+          value: this.feasibility.get('government_fees3_value')?.value,
+        },
+      ],
+    };
+
+    this._ProjectsService.sendFeasibilityStudyForm(data).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this._model.open(this.modalID);
+      },
+      error: (err: any) => {
+        console.log(err.message);
+      },
+    });
+  }
+
+  next() {
+    this._model.close(this.modalID);
+    this._Router.navigate(['/projects/feasibility-study']);
   }
 }

@@ -91,4 +91,7 @@ export class ProjectsService {
     return this._HttpClient.post(environment.baseUrl + '/projects/12/points',data)
   }
   
+  sendFeasibilityStudyForm(data:object){
+    return this._HttpClient.post(environment.baseUrl + '/projects/12/case-study',data)
+  }
 }
