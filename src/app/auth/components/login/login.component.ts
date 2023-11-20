@@ -27,11 +27,13 @@ export class LoginComponent implements AfterViewInit {
     private _AuthService: AuthServices,
     private _Router: Router,
   ) {
-  }
+}
 
   ngOnInit() {
-    localStorage.removeItem(environment.localStorageName);
-    sessionStorage.removeItem(environment.localStorageName);
+    if (localStorage.getItem("userDetails")){
+      this._Router.navigate(['/']);
+    }
+
   }
 
   loginForm: FormGroup = new FormGroup({

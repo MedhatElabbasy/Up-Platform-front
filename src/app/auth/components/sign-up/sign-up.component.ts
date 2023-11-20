@@ -60,7 +60,7 @@ export class SignUpComponent {
 
     name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/)]),
+  password: new FormControl('', [Validators.required, Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*/]{8,}$/)]),
     password_confirmation: new FormControl('', [Validators.required]),
     phone: new FormControl('', [Validators.required]),
     checkboxControl: new FormControl(false),
