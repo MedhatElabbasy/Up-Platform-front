@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProjectsService } from '../../projects.service';
 import { Router } from '@angular/router';
 import { ModalService } from 'src/app/core/services/modal.service';
+import * as jspdf from 'jspdf';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-feasibility-study',
@@ -13,6 +16,7 @@ export class FeasibilityStudyComponent {
   commonErrorMessage: string = '';
   scheduleForm!:FormGroup;
   scheduleID='schedule'
+  title = 'html-to-pdf-angular-application';
   constructor(private fb: FormBuilder ,private _model:ModalService, private _projects:ProjectsService , private _router:Router){
     this.generateForm();
   }
@@ -82,4 +86,25 @@ export class FeasibilityStudyComponent {
     this._model.close(this.scheduleID)
     this._router.navigate(['/projects/feasibility-study-form'])
   }
+  
+  
+  convetToPDF()
+  {
+  var data:any = document.getElementById('contentToConvert');
+  html2canvas(data).then(canvas => {
+  // Few necessary setting options
+  var imgWidth = 208;
+  var pageHeight = 295;
+  var imgHeight = canvas.height * imgWidth / canvas.width;
+  var heightLeft = imgHeight;
+  
+  const contentDataURL = canvas.toDataURL('pdf')
+  let pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
+  var position = 0;
+ // pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
+  pdf.save('new-file.pdf'); // Generated PDF
+  });
+
+  }
+
 }
