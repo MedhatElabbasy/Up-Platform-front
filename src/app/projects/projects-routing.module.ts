@@ -139,7 +139,7 @@ const routes: Routes = [
       component:ChooseProjectComponent
     },
     {
-      path: projectsRoutes.powerOfIdea,
+      path: projectsRoutes.powerOfIdea+'/:category_id'+'/:sub_id',
       component:PowerOfIdeaComponent
     },
     {

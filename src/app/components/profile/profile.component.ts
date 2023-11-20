@@ -50,6 +50,7 @@ export class ProfileComponent implements OnInit {
     localStorage.removeItem(environment.localStorageName);
     sessionStorage.removeItem('userDetails');
     localStorage.removeItem('userDetails');
+    localStorage.removeItem('project_name');
     this.router.navigate(['/auth/login']);
   }
 }

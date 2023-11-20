@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { ProjectsService } from '../../projects.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ModalService } from 'src/app/core/services/modal.service';
+import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 
 @Component({
   selector: 'app-choose-project',
@@ -10,10 +12,14 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class ChooseProjectComponent {
 subCategory!:any;
+subID!:any;
 id!:any;
 isLoading:boolean=true
 lessons!:any
-constructor(private _projects:ProjectsService , private route: ActivatedRoute,  private spinner: NgxSpinnerService){
+modalID="chooseProject"
+projectName!: FormGroup;
+
+constructor(private _projects:ProjectsService , private route: ActivatedRoute,  private spinner: NgxSpinnerService, private _model:ModalService, private _Router: Router, private fb: FormBuilder){
   this.route.params.subscribe((params) => {
     this.id = params['id'];
   });
@@ -23,6 +29,9 @@ constructor(private _projects:ProjectsService , private route: ActivatedRoute,  
 
 ngOnInit(): void {
   this.spinner.show();
+  this.projectName = this.fb.group({
+    projectName: '',
+  });
 }
 
 getSubCategories(){
@@ -31,7 +40,6 @@ getSubCategories(){
     console.log(res);
     this.isLoading=true
     this.subCategory=res.data.subcategories;
-    console.log(this.subCategory);
   })
 }
 
@@ -47,11 +55,28 @@ getAllLessons(){
     console.log(this.lessons);
     this._projects.getLessonDetails(this.lessons[0].id).subscribe((res)=>{
       console.log(res);
-      
     })
     }
   })
+}
 
+openModal(subID: any){
+  this._model.open(this.modalID)
+  this.subID = subID;
 
+}
+
+next(){
+  localStorage.setItem("project_name", this.projectName.get('projectName')?.value)
+  this._model.close(this.modalID);
+  const data = {
+    "name": this.projectName.get('projectName')?.value,
+    "category_id": this.id,
+    "subcategory_id": this.subID
+  }
+  this._projects.addProject(data).subscribe((res:any)=>{
+    console.log(res);
+  })
+  this._Router.navigate(['/projects/power-of-idea/'+this.id+'/'+this.subID])
 }
 }
