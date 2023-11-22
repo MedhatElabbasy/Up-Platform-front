@@ -5,43 +5,32 @@
                 <h2 class="header">
                     دراسة جدوي
                 </h2>
-                <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label"> أسم المشروع : </label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="inputEmail3" placeholder=""
-                            formControlName="projectName">
-                        <div *ngIf="submitted && feasibility.controls['projectName'].hasError('required')"
-                            class="alert alert-danger">
-                            {{ VALIDATION_MESSAGES.projectName.required }}
-                        </div>
-                    </div>
-                </div>
                 <div class="row mt-3">
                     <div class="col-lg-6">
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-4 col-form-label">رأس مال من : </label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="inputEmail3" placeholder="" disabled>
+                                <input type="text" class="form-control" id="inputEmail3" placeholder="" value="{{this.test[0]}}" disabled>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-4 col-form-label">رأس مال إلي : </label>
+                            <label for="inputEmail3" class="col-sm-4 col-form-label">رأس مال إلى : </label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="inputEmail3" placeholder="" disabled>
+                                <input type="text" class="form-control" id="inputEmail3" placeholder="" value="{{this.test[1]}}" disabled>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="form-group row mt-2">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label"> رأس االمال : </label>
+                    <label for="inputEmail3" class="col-sm-4 col-form-label"> رأس المال : </label>
                     <div class="col-sm-8">
                         <input type="number" class="form-control" id="inputEmail3" placeholder=""
-                            formControlName="capital">
-                        <div *ngIf="submitted && feasibility.controls['capital'].hasError('required')"
+                            formControlName="capital_cost">
+                        <div *ngIf="submitted && feasibility.controls['capital_cost'].hasError('required')"
                             class="alert alert-danger">
-                            {{ VALIDATION_MESSAGES.capital.required }}
+                            {{ VALIDATION_MESSAGES.capital_cost.required }}
                         </div>
                         <div *ngIf="capitalTrue && feasibility.controls['capitalRange'].hasError('required')"
                             class="alert alert-danger">
@@ -52,7 +41,7 @@
                 </div>
 
                 <div class=" my-3">
-                    <label for="exampleFormControlInput1" class="form-label">في حال كان رأس المال قرضاً يرجي
+                    <label for="exampleFormControlInput1" class="form-label">في حال كان رأس المال قرضًا يرجى
                         إدخال
                         الفايدة الشهرية : </label>
                     <div class="row">
@@ -61,22 +50,22 @@
                             <button class="btn btn2 mx-2" (click)="handleNoRate()">لا</button>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-lg-6">
+                            <div class="col-lg-5">
                                 <div class="form-group row">
-                                    <label for="inputEmail3" class="col-sm-4 col-form-label"> النسبه : </label>
+                                    <label for="inputEmail3" class="col-sm-4 col-form-label"> النسبة : </label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" id="inputEmail3" placeholder=""
-                                            [disabled]="feasibility.get('monthlyInterest')?.disabled">
-                                        <div *ngIf="submitted && feasibility.controls['monthlyInterest'].hasError('monthlyInterest')"
+                                             formControlName="loan_interest_percentage"> 
+                                        <div *ngIf="submitted && feasibility.controls['loan_interest_percentage'].hasError('loan_interest_percentage')"
                                             class="alert alert-danger">
-                                            {{ VALIDATION_MESSAGES.monthlyInterest.required }}
+                                            {{ VALIDATION_MESSAGES.loan_interest_percentage.required }}
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
+                            </div><span class="col-lg-2 mt-2" style="font-size: 20px;">%</span>
+                            <div class="col-lg-5">
                                 <div class="form-group row">
-                                    <label for="inputEmail3" class="col-sm-4 col-form-label"> القيمه : </label>
+                                    <label for="inputEmail3" class="col-sm-4 col-form-label"> القيمة : </label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" id="inputEmail3" placeholder=""
                                             disabled>
@@ -90,32 +79,32 @@
                     <label for="inputEmail3" class="col-sm-4 col-form-label">قيمة الإيجار السنوي: </label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="inputEmail3" placeholder=""
-                            formControlName="rentValue">
-                        <div *ngIf="submitted && feasibility.controls['rentValue'].hasError('required')"
+                            formControlName="rent_per_year">
+                        <div *ngIf="submitted && feasibility.controls['rent_per_year'].hasError('required')"
                             class="alert alert-danger">
-                            {{ VALIDATION_MESSAGES.rentValue.required }}
+                            {{ VALIDATION_MESSAGES.rent_per_year.required }}
                         </div>
                     </div>
                 </div>
                 <div class="form-group row mt-2">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">قيمة الرواتب لمدة سنه: </label>
+                    <label for="inputEmail3" class="col-sm-4 col-form-label">قيمة الرواتب لمدة سنة: </label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="inputEmail3" placeholder=""
-                            formControlName="yearSalary">
-                        <div *ngIf="submitted && feasibility.controls['yearSalary'].hasError('required')"
+                            formControlName="salary_per_year">
+                        <div *ngIf="submitted && feasibility.controls['salary_per_year'].hasError('required')"
                             class="alert alert-danger">
-                            {{ VALIDATION_MESSAGES.yearSalary.required }}
+                            {{ VALIDATION_MESSAGES.salary_per_year.required }}
                         </div>
                     </div>
                 </div>
                 <div class="form-group row mt-2">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label"> تكلفة الديكور لمدة شهر : </label>
+                    <label for="inputEmail3" class="col-sm-4 col-form-label"> التكلفة لمدة شهر : </label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="inputEmail3" placeholder=""
-                            formControlName="decorationCost">
-                        <div *ngIf="submitted && feasibility.controls['decorationCost'].hasError('required')"
+                            formControlName="decor_cost_per_month">
+                        <div *ngIf="submitted && feasibility.controls['decor_cost_per_month'].hasError('required')"
                             class="alert alert-danger">
-                            {{ VALIDATION_MESSAGES.decorationCost.required }}
+                            {{ VALIDATION_MESSAGES.decor_cost_per_month.required }}
                         </div>
                     </div>
                 </div>
@@ -146,10 +135,10 @@
                                 <label for="inputEmail3" class="col-sm-4 col-form-label"> ترخيص 1 : </label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" id="inputEmail3" placeholder=""
-                                        formControlName="license">
-                                    <div *ngIf="submitted && feasibility.controls['license'].hasError('required')"
+                                        formControlName="government_fees_0_name">
+                                    <div *ngIf="submitted && feasibility.controls['government_fees_0_name'].hasError('required')"
                                         class="alert alert-danger">
-                                        {{ VALIDATION_MESSAGES.license.required }}
+                                        {{ VALIDATION_MESSAGES['government_fees_0_name'].required }}
                                     </div>
                                 </div>
                             </div>
@@ -159,21 +148,22 @@
                                 <label for="inputEmail3" class="col-sm-4 col-form-label"> قمية ترخيص 1: </label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" id="inputEmail3" placeholder=""
-                                        formControlName="valueLicense">
-                                    <div *ngIf="submitted && feasibility.controls['valueLicense'].hasError('required')"
+                                        formControlName="government_fees_0_value">
+                                    <div *ngIf="submitted && feasibility.controls['government_fees_0_value'].hasError('required')"
                                         class="alert alert-danger">
-                                        {{ VALIDATION_MESSAGES.valueLicense.required }}
+                                        {{ VALIDATION_MESSAGES['government_fees_0_value'].required }}
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
                     <div class="row mt-3">
                         <div class="col-lg-6">
                             <div class="form-group row">
                                 <label for="inputEmail3" class="col-sm-4 col-form-label"> ترخيص 2 : </label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="">
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="" formControlName="government_fees_1_name">
                                 </div>
                             </div>
                         </div>
@@ -181,7 +171,7 @@
                             <div class="form-group row">
                                 <label for="inputEmail3" class="col-sm-4 col-form-label"> قمية ترخيص 2: </label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="">
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="" formControlName="government_fees_1_value">
                                 </div>
                             </div>
                         </div>
@@ -191,7 +181,7 @@
                             <div class="form-group row">
                                 <label for="inputEmail3" class="col-sm-4 col-form-label"> ترخيص 3 : </label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="">
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="" formControlName="government_fees_2_name">
                                 </div>
                             </div>
                         </div>
@@ -199,20 +189,20 @@
                             <div class="form-group row">
                                 <label for="inputEmail3" class="col-sm-4 col-form-label"> قمية ترخيص 3: </label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="">
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="" formControlName="government_fees_2_value">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="form-group row mt-2">
-                    <label for="inputEmail3" class="col-sm-4 col-form-label">تكلفة المشتريات السنويه: </label>
+                    <label for="inputEmail3" class="col-sm-4 col-form-label">تكلفة المشتريات السنوية: </label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="inputEmail3" placeholder=""
-                            formControlName="valuesGoods">
-                        <div *ngIf="submitted && feasibility.controls['valuesGoods'].hasError('required')"
+                            formControlName="purchases_cost_per_year">
+                        <div *ngIf="submitted && feasibility.controls['purchases_cost_per_year'].hasError('required')"
                             class="alert alert-danger">
-                            {{ VALIDATION_MESSAGES.valuesGoods.required }}
+                            {{ VALIDATION_MESSAGES.purchases_cost_per_year.required }}
                         </div>
                     </div>
                 </div>
@@ -220,10 +210,10 @@
                     <label for="inputEmail3" class="col-sm-4 col-form-label">قيمة التسويق : </label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="inputEmail3" placeholder=""
-                            formControlName="marketingValue">
-                        <div *ngIf="submitted && feasibility.controls['marketingValue'].hasError('required')"
+                            formControlName="marketing_cost">
+                        <div *ngIf="submitted && feasibility.controls['marketing_cost'].hasError('required')"
                             class="alert alert-danger">
-                            {{ VALIDATION_MESSAGES.marketingValue.required }}
+                            {{ VALIDATION_MESSAGES.marketing_cost.required }}
                         </div>
                     </div>
                 </div>
@@ -231,16 +221,16 @@
                     <label for="inputEmail3" class="col-sm-4 col-form-label">نثريات : </label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="inputEmail3" placeholder=""
-                            formControlName="addOns">
-                        <div *ngIf="submitted && feasibility.controls['addOns'].hasError('required')"
+                            formControlName="additional_costs">
+                        <div *ngIf="submitted && feasibility.controls['additional_costs'].hasError('required')"
                             class="alert alert-danger">
-                            {{ VALIDATION_MESSAGES.addOns.required }}
+                            {{ VALIDATION_MESSAGES.additional_costs.required }}
                         </div>
-
+                        
                         <div *ngIf="addOnsTrue  && feasibility.controls['added'].hasError('required')"
-                            class="alert alert-danger">
-                            {{ VALIDATION_MESSAGES.added.required }}
-                        </div>
+                        class="alert alert-danger">
+                        {{ VALIDATION_MESSAGES.added.required }}
+                    </div>
 
                     </div>
                 </div>
@@ -283,10 +273,32 @@
         d-flex justify-content-start align-items-center">
                 <div class="">
                     <!-- routerLink="/projects/feasibility-study-final" -->
-                    <button class=" btn btn3 mt-5" (click)="handleValidation()">
-                        التالى</button>
+                    <!-- <button class=" btn btn3 mt-5" (click)="handleValidation()">
+                        التالى</button> -->
+                        <button class=" btn btn3 mt-5" (click)="sendFormData()">
+                            التالى</button>
                 </div>
             </div>
         </div>
     </form>
 </div>
+
+<app-modal id="feasibility" classList="modal-dialog-centered">
+    <div class="row">
+        <div class="col-2 d-flex justify-content-center align-items-center">
+            <div class=" m-auto">
+                <img src="../../../../assets/images/projects/98.png"
+                class="modalImg ">
+            </div>
+        </div>
+        <div class="col-10"> 
+            <div class="card-body bg-white rounded-4">
+                <div class="d-flex flex-column align-items-center gap-3" style="margin-left: 65px;">
+                  <h3 class="fw-600 text-center mt-3">تمت الأضافة بنجاح</h3>
+                  <button  type="button" class="btn btn1
+                      mx-auto px-5 d-flex align-items-center gap-4" (click)="next()" >التالى</button>
+                </div>
+              </div>
+        </div>
+    </div>
+</app-modal>

@@ -87,23 +87,23 @@ export class ProjectsService {
   sendDataForProject(model:object){
     return this._HttpClient.post(environment.baseUrl + '/projects/12/case-study-notes',model)
   }
-  sendPointsData(data:object){
-    return this._HttpClient.post(environment.baseUrl + '/projects/12/points',data)
+  sendPointsData(data:object, project_id:string|null){
+    return this._HttpClient.post(environment.baseUrl + '/projects/'+project_id+'/points',data)
   }
   
-  sendFeasibilityStudyForm(data:object){
-    return this._HttpClient.post(environment.baseUrl + '/projects/12/case-study',data)
+  sendFeasibilityStudyForm(data:object, project_id:string|null){
+    return this._HttpClient.post(environment.baseUrl + '/projects/'+project_id+'/case-study',data)
   }
 
-  newProductForProject(data:object){
-    return this._HttpClient.post(environment.baseUrl + '/projects/markting/products/13',data)
+  newProductForProject(data:object, project_id:string|null){
+    return this._HttpClient.post(environment.baseUrl + '/projects/markting/products/'+project_id,data)
   }
 
   addProject(data:object){
     return this._HttpClient.post(environment.baseUrl + '/projects',data)
   }
 
-  addPurchas(data:object){
-    return this._HttpClient.post(environment.baseUrl + '/projects/purchases/11',data)
+  addPurchas(data:object, project_id:string|null){
+    return this._HttpClient.post(environment.baseUrl + '/projects/purchases/'+project_id ,data)
   }
 }

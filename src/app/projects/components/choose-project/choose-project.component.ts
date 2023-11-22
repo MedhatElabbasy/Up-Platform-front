@@ -16,6 +16,7 @@ subID!:any;
 id!:any;
 isLoading:boolean=true
 lessons!:any
+project_id:any;
 modalID="chooseProject"
 projectName!: FormGroup;
 
@@ -63,11 +64,9 @@ getAllLessons(){
 openModal(subID: any){
   this._model.open(this.modalID)
   this.subID = subID;
-
 }
 
 next(){
-  localStorage.setItem("project_name", this.projectName.get('projectName')?.value)
   this._model.close(this.modalID);
   const data = {
     "name": this.projectName.get('projectName')?.value,
@@ -76,7 +75,8 @@ next(){
   }
   this._projects.addProject(data).subscribe((res:any)=>{
     console.log(res);
+    this.project_id = res.data.id;
+    this._Router.navigate(['/projects/power-of-idea/'+this.id+'/'+this.subID+'/'+this.project_id])
   })
-  this._Router.navigate(['/projects/power-of-idea/'+this.id+'/'+this.subID])
 }
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { ProjectsService } from '../../projects.service';
 import { ModalService } from 'src/app/core/services/modal.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-purchases',
@@ -13,17 +13,24 @@ export class PurchasesComponent {
   purchases!: FormGroup;
   modalID = 'purchasesModal';
   counterArray: number[] = [1];
+  project_id:any;
 
   constructor(
     private fb: FormBuilder,
     private _ProjectsService: ProjectsService,
     private _model: ModalService,
-    private _Router: Router
+    private _Router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
     this.purchases = this.fb.group({
       rows: this.fb.array([this.createRow()]),
+    });
+
+    this.route.paramMap.subscribe(params => {
+      this.project_id = params.get('project_id'); 
+      console.log(this.project_id);
     });
   }
 
@@ -50,7 +57,7 @@ sendFormData() {
   const formData = this.purchases.getRawValue();
   console.log(formData.rows);
   for (let i = 0; i < formData.rows.length; i++) {
-    this._ProjectsService.addPurchas(formData.rows[i]).subscribe({
+    this._ProjectsService.addPurchas(formData.rows[i], this.project_id).subscribe({
       next: (res: any) => {
         console.log(res);
         this._model.open(this.modalID);
@@ -64,7 +71,7 @@ sendFormData() {
 
 next() {
   this._model.close(this.modalID);
-  this._Router.navigate(['/projects/marketing']);
+  this._Router.navigate(['/projects/marketing/'+this.project_id]);
 }
 
   

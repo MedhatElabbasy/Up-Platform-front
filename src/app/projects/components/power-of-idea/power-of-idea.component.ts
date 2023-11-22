@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ProjectsService } from '../../projects.service';
 import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ModalService } from 'src/app/core/services/modal.service';
 export interface Range {
   value: number;
@@ -14,11 +14,14 @@ export interface Range {
 })
 export class PowerOfIdeaComponent {
   ideaID="idea"
+  project_id!: string | null;
+
   constructor(
     private _ProjectsService: ProjectsService,
     private formBuilder: FormBuilder,
     private _Router: Router,
-    private _model:ModalService
+    private _model:ModalService,
+    private route: ActivatedRoute
   ) {
   }
 
@@ -59,6 +62,11 @@ export class PowerOfIdeaComponent {
   pointsForm!: FormGroup;
 
   ngOnInit() {
+
+    this.route.paramMap.subscribe(params => {
+      this.project_id = params.get('project_id'); 
+      console.log(this.project_id);
+    });
     
     this.pointsForm = this.formBuilder.group({
       weakness1: [''],
@@ -125,7 +133,7 @@ export class PowerOfIdeaComponent {
     }
   }
 
-  sendPointsData(id: number) {
+  sendPointsData() {
     if (this.pointsForm.invalid) {
       this.displayValidationMessages();
       return;
@@ -222,8 +230,9 @@ export class PowerOfIdeaComponent {
       } 
     }
   }
+  console.log(this.project_id);
     
-    this._ProjectsService.sendPointsData(data).subscribe({
+    this._ProjectsService.sendPointsData(data, this.project_id).subscribe({
       next: (res: any) => {
         console.log(res);
         let finalTotal = (this.opportunitiesTotal+this.strengthsTotal)- (this.threatsTotal+this.weaknessesTotal);
@@ -259,6 +268,6 @@ export class PowerOfIdeaComponent {
 
   next(){
     this._model.close(this.ideaID)
-    this._Router.navigate(['/projects/feasibility-study'])
+    this._Router.navigate(['/projects/feasibility-study/'+this.project_id])
   }
 }

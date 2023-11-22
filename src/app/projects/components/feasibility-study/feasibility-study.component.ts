@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProjectsService } from '../../projects.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ModalService } from 'src/app/core/services/modal.service';
-import * as jspdf from 'jspdf';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -17,8 +16,17 @@ export class FeasibilityStudyComponent {
   scheduleForm!:FormGroup;
   scheduleID='schedule'
   title = 'html-to-pdf-angular-application';
-  constructor(private fb: FormBuilder ,private _model:ModalService, private _projects:ProjectsService , private _router:Router){
+  project_id!: string | null;
+  
+  constructor(private fb: FormBuilder ,private _model:ModalService, private _projects:ProjectsService , private _router:Router, private route: ActivatedRoute){
     this.generateForm();
+  }
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.project_id = params.get('project_id'); 
+      console.log(this.project_id);
+    });
   }
 
   generateForm(){
@@ -84,7 +92,7 @@ export class FeasibilityStudyComponent {
 
   next(){
     this._model.close(this.scheduleID)
-    this._router.navigate(['/projects/feasibility-study-form'])
+    this._router.navigate(['/projects/feasibility-study-form/'+ this.project_id])
   }
   
   

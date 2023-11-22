@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProjectsService } from '../../projects.service';
 import { ModalService } from 'src/app/core/services/modal.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-feasibility-study-form',
@@ -12,94 +12,96 @@ import { Router } from '@angular/router';
 export class FeasibilityStudyFormComponent {
   feasibility!: FormGroup;
   submitted = false;
+  project_id!: string | null;
   test: any[] = [50, 100];
   capitalTrue = false;
   addOnsTrue = false;
   modalID="feasibility"
   VALIDATION_MESSAGES = {
-    projectName: {
-      required: 'اسم المشروع',
-    },
-    capital: {
+    capital_cost: {
       required: ' راس المال مطلوب',
     },
-    rentValue: {
-      required: ' قمية الابجار مطلوبه',
+    loan_interest_percentage: {
+      required: 'هذا الحقل مطلوب',
     },
-    yearSalary: {
-      required: 'قيمة الرواتب مطلوبه',
+    salary_per_year: {
+      required: 'هذا الحقل مطلوب',
     },
-
-    monthlyInterest: {
-      required: 'الفايده الشهريه مطلوبه',
+    rent_per_year: {
+      required: 'هذا الحقل مطلوب',
     },
-    decorationCost: {
-      required: ' تكلفة الديكور مطلوبه',
+    purchases_cost_per_year: {
+      required: 'هذا الحقل مطلوب',
     },
-    license: {
-      required: '   الترخيص مطلوب',
+    decor_cost_per_month: {
+      required: 'هذا الحقل مطلوب',
     },
-    valueLicense: {
-      required: 'قيمة الترخيص مطلوبه',
+    marketing_cost: {
+      required: 'قيمة التسويق مطلوبة',
     },
-    valuesGoods: {
-      required: 'تكلفة البضاعه مطلوبه',
-    },
-    marketingValue: {
-      required: 'قيمة التسويق مطلوبه',
-    },
-    addOns: {
+    additional_costs: {
       required: ' النثريات مطلوبه',
     },
-    tools: {
-      required: 'تكلفة المعدات مطلوبه',
+    government_fees_0_name: {
+      required: 'الترخيص مطلوب',
     },
-    capitalRange: {
-      required: 'راس المال غير متوافق',
+    government_fees_0_value: {
+      required: 'قيمة الترخيص مطلوبه',
     },
     added: {
       required: 'النثريات اكبر من 10 % من راس المال',
     },
+    capitalRange: {
+      required: 'راس المال غير متوافق',
+    },
   };
+  
 
-  constructor(private fb: FormBuilder ,private _ProjectsService:ProjectsService , private _model:ModalService , private _Router:Router) {}
+  constructor(private fb: FormBuilder ,private _ProjectsService:ProjectsService , private _model:ModalService , private _Router:Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.validateForm();
+    this.route.paramMap.subscribe(params => {
+      this.project_id = params.get('project_id'); 
+      console.log(this.project_id);
+    });
   }
 
   validateForm() {
     this.feasibility = this.fb.group({
-      projectName: ['', Validators.required],
       capital_cost: ['', Validators.required],
-      rent_per_year: ['', Validators.required],
+      loan_interest_percentage: ['', Validators.required],
       salary_per_year: ['', Validators.required],
-      monthlyInterest: ['', Validators.required],
+      rent_per_year: ['', Validators.required],
+      purchases_cost_per_year: ['', Validators.required],
       decor_cost_per_month: ['', Validators.required],
-      license: ['', Validators.required],
-      valueLicense: ['', Validators.required],
-      valuesGoods: ['', Validators.required],
-      marketingValue: ['', Validators.required],
-      addOns: ['', Validators.required],
-      tools: ['', Validators.required],
-      capitalRange: ['', Validators.required],
+      marketing_cost: ['', Validators.required],
+      additional_costs: ['', Validators.required],
+      government_fees_0_name:['', Validators.required],
+      government_fees_0_value:['', Validators.required],
+      government_fees_1_name:'',
+      government_fees_1_value:'',
+      government_fees_2_name:'',
+      government_fees_2_value:'',
       added: ['', Validators.required],
+      capitalRange: ['', Validators.required],
     });
+    
   }
 
   // handle (Yes , NO ) buttons
   // ========1- handle buttons of monthly Interest=======
   handleYesRate() {
-    this.feasibility.get('monthlyInterest')?.enable();
+    this.feasibility.get('loan_interest_percentage')?.enable();
     this.feasibility
-      .get('monthlyInterest')
+      .get('loan_interest_percentage')
       ?.setValidators([Validators.required]);
-    this.feasibility.get('monthlyInterest')?.updateValueAndValidity();
+    this.feasibility.get('loan_interest_percentage')?.updateValueAndValidity();
   }
   handleNoRate() {
-    this.feasibility.get('monthlyInterest')?.disable();
-    this.feasibility.get('monthlyInterest')?.clearValidators();
-    this.feasibility.get('monthlyInterest')?.updateValueAndValidity();
+    this.feasibility.get('loan_interest_percentage')?.disable();
+    this.feasibility.get('loan_interest_percentage')?.clearValidators();
+    this.feasibility.get('loan_interest_percentage')?.updateValueAndValidity();
   }
 
   // ========2- handle buttons of monthly Interest=======
@@ -115,7 +117,7 @@ export class FeasibilityStudyFormComponent {
   }
 
   handleCapitalRange() {
-    const capitalValue = parseInt(this.feasibility.controls['capital'].value);
+    const capitalValue = parseInt(this.feasibility.controls['capital_cost'].value);
     console.log(capitalValue);
     if (capitalValue >= this.test[0] && capitalValue <= this.test[1]) {
       this.capitalTrue = false;
@@ -125,10 +127,10 @@ export class FeasibilityStudyFormComponent {
   }
   handleAddOns() {
     const capitalValue = parseInt(
-      this.feasibility.controls['capital'].value,
+      this.feasibility.controls['capital_cost'].value,
       10
     );
-    const addOnsValue = parseInt(this.feasibility.controls['addOns'].value, 10);
+    const addOnsValue = parseInt(this.feasibility.controls['additional_costs'].value, 10);
     console.log(addOnsValue);
     console.log(0.1 * capitalValue);
 
@@ -143,10 +145,10 @@ export class FeasibilityStudyFormComponent {
     this.submitted = true;
     this.handleCapitalRange();
     this.handleAddOns();
-
   }
 
   sendFormData() {
+    this.handleValidation();
     const data = {
       capital_cost: this.feasibility.get('capital_cost')?.value,
       loan_interest_percentage: this.feasibility.get(
@@ -165,33 +167,37 @@ export class FeasibilityStudyFormComponent {
         this.feasibility.get('additional_costs')?.value,
       government_fees: [
         {
-          name: this.feasibility.get('government_fees1_name')?.value,
-          value: this.feasibility.get('government_fees1_value')?.value,
+          name: this.feasibility.get('government_fees_0_name')?.value,
+          value: this.feasibility.get('government_fees_0_value')?.value,
         },
         {
-          name: this.feasibility.get('government_fees2_name')?.value,
-          value: this.feasibility.get('government_fees2_value')?.value,
+          name: this.feasibility.get('government_fees_1_name')?.value,
+          value: this.feasibility.get('government_fees_1_value')?.value,
         },
         {
-          name: this.feasibility.get('government_fees3_name')?.value,
-          value: this.feasibility.get('government_fees3_value')?.value,
+          name: this.feasibility.get('government_fees_2_name')?.value,
+          value: this.feasibility.get('government_fees_2_value')?.value,
         },
       ],
     };
 
-    this._ProjectsService.sendFeasibilityStudyForm(data).subscribe({
-      next: (res: any) => {
-        console.log(res);
-        this._model.open(this.modalID);
-      },
-      error: (err: any) => {
-        console.log(err.message);
-      },
-    });
+    console.log();
+
+    if(!(this.addOnsTrue && this.feasibility.controls['added'].hasError('required')) && !(this.capitalTrue && this.feasibility.controls['capitalRange'].hasError('required'))){
+      this._ProjectsService.sendFeasibilityStudyForm(data, this.project_id).subscribe({
+        next: (res: any) => {
+          console.log(res);
+          this._model.open(this.modalID);
+        },
+        error: (err: any) => {
+          console.log(err.message);
+        },
+      });
+    }
   }
 
   next() {
     this._model.close(this.modalID);
-    this._Router.navigate(['/projects/feasibility-study']);
+    this._Router.navigate(['/projects/feasibility-study-final/'+this.project_id]);
   }
 }

@@ -139,7 +139,7 @@ const routes: Routes = [
       component:ChooseProjectComponent
     },
     {
-      path: projectsRoutes.powerOfIdea+'/:category_id'+'/:sub_id',
+      path: projectsRoutes.powerOfIdea+'/:category_id'+'/:sub_id'+'/:project_id',
       component:PowerOfIdeaComponent
     },
     {
@@ -147,15 +147,15 @@ const routes: Routes = [
       component:PowerOfIdeaDetailsComponent
     },
     {
-      path: projectsRoutes.feasibilityStudy,
+      path: projectsRoutes.feasibilityStudy+'/:project_id',
       component:FeasibilityStudyComponent
     },
     {
-      path: projectsRoutes.feasibilityStudyForm,
+      path: projectsRoutes.feasibilityStudyForm+'/:project_id',
       component:FeasibilityStudyFormComponent
     },
     {
-      path: projectsRoutes.feasibilityStudyFinal,
+      path: projectsRoutes.feasibilityStudyFinal+'/:project_id',
       component:FeasibilityStudyFinalComponent
     },
     {
@@ -163,11 +163,11 @@ const routes: Routes = [
       component:PurchasesDetailsComponent
     },
     {
-      path: projectsRoutes.purchases,
+      path: projectsRoutes.purchases+'/:project_id',
       component:PurchasesComponent
     },
     {
-      path: projectsRoutes.marketing,
+      path: projectsRoutes.marketing+'/:project_id',
       component:MarketingComponent
     },
    {
